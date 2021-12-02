@@ -2,7 +2,8 @@
 :root {
   --green:#13553F;
   --light-green: #46A585;
-  --light-grey: ##DDDDDD;
+  --light-grey: #DDDDDD;
+  --white: #FFFFFF;
   --text-color-green: #13553F;
   --text-color-black: #2C2C2C";
 }
@@ -10,7 +11,6 @@
 /* ---------- general styling ---------- */
 html {
   color: var(--text-color-dark);
-  font-family: Roboto;
   height: 100%;
   text-align: center;
   width: 100%;
@@ -25,11 +25,29 @@ h1 {
   font-size: 2em;
   font-weight: 300;
   letter-spacing: 3px;
+  font-family: Bebas Neue;
 }
 
+h2 {
+    font-family: Bebas Neue;
+}
+
+h3 {
+    font-family: Roboto;
+}
+
+p {
+    font-family: Roboto;
+    font-weight: 300;
+}
+
+a {
+    font-family: Roboto;
+    font-weight: 400;
+}
 /* ---------- topbar styling ---------- */
 .topbar {
-  background-color: var(--green);
+  background-color: var(--white);
   color: var(--text-color-light);
   padding: 13.5px;
   text-transform: uppercase;
@@ -47,7 +65,7 @@ h1 {
 
 /* ---------- tabbar styling ---------- */
 .tabbar {
-  background-color: var(--green);
+  background-color: var(--white);
   position: fixed;
   bottom: 0;
   left: 0;
@@ -84,7 +102,7 @@ h1 {
   display: none;
   /*min heigh is screen heigh minus height of tab and top bar */
   min-height: calc(100vh - 110px);
-  background: var(--light-grey);
+  background: var(--white);
   animation: fadeIn 0.4s;
   /* padding equals height of tabbar and topbar */
   padding: 55px 0;
