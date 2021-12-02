@@ -89,22 +89,3 @@ h1 {
   /* padding equals height of tabbar and topbar */
   padding: 55px 0;
 }
-
-/* ---------- logo styling ---------- */
-.logo {
-  margin: 2em auto;
-  width: 100%;
-  max-width: 300px;
-}
-
-/* ---------- animations ---------- */
-/* fade in */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}

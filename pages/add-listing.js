@@ -7,7 +7,7 @@ export default class AddListingPage {
     document.querySelector("#app").innerHTML += /*html*/ `
       <section id="add" class="page">
         <header class="topbar">
-          <h2>Home</h2>
+          <h2>Add New Listing</h2>
         </header>
         <h3>Portfolio SPA Template</h3>
         <p>My Single Page Web App Template</p>

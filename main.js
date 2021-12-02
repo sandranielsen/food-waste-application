@@ -16,3 +16,6 @@ let profilePage = new ProfilePage();
 
 // Init services
 spaService.init();
+
+window.pageChange = () => spaService.pageChange();
+window.navigateTo = (pageId) => spaService.navigateTo(pageId);
