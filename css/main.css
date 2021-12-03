@@ -1,14 +1,14 @@
-/* ---------- root variables ---------- */
+/* Root variables */
 :root {
-  --green:#13553F;
-  --light-green: #46A585;
-  --light-grey: #DDDDDD;
-  --white: #FFFFFF;
-  --text-color-green: #13553F;
-  --text-color-black: #2C2C2C";
+  --green: #13553f;
+  --light-green: #46a585;
+  --light-grey: #dddddd;
+  --white: #ffffff;
+  --text-color-green: #13553f;
+  --text-color-black: #2c2c2c;
 }
 
-/* ---------- general styling ---------- */
+/* General styling */
 html {
   color: var(--text-color-dark);
   height: 100%;
@@ -29,23 +29,23 @@ h1 {
 }
 
 h2 {
-    font-family: Bebas Neue;
+  font-family: Bebas Neue;
 }
 
 h3 {
-    font-family: Roboto;
+  font-family: Roboto;
 }
 
 p {
-    font-family: Roboto;
-    font-weight: 300;
+  font-family: Roboto;
+  font-weight: 300;
 }
 
 a {
-    font-family: Roboto;
-    font-weight: 400;
+  font-family: Roboto;
+  font-weight: 400;
 }
-/* ---------- topbar styling ---------- */
+/* Topbar styling */
 .topbar {
   background-color: var(--white);
   color: var(--text-color-light);
@@ -63,41 +63,63 @@ a {
   font-weight: 300;
 }
 
-/* ---------- tabbar styling ---------- */
+/* Navigation styling */
 .tabbar {
   background-color: var(--white);
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 9999;
+  z-index: 10;
+  min-width: 100%;
+  box-shadow: 0px 1px 10px var(--light-grey);
+  display: flex;
+}
+
+.nav_left {
+  width: 30%;
+  float: left;
+  display: flex;
+}
+
+.nav_middle {
+  width: 35%;
+}
+
+.nav_right {
+  width: 30%;
+  float: right;
+  display: flex;
 }
 
 /* Style the links inside the navigation bar */
-.tabbar a {
-  display: inline-block;
+.nav_item {
   color: var(--text-color-light);
-  text-align: center;
-  padding: 20px 16px;
-  text-decoration: none;
-  font-size: 0.8em;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-/* Change the color of links on hover */
-.tabbar a:hover {
-  background-color: var(--light-grey);
-  color: var(--text-color-dark);
 }
 
 /* Add a color to the active/current link */
 .tabbar a.active {
-  background-color: var(--light-green);
-  color: var(--text-color-light);
 }
 
-/* ---------- page styling ---------- */
+.nav_img_raised {
+  border-radius: 50%;
+  padding: 20px 20px;
+  box-shadow: 0px 1px 10px var(--light-grey);
+  position: absolute;
+  bottom: 30%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  z-index: -1;
+  background-color: var(--white);
+}
+
+.nav_img {
+  width: 25px;
+  padding: 20px 20px;
+  color: var(--green);
+}
+
+/* Page styling */
 .page {
   display: none;
   /*min heigh is screen heigh minus height of tab and top bar */
