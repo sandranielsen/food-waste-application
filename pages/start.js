@@ -6,11 +6,22 @@ export default class StartPage {
   template() {
     document.querySelector("#app").innerHTML += /*html*/ `
       <section id="start" class="page">
-        <header class="topbar">
-          <h2>About</h2>
-        </header>
-        <h3>About me</h3>
-        <p>Some info about me. Enjoy!</p>
+      <div class="start_container">
+        <img src="/media/start-bg.jpg" alt="Food" class="start-bg">
+        <div class="overlay"></div>
+
+        <div class="start_content">
+          <h1 class="start_text">Reduce your waste</h1>
+          <h1 class="start_text">Share your food</h1>
+            <div class="btn_container">
+              <button class="btn" onclick="navigateTo('login')">Login</button>
+              <button class="btn" onclick="navigateTo('signup')">Sign up</button>
+            </div>
+        </div>
+
+      </div>
+        
+        
       </section>
     `;
   }
