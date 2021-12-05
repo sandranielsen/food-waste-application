@@ -36,17 +36,26 @@ export default class AddListingPage {
           </div>
           <h2>Add New Listing</h2>
         </header>
-        <section>
+        <section class="add_container">
           <form>
-            <img name="imagePreview" class="image-preview">
-            <input type="file" name="listingImage" accept="image/*">
-            <input type="text" name="title" placeholder="Title">
-            <input type="text" name="price" placeholder="Price">
-            <input type="text" name="expirationDate" placeholder="Expiration date">
-            <input type="text" name="description" placeholder="Description">
-            <input type="text" name="location" placeholder="Location">
-
-            <button type="button" class="save">Add listing</button>
+            <div class="upload_container">
+              <img name="imagePreview" class="image_preview">
+              <input type="file" name="listingImage" accept="image/*" id="image-upload" hidden>
+              <label for="image-upload" class="image_upload"><img src="../img/camera.svg" alt="Camera">Add Image</label>
+            </div>
+            <div class="form_container">
+              <label class="add_label">Title<label><br>
+              <input type="text" name="title" class="add_form"><br>
+              <label class="add_label">Price<label><br>
+              <input type="text" name="price" placeholder="DKK" class="add_form"><br>
+              <label class="add_label">Expiration date<label><br>
+              <input type="text" name="expirationDate" class="add_form"><br>
+              <label class="add_label">Description<label><br>
+              <textarea type="text" name="description" placeholder="0/300" class="add_form_extended"></textarea><br>
+              <label class="add_label">Location<label><br>
+              <input type="text" name="location" class="add_form"><br>
+          </div>
+            <button type="button" class="btn_alt">Add listing</button>
           </form>
         </section>
       </section>

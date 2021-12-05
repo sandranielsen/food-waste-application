@@ -19,7 +19,6 @@ html {
 
 body {
   margin: 0;
-  padding: 70px 20px;
 }
 
 h1 {
@@ -46,6 +45,8 @@ a {
   font-family: Roboto;
   font-weight: 400;
 }
+
+
 /* Topbar styling */
 .topbar {
   background-color: var(--white);
@@ -162,6 +163,17 @@ a {
   border: 1.5px solid var(--white);
   border-radius: 5px;
   background: transparent;
+  font-size: 1.5em;
+  font-family: Bebas Neue;
+  color: var(--text-color-white);
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.btn_alt {
+  width: 100%;
+  border-radius: 5px;
+  background: var(--green);
   font-size: 1.5em;
   font-family: Bebas Neue;
   color: var(--text-color-white);
