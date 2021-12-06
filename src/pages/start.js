@@ -14,7 +14,6 @@ export default class StartPage {
       /*html*/ `
       <section id="${this.id}" class="page">
       <div class="start_container">
-        <!--<img src="../img/start-bg.jpg" alt="Food" class="start-bg">-->
         <img src="../img/start-bg.jpg" alt="Food" class="start-bg">
         <div class="overlay"></div>
 
