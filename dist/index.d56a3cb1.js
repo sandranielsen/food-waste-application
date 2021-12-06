@@ -750,7 +750,7 @@ class StartPage {
 }
 exports.default = StartPage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","../img/start-bg.jpg":"2aZtz","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"03GcU":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","../img/start-bg.jpg":"2aZtz"}],"03GcU":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 class Service {
