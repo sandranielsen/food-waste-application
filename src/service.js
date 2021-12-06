@@ -1,11 +1,28 @@
 class Service {
   constructor() {
     this.listings = [];
-    this.baseUrl = "";
+    this.baseUrl = "http://foodwaste.sonajuhasova.com/backend/";
+    this.loginUrl = this.baseUrl + "/login.php";
   }
 
   /* fetch and return all listings from backend service */
-  
+  async signupUser(name,username,password,passwordCheck)
+  {
+    const url =`${this.loginUrl}?action=signup`;
+    var data = {
+      'name':name,
+      'username':username,
+      'password':password,
+      'passwordCheck':passwordCheck
+    };
+    const response = await fetch(url, {
+      method: "POST",
+      body: JSON.stringify(data), // parsing js object to json object
+    });
+    const json = await response.json();
+    return json;
+
+  }
   async getListings() {
     const url = `${this.baseUrl}?action=getListings`;
     const response = await fetch(url);

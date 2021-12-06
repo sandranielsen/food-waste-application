@@ -7,11 +7,30 @@ export default class SignUpPage {
     this.signupImg = require("../img/signup.jpg");
     this.render();
   }
+  
+  
+  handleSignup(e)
+  {
+    e.preventDefault();
+    var n = document.querySelector("#signup-name").value;
+    var u = document.querySelector("#signup-username").value;
+    var p = document.querySelector("#signup-password").value;
+    var pc = document.querySelector("#signup-password-check").value;
+    debugger;
+    console.log(n);
+    var response = service.signupUser(n,u,p,pc);
 
+    if (response.signupSuccess) {
+      document.querySelector(".signup-message").innerHTML = "";
+      navigateTo("/login");
+    } else {
+      document.querySelector(".signup-message").innerHTML = data.error;
+    }
+  }
   render() {
     document.querySelector("#root").insertAdjacentHTML(
       "beforeend",
-      /*html*/ `
+      /*jsx*/ `
       <section id="${this.id}" class="page">
         <header class="topbar">
           <a href="/home"><svg xmlns="http://www.w3.org/2000/svg" width="13.503" height="23.619" viewBox="0 0 13.503 23.619">
@@ -31,12 +50,22 @@ export default class SignUpPage {
         <div class="login_signup_container">
             <h1 class="login_signup_headline">Signup</h1>
             <div class="form_container">
-              
+            <form>
+        <input id="signup-name" type="text" name="name" placeholder="Type Name">
+        <input id="signup-username" type="text" placeholder="Type email" autocomplete="new-email">
+        <input id="signup-password" type="password" placeholder="Password" autocomplete="new-password">
+        <input id="signup-password-check" type="password" placeholder="Password" autocomplete="new-password">
+
+        <button type="button" id="btn-signup">Sign up</button>
+        <div class=".signup-message"></div>
+      </form>
+
             </div>
           </div>
       </section>
     `
     );
+    document.querySelector('#btn-signup').onclick = this.handleSignup;
   }
 
   beforeShow(props) {

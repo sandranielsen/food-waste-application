@@ -74,8 +74,8 @@ export default class HomePage {
     );
   }
   async init() {
-    const listings = await service.getListings();
-    this.appendListings(listings);
+    //const listings = await service.getListings();
+    //this.appendListings(listings);
   }
 
   appendListings(listings) {

@@ -465,76 +465,67 @@ var _navJsDefault = parcelHelpers.interopDefault(_navJs);
 var _routerJs = require("./router.js");
 var _routerJsDefault = parcelHelpers.interopDefault(_routerJs);
 _navJsDefault.default.render();
-_routerJsDefault.default.init();
-console.log("app.js is running!");
-async function login() {
-    const username = document.querySelector("#login-username").value;
-    const password = document.querySelector("#login-password").value;
-    const loginObject = {
-        username: username,
-        password: password
-    };
-    console.log(loginObject);
-    const response = await fetch("http://localhost:3000/php-login-service/?action=login", {
-        method: "POST",
-        body: JSON.stringify(loginObject)
-    });
-    const data = await response.json();
-    console.log(data);
-    if (data.authenticated) {
-        localStorage.setItem("userIsAuthenticated", true);
-        localStorage.setItem("authUser", JSON.stringify(data.userData));
-        resetMessage();
-        _routerJs.navigateTo("#/");
-    } else document.querySelector(".login-message").innerHTML = data.error;
-}
-function logout() {
-    //reset localStorage
-    localStorage.removeItem("userIsAuthenticated");
-    localStorage.removeItem("authUser");
-    //navigate to login
-    _routerJs.navigateTo("#/login");
-}
-async function signup() {
-    const firstname = document.querySelector("#signup-firstname").value;
-    const lastname = document.querySelector("#signup-lastname").value;
-    const age = document.querySelector("#signup-age").value;
-    const gender = document.querySelector("#signup-gender").value;
-    const username = document.querySelector("#signup-username").value;
-    const password = document.querySelector("#signup-password").value;
-    const passwordCheck = document.querySelector("#signup-password-check").value;
-    const user = {
-        firstname,
-        lastname,
-        age,
-        gender,
-        username,
-        password,
-        passwordCheck
-    };
-    console.log(user);
-    const response = await fetch("http://localhost:3000/php-login-service/?action=signup", {
-        method: "POST",
-        body: JSON.stringify(user)
-    });
-    const data = await response.json();
-    console.log(data);
-    if (data.signupSuccess) {
-        resetMessage();
-        _routerJs.navigateTo("#/login");
-    } else document.querySelector(".signup-message").innerHTML = data.error;
-}
-function resetMessage() {
-    document.querySelector(".signup-message").innerHTML = "";
-    document.querySelector(".login-message").innerHTML = "";
-}
-// event listeners
-document.querySelector("#btn-login").onclick = ()=>login()
-;
-document.querySelector("#btn-logout").onclick = ()=>logout()
-;
-document.querySelector("#btn-signup").onclick = ()=>signup()
-;
+_routerJsDefault.default.init(); // rasmus's code
+ // import { navigateTo } from "./router.js";
+ // console.log("app.js is running!");
+ // async function login() {
+ // 	const username = document.querySelector("#login-username").value;
+ // 	const password = document.querySelector("#login-password").value;
+ // 	const loginObject = { username: username, password: password };
+ // 	console.log(loginObject);
+ // 	const response = await fetch("http://localhost:3000/php-login-service/?action=login", {
+ // 		method: "POST",
+ // 		body: JSON.stringify(loginObject)
+ // 	});
+ // 	const data = await response.json();
+ // 	console.log(data);
+ // 	if (data.authenticated) {
+ // 		localStorage.setItem("userIsAuthenticated", true);
+ // 		localStorage.setItem("authUser", JSON.stringify(data.userData));
+ // 		resetMessage();
+ // 		navigateTo("#/");
+ // 	} else {
+ // 		document.querySelector(".login-message").innerHTML = data.error;
+ // 	}
+ // }
+ // function logout() {
+ // 	//reset localStorage
+ // 	localStorage.removeItem("userIsAuthenticated");
+ // 	localStorage.removeItem("authUser");
+ // 	//navigate to login
+ // 	navigateTo("#/login");
+ // }
+ // async function signup() {
+ // 	const firstname = document.querySelector("#signup-firstname").value;
+ // 	const lastname = document.querySelector("#signup-lastname").value;
+ // 	const age = document.querySelector("#signup-age").value;
+ // 	const gender = document.querySelector("#signup-gender").value;
+ // 	const username = document.querySelector("#signup-username").value;
+ // 	const password = document.querySelector("#signup-password").value;
+ // 	const passwordCheck = document.querySelector("#signup-password-check").value;
+ // 	const user = { firstname, lastname, age, gender, username, password, passwordCheck };
+ // 	console.log(user);
+ // 	const response = await fetch("http://localhost:3000/php-login-service/?action=signup", {
+ // 		method: "POST",
+ // 		body: JSON.stringify(user)
+ // 	});
+ // 	const data = await response.json();
+ // 	console.log(data);
+ // 	if (data.signupSuccess) {
+ // 		resetMessage();
+ // 		navigateTo("#/login");
+ // 	} else {
+ // 		document.querySelector(".signup-message").innerHTML = data.error;
+ // 	}
+ // }
+ // function resetMessage() {
+ // 	document.querySelector(".signup-message").innerHTML = "";
+ // 	document.querySelector(".login-message").innerHTML = "";
+ // }
+ // // event listeners
+ // document.querySelector("#btn-login").onclick = () => login();
+ // document.querySelector("#btn-logout").onclick = () => logout();
+ // document.querySelector("#btn-signup").onclick = () => signup();
 
 },{"./components/nav.js":"5KBRd","./router.js":"90Bjy","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5KBRd":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -543,7 +534,7 @@ class Nav {
     constructor(){
     }
     render() {
-        document.querySelector("#root").insertAdjacentHTML("afterbegin", /*html*/ `
+        document.querySelector("#root").insertAdjacentHTML("afterbegin", /*jsx*/ `
       <nav class="tabbar">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="380" height="125" viewBox="0 0 380 125">
       <defs>
@@ -826,9 +817,25 @@ parcelHelpers.defineInteropFlag(exports);
 class Service {
     constructor(){
         this.listings = [];
-        this.baseUrl = "";
+        this.baseUrl = "http://foodwaste.sonajuhasova.com/backend/";
+        this.loginUrl = this.baseUrl + "/login.php";
     }
-    /* fetch and return all listings from backend service */ async getListings() {
+    /* fetch and return all listings from backend service */ async signupUser(name, username, password, passwordCheck) {
+        const url = `${this.loginUrl}?action=signup`;
+        var data = {
+            'name': name,
+            'username': username,
+            'password': password,
+            'passwordCheck': passwordCheck
+        };
+        const response = await fetch(url, {
+            method: "POST",
+            body: JSON.stringify(data)
+        });
+        const json = await response.json();
+        return json;
+    }
+    async getListings() {
         const url = `${this.baseUrl}?action=getListings`;
         const response = await fetch(url);
         const data = await response.json();
@@ -965,8 +972,22 @@ class SignUpPage {
         this.signupImg = require("../img/signup.jpg");
         this.render();
     }
+    handleSignup(e) {
+        e.preventDefault();
+        var n = document.querySelector("#signup-name").value;
+        var u = document.querySelector("#signup-username").value;
+        var p = document.querySelector("#signup-password").value;
+        var pc = document.querySelector("#signup-password-check").value;
+        debugger;
+        console.log(n);
+        var response = _serviceJsDefault.default.signupUser(n, u, p, pc);
+        if (response.signupSuccess) {
+            document.querySelector(".signup-message").innerHTML = "";
+            navigateTo("/login");
+        } else document.querySelector(".signup-message").innerHTML = data.error;
+    }
     render() {
-        document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
+        document.querySelector("#root").insertAdjacentHTML("beforeend", /*jsx*/ `
       <section id="${this.id}" class="page">
         <header class="topbar">
           <a href="/home"><svg xmlns="http://www.w3.org/2000/svg" width="13.503" height="23.619" viewBox="0 0 13.503 23.619">
@@ -986,11 +1007,21 @@ class SignUpPage {
         <div class="login_signup_container">
             <h1 class="login_signup_headline">Signup</h1>
             <div class="form_container">
-              
+            <form>
+        <input id="signup-name" type="text" name="name" placeholder="Type Name">
+        <input id="signup-username" type="text" placeholder="Type email" autocomplete="new-email">
+        <input id="signup-password" type="password" placeholder="Password" autocomplete="new-password">
+        <input id="signup-password-check" type="password" placeholder="Password" autocomplete="new-password">
+
+        <button type="button" id="btn-signup">Sign up</button>
+        <div class=".signup-message"></div>
+      </form>
+
             </div>
           </div>
       </section>
     `);
+        document.querySelector('#btn-signup').onclick = this.handleSignup;
     }
     beforeShow(props) {
         console.log(props);
@@ -1148,8 +1179,8 @@ class HomePage {
     `);
     }
     async init() {
-        const listings = await _serviceJsDefault.default.getListings();
-        this.appendListings(listings);
+    //const listings = await service.getListings();
+    //this.appendListings(listings);
     }
     appendListings(listings) {
         let htmlTemplate = "";

@@ -73,25 +73,21 @@ if (isset($_GET['action'])) {
             if ($password == $passwordCheck) {
 
                 // Check if username already exists
-                $sql = "SELECT id FROM userlogin WHERE username = '$username'";
+                $sql = "SELECT id FROM users WHERE user_email = '$username'";
                 $result = $mySQL->query($sql);
 
                 // If the username does not exist, then create a new user
                 if ($result->num_rows == 0) {
                     $passEncrypt = password_hash($loginObject->password, PASSWORD_DEFAULT);
-                    $firstname = $loginObject->firstname;
-                    $lastname = $loginObject->lastname;
-                    $age = $loginObject->age;
-                    $country = "Denmark"; // default for now
-                    $gender = $loginObject->gender;
+                    $name = $loginObject->name;
 
-                    $sql = "CALL CreateUser('$firstname', '$lastname', '$age', '$username', '$passEncrypt', '$country', '$gender')";
+                    $sql = "CALL CreateUser('$name', '$username', '$passEncrypt')";
                     if ($mySQL->query($sql) === TRUE) {
                         $response['signupSuccess'] = TRUE;
                         echo json_encode($response);
                     } else {
                         $response['signupSuccess'] = FALSE;
-                        $response['error'] = "Signup failed. Please try again.";
+                        $response['error'] = "Signup failed. Please try again.".$mySQL->error.$mysqli->connect_error;
                         echo json_encode($response);
                     }
                 } else {

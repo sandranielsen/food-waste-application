@@ -4,7 +4,7 @@ class Nav {
   render() {
     document.querySelector("#root").insertAdjacentHTML(
       "afterbegin",
-      /*html*/ `
+      /*jsx*/ `
       <nav class="tabbar">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="380" height="125" viewBox="0 0 380 125">
       <defs>
