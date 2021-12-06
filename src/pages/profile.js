@@ -29,7 +29,7 @@ export default class ProfilePage {
                   <button onclick="location.href='#listings';">My Listings</button>
                   <button onclick="location.href='#purchases';">My Purchases</button>
                   <button onclick="location.href='#impact';">My Impact</button>
-                  <button style="margin-top: 25px;"  onclick="location.href='#start';">Log Out</button>
+                  <button style="margin-top: 25px;"  onclick="location.href='/start'">Log Out</button>
           </div>
         <div>
       </section>

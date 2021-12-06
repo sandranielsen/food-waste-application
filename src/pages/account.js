@@ -68,7 +68,7 @@ export default class AccountPage {
 
 
             <div class="account-buttons">
-                    <button onclick="location.href='#account';">Update profile</button> 
+                    <button onclick="location.href='/account'">Update profile</button> 
             </div>
           <div>
       </section>
