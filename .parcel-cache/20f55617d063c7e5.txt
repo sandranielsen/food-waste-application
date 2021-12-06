@@ -1,4 +1,4 @@
-15894
+15898
 86C:\Users\sandr\Desktop\food-waste-application\node_modules\ncp\test\modified-files\src132831740251981706 1
 102C:\Users\sandr\Desktop\food-waste-application\node_modules\@babel\compat-data\data\native-modules.json132831740235888979 0
 96C:\Users\sandr\Desktop\food-waste-application\node_modules\@parcel\runtime-js\src\helpers\worker132831740288957372 1
@@ -32,7 +32,7 @@
 56C:\Users\sandr\Desktop\food-waste-application\.gitignore132831740588018325 0
 86C:\Users\sandr\Desktop\food-waste-application\node_modules\core-js\es\instance\bind.js132831740305812699 0
 81C:\Users\sandr\Desktop\food-waste-application\node_modules\ws\lib\event-target.js132831740226092699 0
-50C:\Users\sandr\Desktop\food-waste-application\dist132832559337436962 1
+50C:\Users\sandr\Desktop\food-waste-application\dist132832599735956046 1
 77C:\Users\sandr\Desktop\food-waste-application\node_modules\lodash\_getView.js132831740319518033 0
 76C:\Users\sandr\Desktop\food-waste-application\node_modules\lodash\memoize.js132831740362459102 0
 109C:\Users\sandr\Desktop\food-waste-application\node_modules\@parcel\core\test\fixtures\invalid-source-not-file132831740320162870 1
@@ -40,6 +40,7 @@
 53C:\Users\sandr\Desktop\food-waste-application\backend132831863731582277 1
 91C:\Users\sandr\Desktop\food-waste-application\node_modules\core-js\stable\instance\slice.js132831740403714563 0
 75C:\Users\sandr\Desktop\food-waste-application\node_modules\xmlchars\xml\1.0132831740262742249 1
+73C:\Users\sandr\Desktop\food-waste-application\dist\index.5ceeb4e6.css.map132832599735936066 0
 101C:\Users\sandr\Desktop\food-waste-application\node_modules\core-js\modules\es.object.lookup-setter.js132831740340847268 0
 83C:\Users\sandr\Desktop\food-waste-application\node_modules\log-symbols\package.json132831740217561223 0
 69C:\Users\sandr\Desktop\food-waste-application\node_modules\css-select132831740276672528 1
@@ -67,7 +68,7 @@
 93C:\Users\sandr\Desktop\food-waste-application\node_modules\core-js\stable\typed-array\some.js132831740404300383 0
 80C:\Users\sandr\Desktop\food-waste-application\node_modules\node-forge\lib\tls.js132831740297323078 0
 103C:\Users\sandr\Desktop\food-waste-application\node_modules\jsdom\lib\jsdom\living\file-api\File-impl.js132831740295512948 0
-64C:\Users\sandr\Desktop\food-waste-application\src\pages\start.js132832551525784632 0
+64C:\Users\sandr\Desktop\food-waste-application\src\pages\start.js132832561024588428 0
 68C:\Users\sandr\Desktop\food-waste-application\node_modules\base64-js132831740228719964 1
 95C:\Users\sandr\Desktop\food-waste-application\node_modules\core-js\features\math\seeded-prng.js132831740402547313 0
 92C:\Users\sandr\Desktop\food-waste-application\node_modules\es-abstract\2019\MonthFromTime.js132831740357534287 0
@@ -425,7 +426,7 @@
 76C:\Users\sandr\Desktop\food-waste-application\node_modules\lodash\isEmpty.js132831740353430795 0
 107C:\Users\sandr\Desktop\food-waste-application\node_modules\icss-utils\node_modules\source-map\lib\base64.js132831740241046978 0
 100C:\Users\sandr\Desktop\food-waste-application\node_modules\core-js\modules\es.object.from-entries.js132831740340168382 0
-62C:\Users\sandr\Desktop\food-waste-application\src\css\main.css132832545626052559 0
+62C:\Users\sandr\Desktop\food-waste-application\src\css\main.css132832598814756643 0
 83C:\Users\sandr\Desktop\food-waste-application\node_modules\estraverse\estraverse.js132831740213302015 0
 88C:\Users\sandr\Desktop\food-waste-application\node_modules\json-parse-even-better-errors132831740221576365 1
 89C:\Users\sandr\Desktop\food-waste-application\node_modules\lodash\fp\sortedLastIndexOf.js132831740373759656 0
@@ -478,7 +479,7 @@
 121C:\Users\sandr\Desktop\food-waste-application\node_modules\browserify-sign\node_modules\readable-stream\errors-browser.js132831740254379898 0
 84C:\Users\sandr\Desktop\food-waste-application\node_modules\uri-js\dist\esnext\uri.js132831740255270487 0
 70C:\Users\sandr\Desktop\food-waste-application\node_modules\detect-libc132831740230636382 1
-67C:\Users\sandr\Desktop\food-waste-application\src\components\nav.js132832553752390119 0
+67C:\Users\sandr\Desktop\food-waste-application\src\components\nav.js132832593692372884 0
 81C:\Users\sandr\Desktop\food-waste-application\node_modules\is-typed-array\LICENSE132831740223242252 0
 99C:\Users\sandr\Desktop\food-waste-application\node_modules\es-abstract\2015\CreateMethodProperty.js132831740317579314 0
 72C:\Users\sandr\Desktop\food-waste-application\node_modules\is-resolvable132831740216217583 1
@@ -1374,7 +1375,7 @@
 79C:\Users\sandr\Desktop\food-waste-application\node_modules\json-schema-traverse132831740232782204 1
 78C:\Users\sandr\Desktop\food-waste-application\node_modules\isexe\test\basic.js132831740242923264 0
 78C:\Users\sandr\Desktop\food-waste-application\node_modules\is-typed-array\test132831740237099058 1
-69C:\Users\sandr\Desktop\food-waste-application\dist\index.ba204c31.css132832552519732266 0
+69C:\Users\sandr\Desktop\food-waste-application\dist\index.ba204c31.css132832559511281745 0
 85C:\Users\sandr\Desktop\food-waste-application\node_modules\dotenv-expand\package.json132831740199662149 0
 68C:\Users\sandr\Desktop\food-waste-application\node_modules\fast-glob132831740277902640 1
 99C:\Users\sandr\Desktop\food-waste-application\node_modules\purgecss\node_modules\commander\index.js132831740240086967 0
@@ -2441,7 +2442,7 @@
 70C:\Users\sandr\Desktop\food-waste-application\node_modules\pn\https.js132831740262473048 0
 72C:\Users\sandr\Desktop\food-waste-application\node_modules\utility-types132831740258955026 1
 70C:\Users\sandr\Desktop\food-waste-application\node_modules\yaml\map.js132831740256531855 0
-69C:\Users\sandr\Desktop\food-waste-application\dist\index.8a74d687.css132832552519732266 0
+69C:\Users\sandr\Desktop\food-waste-application\dist\index.8a74d687.css132832559511281745 0
 88C:\Users\sandr\Desktop\food-waste-application\node_modules\core-js\features\map\every.js132831740362984190 0
 105C:\Users\sandr\Desktop\food-waste-application\node_modules\postcss-selector-parser\dist\__tests__\tags.js132831740292692729 0
 100C:\Users\sandr\Desktop\food-waste-application\node_modules\@parcel\reporter-dev-server\src\Server.js132831740254459901 0
@@ -3535,7 +3536,7 @@
 114C:\Users\sandr\Desktop\food-waste-application\node_modules\postcss-modules-scope\node_modules\ansi-styles\index.js132831740207207292 0
 84C:\Users\sandr\Desktop\food-waste-application\node_modules\lodash\_escapeHtmlChar.js132831740316359213 0
 78C:\Users\sandr\Desktop\food-waste-application\node_modules\lodash\fp\number.js132831740364213965 0
-73C:\Users\sandr\Desktop\food-waste-application\dist\index.212ab60f.css.map132832552519888501 0
+73C:\Users\sandr\Desktop\food-waste-application\dist\index.212ab60f.css.map132832598816135009 0
 112C:\Users\sandr\Desktop\food-waste-application\node_modules\jsdom\lib\jsdom\living\generated\EventModifierInit.js132831740303527216 0
 79C:\Users\sandr\Desktop\food-waste-application\node_modules\posthtml-parser\dist132831740260602666 1
 131C:\Users\sandr\Desktop\food-waste-application\node_modules\uncss\node_modules\postcss-selector-parser\dist\__tests__\nonstandard.js132831740271219099 0
@@ -3924,7 +3925,7 @@
 104C:\Users\sandr\Desktop\food-waste-application\node_modules\es-abstract\2021\CreateDataPropertyOrThrow.js132831740312743327 0
 87C:\Users\sandr\Desktop\food-waste-application\node_modules\es-abstract\2021\ToString.js132831740384472924 0
 123C:\Users\sandr\Desktop\food-waste-application\node_modules\postcss-modules-values\node_modules\color-convert\conversions.js132831740214357365 0
-69C:\Users\sandr\Desktop\food-waste-application\dist\index.59d4affe.css132832552519732266 0
+69C:\Users\sandr\Desktop\food-waste-application\dist\index.59d4affe.css132832559511281745 0
 93C:\Users\sandr\Desktop\food-waste-application\node_modules\tough-cookie\node_modules\punycode132831740224603359 1
 79C:\Users\sandr\Desktop\food-waste-application\node_modules\stealthy-require\lib132831740223398499 1
 79C:\Users\sandr\Desktop\food-waste-application\node_modules\lodash\_baseIsNaN.js132831740297083056 0
@@ -5904,7 +5905,7 @@
 78C:\Users\sandr\Desktop\food-waste-application\node_modules\lodash\unzipWith.js132831740382187007 0
 85C:\Users\sandr\Desktop\food-waste-application\node_modules\postcss-modules-values\src132831740224206555 1
 86C:\Users\sandr\Desktop\food-waste-application\node_modules\postcss-modules-values\test132831740238259804 1
-69C:\Users\sandr\Desktop\food-waste-application\dist\index.ccc27ff6.css132832552519732266 0
+69C:\Users\sandr\Desktop\food-waste-application\dist\index.ccc27ff6.css132832559511281745 0
 91C:\Users\sandr\Desktop\food-waste-application\node_modules\es-abstract\2015\HourFromTime.js132831740337337185 0
 97C:\Users\sandr\Desktop\food-waste-application\node_modules\es-abstract\2019\SameValueNonNumber.js132831740366960783 0
 95C:\Users\sandr\Desktop\food-waste-application\node_modules\postcss-modules-values\test\index.js132831740239248378 0
@@ -6942,6 +6943,7 @@
 81C:\Users\sandr\Desktop\food-waste-application\node_modules\buffer-xor\.travis.yml132831740241572493 0
 81C:\Users\sandr\Desktop\food-waste-application\node_modules\csso\lib\clean\Rule.js132831740290352560 0
 87C:\Users\sandr\Desktop\food-waste-application\node_modules\performance-now\test\scripts132831740259449854 1
+72C:\Users\sandr\Desktop\food-waste-application\dist\index.3b6805dd.js.map132832599735946054 0
 96C:\Users\sandr\Desktop\food-waste-application\node_modules\cssstyle\lib\properties\paddingTop.js132831740298013128 0
 94C:\Users\sandr\Desktop\food-waste-application\node_modules\performance-now\test\scripts.coffee132831740260986938 0
 95C:\Users\sandr\Desktop\food-waste-application\node_modules\highlight.js\lib\languages\prolog.js132831740326103318 0
@@ -7140,7 +7142,7 @@
 70C:\Users\sandr\Desktop\food-waste-application\node_modules\ora\license132831740199572130 0
 81C:\Users\sandr\Desktop\food-waste-application\node_modules\optionator\lib\help.js132831740220095706 0
 77C:\Users\sandr\Desktop\food-waste-application\node_modules\is-regex\.eslintrc132831740211499297 0
-73C:\Users\sandr\Desktop\food-waste-application\dist\index.59d4affe.css.map132832552519888501 0
+73C:\Users\sandr\Desktop\food-waste-application\dist\index.59d4affe.css.map132832559511531760 0
 105C:\Users\sandr\Desktop\food-waste-application\node_modules\@babel\types\lib\validators\generated\index.js132831740300897977 0
 97C:\Users\sandr\Desktop\food-waste-application\node_modules\@babel\helper-optimise-call-expression132831740218222152 1
 72C:\Users\sandr\Desktop\food-waste-application\node_modules\open\index.js132831740214594127 0
@@ -7868,7 +7870,7 @@
 92C:\Users\sandr\Desktop\food-waste-application\node_modules\fast-glob\out\providers\sync.d.ts132831740291162606 0
 80C:\Users\sandr\Desktop\food-waste-application\node_modules\@types\node\zlib.d.ts132831740299133220 0
 89C:\Users\sandr\Desktop\food-waste-application\node_modules\highlight.js\scss\rainbow.scss132831740339817035 0
-72C:\Users\sandr\Desktop\food-waste-application\dist\start-bg.ede87d99.jpg132832552519732266 0
+72C:\Users\sandr\Desktop\food-waste-application\dist\start-bg.ede87d99.jpg132832559511291758 0
 104C:\Users\sandr\Desktop\food-waste-application\node_modules\@babel\core\node_modules\json5\dist\index.mjs132831740264172346 0
 105C:\Users\sandr\Desktop\food-waste-application\node_modules\highlight.js\scss\tomorrow-night-eighties.scss132831740340667328 0
 73C:\Users\sandr\Desktop\food-waste-application\node_modules\lodash\lang.js132831740359529998 0
@@ -9892,7 +9894,7 @@
 87C:\Users\sandr\Desktop\food-waste-application\node_modules\core-js\stable\array\flat.js132831740369565003 0
 74C:\Users\sandr\Desktop\food-waste-application\node_modules\is-html\license132831740211603051 0
 83C:\Users\sandr\Desktop\food-waste-application\node_modules\function-bind\.jscs.json132831740247310244 0
-68C:\Users\sandr\Desktop\food-waste-application\dist\index.d56a3cb1.js132832556028095817 0
+68C:\Users\sandr\Desktop\food-waste-application\dist\index.d56a3cb1.js132832593653290472 0
 79C:\Users\sandr\Desktop\food-waste-application\node_modules\is-html\package.json132831740198417536 0
 93C:\Users\sandr\Desktop\food-waste-application\node_modules\is-generator-function\CHANGELOG.md132831740250676824 0
 90C:\Users\sandr\Desktop\food-waste-application\node_modules\highlight.js\scss\tomorrow.scss132831740340757266 0
@@ -11076,6 +11078,7 @@
 93C:\Users\sandr\Desktop\food-waste-application\node_modules\es-abstract\2021\PromiseResolve.js132831740363783838 0
 99C:\Users\sandr\Desktop\food-waste-application\node_modules\@babel\core\node_modules\.bin\semver.ps1132831740414426944 0
 94C:\Users\sandr\Desktop\food-waste-application\node_modules\es-abstract\2021\QuoteJSONString.js132831740364213965 0
+69C:\Users\sandr\Desktop\food-waste-application\dist\index.5ceeb4e6.css132832599735826083 0
 91C:\Users\sandr\Desktop\food-waste-application\node_modules\es-abstract\2021\RegExpCreate.js132831740364473977 0
 101C:\Users\sandr\Desktop\food-waste-application\node_modules\es-abstract\2021\RequireObjectCoercible.js132831740365384422 0
 86C:\Users\sandr\Desktop\food-waste-application\node_modules\balanced-match\package.json132831740204952574 0
@@ -14502,7 +14505,7 @@
 89C:\Users\sandr\Desktop\food-waste-application\node_modules\builtin-status-codes\readme.md132831740229919225 0
 80C:\Users\sandr\Desktop\food-waste-application\node_modules\buffer-xor\.npmignore132831740206570808 0
 80C:\Users\sandr\Desktop\food-waste-application\node_modules\buffer-xor\inplace.js132831740237422044 0
-69C:\Users\sandr\Desktop\food-waste-application\dist\index.60dbd108.css132832552519732266 0
+69C:\Users\sandr\Desktop\food-waste-application\dist\index.60dbd108.css132832559511281745 0
 82C:\Users\sandr\Desktop\food-waste-application\node_modules\buffer-xor\package.json132831740199107308 0
 79C:\Users\sandr\Desktop\food-waste-application\node_modules\buffer-xor\README.md132831740212414329 0
 88C:\Users\sandr\Desktop\food-waste-application\node_modules\buffer-xor\test\fixtures.json132831740247799872 0
@@ -15871,25 +15874,26 @@
 72C:\Users\sandr\Desktop\food-waste-application\node_modules\.bin\uuid.ps1132831740414406935 0
 69C:\Users\sandr\Desktop\food-waste-application\node_modules\.bin\which132831740414426944 0
 73C:\Users\sandr\Desktop\food-waste-application\node_modules\.bin\which.cmd132831740414426944 0
-67C:\Users\sandr\Desktop\food-waste-application\dist\add.68cc8f42.svg132832552519732266 0
+67C:\Users\sandr\Desktop\food-waste-application\dist\add.68cc8f42.svg132832559511281745 0
 68C:\Users\sandr\Desktop\food-waste-application\dist\back.24bbbe78.svg132832522185141901 0
 69C:\Users\sandr\Desktop\food-waste-application\dist\index.04728ba4.css132832023387017919 0
 73C:\Users\sandr\Desktop\food-waste-application\dist\index.04728ba4.css.map132832023387198059 0
 73C:\Users\sandr\Desktop\food-waste-application\dist\index.0c7e4b5d.css.map132831911237474403 0
-69C:\Users\sandr\Desktop\food-waste-application\dist\index.212ab60f.css132832552519888501 0
+69C:\Users\sandr\Desktop\food-waste-application\dist\index.212ab60f.css132832598816104998 0
+68C:\Users\sandr\Desktop\food-waste-application\dist\index.3b6805dd.js132832599735836053 0
 69C:\Users\sandr\Desktop\food-waste-application\dist\index.3fdab9e7.css132831904415184184 0
-73C:\Users\sandr\Desktop\food-waste-application\dist\index.60dbd108.css.map132832552519888501 0
+73C:\Users\sandr\Desktop\food-waste-application\dist\index.60dbd108.css.map132832559511531760 0
 73C:\Users\sandr\Desktop\food-waste-application\dist\index.654e4066.css.map132831904415404158 0
 69C:\Users\sandr\Desktop\food-waste-application\dist\index.75ec4b5b.css132831916697783651 0
 69C:\Users\sandr\Desktop\food-waste-application\dist\index.7e242043.css132831904415184184 0
-73C:\Users\sandr\Desktop\food-waste-application\dist\index.8a74d687.css.map132832552519888501 0
+73C:\Users\sandr\Desktop\food-waste-application\dist\index.8a74d687.css.map132832559511531760 0
 69C:\Users\sandr\Desktop\food-waste-application\dist\index.a38f3b81.css132832559337156947 0
 73C:\Users\sandr\Desktop\food-waste-application\dist\index.a38f3b81.css.map132832559337336966 0
 69C:\Users\sandr\Desktop\food-waste-application\dist\index.a62c3329.css132832559337156947 0
 72C:\Users\sandr\Desktop\food-waste-application\dist\index.a9cf4dc6.js.map132832559337406963 0
-73C:\Users\sandr\Desktop\food-waste-application\dist\index.ba204c31.css.map132832552519888501 0
-73C:\Users\sandr\Desktop\food-waste-application\dist\index.ccc27ff6.css.map132832552519888501 0
-72C:\Users\sandr\Desktop\food-waste-application\dist\index.d56a3cb1.js.map132832556028125838 0
+73C:\Users\sandr\Desktop\food-waste-application\dist\index.ba204c31.css.map132832559511531760 0
+73C:\Users\sandr\Desktop\food-waste-application\dist\index.ccc27ff6.css.map132832559511571762 0
+72C:\Users\sandr\Desktop\food-waste-application\dist\index.d56a3cb1.js.map132832593653290472 0
 69C:\Users\sandr\Desktop\food-waste-application\dist\index.e1bc2645.css132832559337166943 0
 69C:\Users\sandr\Desktop\food-waste-application\dist\index.e5a68b80.css132831904415184184 0
-61C:\Users\sandr\Desktop\food-waste-application\dist\index.html132832559337156947 0
+61C:\Users\sandr\Desktop\food-waste-application\dist\index.html132832599735826083 0
