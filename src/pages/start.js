@@ -5,6 +5,7 @@ import image from "../img/start-bg.jpg";
 export default class StartPage {
   constructor(id) {
     this.id = id;
+    this.bgImg = require("../img/start-bg.jpg");
     this.render();
   }
 
@@ -14,7 +15,7 @@ export default class StartPage {
       /*html*/ `
       <section id="${this.id}" class="page">
       <div class="start_container">
-        <img src="../img/start-bg.jpg" alt="Food" class="start-bg">
+        <img src="${this.bgImg}" alt="Food" class="start-bg">
         <div class="overlay"></div>
 
         <div class="start_content">

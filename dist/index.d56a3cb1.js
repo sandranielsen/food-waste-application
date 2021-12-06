@@ -720,13 +720,14 @@ var _startBgJpgDefault = parcelHelpers.interopDefault(_startBgJpg);
 class StartPage {
     constructor(id){
         this.id = id;
+        this.bgImg = require("../img/start-bg.jpg");
         this.render();
     }
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
       <div class="start_container">
-        <img src="../img/start-bg.jpg" alt="Food" class="start-bg">
+        <img src="${this.bgImg}" alt="Food" class="start-bg">
         <div class="overlay"></div>
 
         <div class="start_content">
@@ -892,6 +893,7 @@ var _serviceJsDefault = parcelHelpers.interopDefault(_serviceJs);
 class SignUpPage {
     constructor(id){
         this.id = id;
+        this.signupImg = require("../img/signup.jpg");
         this.render();
     }
     render() {
@@ -904,7 +906,7 @@ class SignUpPage {
         </header>
         <div class="login_signup_container">
           <div class="login_signup_img">
-            <img src="./media/signup.jpg" alt="Food" class="login_signup_bg">
+            <img src="${this.signupImg} alt="Food" class="login_signup_bg">
             <div class="half-overlay"></div>
             <div class="login_signup_content">
               <h2 class="login_signup_text">Share food with your community and fight against food waste<h2>
@@ -927,7 +929,10 @@ class SignUpPage {
 }
 exports.default = SignUpPage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"cKfZK":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","../img/signup.jpg":"2WJzH"}],"2WJzH":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "signup.ec6e4620.jpg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"chiK4"}],"cKfZK":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _routerJs = require("../router.js");
@@ -937,6 +942,7 @@ var _serviceJsDefault = parcelHelpers.interopDefault(_serviceJs);
 class LogInPage {
     constructor(id){
         this.id = id;
+        this.loginImg = require("../img/login.jpg");
         this.render();
     }
     render() {
@@ -949,7 +955,7 @@ class LogInPage {
         </header>
         <div class="login_signup_container">
           <div class="login_signup_img">
-            <img src="./media/login.jpg" alt="Food" class="login_signup_bg">
+            <img src="${this.loginImg}" alt="Food" class="login_signup_bg">
             <div class="half-overlay"></div>
             <div class="login_signup_content">
               <h2 class="login_signup_text">Share food with your community and fight against food waste<h2>
@@ -973,7 +979,10 @@ class LogInPage {
 }
 exports.default = LogInPage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"1edkc":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","../img/login.jpg":"kakxD"}],"kakxD":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "login.cb916fac.jpg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"chiK4"}],"1edkc":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _routerJs = require("../router.js");
@@ -1280,7 +1289,36 @@ class AddListingPage {
               <label class="add_label">Location<label><br>
               <input type="text" name="location" class="add_form"><br>
           </div>
-            <button type="button" onclick="location.href='/home'" class="btn_alt">Add listing</button>
+          <label class="add_label">Category</label><br>
+              <div class="category_container">
+                <input type="checkbox" class="checkbox" id="vegetables" name="category" value="vegetables">
+                <label for="vegetables" class="checkbox_label">Vegetables</label>
+
+                <input type="checkbox" class="checkbox" id="fruit" name="category" value="fruit">
+                <label for="fruit" class="checkbox_label">Fruit</label>
+
+                <input type="checkbox" class="checkbox" id="dry-goods" name="category" value="dry-goods">
+                <label for="dry-goods" class="checkbox_label">Dry goods</label>
+
+                <input type="checkbox" class="checkbox" id="baked-goods" name="category" value="baked-goods">
+                <label for="baked-goods" class="checkbox_label">Baked goods</label>
+
+                <input type="checkbox" class="checkbox" id="meat" name="category" value="meat">
+                <label for="meat"class="checkbox_label">Meat</label>
+
+                <input type="checkbox" class="checkbox" id="fish" name="category" value="fish">
+                <label for="fish" class="checkbox_label">Fish</label>
+
+                <input type="checkbox" class="checkbox" id="dairy" name="category" value="dairy">
+                <label for="dairy" class="checkbox_label">Dairy</label>
+                
+                <input type="checkbox" class="checkbox" id="meals" name="category" value="meals">
+                <label for="meals" class="checkbox_label">Meals</label>
+              </div>
+
+          </div>
+          <input type="submit" value="Add Listing" onclick="location.href='/home'" class="btn_alt">  
+
           </form>
         </section>
       </section>
