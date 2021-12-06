@@ -477,15 +477,25 @@ class Nav {
         document.querySelector("#root").insertAdjacentHTML("afterbegin", /*html*/ `
       <nav class="tabbar">
         <div class="nav_left">
-          <a href="/home" class="nav_item"><img src="../img/home.svg" alt="Home" class="nav_img"></a>
-          <a href="/chat" class="nav_item"><img src="../img/chat.svg" alt="Chat" class="nav_img"></a>
+          <a href="/home" class="nav_item"><svg xmlns="http://www.w3.org/2000/svg" width="27.922" height="25.774" viewBox="0 0 27.922 25.774">
+          <path id="Icon_ionic-md-home" data-name="Icon ionic-md-home" d="M14.114,30.274V21.683h6.444v8.591h6.551V17.387H31.3L17.336,4.5,3.375,17.387H7.563V30.274Z" transform="translate(-3.375 -4.5)" fill="#13553f"/>
+          </svg></a>
+          <a href="/chat" class="nav_item"><svg xmlns="http://www.w3.org/2000/svg" width="25.774" height="25.774" viewBox="0 0 25.774 25.774">
+          <path id="Icon_material-message" data-name="Icon material-message" d="M26.2,3H5.577A2.574,2.574,0,0,0,3.013,5.577L3,28.774,8.155,23.62H26.2a2.585,2.585,0,0,0,2.577-2.577V5.577A2.585,2.585,0,0,0,26.2,3ZM23.62,18.465H8.155V15.887H23.62Zm0-3.866H8.155V12.021H23.62Zm0-3.866H8.155V8.155H23.62Z" transform="translate(-3 -3)" fill="#13553f"/>
+          </svg></a>
         </div>
         <div class="nav_middle">
-          <a href="/add" class="nav_item_raised"><img src="../img/add.svg" alt="Plus" class="nav_img_raised"></a>
+          <a href="/add" class="nav_item_raised"><svg xmlns="http://www.w3.org/2000/svg" width="28.401" height="28.401" viewBox="0 0 28.401 28.401" class="nav_img_raised">
+          <path id="Icon_awesome-plus" data-name="Icon awesome-plus" d="M26.372,13.407H17.243V4.279A2.029,2.029,0,0,0,15.215,2.25H13.186a2.029,2.029,0,0,0-2.029,2.029v9.129H2.029A2.029,2.029,0,0,0,0,15.436v2.029a2.029,2.029,0,0,0,2.029,2.029h9.129v9.129a2.029,2.029,0,0,0,2.029,2.029h2.029a2.029,2.029,0,0,0,2.029-2.029V19.493h9.129A2.029,2.029,0,0,0,28.4,17.465V15.436A2.029,2.029,0,0,0,26.372,13.407Z" transform="translate(0 -2.25)" fill="#13553f"/>
+          </svg></a>
         </div>
         <div class="nav_right">
-          <a href="/favourites" class="nav_item"><img src="../img/fav.svg" alt="Heart" class="nav_img"></a>
-          <a href="/profile" class="nav_item"><img src="../img/profile.svg" alt="Profile" class="nav_img"></a>
+          <a href="/favourites" class="nav_item"><svg xmlns="http://www.w3.org/2000/svg" width="27.26" height="26.212" viewBox="0 0 27.26 26.212">
+          <path id="Icon_ionic-ios-heart" data-name="Icon ionic-ios-heart" d="M23.3,3.938h-.066a7.456,7.456,0,0,0-6.225,3.408A7.456,7.456,0,0,0,10.78,3.938h-.066a7.409,7.409,0,0,0-7.339,7.4,15.951,15.951,0,0,0,3.132,8.7c3.945,5.393,10.5,10.111,10.5,10.111s6.553-4.718,10.5-10.111a15.951,15.951,0,0,0,3.132-8.7A7.409,7.409,0,0,0,23.3,3.938Z" transform="translate(-3.375 -3.938)" fill="#13553f"/>
+          </svg></a>
+          <a href="/profile" class="nav_item"><svg xmlns="http://www.w3.org/2000/svg" width="26.212" height="26.212" viewBox="0 0 26.212 26.212">
+          <path id="Icon_awesome-user-alt" data-name="Icon awesome-user-alt" d="M13.106,14.744A7.372,7.372,0,1,0,5.734,7.372,7.374,7.374,0,0,0,13.106,14.744Zm6.553,1.638H16.838a8.912,8.912,0,0,1-7.464,0H6.553A6.552,6.552,0,0,0,0,22.935v.819a2.458,2.458,0,0,0,2.457,2.457h21.3a2.458,2.458,0,0,0,2.457-2.457v-.819A6.552,6.552,0,0,0,19.659,16.382Z" fill="#13553f"/>
+          </svg></a>
         </div>
       </nav>
     `);
@@ -961,8 +971,59 @@ class HomePage {
         <header class="topbar">
           <h2>Home</h2>
         </header>
-        <h3>Portfolio SPA Template</h3>
-        <p>My Single Page Web App Template</p>
+        <div class="home_container">
+          <div class="search-and-filter-container">
+              <div class="search-container">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="19.055" height="19.06" viewBox="0 0 19.055 19.06">
+                  <path id="Icon_ionic-ios-search" data-name="Icon ionic-ios-search" d="M23.332,22.173l-5.3-5.349a7.553,7.553,0,1,0-1.146,1.161L22.151,23.3a.816.816,0,0,0,1.151.03A.821.821,0,0,0,23.332,22.173ZM12.1,18.05A5.964,5.964,0,1,1,16.315,16.3,5.927,5.927,0,0,1,12.1,18.05Z" transform="translate(-4.5 -4.493)" fill="#13553f"/>
+                  </svg>
+
+                  <input type="text" id="search">
+              </div>
+              <button class="filter-button">
+                  <div>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="19.06" height="18.057" viewBox="0 0 19.06 18.057">
+                      <path id="Icon_material-sort" data-name="Icon material-sort" d="M4.5,27.057h6.353V24.047H4.5ZM4.5,9v3.009H23.56V9Zm0,10.533H17.207V16.524H4.5Z" transform="translate(-4.5 -9)" fill="#fff"/>
+                      </svg>
+                  </div>
+              </button> 
+          
+          </div>
+
+
+        
+
+          <!-- Product listings -->
+        <div class="product-listing-container">
+            <div class="product-listing-image">
+                <button class="favourite-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14.19" height="13.799" viewBox="0 0 14.19 13.799">
+                  <path id="Icon_ionic-ios-heart" data-name="Icon ionic-ios-heart" d="M13.014,3.938h-.032A3.608,3.608,0,0,0,9.97,5.586,3.608,3.608,0,0,0,6.958,3.938H6.926A3.585,3.585,0,0,0,3.375,7.52a7.718,7.718,0,0,0,1.516,4.208,26.561,26.561,0,0,0,5.08,4.893,26.561,26.561,0,0,0,5.08-4.893A7.718,7.718,0,0,0,16.565,7.52,3.585,3.585,0,0,0,13.014,3.938Z" transform="translate(-2.875 -3.438)" fill="none" stroke="#13553f" stroke-width="1"/>
+                  </svg>
+                </button>        
+            </div>
+            <div class="product-listing-info-container">
+              <h2>Whole grain noodles</h2>
+              <div style="margin-top: 25px;">
+                  <p style="font-weight:400; padding-right: 5px;">Expiration date:</p>
+                  <p>07.06.2023</p>
+              </div>
+
+              <div class="product-listing-user-info">
+                  <div>
+                    <div class="product-listing-profile-img"></div>
+                    <p>Maria N.</p>
+                  </div> 
+                  <div>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="13.195" height="19.06" viewBox="0 0 13.195 19.06">
+                      <path id="Icon_ionic-ios-pin" data-name="Icon ionic-ios-pin" d="M14.473,3.375A6.377,6.377,0,0,0,7.875,9.5c0,4.765,6.6,12.934,6.6,12.934s6.6-8.169,6.6-12.934A6.377,6.377,0,0,0,14.473,3.375Zm0,8.747a2.149,2.149,0,1,1,2.149-2.149A2.149,2.149,0,0,1,14.473,12.122Z" transform="translate(-7.875 -3.375)" fill="#13553f"/>
+                      </svg>
+                      <p>Aarhus</p> 
+                  </div>
+              </div>
+            </div>
+        </div>
+      </div>
       </section>
     `);
     }
@@ -1291,8 +1352,23 @@ class ProfilePage {
         <header class="topbar">
           <h2>Profile</h2>
         </header>
-        <h3>Portfolio SPA Template</h3>
-        <p>My Single Page Web App Template</p>
+        <div class="section-wrapper">
+          <div class="profile-img"></div>
+          <h3>Louise Christensen</h3> 
+          <div class="profile-location">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13.195" height="19.06" viewBox="0 0 13.195 19.06">
+                  <path id="Icon_ionic-ios-pin" data-name="Icon ionic-ios-pin" d="M14.473,3.375A6.377,6.377,0,0,0,7.875,9.5c0,4.765,6.6,12.934,6.6,12.934s6.6-8.169,6.6-12.934A6.377,6.377,0,0,0,14.473,3.375Zm0,8.747a2.149,2.149,0,1,1,2.149-2.149A2.149,2.149,0,0,1,14.473,12.122Z" transform="translate(-7.875 -3.375)" fill="#13553f"/>
+                  </svg>
+              <p>Aarhus</p> 
+          </div>
+          <div class="profile-buttons">
+                  <button onclick="location.href='#account';">Account</button>
+                  <button onclick="location.href='#listings';">My Listings</button>
+                  <button onclick="location.href='#purchases';">My Purchases</button>
+                  <button onclick="location.href='#impact';">My Impact</button>
+                  <button style="margin-top: 25px;"  onclick="location.href='#start';">Log Out</button>
+          </div>
+        <div>
       </section>
     `);
     }
@@ -1318,10 +1394,64 @@ class AccountPage {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
         <header class="topbar">
-          <h2>About</h2>
+          <h2>Account</h2>
         </header>
-        <h3>About me</h3>
-        <p>Some info about me. Enjoy!</p>
+        <div class="section-wrapper">
+            <div class="profile-img"></div>
+            <h3>Louise Christensen</h3> 
+            <div class="profile-location">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13.195" height="19.06" viewBox="0 0 13.195 19.06">
+                    <path id="Icon_ionic-ios-pin" data-name="Icon ionic-ios-pin" d="M14.473,3.375A6.377,6.377,0,0,0,7.875,9.5c0,4.765,6.6,12.934,6.6,12.934s6.6-8.169,6.6-12.934A6.377,6.377,0,0,0,14.473,3.375Zm0,8.747a2.149,2.149,0,1,1,2.149-2.149A2.149,2.149,0,0,1,14.473,12.122Z" transform="translate(-7.875 -3.375)" fill="#13553f"/>
+                    </svg>
+                <p>Aarhus</p> 
+            </div>
+
+            <form class="form-inputs">
+              <label for="name">Name</label><br>
+              <input type="text" id="name" name="name"><br>  
+
+              <label for="location">Location</label><br>
+              <input type="text" id="location" name="location"><br>  
+
+              <label for="email">Email</label><br>
+              <input type="text" id="email" name="email"><br>  
+
+              <label for="cars">Currency</label> <br>
+
+              <select name="currency" id="currency">
+                <option value="dkk">DKK</option>
+                <option value="eur">Eur</option>
+                <option value="dollar">US dollar</option> 
+              </select>
+
+              </form>
+              <form class="form-checkboxes">
+
+              <p>Payment Preference</p>
+
+              <input type="checkbox" id="payment-card" name="payment-card" value="payment-card">
+              <label for="payment-card" class="account-checkbox-label">Credit Card</label><br>
+
+              <input type="checkbox" id="mobile-pay" name="mobile-pay" value="mobile-pay">
+              <label for="mobile-pay" class="account-checkbox-label">Mobile Pay</label><br>
+
+              <p>Notifications</p>
+
+              <input type="checkbox" id="notifications-on" name="notifications-on" value="notifications-on">
+              <label for="notifications-on" class="account-checkbox-label">On</label><br>
+
+              <input type="checkbox" id="notifications-of" name="notifications-of" value="notifications-of">
+              <label for="notifications-of" class="account-checkbox-label">Of</label><br>
+            
+            
+              </form>
+
+
+
+            <div class="account-buttons">
+                    <button onclick="location.href='#account';">Update profile</button> 
+            </div>
+          <div>
       </section>
     `);
     }
@@ -1347,10 +1477,65 @@ class MyImpactPage {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
         <header class="topbar">
-          <h2>About</h2>
+          <h2>My Impact</h2>
         </header>
-        <h3>About me</h3>
-        <p>Some info about me. Enjoy!</p>
+        <h2>My Impact Tracker</h2>
+            <div class="impact-tracker-wrapper">
+                <div class="impact-tracker">
+                  <h3>3</h3>
+                  <h4>Purchase(s)<br>made</h4>
+                </div>
+                <div class="impact-tracker">
+                  <h3>3</h3>
+                  <h4>Listing(s)<br>made</h4>
+                </div>
+            </div>
+
+            <h2>Badges</h2>
+            <div class="impact-badges-wrapper">
+                <div class="impact-badge">
+                    <div></div>
+                    <p>First listing</p>
+                </div>
+
+                <div class="impact-badge">
+                    <div></div>
+                    <p>First listing</p>
+                </div>
+
+                <div class="impact-badge">
+                    <div></div>
+                    <p>First listing</p>
+                </div>
+                <div class="impact-badge">
+                    <div></div>
+                    <p>First listing</p>
+                </div>
+
+                <div class="impact-badge">
+                    <div></div>
+                    <p>First listing</p>
+                </div>
+
+                <div class="impact-badge">
+                    <div></div>
+                    <p>First listing</p>
+                </div>
+                <div class="impact-badge">
+                    <div></div>
+                    <p>First listing</p>
+                </div>
+
+                <div class="impact-badge">
+                    <div></div>
+                    <p>First listing</p>
+                </div>
+
+                <div class="impact-badge">
+                    <div></div>
+                    <p>First listing</p>
+                </div>
+            </div>
       </section>
     `);
     }
@@ -1376,10 +1561,26 @@ class MyListingsPage {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
         <header class="topbar">
-          <h2>About</h2>
+          <h2>My Listings</h2>
         </header>
-        <h3>About me</h3>
-        <p>Some info about me. Enjoy!</p>
+          <!-- Product listings -->
+       <div class="product-listing-container">
+       <div class="product-listing-image">
+           <button class="favourite-button">
+             <svg xmlns="http://www.w3.org/2000/svg" width="14.19" height="13.799" viewBox="0 0 14.19 13.799">
+             <path id="Icon_ionic-ios-heart" data-name="Icon ionic-ios-heart" d="M13.014,3.938h-.032A3.608,3.608,0,0,0,9.97,5.586,3.608,3.608,0,0,0,6.958,3.938H6.926A3.585,3.585,0,0,0,3.375,7.52a7.718,7.718,0,0,0,1.516,4.208,26.561,26.561,0,0,0,5.08,4.893,26.561,26.561,0,0,0,5.08-4.893A7.718,7.718,0,0,0,16.565,7.52,3.585,3.585,0,0,0,13.014,3.938Z" transform="translate(-2.875 -3.438)" fill="none" stroke="#13553f" stroke-width="1"/>
+             </svg>
+           </button>        
+       </div>
+       <div class="product-listing-info-container">
+           <h2>Whole grain noodles</h2>
+           <div class="my-listings-buttons">
+              <button onclick="location.href='#edit';">Edit</button>
+              <button onclick="location.href='#delete';" style="margin-left: 10px;" >Delete</button>
+
+            </div>
+       </div>
+    </div>
       </section>
     `);
     }
@@ -1405,10 +1606,38 @@ class MyPurchasesPage {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
         <header class="topbar">
-          <h2>About</h2>
+          <h2>My Purchases</h2>
         </header>
-        <h3>About me</h3>
-        <p>Some info about me. Enjoy!</p>
+        <!-- Product listings -->
+            <div class="product-listing-container">
+            <div class="product-listing-image">
+                <button class="favourite-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14.19" height="13.799" viewBox="0 0 14.19 13.799">
+                  <path id="Icon_ionic-ios-heart" data-name="Icon ionic-ios-heart" d="M13.014,3.938h-.032A3.608,3.608,0,0,0,9.97,5.586,3.608,3.608,0,0,0,6.958,3.938H6.926A3.585,3.585,0,0,0,3.375,7.52a7.718,7.718,0,0,0,1.516,4.208,26.561,26.561,0,0,0,5.08,4.893,26.561,26.561,0,0,0,5.08-4.893A7.718,7.718,0,0,0,16.565,7.52,3.585,3.585,0,0,0,13.014,3.938Z" transform="translate(-2.875 -3.438)" fill="none" stroke="#13553f" stroke-width="1"/>
+                  </svg>
+                </button>        
+            </div>
+            <div class="product-listing-info-container">
+              <h2>Whole grain noodles</h2>
+              <div style="margin-top: 25px;">
+                  <p style="font-weight:400; padding-right: 5px;">Expiration date:</p>
+                  <p>07.06.2023</p>
+              </div>
+
+              <div class="product-listing-user-info">
+                  <div>
+                    <div class="product-listing-profile-img"></div>
+                    <p>Maria N.</p>
+                  </div> 
+                  <div>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="13.195" height="19.06" viewBox="0 0 13.195 19.06">
+                      <path id="Icon_ionic-ios-pin" data-name="Icon ionic-ios-pin" d="M14.473,3.375A6.377,6.377,0,0,0,7.875,9.5c0,4.765,6.6,12.934,6.6,12.934s6.6-8.169,6.6-12.934A6.377,6.377,0,0,0,14.473,3.375Zm0,8.747a2.149,2.149,0,1,1,2.149-2.149A2.149,2.149,0,0,1,14.473,12.122Z" transform="translate(-7.875 -3.375)" fill="#13553f"/>
+                      </svg>
+                      <p>Aarhus</p> 
+                  </div>
+              </div>
+            </div>
+        </div>
       </section>
     `);
     }
@@ -1436,8 +1665,46 @@ class PublicProfilePage {
         <header class="topbar">
           <h2>About</h2>
         </header>
-        <h3>About me</h3>
-        <p>Some info about me. Enjoy!</p>
+        <div class="section-wrapper">
+          <div class="profile-img"></div>
+          <h3>Louise Christensen</h3> 
+          <div class="profile-location">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13.195" height="19.06" viewBox="0 0 13.195 19.06">
+                  <path id="Icon_ionic-ios-pin" data-name="Icon ionic-ios-pin" d="M14.473,3.375A6.377,6.377,0,0,0,7.875,9.5c0,4.765,6.6,12.934,6.6,12.934s6.6-8.169,6.6-12.934A6.377,6.377,0,0,0,14.473,3.375Zm0,8.747a2.149,2.149,0,1,1,2.149-2.149A2.149,2.149,0,0,1,14.473,12.122Z" transform="translate(-7.875 -3.375)" fill="#13553f"/>
+                  </svg>
+              <p>Aarhus</p> 
+          </div>
+          
+          <h2>My Impact Tracker</h2>
+            <div class="impact-tracker-wrapper">
+                <div class="impact-tracker">
+                  <h3>3</h3>
+                  <h4>Purchase(s)<br>made</h4>
+                </div>
+                <div class="impact-tracker">
+                  <h3>3</h3>
+                  <h4>Listing(s)<br>made</h4>
+                </div>
+            </div>
+
+            <h2>Badges</h2>
+            <div class="impact-badges-wrapper">
+                <div class="impact-badge">
+                    <div></div>
+                    <p>First listing</p>
+                </div>
+
+                <div class="impact-badge">
+                    <div></div>
+                    <p>First listing</p>
+                </div>
+
+                <div class="impact-badge">
+                    <div></div>
+                    <p>First listing</p>
+                </div>
+              </div>
+        <div>
       </section>
     `);
     }
