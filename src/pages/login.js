@@ -31,6 +31,27 @@ export default class LogInPage {
         <div class="login_signup_container">
             <h1 class="login_signup_headline">Login</h1>
             <div class="form_container">
+
+            <!-- Rasmus form -->
+            <form>
+        <input id="signup-firstname" type="text" name="firstname" placeholder="Type firstname">
+        <input id="signup-lastname" type="text" name="lastname" placeholder="Type lastname">
+        <input id="signup-age" type="number" name="age" placeholder="Type age">
+        <select id="signup-gender" name="gender">
+          <option value="" disabled selected>Choose Gender</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+
+        <input id="signup-username" type="text" placeholder="Type username" autocomplete="new-username">
+        <input id="signup-password" type="password" placeholder="Password" autocomplete="new-password">
+        <input id="signup-password-check" type="password" placeholder="Password" autocomplete="new-password">
+
+        <button type="button" id="btn-signup">Sign up</button>
+      </form>
+
+
               
             </div>
           </div>

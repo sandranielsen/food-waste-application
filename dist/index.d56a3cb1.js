@@ -466,6 +466,75 @@ var _routerJs = require("./router.js");
 var _routerJsDefault = parcelHelpers.interopDefault(_routerJs);
 _navJsDefault.default.render();
 _routerJsDefault.default.init();
+console.log("app.js is running!");
+async function login() {
+    const username = document.querySelector("#login-username").value;
+    const password = document.querySelector("#login-password").value;
+    const loginObject = {
+        username: username,
+        password: password
+    };
+    console.log(loginObject);
+    const response = await fetch("http://localhost:3000/php-login-service/?action=login", {
+        method: "POST",
+        body: JSON.stringify(loginObject)
+    });
+    const data = await response.json();
+    console.log(data);
+    if (data.authenticated) {
+        localStorage.setItem("userIsAuthenticated", true);
+        localStorage.setItem("authUser", JSON.stringify(data.userData));
+        resetMessage();
+        _routerJs.navigateTo("#/");
+    } else document.querySelector(".login-message").innerHTML = data.error;
+}
+function logout() {
+    //reset localStorage
+    localStorage.removeItem("userIsAuthenticated");
+    localStorage.removeItem("authUser");
+    //navigate to login
+    _routerJs.navigateTo("#/login");
+}
+async function signup() {
+    const firstname = document.querySelector("#signup-firstname").value;
+    const lastname = document.querySelector("#signup-lastname").value;
+    const age = document.querySelector("#signup-age").value;
+    const gender = document.querySelector("#signup-gender").value;
+    const username = document.querySelector("#signup-username").value;
+    const password = document.querySelector("#signup-password").value;
+    const passwordCheck = document.querySelector("#signup-password-check").value;
+    const user = {
+        firstname,
+        lastname,
+        age,
+        gender,
+        username,
+        password,
+        passwordCheck
+    };
+    console.log(user);
+    const response = await fetch("http://localhost:3000/php-login-service/?action=signup", {
+        method: "POST",
+        body: JSON.stringify(user)
+    });
+    const data = await response.json();
+    console.log(data);
+    if (data.signupSuccess) {
+        resetMessage();
+        _routerJs.navigateTo("#/login");
+    } else document.querySelector(".signup-message").innerHTML = data.error;
+}
+function resetMessage() {
+    document.querySelector(".signup-message").innerHTML = "";
+    document.querySelector(".login-message").innerHTML = "";
+}
+// event listeners
+document.querySelector("#btn-login").onclick = ()=>login()
+;
+document.querySelector("#btn-logout").onclick = ()=>logout()
+;
+document.querySelector("#btn-signup").onclick = ()=>signup()
+;
 
 },{"./components/nav.js":"5KBRd","./router.js":"90Bjy","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5KBRd":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -966,6 +1035,27 @@ class LogInPage {
         <div class="login_signup_container">
             <h1 class="login_signup_headline">Login</h1>
             <div class="form_container">
+
+            <!-- Rasmus form -->
+            <form>
+        <input id="signup-firstname" type="text" name="firstname" placeholder="Type firstname">
+        <input id="signup-lastname" type="text" name="lastname" placeholder="Type lastname">
+        <input id="signup-age" type="number" name="age" placeholder="Type age">
+        <select id="signup-gender" name="gender">
+          <option value="" disabled selected>Choose Gender</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+
+        <input id="signup-username" type="text" placeholder="Type username" autocomplete="new-username">
+        <input id="signup-password" type="password" placeholder="Password" autocomplete="new-password">
+        <input id="signup-password-check" type="password" placeholder="Password" autocomplete="new-password">
+
+        <button type="button" id="btn-signup">Sign up</button>
+      </form>
+
+
               
             </div>
           </div>
