@@ -25,11 +25,15 @@ export default class ProductPage {
           <div class="product">
             <div class="listing_info">
               <div class="info_item">
-                <img src="../img/image.jpg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13.195" height="19.06" viewBox="0 0 13.195 19.06">
+                  <path id="Icon_ionic-ios-pin" data-name="Icon ionic-ios-pin" d="M14.473,3.375A6.377,6.377,0,0,0,7.875,9.5c0,4.765,6.6,12.934,6.6,12.934s6.6-8.169,6.6-12.934A6.377,6.377,0,0,0,14.473,3.375Zm0,8.747a2.149,2.149,0,1,1,2.149-2.149A2.149,2.149,0,0,1,14.473,12.122Z" transform="translate(-7.875 -3.375)" fill="#13553f"/>
+                </svg>
                 <p class="listing_location">Trige</p>
               </div>
               <div class="info_item">
-                <img src="../img/image.jpg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19.06" height="19.06" viewBox="0 0 19.06 19.06">
+                <path id="Icon_ionic-ios-time" data-name="Icon ionic-ios-time" d="M12.9,3.375a9.53,9.53,0,1,0,9.53,9.53A9.529,9.529,0,0,0,12.9,3.375Zm.641,10.355a.643.643,0,0,1-.641.641h-4.4a.641.641,0,0,1,0-1.283h3.757V7.04a.641.641,0,0,1,1.283,0Z" transform="translate(-3.375 -3.375)" fill="#13553f"/>
+                </svg>
                 <p class="listing_date">24.04.2021</p>
               </div>  
             </div>
@@ -43,7 +47,7 @@ export default class ProductPage {
               <p class="product_expiration">Expiration date: 01.06.2021</p>
             </div>
             <div class="seller_info">
-              <img src="../img/image.jpg" class="seller_img">
+              <div class="product-listing-profile-img"></div>
               <p class="seller_name">Luisa Christensen</p>
             </div>
             <div class="btns_container">

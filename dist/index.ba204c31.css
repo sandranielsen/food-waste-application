@@ -21,6 +21,14 @@
     padding-right: 100px;
 }
 
+.listing_location {
+    padding-left: 10px;
+}
+
+.listing_date {
+    padding-left: 10px;
+}
+
 .product_title {
     margin-bottom: 10px;
 }
@@ -34,6 +42,10 @@
     padding-top: 20px;
     display: flex;
     align-items: center;
+}
+
+.seller_name {
+    padding-left: 10px;
 }
 
 .btns_container {

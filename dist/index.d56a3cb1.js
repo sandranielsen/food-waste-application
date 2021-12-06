@@ -1138,11 +1138,15 @@ class ProductPage {
           <div class="product">
             <div class="listing_info">
               <div class="info_item">
-                <img src="../img/image.jpg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13.195" height="19.06" viewBox="0 0 13.195 19.06">
+                  <path id="Icon_ionic-ios-pin" data-name="Icon ionic-ios-pin" d="M14.473,3.375A6.377,6.377,0,0,0,7.875,9.5c0,4.765,6.6,12.934,6.6,12.934s6.6-8.169,6.6-12.934A6.377,6.377,0,0,0,14.473,3.375Zm0,8.747a2.149,2.149,0,1,1,2.149-2.149A2.149,2.149,0,0,1,14.473,12.122Z" transform="translate(-7.875 -3.375)" fill="#13553f"/>
+                </svg>
                 <p class="listing_location">Trige</p>
               </div>
               <div class="info_item">
-                <img src="../img/image.jpg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19.06" height="19.06" viewBox="0 0 19.06 19.06">
+                <path id="Icon_ionic-ios-time" data-name="Icon ionic-ios-time" d="M12.9,3.375a9.53,9.53,0,1,0,9.53,9.53A9.529,9.529,0,0,0,12.9,3.375Zm.641,10.355a.643.643,0,0,1-.641.641h-4.4a.641.641,0,0,1,0-1.283h3.757V7.04a.641.641,0,0,1,1.283,0Z" transform="translate(-3.375 -3.375)" fill="#13553f"/>
+                </svg>
                 <p class="listing_date">24.04.2021</p>
               </div>  
             </div>
@@ -1156,7 +1160,7 @@ class ProductPage {
               <p class="product_expiration">Expiration date: 01.06.2021</p>
             </div>
             <div class="seller_info">
-              <img src="../img/image.jpg" class="seller_img">
+              <div class="product-listing-profile-img"></div>
               <p class="seller_name">Luisa Christensen</p>
             </div>
             <div class="btns_container">
@@ -1200,8 +1204,8 @@ class ChatPage {
         <section class="chat_container">
           <div class="search_container"></div>
           <div class="chat_content">
-            <img src="../img/image.jpg">
-            <h3 class="chat_name">Luisa<h3>
+            <div class="product-listing-profile-img"></div>
+            <p class="seller_name">Luisa Christensen</p>
             <p class="chat_preview"><p>
             
           </div>
@@ -1260,7 +1264,7 @@ class AddListingPage {
             <div class="upload_container">
               <img name="imagePreview" class="image_preview">
               <input type="file" name="listingImage" accept="image/*" id="image-upload" hidden>
-              <label for="image-upload" class="image_upload"><svg xmlns="http://www.w3.org/2000/svg" width="29.012" height="25.385" viewBox="0 0 29.012 25.385">
+              <label for="image-upload" class="image_upload"><svg xmlns="http://www.w3.org/2000/svg" width="25.012" height="23.385" viewBox="0 0 29.012 25.385">
               <path id="Icon_awesome-camera" data-name="Icon awesome-camera" d="M29.012,8.6V24.915a2.721,2.721,0,0,1-2.72,2.72H2.72A2.721,2.721,0,0,1,0,24.915V8.6a2.721,2.721,0,0,1,2.72-2.72H7.706l.7-1.864A2.716,2.716,0,0,1,10.947,2.25h7.111A2.716,2.716,0,0,1,20.6,4.012l.7,1.864h4.986A2.721,2.721,0,0,1,29.012,8.6Zm-7.706,8.16a6.8,6.8,0,1,0-6.8,6.8A6.805,6.805,0,0,0,21.305,16.756Zm-1.813,0a4.986,4.986,0,1,1-4.986-4.986A4.994,4.994,0,0,1,19.492,16.756Z" transform="translate(0 -2.25)" fill="#2c2c2c"/>
               </svg>Add Image</label>
             </div>
@@ -1276,7 +1280,7 @@ class AddListingPage {
               <label class="add_label">Location<label><br>
               <input type="text" name="location" class="add_form"><br>
           </div>
-            <button type="button" class="btn_alt">Add listing</button>
+            <button type="button" onclick="location.href='/home'" class="btn_alt">Add listing</button>
           </form>
         </section>
       </section>

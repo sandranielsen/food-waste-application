@@ -43,7 +43,7 @@ export default class AddListingPage {
             <div class="upload_container">
               <img name="imagePreview" class="image_preview">
               <input type="file" name="listingImage" accept="image/*" id="image-upload" hidden>
-              <label for="image-upload" class="image_upload"><svg xmlns="http://www.w3.org/2000/svg" width="29.012" height="25.385" viewBox="0 0 29.012 25.385">
+              <label for="image-upload" class="image_upload"><svg xmlns="http://www.w3.org/2000/svg" width="25.012" height="23.385" viewBox="0 0 29.012 25.385">
               <path id="Icon_awesome-camera" data-name="Icon awesome-camera" d="M29.012,8.6V24.915a2.721,2.721,0,0,1-2.72,2.72H2.72A2.721,2.721,0,0,1,0,24.915V8.6a2.721,2.721,0,0,1,2.72-2.72H7.706l.7-1.864A2.716,2.716,0,0,1,10.947,2.25h7.111A2.716,2.716,0,0,1,20.6,4.012l.7,1.864h4.986A2.721,2.721,0,0,1,29.012,8.6Zm-7.706,8.16a6.8,6.8,0,1,0-6.8,6.8A6.805,6.805,0,0,0,21.305,16.756Zm-1.813,0a4.986,4.986,0,1,1-4.986-4.986A4.994,4.994,0,0,1,19.492,16.756Z" transform="translate(0 -2.25)" fill="#2c2c2c"/>
               </svg>Add Image</label>
             </div>
@@ -59,7 +59,7 @@ export default class AddListingPage {
               <label class="add_label">Location<label><br>
               <input type="text" name="location" class="add_form"><br>
           </div>
-            <button type="button" class="btn_alt">Add listing</button>
+            <button type="button" onclick="location.href='/home'" class="btn_alt">Add listing</button>
           </form>
         </section>
       </section>

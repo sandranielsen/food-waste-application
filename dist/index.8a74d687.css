@@ -1,72 +1,64 @@
-.add_container {
-      padding: 100px 20px;
-}
-
 .image_preview {
     padding: 60px 0 20px;
 }
-
 /* Source: https://kovart.github.io/dashed-border-generator/ */
-
 .image_upload {
-    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='6' ry='6' stroke='%23DDDDDDFF' stroke-width='3' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
-    border-radius: 6px;
-    padding: 20px;
-    height: 60px;
-    width: 60px;
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='9' ry='9' stroke='%232C2C2CFF' stroke-width='2' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+    border-radius: 8px;
+    padding: 10px;
+    height: 80px;
+    width: 80px;
     font-family: Roboto;
     font-weight: 300;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
 /* Removing the file upload text field */
-
 input[type=file]{ 
         color:transparent;
 }
-
 input#file-upload-button {
     padding: 0;
     border: none;
     background: none;
 }
-
 .upload_container {
     padding: 20px;
     display: flex;
     border: 1px solid var(--light-grey);
     border-radius: 5px;
 }
-
 .form_container {
     padding-top: 20px;
 }
-
 .add_label {
     font-family: Bebas Neue;
     font-size: 1.8rem;
 }
-
 .add_form {
     margin: 8px 0 20px;
+    padding: 0 10px;
     width: 100%;
     height: 30px;
     border: 1px solid var(--light-grey);
+    border-radius: 5px;
 }
-
 .add_form_extended {
     margin: 8px 0 20px;
     padding-top: 10px;
+    padding-right: 10px;
     width: 100%;
-    height: 100px;
+    height: 120px;
     border: 1px solid var(--light-grey);
 }
-
 input[type="text"]::placeholder {
     text-align: right;
     font-family: Roboto;
-    color: var(--light-grey)
+    color: var(--light-grey);
+    padding-right: 10px;
 }
-
 textarea::placeholder {
     text-align: right;
     transform: translateY(80px);

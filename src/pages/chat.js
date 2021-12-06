@@ -23,8 +23,8 @@ export default class ChatPage {
         <section class="chat_container">
           <div class="search_container"></div>
           <div class="chat_content">
-            <img src="../img/image.jpg">
-            <h3 class="chat_name">Luisa<h3>
+            <div class="product-listing-profile-img"></div>
+            <p class="seller_name">Luisa Christensen</p>
             <p class="chat_preview"><p>
             
           </div>
