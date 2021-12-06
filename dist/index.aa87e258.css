@@ -1,0 +1,97 @@
+/* home version */
+.product-listing-container {
+    display: flex;
+    flex-direction: row;
+    height: 130px;
+    width: 100%;
+    border-radius: 6px;
+    box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.17);
+    margin-bottom: 30px;
+
+}
+.product-listing-image {
+    background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/apples-at-farmers-market-royalty-free-image-1627321463.jpg?crop=0.796xw:1.00xh;0.103xw,0&resize=640:*');
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover;
+    width: 130px;
+    border-radius: 6px 0 0 6px;
+
+    /* fav btn */
+    display: flex;
+    padding: 10px;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.product-listing-container h2 {
+  font-size: 25px; 
+  font-family: Bebas Neue;
+  font-weight: 400;
+  margin: 0;
+
+}
+.product-listing-container p {
+    font-size: 14px; 
+    font-family: Roboto;
+    font-weight: 300;
+    margin: 0;
+  
+  }
+.product-listing-info-container {
+    padding: 10px;
+    width: 100%;
+}
+.product-listing-info-container div {
+    display: flex;
+    flex-direction: row;
+}
+.product-listing-user-info {
+    margin-top: 5px;
+    width: 100%;
+    justify-content: space-between;
+}
+.product-listing-user-info div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.product-listing-profile-img {
+    background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/apples-at-farmers-market-royalty-free-image-1627321463.jpg?crop=0.796xw:1.00xh;0.103xw,0&resize=640:*');
+    position: center;
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+
+}
+.product-listing-user-info div p {
+   margin-left: 5px; 
+
+}
+/* my listings version */
+.my-listings-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+
+}
+.my-listings-buttons button {
+    width: 100%; 
+  border-radius: 5px;
+  background: #13553F; 
+  font-size: 15px;
+  font-family: Bebas Neue;
+  color: var(--text-color-white); 
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+
+
+
+/*# sourceMappingURL=index.aa87e258.css.map */

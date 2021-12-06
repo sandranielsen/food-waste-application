@@ -25,11 +25,11 @@ export default class ProfilePage {
               <p>Aarhus</p> 
           </div>
           <div class="profile-buttons">
-                  <button onclick="location.href='#account';">Account</button>
-                  <button onclick="location.href='#listings';">My Listings</button>
-                  <button onclick="location.href='#purchases';">My Purchases</button>
-                  <button onclick="location.href='#impact';">My Impact</button>
-                  <button style="margin-top: 25px;"  onclick="location.href='/start'">Log Out</button>
+                  <button onclick="location.href='/account';">Account</button>
+                  <button onclick="location.href='/listings';">My Listings</button>
+                  <button onclick="location.href='/purchases';">My Purchases</button>
+                  <button onclick="location.href='/impact';">My Impact</button>
+                  <button style="margin-top: 25px;"  onclick="location.href='/start';">Log Out</button>
           </div>
         <div>
       </section>

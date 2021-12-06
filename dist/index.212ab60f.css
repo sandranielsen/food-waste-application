@@ -2,8 +2,7 @@
   -moz-box-sizing: border-box; 
   -webkit-box-sizing: border-box; 
    box-sizing: border-box; 
-   padding: 0;
-   margin: 0;
+   padding: 0; 
 }
 
 /* Root variables */
@@ -142,7 +141,8 @@ a {
   /*min heigh is screen heigh minus height of tab and top bar */
   min-height: calc(100vh - 110px);
   background: var(--white);
-  animation: fadeIn 0.4s;
+  animation: fadeIn 0.4s; 
+  padding: 100px 20px;
 }
 
 #start, #login, #signup {
@@ -222,7 +222,6 @@ a {
 .search-container {
   display: flex;
   flex-direction: row;
-  height: 30px;
   width: 100%;
   border-radius: 6px;
   border: 1px solid #13553F;
@@ -257,11 +256,10 @@ a {
   width: 100%;  
   justify-content: center;
   align-items: center; 
-  display: flex;
-
-
-
+  display: flex; 
 }
+
+
 
 
 /*# sourceMappingURL=index.212ab60f.css.map */
