@@ -1,3 +1,11 @@
+* { 
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+   box-sizing: border-box; 
+   padding: 0;
+   margin: 0;
+}
+
 /* Root variables */
 :root {
   --green: #13553f;
@@ -123,12 +131,19 @@ a {
 
 /* Page styling */
 .page {
-  display: none;
+  display: flex;
   /*min heigh is screen heigh minus height of tab and top bar */
   min-height: calc(100vh - 110px);
   background: var(--white);
   animation: fadeIn 0.4s;
+  margin-top: 70px;
+  padding: 20px 20px 100px 20px; 
   /* padding equals height of tabbar and topbar */
+}
+
+#start, #login, #signup {
+  padding: 0 !important;
+
 }
 
 .overlay {
@@ -175,4 +190,74 @@ a {
   margin: 10px 0;
   padding: 10px;
 }
+
+
+
+/* Favourite button */
+.favourite-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  border: none; 
+}
+
+
+/* Filter and search styling */
+.search-and-filter-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 30px;
+
+
+}
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+  height: 30px;
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #13553F;
+  padding: 10px;
+  align-items: center;
+
+}
+
+.search-container input {
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding-left: 10px;
+  font-size: 14px; 
+  font-family: Roboto;
+  font-weight: 300;
+
+}
+
+.filter-button {
+  border: none;
+  background-color: #13553F;
+  height: 50px;
+  width: 50px;
+  border-radius: 6px;
+  margin-left: 20px; 
+}
+
+.filter-button div {  
+  height: 100%;
+  width: 100%;  
+  justify-content: center;
+  align-items: center; 
+  display: flex;
+
+
+
+}
+
+
 /*# sourceMappingURL=index.212ab60f.css.map */
