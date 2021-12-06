@@ -59,7 +59,36 @@ export default class AddListingPage {
               <label class="add_label">Location<label><br>
               <input type="text" name="location" class="add_form"><br>
           </div>
-            <button type="button" onclick="location.href='/home'" class="btn_alt">Add listing</button>
+          <label class="add_label">Category</label><br>
+              <div class="category_container">
+                <input type="checkbox" class="checkbox" id="vegetables" name="category" value="vegetables">
+                <label for="vegetables" class="checkbox_label">Vegetables</label>
+
+                <input type="checkbox" class="checkbox" id="fruit" name="category" value="fruit">
+                <label for="fruit" class="checkbox_label">Fruit</label>
+
+                <input type="checkbox" class="checkbox" id="dry-goods" name="category" value="dry-goods">
+                <label for="dry-goods" class="checkbox_label">Dry goods</label>
+
+                <input type="checkbox" class="checkbox" id="baked-goods" name="category" value="baked-goods">
+                <label for="baked-goods" class="checkbox_label">Baked goods</label>
+
+                <input type="checkbox" class="checkbox" id="meat" name="category" value="meat">
+                <label for="meat"class="checkbox_label">Meat</label>
+
+                <input type="checkbox" class="checkbox" id="fish" name="category" value="fish">
+                <label for="fish" class="checkbox_label">Fish</label>
+
+                <input type="checkbox" class="checkbox" id="dairy" name="category" value="dairy">
+                <label for="dairy" class="checkbox_label">Dairy</label>
+                
+                <input type="checkbox" class="checkbox" id="meals" name="category" value="meals">
+                <label for="meals" class="checkbox_label">Meals</label>
+              </div>
+
+          </div>
+          <input type="submit" value="Add Listing" onclick="location.href='/home'" class="btn_alt">  
+
           </form>
         </section>
       </section>

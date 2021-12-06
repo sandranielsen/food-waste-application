@@ -4,6 +4,7 @@ import service from "../service.js";
 export default class SignUpPage {
   constructor(id) {
     this.id = id;
+    this.signupImg = require("../img/signup.jpg");
     this.render();
   }
 
@@ -19,7 +20,7 @@ export default class SignUpPage {
         </header>
         <div class="login_signup_container">
           <div class="login_signup_img">
-            <img src="./media/signup.jpg" alt="Food" class="login_signup_bg">
+            <img src="${this.signupImg} alt="Food" class="login_signup_bg">
             <div class="half-overlay"></div>
             <div class="login_signup_content">
               <h2 class="login_signup_text">Share food with your community and fight against food waste<h2>
