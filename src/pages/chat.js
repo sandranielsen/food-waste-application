@@ -18,9 +18,15 @@ export default class ChatPage {
           </div>
           <h2>Chat</h2>
         </header>
-        <div class="search_container"></div>
-        <div class="chat_container"></div>
-        
+        <section class="chat_container">
+          <div class="search_container"></div>
+          <div class="chat_content">
+            <img src="../img/image.jpg">
+            <h3 class="chat_name">Luisa<h3>
+            <p class="chat_preview"><p>
+            
+          </div>
+        </section>
       </section>
     `
     );

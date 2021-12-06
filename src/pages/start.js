@@ -1,5 +1,6 @@
 import router from "../router.js";
 import service from "../service.js";
+import image from "../img/start-bg.jpg";
 
 export default class StartPage {
   constructor(id) {
@@ -14,7 +15,7 @@ export default class StartPage {
       <section id="${this.id}" class="page">
       <div class="start_container">
         <!--<img src="../img/start-bg.jpg" alt="Food" class="start-bg">-->
-        <img src="https://images.squarespace-cdn.com/content/v1/5a009727268b9669e15efaef/1588107013662-EXYB18D83V962RKLDZGB/food+share.jpg?format=2500w" alt="Food" class="start-bg">
+        <img src="../img/start-bg.jpg" alt="Food" class="start-bg">
         <div class="overlay"></div>
 
         <div class="start_content">

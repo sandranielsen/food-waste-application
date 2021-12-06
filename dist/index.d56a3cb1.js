@@ -687,6 +687,8 @@ var _routerJs = require("../router.js");
 var _routerJsDefault = parcelHelpers.interopDefault(_routerJs);
 var _serviceJs = require("../service.js");
 var _serviceJsDefault = parcelHelpers.interopDefault(_serviceJs);
+var _startBgJpg = require("../img/start-bg.jpg");
+var _startBgJpgDefault = parcelHelpers.interopDefault(_startBgJpg);
 class StartPage {
     constructor(id){
         this.id = id;
@@ -697,7 +699,7 @@ class StartPage {
       <section id="${this.id}" class="page">
       <div class="start_container">
         <!--<img src="../img/start-bg.jpg" alt="Food" class="start-bg">-->
-        <img src="https://images.squarespace-cdn.com/content/v1/5a009727268b9669e15efaef/1588107013662-EXYB18D83V962RKLDZGB/food+share.jpg?format=2500w" alt="Food" class="start-bg">
+        <img src="../img/start-bg.jpg" alt="Food" class="start-bg">
         <div class="overlay"></div>
 
         <div class="start_content">
@@ -721,7 +723,7 @@ class StartPage {
 }
 exports.default = StartPage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"03GcU":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","../img/start-bg.jpg":"2aZtz"}],"03GcU":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 class Service {
@@ -815,7 +817,45 @@ class Service {
 const service = new Service();
 exports.default = service;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5pzUn":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"2aZtz":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "start-bg.ede87d99.jpg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"chiK4"}],"chiK4":[function(require,module,exports) {
+"use strict";
+var bundleURL = {
+};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ('' + err.stack).match(/(https?|file|ftp):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return '/';
+}
+function getBaseURL(url) {
+    return ('' + url).replace(/^((?:https?|file|ftp):\/\/.+)\/[^/]+$/, '$1') + '/';
+} // TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ('' + url).match(/(https?|file|ftp):\/\/[^/]+/);
+    if (!matches) throw new Error('Origin not found');
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}],"5pzUn":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _routerJs = require("../router.js");
@@ -1071,9 +1111,15 @@ class ChatPage {
           </div>
           <h2>Chat</h2>
         </header>
-        <div class="search_container"></div>
-        <div class="chat_container"></div>
-        
+        <section class="chat_container">
+          <div class="search_container"></div>
+          <div class="chat_content">
+            <img src="../img/image.jpg">
+            <h3 class="chat_name">Luisa<h3>
+            <p class="chat_preview"><p>
+            
+          </div>
+        </section>
       </section>
     `);
     }
