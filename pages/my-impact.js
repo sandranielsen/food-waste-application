@@ -25,8 +25,46 @@ export default class MyImpactPage {
             <h2>Badges</h2>
             <div class="impact-badges-wrapper">
                 <div class="impact-badge">
-                    
-                
+                    <div></div>
+                    <p>First listing</p>
+                </div>
+
+                <div class="impact-badge">
+                    <div></div>
+                    <p>First listing</p>
+                </div>
+
+                <div class="impact-badge">
+                    <div></div>
+                    <p>First listing</p>
+                </div>
+                <div class="impact-badge">
+                    <div></div>
+                    <p>First listing</p>
+                </div>
+
+                <div class="impact-badge">
+                    <div></div>
+                    <p>First listing</p>
+                </div>
+
+                <div class="impact-badge">
+                    <div></div>
+                    <p>First listing</p>
+                </div>
+                <div class="impact-badge">
+                    <div></div>
+                    <p>First listing</p>
+                </div>
+
+                <div class="impact-badge">
+                    <div></div>
+                    <p>First listing</p>
+                </div>
+
+                <div class="impact-badge">
+                    <div></div>
+                    <p>First listing</p>
                 </div>
             </div>
       </section>

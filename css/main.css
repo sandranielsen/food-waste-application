@@ -1,3 +1,11 @@
+* { 
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+   box-sizing: border-box; 
+   padding: 0;
+   margin: 0;
+}
+
 /* Root variables */
 :root {
   --green: #13553f;
@@ -133,7 +141,7 @@ a {
   background: var(--white);
   animation: fadeIn 0.4s;
   margin-top: 70px;
-  padding: 20px; 
+  padding: 20px 20px 100px 20px; 
   /* padding equals height of tabbar and topbar */
 }
 
