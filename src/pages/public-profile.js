@@ -4,6 +4,7 @@ import service from "../service.js";
 export default class PublicProfilePage {
   constructor(id) {
     this.id = id;
+    this.backImg = require("../img/back.svg");
     this.render();
   }
 
@@ -12,8 +13,12 @@ export default class PublicProfilePage {
       "beforeend",
       /*html*/ `
       <section id="${this.id}" class="page">
+        <!--- Topbar container --->
         <header class="topbar">
-          <h2>About</h2>
+          <div class="topbar_img>">
+            <a href="/home"><img src="${this.backImg}"></a>
+          </div>
+          <h2>Profile</h2>
         </header>
         <div class="section-wrapper">
           <div class="profile-img"></div>

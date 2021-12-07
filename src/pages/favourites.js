@@ -4,6 +4,7 @@ import service from "../service.js";
 export default class FavouritesPage {
   constructor(id) {
     this.id = id;
+    this.backImg = require("../img/back.svg");
     this.render();
   }
 
@@ -12,7 +13,11 @@ export default class FavouritesPage {
       "beforeend",
       /*html*/ `
       <section id="${this.id}" class="page">
+        <!--- Topbar container --->
         <header class="topbar">
+          <div class="topbar_img>">
+            <a href="/home"><img src="${this.backImg}"></a>
+          </div>
           <h2>Favourites</h2>
         </header>
          <!-- Product listings -->

@@ -13,6 +13,7 @@ export default class HomePage {
       "beforeend",
       /*html*/ `
       <section id="${this.id}" class="page">
+        <!--- Topbar container --->
         <header class="topbar">
           <h2>Home</h2>
         </header>
@@ -25,7 +26,7 @@ export default class HomePage {
 
                   <input type="text" id="search">
               </div>
-              <button class="filter-button">
+              <button onclick="location.href='/filter'" class="filter-button">
                   <div>
                       <svg xmlns="http://www.w3.org/2000/svg" width="19.06" height="18.057" viewBox="0 0 19.06 18.057">
                       <path id="Icon_material-sort" data-name="Icon material-sort" d="M4.5,27.057h6.353V24.047H4.5ZM4.5,9v3.009H23.56V9Zm0,10.533H17.207V16.524H4.5Z" transform="translate(-4.5 -9)" fill="#fff"/>

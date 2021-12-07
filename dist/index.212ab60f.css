@@ -37,6 +37,7 @@ h1 {
 h2 {
   font-family: Bebas Neue;
   font-size: 2em;
+  margin: 0;
 }
 
 h3 {
@@ -54,7 +55,7 @@ a {
 }
 
 
-/* Topbar styling */
+/***** Topbar styling *****/
 .topbar {
   background-color: var(--white);
   color: var(--text-color-light);
@@ -78,7 +79,7 @@ a {
 }
 
 
-/* Navigation styling */
+/***** Navigation styling *****/
 .tabbar {
   background-color: transparent;
   position: fixed;
@@ -88,6 +89,12 @@ a {
   z-index: 10;
   height: 110px;
   display: flex;
+}
+
+.tabbar_img {
+  width: 420px;
+  height: 125px;
+  transform: translate(-5%, 2%);
 }
 
 .nav_left {
@@ -126,7 +133,7 @@ a {
   position: absolute;
   bottom: 30%;
   left: 144%;
-  transform: translate(-50%, 160%);
+  transform: translate(-50%, 165%);
   z-index: 10;
 }
 
@@ -135,7 +142,7 @@ a {
   margin: 20px 20px;
 }
 
-/* Page styling */
+/***** Page styling *****/
 .page {
   display: flex;
   /*min heigh is screen heigh minus height of tab and top bar */
@@ -145,12 +152,13 @@ a {
   padding: 100px 20px;
 }
 
-/***** Removes padding on the following pages *****/
+/* Removes padding on the following pages */
 #start, #login, #signup, #product {
   padding: 0 !important;
 
 }
 
+/***** Image overlays *****/
 .overlay {
   position: relative;
   width: 100%;
@@ -171,7 +179,7 @@ a {
   z-index: 13;
 }
 
-/* Button styling */
+/***** Buttons *****/
 .btn {
   width: 300px;
   border: 1.5px solid var(--white);
@@ -208,7 +216,7 @@ a {
   border: none; 
 }
 
-/* Filter and search styling */
+/***** Filter and search styling *****/
 .search-and-filter-container {
   display: flex;
   flex-direction: row;

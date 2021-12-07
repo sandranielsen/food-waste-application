@@ -532,48 +532,30 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 class Nav {
     constructor(){
+        this.navImg = require("../img/nav.svg");
+        this.homeImg = require("../img/home.svg");
+        this.chatImg = require("../img/chat.svg");
+        this.addImg = require("../img/add.svg");
+        this.favouritesImg = require("../img/favourites_filled.svg");
+        this.profileImg = require("../img/profile.svg");
     }
     render() {
         document.querySelector("#root").insertAdjacentHTML("afterbegin", /*jsx*/ `
       <nav class="tabbar">
-      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="380" height="125" viewBox="0 0 380 125">
-      <defs>
-      <filter id="Union_1" x="0" y="0" width="380" height="125" filterUnits="userSpaceOnUse">
-      <feOffset dy="-1" input="SourceAlpha"/>
-      <feGaussianBlur stdDeviation="5" result="blur"/>
-      <feFlood flood-opacity="0.11"/>
-      <feComposite operator="in" in2="blur"/>
-      <feComposite in="SourceGraphic"/>
-      </filter>
-      </defs>
-      <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Union_1)">
-      <path id="Union_1-2" data-name="Union 1" d="M1992,95V22h175.531a45.514,45.514,0,0,1,77.938,0H2420V95Z" transform="translate(-2015 16)" fill="#fff"/>
-      </g>
-      </svg>
-
-  
-
+      <img src="${this.navImg}" class="tabbar_img">
 
         <div class="nav_left">
-          <a href="/home" class="nav_item"><svg xmlns="http://www.w3.org/2000/svg" class="nav_img" width="27.922" height="25.774" viewBox="0 0 27.922 25.774">
-          <path id="Icon_ionic-md-home" data-name="Icon ionic-md-home" d="M14.114,30.274V21.683h6.444v8.591h6.551V17.387H31.3L17.336,4.5,3.375,17.387H7.563V30.274Z" transform="translate(-3.375 -4.5)" fill="#13553f"/>
-          </svg></a>
-          <a href="/chat" class="nav_item"><svg xmlns="http://www.w3.org/2000/svg" class="nav_img" width="25.774" height="25.774" viewBox="0 0 25.774 25.774">
-          <path id="Icon_material-message" data-name="Icon material-message" d="M26.2,3H5.577A2.574,2.574,0,0,0,3.013,5.577L3,28.774,8.155,23.62H26.2a2.585,2.585,0,0,0,2.577-2.577V5.577A2.585,2.585,0,0,0,26.2,3ZM23.62,18.465H8.155V15.887H23.62Zm0-3.866H8.155V12.021H23.62Zm0-3.866H8.155V8.155H23.62Z" transform="translate(-3 -3)" fill="#13553f"/>
-          </svg></a>
+          <a href="/home" class="nav_item"><img src="${this.homeImg}" class="nav_img"></a>
+          <a href="/chat" class="nav_item"><img src="${this.chatImg}" class="nav_img"></a>
         </div>
+
         <div class="nav_middle">
-          <a href="/add" class="nav_item_raised"><svg xmlns="http://www.w3.org/2000/svg" class="nav_img_raised" width="28.401" height="28.401" viewBox="0 0 28.401 28.401">
-          <path id="Icon_awesome-plus" data-name="Icon awesome-plus" d="M26.372,13.407H17.243V4.279A2.029,2.029,0,0,0,15.215,2.25H13.186a2.029,2.029,0,0,0-2.029,2.029v9.129H2.029A2.029,2.029,0,0,0,0,15.436v2.029a2.029,2.029,0,0,0,2.029,2.029h9.129v9.129a2.029,2.029,0,0,0,2.029,2.029h2.029a2.029,2.029,0,0,0,2.029-2.029V19.493h9.129A2.029,2.029,0,0,0,28.4,17.465V15.436A2.029,2.029,0,0,0,26.372,13.407Z" transform="translate(0 -2.25)" fill="#13553f"/>
-          </svg></a>
+          <a href="/add" class="nav_item_raised"><img src="${this.addImg}" class="nav_img_raised"></a>
         </div>
+
         <div class="nav_right">
-          <a href="/favourites" class="nav_item"><svg xmlns="http://www.w3.org/2000/svg" class="nav_img" width="27.26" height="26.212" viewBox="0 0 27.26 26.212">
-          <path id="Icon_ionic-ios-heart" data-name="Icon ionic-ios-heart" d="M23.3,3.938h-.066a7.456,7.456,0,0,0-6.225,3.408A7.456,7.456,0,0,0,10.78,3.938h-.066a7.409,7.409,0,0,0-7.339,7.4,15.951,15.951,0,0,0,3.132,8.7c3.945,5.393,10.5,10.111,10.5,10.111s6.553-4.718,10.5-10.111a15.951,15.951,0,0,0,3.132-8.7A7.409,7.409,0,0,0,23.3,3.938Z" transform="translate(-3.375 -3.938)" fill="#13553f"/>
-          </svg></a>
-          <a href="/profile" class="nav_item"><svg xmlns="http://www.w3.org/2000/svg" class="nav_img" width="26.212" height="26.212" viewBox="0 0 26.212 26.212">
-          <path id="Icon_awesome-user-alt" data-name="Icon awesome-user-alt" d="M13.106,14.744A7.372,7.372,0,1,0,5.734,7.372,7.374,7.374,0,0,0,13.106,14.744Zm6.553,1.638H16.838a8.912,8.912,0,0,1-7.464,0H6.553A6.552,6.552,0,0,0,0,22.935v.819a2.458,2.458,0,0,0,2.457,2.457h21.3a2.458,2.458,0,0,0,2.457-2.457v-.819A6.552,6.552,0,0,0,19.659,16.382Z" fill="#13553f"/>
-          </svg></a>
+          <a href="/favourites" class="nav_item"><img src="${this.favouritesImg}" class="nav_img"></a>
+          <a href="/profile" class="nav_item"><img src="${this.profileImg}" class="nav_img"></a>
         </div>
       </nav>
     `);
@@ -582,7 +564,60 @@ class Nav {
 const nav = new Nav();
 exports.default = nav;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"ciiiV":[function(require,module,exports) {
+},{"../img/nav.svg":"iEMGg","../img/home.svg":"bGk6w","../img/chat.svg":"lKveA","../img/add.svg":"2nZV2","../img/favourites_filled.svg":"5xxat","../img/profile.svg":"aXNa7","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"iEMGg":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "nav.848d6efd.svg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"chiK4"}],"chiK4":[function(require,module,exports) {
+"use strict";
+var bundleURL = {
+};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ('' + err.stack).match(/(https?|file|ftp):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return '/';
+}
+function getBaseURL(url) {
+    return ('' + url).replace(/^((?:https?|file|ftp):\/\/.+)\/[^/]+$/, '$1') + '/';
+} // TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ('' + url).match(/(https?|file|ftp):\/\/[^/]+/);
+    if (!matches) throw new Error('Origin not found');
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}],"bGk6w":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "home.fd4c3866.svg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"chiK4"}],"lKveA":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "chat.72883f02.svg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"chiK4"}],"2nZV2":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "add.68cc8f42.svg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"chiK4"}],"5xxat":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "favourites_filled.c610c78f.svg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"chiK4"}],"aXNa7":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "profile.904df317.svg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"chiK4"}],"ciiiV":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -775,8 +810,6 @@ var _routerJs = require("../router.js");
 var _routerJsDefault = parcelHelpers.interopDefault(_routerJs);
 var _serviceJs = require("../service.js");
 var _serviceJsDefault = parcelHelpers.interopDefault(_serviceJs);
-var _startBgJpg = require("../img/start-bg.jpg");
-var _startBgJpgDefault = parcelHelpers.interopDefault(_startBgJpg);
 class StartPage {
     constructor(id){
         this.id = id;
@@ -786,17 +819,19 @@ class StartPage {
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
+        <!--- Banner container --->
       <div class="start_container">
         <img src="${this.bgImg}" alt="Food" class="start-bg">
         <div class="overlay"></div>
-
+        <!--- Content container --->
         <div class="start_content">
           <h1 class="start_text">Reduce your waste</h1>
           <h1 class="start_text">Share your food</h1>
-            <div class="btn_container">
-              <button class="btn" onclick="location.href='/login'">Login</button>
-              <button class="btn" onclick="location.href='/signup'">Sign up</button>
-            </div>
+          <!--- Button container --->
+          <div class="btn_container">
+            <button class="btn" onclick="location.href='/login'">Login</button>
+            <button class="btn" onclick="location.href='/signup'">Sign up</button>
+          </div>
         </div>
 
       </div>
@@ -925,42 +960,7 @@ exports.default = service;
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"2aZtz":[function(require,module,exports) {
 module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "start-bg.ede87d99.jpg" + "?" + Date.now();
 
-},{"./helpers/bundle-url":"chiK4"}],"chiK4":[function(require,module,exports) {
-"use strict";
-var bundleURL = {
-};
-function getBundleURLCached(id) {
-    var value = bundleURL[id];
-    if (!value) {
-        value = getBundleURL();
-        bundleURL[id] = value;
-    }
-    return value;
-}
-function getBundleURL() {
-    try {
-        throw new Error();
-    } catch (err) {
-        var matches = ('' + err.stack).match(/(https?|file|ftp):\/\/[^)\n]+/g);
-        if (matches) // The first two stack frames will be this function and getBundleURLCached.
-        // Use the 3rd one, which will be a runtime in the original bundle.
-        return getBaseURL(matches[2]);
-    }
-    return '/';
-}
-function getBaseURL(url) {
-    return ('' + url).replace(/^((?:https?|file|ftp):\/\/.+)\/[^/]+$/, '$1') + '/';
-} // TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
-function getOrigin(url) {
-    var matches = ('' + url).match(/(https?|file|ftp):\/\/[^/]+/);
-    if (!matches) throw new Error('Origin not found');
-    return matches[0];
-}
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-exports.getOrigin = getOrigin;
-
-},{}],"5pzUn":[function(require,module,exports) {
+},{"./helpers/bundle-url":"chiK4"}],"5pzUn":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _routerJs = require("../router.js");
@@ -970,6 +970,7 @@ var _serviceJsDefault = parcelHelpers.interopDefault(_serviceJs);
 class SignUpPage {
     constructor(id){
         this.id = id;
+        this.backImg = require("../img/back.svg");
         this.signupImg = require("../img/signup.jpg");
         this.render();
     }
@@ -990,10 +991,11 @@ class SignUpPage {
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*jsx*/ `
       <section id="${this.id}" class="page">
+      <!--- Topbar container --->
         <header class="topbar">
-          <a href="/"><svg xmlns="http://www.w3.org/2000/svg" width="13.503" height="23.619" viewBox="0 0 13.503 23.619">
-          <path id="Icon_ionic-ios-arrow-back" data-name="Icon ionic-ios-arrow-back" d="M15.321,18l8.937-8.93a1.688,1.688,0,0,0-2.391-2.384L11.742,16.8a1.685,1.685,0,0,0-.049,2.327L21.86,29.32a1.688,1.688,0,0,0,2.391-2.384Z" transform="translate(-11.251 -6.194)" fill="#13553f"/>
-          </svg></a>
+          <div class="topbar_img>">
+            <a href="/home"><img src="${this.backImg}"></a>
+          </div>
         </header>
         <div class="banner_container">
           <div class="login_signup_img">
@@ -1031,7 +1033,10 @@ class SignUpPage {
 }
 exports.default = SignUpPage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","../img/signup.jpg":"2WJzH","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"2WJzH":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","../img/signup.jpg":"2WJzH","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7Pugh":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "back.24bbbe78.svg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"chiK4"}],"2WJzH":[function(require,module,exports) {
 module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "signup.ec6e4620.jpg" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"chiK4"}],"cKfZK":[function(require,module,exports) {
@@ -1044,16 +1049,18 @@ var _serviceJsDefault = parcelHelpers.interopDefault(_serviceJs);
 class LogInPage {
     constructor(id){
         this.id = id;
+        this.backImg = require("../img/back.svg");
         this.loginImg = require("../img/login.jpg");
         this.render();
     }
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
+        <!--- Topbar container --->
         <header class="topbar">
-          <a href="/"><svg xmlns="http://www.w3.org/2000/svg" width="13.503" height="23.619" viewBox="0 0 13.503 23.619">
-          <path id="Icon_ionic-ios-arrow-back" data-name="Icon ionic-ios-arrow-back" d="M15.321,18l8.937-8.93a1.688,1.688,0,0,0-2.391-2.384L11.742,16.8a1.685,1.685,0,0,0-.049,2.327L21.86,29.32a1.688,1.688,0,0,0,2.391-2.384Z" transform="translate(-11.251 -6.194)" fill="#13553f"/>
-          </svg></a>
+          <div class="topbar_img>">
+            <a href="/"><img src="${this.backImg}"></a>
+          </div>
         </header>
         <div class="banner_container">
           <div class="login_signup_img">
@@ -1102,7 +1109,7 @@ class LogInPage {
 }
 exports.default = LogInPage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","../img/login.jpg":"kakxD","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"kakxD":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","../img/login.jpg":"kakxD","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"kakxD":[function(require,module,exports) {
 module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "login.cb916fac.jpg" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"chiK4"}],"1edkc":[function(require,module,exports) {
@@ -1121,6 +1128,7 @@ class HomePage {
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
+        <!--- Topbar container --->
         <header class="topbar">
           <h2>Home</h2>
         </header>
@@ -1133,7 +1141,7 @@ class HomePage {
 
                   <input type="text" id="search">
               </div>
-              <button class="filter-button">
+              <button onclick="location.href='/filter'" class="filter-button">
                   <div>
                       <svg xmlns="http://www.w3.org/2000/svg" width="19.06" height="18.057" viewBox="0 0 19.06 18.057">
                       <path id="Icon_material-sort" data-name="Icon material-sort" d="M4.5,27.057h6.353V24.047H4.5ZM4.5,9v3.009H23.56V9Zm0,10.533H17.207V16.524H4.5Z" transform="translate(-4.5 -9)" fill="#fff"/>
@@ -1223,16 +1231,79 @@ var _serviceJsDefault = parcelHelpers.interopDefault(_serviceJs);
 class FilterPage {
     constructor(id){
         this.id = id;
+        this.exitImg = require("../img/exit.svg");
         this.render();
     }
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
+        <!--- Topbar container --->
         <header class="topbar">
-          <h2>About</h2>
+          <h2>Filter</h2>
+          <div class="topbar_img>">
+            <a href="/home"><img src="${this.exitImg}"></a>
+          </div>
         </header>
-        <h3>About me</h3>
-        <p>Some info about me. Enjoy!</p>
+        <div class="filter_container">
+          <!--- Category filter container --->
+          <h2 class="filter_headline">Categories</h2>
+          <div class="category_container">
+            <input type="checkbox" class="checkbox" id="vegetables" name="category" value="vegetables">
+            <label for="vegetables" class="checkbox_label">Vegetables</label>
+
+            <input type="checkbox" class="checkbox" id="fruit" name="category" value="fruit">
+            <label for="fruit" class="checkbox_label">Fruit</label>
+
+            <input type="checkbox" class="checkbox" id="dry-goods" name="category" value="dry-goods">
+            <label for="dry-goods" class="checkbox_label">Dry goods</label>
+
+            <input type="checkbox" class="checkbox" id="baked-goods" name="category" value="baked-goods">
+            <label for="baked-goods" class="checkbox_label">Baked goods</label>
+
+            <input type="checkbox" class="checkbox" id="meat" name="category" value="meat">
+            <label for="meat"class="checkbox_label">Meat</label>
+
+            <input type="checkbox" class="checkbox" id="fish" name="category" value="fish">
+            <label for="fish" class="checkbox_label">Fish</label>
+
+            <input type="checkbox" class="checkbox" id="dairy" name="category" value="dairy">
+            <label for="dairy" class="checkbox_label">Dairy</label>
+                  
+            <input type="checkbox" class="checkbox" id="meals" name="category" value="meals">
+            <label for="meals" class="checkbox_label">Meals</label>
+          </div>
+          
+          <!--- Distance slider container --->
+          <div class="distance_container">
+            <h2 class="filter_headline">Maximum distance</h2>
+            <input type="range" id="slider" class="distance_slider" name="distance" min="1" max="50">
+            <span id="slider-value"></span>
+          </div>
+
+          <!--- Hide expired products container --->
+          <div class="hide_container">
+            <label class="headline_container">
+              <h2 class="filter_headline">Hide expired products</h2>
+              <input type="checkbox" class="hide_checkbox" name="hide" value="hide">
+            </label>
+            <p>Some of the listed products might be over the expiration date
+            according to its packaging but that does not necessarily mean that
+            the product is spoiled. Check off this box to hide "expired" products.</p>
+          </div>
+
+          <!--- Sorting container --->
+          <div class="sorting_container">
+            <h2 class="filter_headline">Sort by</h2>
+            <div class="radio_container">
+              <label for="newest" class="radio">Newest</label>
+                <input type="radio" name="newest" value="newest" class="radio_btn">
+            </div>
+            <div class="radio_container">
+            <label for="closest" class="radio">Closest</label>
+              <input type="radio" name="closest" value="closest" class="radio_btn">
+            </div>
+          </div>
+        </div>
       </section>
     `);
     }
@@ -1242,7 +1313,10 @@ class FilterPage {
 }
 exports.default = FilterPage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"3an6W":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/exit.svg":"fhJzw","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fhJzw":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "exit.593fb32c.svg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"chiK4"}],"3an6W":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _routerJs = require("../router.js");
@@ -1252,16 +1326,16 @@ var _serviceJsDefault = parcelHelpers.interopDefault(_serviceJs);
 class ProductPage {
     constructor(id){
         this.id = id;
+        this.backImg = require("../img/back.svg");
         this.render();
     }
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
+        <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
-          <a href="/home"><svg xmlns="http://www.w3.org/2000/svg" width="13.503" height="23.619" viewBox="0 0 13.503 23.619">
-          <path id="Icon_ionic-ios-arrow-back" data-name="Icon ionic-ios-arrow-back" d="M15.321,18l8.937-8.93a1.688,1.688,0,0,0-2.391-2.384L11.742,16.8a1.685,1.685,0,0,0-.049,2.327L21.86,29.32a1.688,1.688,0,0,0,2.391-2.384Z" transform="translate(-11.251 -6.194)" fill="#13553f"/>
-          </svg></a>
+            <a href="/home"><img src="${this.backImg}"></a>
           </div>
           <h2>Product</h2>
         </header>
@@ -1310,7 +1384,7 @@ class ProductPage {
 }
 exports.default = ProductPage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5udg2":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5udg2":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _routerJs = require("../router.js");
@@ -1320,16 +1394,16 @@ var _serviceJsDefault = parcelHelpers.interopDefault(_serviceJs);
 class ChatPage {
     constructor(id){
         this.id = id;
+        this.backImg = require("../img/back.svg");
         this.render();
     }
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
+        <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
-          <a href="/home"><svg xmlns="http://www.w3.org/2000/svg" width="13.503" height="23.619" viewBox="0 0 13.503 23.619">
-          <path id="Icon_ionic-ios-arrow-back" data-name="Icon ionic-ios-arrow-back" d="M15.321,18l8.937-8.93a1.688,1.688,0,0,0-2.391-2.384L11.742,16.8a1.685,1.685,0,0,0-.049,2.327L21.86,29.32a1.688,1.688,0,0,0,2.391-2.384Z" transform="translate(-11.251 -6.194)" fill="#13553f"/>
-          </svg></a>
+            <a href="/home"><img src="${this.backImg}"></a>
           </div>
           <h2>Chat</h2>
         </header>
@@ -1351,7 +1425,7 @@ class ChatPage {
 }
 exports.default = ChatPage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"lUwtW":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"lUwtW":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _routerJs = require("../router.js");
@@ -1361,6 +1435,8 @@ var _serviceJsDefault = parcelHelpers.interopDefault(_serviceJs);
 class AddListingPage {
     constructor(id){
         this.id = id;
+        this.backImg = require("../img/back.svg");
+        this.uploadImg = require("../img/camera.svg");
         this.render();
     /*
     this.imagePreview = document.querySelector(
@@ -1383,23 +1459,23 @@ class AddListingPage {
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
+        <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
-          <a href="/home"><svg xmlns="http://www.w3.org/2000/svg" width="13.503" height="23.619" viewBox="0 0 13.503 23.619">
-          <path id="Icon_ionic-ios-arrow-back" data-name="Icon ionic-ios-arrow-back" d="M15.321,18l8.937-8.93a1.688,1.688,0,0,0-2.391-2.384L11.742,16.8a1.685,1.685,0,0,0-.049,2.327L21.86,29.32a1.688,1.688,0,0,0,2.391-2.384Z" transform="translate(-11.251 -6.194)" fill="#13553f"/>
-          </svg></a>
+            <a href="/home"><img src="${this.backImg}"></a>
           </div>
           <h2>Add New Listing</h2>
         </header>
+        <!--- Add listing container --->
         <section class="add_container">
           <form>
+            <!--- Image upload container --->
             <div class="upload_container">
               <img name="imagePreview" class="image_preview">
               <input type="file" name="listingImage" accept="image/*" id="image-upload" hidden>
-              <label for="image-upload" class="image_upload"><svg xmlns="http://www.w3.org/2000/svg" width="25.012" height="23.385" viewBox="0 0 29.012 25.385">
-              <path id="Icon_awesome-camera" data-name="Icon awesome-camera" d="M29.012,8.6V24.915a2.721,2.721,0,0,1-2.72,2.72H2.72A2.721,2.721,0,0,1,0,24.915V8.6a2.721,2.721,0,0,1,2.72-2.72H7.706l.7-1.864A2.716,2.716,0,0,1,10.947,2.25h7.111A2.716,2.716,0,0,1,20.6,4.012l.7,1.864h4.986A2.721,2.721,0,0,1,29.012,8.6Zm-7.706,8.16a6.8,6.8,0,1,0-6.8,6.8A6.805,6.805,0,0,0,21.305,16.756Zm-1.813,0a4.986,4.986,0,1,1-4.986-4.986A4.994,4.994,0,0,1,19.492,16.756Z" transform="translate(0 -2.25)" fill="#2c2c2c"/>
-              </svg>Add Image</label>
+              <label for="image-upload" class="image_upload"><img src="${this.uploadImg}">Add Image</label>
             </div>
+            <!--- Listing information container --->
             <div class="form_container">
               <br><label class="add_label">Title<label><br>
               <input type="text" name="title" class="add_form"><br>
@@ -1412,32 +1488,33 @@ class AddListingPage {
               <label class="add_label">Location<label><br>
               <input type="text" name="location" class="add_form"><br>
           </div>
+          <!--- Category filter container --->
           <label class="add_label">Category</label><br>
-              <div class="category_container">
-                <input type="checkbox" class="checkbox" id="vegetables" name="category" value="vegetables">
-                <label for="vegetables" class="checkbox_label">Vegetables</label>
+            <div class="category_container">
+              <input type="checkbox" class="checkbox" id="vegetables" name="category" value="vegetables">
+              <label for="vegetables" class="checkbox_label">Vegetables</label>
 
-                <input type="checkbox" class="checkbox" id="fruit" name="category" value="fruit">
-                <label for="fruit" class="checkbox_label">Fruit</label>
+              <input type="checkbox" class="checkbox" id="fruit" name="category" value="fruit">
+              <label for="fruit" class="checkbox_label">Fruit</label>
 
-                <input type="checkbox" class="checkbox" id="dry-goods" name="category" value="dry-goods">
-                <label for="dry-goods" class="checkbox_label">Dry goods</label>
+              <input type="checkbox" class="checkbox" id="dry-goods" name="category" value="dry-goods">
+              <label for="dry-goods" class="checkbox_label">Dry goods</label>
 
-                <input type="checkbox" class="checkbox" id="baked-goods" name="category" value="baked-goods">
-                <label for="baked-goods" class="checkbox_label">Baked goods</label>
+              <input type="checkbox" class="checkbox" id="baked-goods" name="category" value="baked-goods">
+              <label for="baked-goods" class="checkbox_label">Baked goods</label>
 
-                <input type="checkbox" class="checkbox" id="meat" name="category" value="meat">
-                <label for="meat"class="checkbox_label">Meat</label>
+              <input type="checkbox" class="checkbox" id="meat" name="category" value="meat">
+              <label for="meat"class="checkbox_label">Meat</label>
 
-                <input type="checkbox" class="checkbox" id="fish" name="category" value="fish">
-                <label for="fish" class="checkbox_label">Fish</label>
+              <input type="checkbox" class="checkbox" id="fish" name="category" value="fish">
+              <label for="fish" class="checkbox_label">Fish</label>
 
-                <input type="checkbox" class="checkbox" id="dairy" name="category" value="dairy">
-                <label for="dairy" class="checkbox_label">Dairy</label>
+              <input type="checkbox" class="checkbox" id="dairy" name="category" value="dairy">
+              <label for="dairy" class="checkbox_label">Dairy</label>
                 
-                <input type="checkbox" class="checkbox" id="meals" name="category" value="meals">
-                <label for="meals" class="checkbox_label">Meals</label>
-              </div>
+              <input type="checkbox" class="checkbox" id="meals" name="category" value="meals">
+              <label for="meals" class="checkbox_label">Meals</label>
+            </div>
 
           </div>
           <input type="submit" value="Add Listing" onclick="location.href='/home'" class="btn_alt">  
@@ -1499,7 +1576,10 @@ class AddListingPage {
 }
 exports.default = AddListingPage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"iZqiE":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","../img/camera.svg":"1RjE8","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"1RjE8":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "camera.5fd23552.svg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"chiK4"}],"iZqiE":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _routerJs = require("../router.js");
@@ -1509,12 +1589,17 @@ var _serviceJsDefault = parcelHelpers.interopDefault(_serviceJs);
 class FavouritesPage {
     constructor(id){
         this.id = id;
+        this.backImg = require("../img/back.svg");
         this.render();
     }
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
+        <!--- Topbar container --->
         <header class="topbar">
+          <div class="topbar_img>">
+            <a href="/home"><img src="${this.backImg}"></a>
+          </div>
           <h2>Favourites</h2>
         </header>
          <!-- Product listings -->
@@ -1557,7 +1642,7 @@ class FavouritesPage {
 }
 exports.default = FavouritesPage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6Wl4X":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6Wl4X":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _routerJs = require("../router.js");
@@ -1567,12 +1652,17 @@ var _serviceJsDefault = parcelHelpers.interopDefault(_serviceJs);
 class ProfilePage {
     constructor(id){
         this.id = id;
+        this.backImg = require("../img/back.svg");
         this.render();
     }
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
+        <!--- Topbar container --->
         <header class="topbar">
+          <div class="topbar_img>">
+            <a href="/home"><img src="${this.backImg}"></a>
+          </div>
           <h2>Profile</h2>
         </header>
         <div class="section-wrapper">
@@ -1601,7 +1691,7 @@ class ProfilePage {
 }
 exports.default = ProfilePage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"79fVm":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"79fVm":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _routerJs = require("../router.js");
@@ -1611,12 +1701,17 @@ var _serviceJsDefault = parcelHelpers.interopDefault(_serviceJs);
 class AccountPage {
     constructor(id){
         this.id = id;
+        this.backImg = require("../img/back.svg");
         this.render();
     }
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
+        <!--- Topbar container --->
         <header class="topbar">
+          <div class="topbar_img>">
+            <a href="/profile"><img src="${this.backImg}"></a>
+          </div>
           <h2>Account</h2>
         </header>
         <div class="section-wrapper">
@@ -1684,7 +1779,7 @@ class AccountPage {
 }
 exports.default = AccountPage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"jCk6k":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"jCk6k":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _routerJs = require("../router.js");
@@ -1694,12 +1789,17 @@ var _serviceJsDefault = parcelHelpers.interopDefault(_serviceJs);
 class MyImpactPage {
     constructor(id){
         this.id = id;
+        this.backImg = require("../img/back.svg");
         this.render();
     }
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
+        <!--- Topbar container --->
         <header class="topbar">
+          <div class="topbar_img>">
+            <a href="/profile"><img src="${this.backImg}"></a>
+          </div>
           <h2>My Impact</h2>
         </header>
         <h2>My Impact Tracker</h2>
@@ -1768,7 +1868,7 @@ class MyImpactPage {
 }
 exports.default = MyImpactPage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"AoYtQ":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"AoYtQ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _routerJs = require("../router.js");
@@ -1778,12 +1878,17 @@ var _serviceJsDefault = parcelHelpers.interopDefault(_serviceJs);
 class MyListingsPage {
     constructor(id){
         this.id = id;
+        this.backImg = require("../img/back.svg");
         this.render();
     }
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
+        <!--- Topbar container --->
         <header class="topbar">
+          <div class="topbar_img>">
+            <a href="/profile"><img src="${this.backImg}"></a>
+          </div>
           <h2>My Listings</h2>
         </header>
           <!-- Product listings -->
@@ -1813,7 +1918,7 @@ class MyListingsPage {
 }
 exports.default = MyListingsPage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"46jdJ":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"46jdJ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _routerJs = require("../router.js");
@@ -1823,12 +1928,17 @@ var _serviceJsDefault = parcelHelpers.interopDefault(_serviceJs);
 class MyPurchasesPage {
     constructor(id){
         this.id = id;
+        this.backImg = require("../img/back.svg");
         this.render();
     }
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
+        <!--- Topbar container --->
         <header class="topbar">
+          <div class="topbar_img>">
+            <a href="/profile"><img src="${this.backImg}"></a>
+          </div>
           <h2>My Purchases</h2>
         </header>
         <!-- Product listings -->
@@ -1870,7 +1980,7 @@ class MyPurchasesPage {
 }
 exports.default = MyPurchasesPage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7Dpl3":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7Dpl3":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _routerJs = require("../router.js");
@@ -1880,13 +1990,18 @@ var _serviceJsDefault = parcelHelpers.interopDefault(_serviceJs);
 class PublicProfilePage {
     constructor(id){
         this.id = id;
+        this.backImg = require("../img/back.svg");
         this.render();
     }
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
+        <!--- Topbar container --->
         <header class="topbar">
-          <h2>About</h2>
+          <div class="topbar_img>">
+            <a href="/home"><img src="${this.backImg}"></a>
+          </div>
+          <h2>Profile</h2>
         </header>
         <div class="section-wrapper">
           <div class="profile-img"></div>
@@ -1937,6 +2052,6 @@ class PublicProfilePage {
 }
 exports.default = PublicProfilePage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}]},["1Mq12","5HwUs"], "5HwUs", "parcelRequire514f")
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}]},["1Mq12","5HwUs"], "5HwUs", "parcelRequire514f")
 
 //# sourceMappingURL=index.d56a3cb1.js.map

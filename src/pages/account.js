@@ -4,6 +4,7 @@ import service from "../service.js";
 export default class AccountPage {
   constructor(id) {
     this.id = id;
+    this.backImg = require("../img/back.svg");
     this.render();
   }
 
@@ -12,7 +13,11 @@ export default class AccountPage {
       "beforeend",
       /*html*/ `
       <section id="${this.id}" class="page">
+        <!--- Topbar container --->
         <header class="topbar">
+          <div class="topbar_img>">
+            <a href="/profile"><img src="${this.backImg}"></a>
+          </div>
           <h2>Account</h2>
         </header>
         <div class="section-wrapper">
