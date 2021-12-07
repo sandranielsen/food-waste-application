@@ -5,6 +5,7 @@ class Service {
     this.loginUrl = this.baseUrl + "/login.php";
   }
 
+  // rasmus' code
   /* fetch and return all listings from backend service */
   async signupUser(name,username,password,passwordCheck)
   {

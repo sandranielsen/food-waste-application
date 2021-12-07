@@ -1,3 +1,4 @@
+/***** Image upload *****/
 .image_preview {
     padding: 60px 0 20px;
 }
@@ -30,9 +31,7 @@ input#file-upload-button {
     border: 1px solid var(--light-grey);
     border-radius: 5px;
 }
-.form_container {
-    padding-top: 20px;
-}
+/***** Form container *****/
 .add_label {
     font-family: Bebas Neue;
     font-size: 1.8rem;
@@ -65,6 +64,7 @@ textarea::placeholder {
     font-family: Roboto;
     color: var(--light-grey);
 }
+/***** Category filter section *****/
 .checkbox {
     display: none;
 }

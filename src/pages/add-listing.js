@@ -48,7 +48,7 @@ export default class AddListingPage {
               </svg>Add Image</label>
             </div>
             <div class="form_container">
-              <label class="add_label">Title<label><br>
+              <br><label class="add_label">Title<label><br>
               <input type="text" name="title" class="add_form"><br>
               <label class="add_label">Price<label><br>
               <input type="text" name="price" placeholder="DKK" class="add_form"><br>
