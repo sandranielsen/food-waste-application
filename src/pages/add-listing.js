@@ -32,6 +32,7 @@ export default class AddListingPage {
       "beforeend",
       /*html*/ `
       <section id="${this.id}" class="page">
+
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
@@ -39,6 +40,7 @@ export default class AddListingPage {
           </div>
           <h2>Add New Listing</h2>
         </header>
+        
         <!--- Add listing container --->
         <section class="add_container">
           <form>
@@ -48,6 +50,7 @@ export default class AddListingPage {
               <input type="file" name="listingImage" accept="image/*" id="image-upload" hidden>
               <label for="image-upload" class="image_upload"><img src="${this.uploadImg}">Add Image</label>
             </div>
+
             <!--- Listing information container --->
             <div class="form_container">
               <br><label class="add_label">Title<label><br>
@@ -60,7 +63,8 @@ export default class AddListingPage {
               <textarea type="text" name="description" placeholder="0/300" class="add_form_extended"></textarea><br>
               <label class="add_label">Location<label><br>
               <input type="text" name="location" class="add_form"><br>
-          </div>
+            </div>
+
           <!--- Category filter container --->
           <label class="add_label">Category</label><br>
             <div class="category_container">

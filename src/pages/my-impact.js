@@ -13,6 +13,7 @@ export default class MyImpactPage {
       "beforeend",
       /*html*/ `
       <section id="${this.id}" class="page">
+
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
@@ -20,6 +21,8 @@ export default class MyImpactPage {
           </div>
           <h2>My Impact</h2>
         </header>
+
+        <!--- Impact tracker container --->
         <h2>My Impact Tracker</h2>
             <div class="impact-tracker-wrapper">
                 <div class="impact-tracker">
@@ -32,6 +35,7 @@ export default class MyImpactPage {
                 </div>
             </div>
 
+            <!--- Impact badges container --->
             <h2>Badges</h2>
             <div class="impact-badges-wrapper">
                 <div class="impact-badge">

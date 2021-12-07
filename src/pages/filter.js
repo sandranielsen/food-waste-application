@@ -13,6 +13,7 @@ export default class FilterPage {
       "beforeend",
       /*html*/ `
       <section id="${this.id}" class="page">
+
         <!--- Topbar container --->
         <header class="topbar">
           <h2>Filter</h2>
@@ -21,6 +22,7 @@ export default class FilterPage {
           </div>
         </header>
         <div class="filter_container">
+          
           <!--- Category filter container --->
           <h2 class="filter_headline">Categories</h2>
           <div class="category_container">

@@ -819,14 +819,17 @@ class StartPage {
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
+
         <!--- Banner container --->
       <div class="start_container">
         <img src="${this.bgImg}" alt="Food" class="start-bg">
         <div class="overlay"></div>
+
         <!--- Content container --->
         <div class="start_content">
           <h1 class="start_text">Reduce your waste</h1>
           <h1 class="start_text">Share your food</h1>
+          
           <!--- Button container --->
           <div class="btn_container">
             <button class="btn" onclick="location.href='/login'">Login</button>
@@ -1056,12 +1059,15 @@ class LogInPage {
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
+
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
             <a href="/"><img src="${this.backImg}"></a>
           </div>
         </header>
+
+        <!--- Banner container --->
         <div class="banner_container">
           <div class="login_signup_img">
             <img src="${this.loginImg} alt="Food" class="login_signup_bg">
@@ -1072,6 +1078,7 @@ class LogInPage {
           </div>
         </div>
 
+        <!--- Login container --->
         <div class="login_signup_container">
             <h1 class="login_signup_headline">Login</h1>
             <div class="form_container">
@@ -1122,6 +1129,10 @@ var _serviceJsDefault = parcelHelpers.interopDefault(_serviceJs);
 class HomePage {
     constructor(id){
         this.id = id;
+        this.searchImg = require("../img/search.svg");
+        this.filterImg = require("../img/filter.svg");
+        this.favouritesImg = require("../img/favourites.svg");
+        this.locationImg = require("../img/location.svg");
         this.render();
         this.init();
     }
@@ -1132,55 +1143,47 @@ class HomePage {
         <header class="topbar">
           <h2>Home</h2>
         </header>
+
+        <!--- Search and filter container --->
         <div class="home_container">
           <div class="search-and-filter-container">
-              <div class="search-container">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="19.055" height="19.06" viewBox="0 0 19.055 19.06">
-                  <path id="Icon_ionic-ios-search" data-name="Icon ionic-ios-search" d="M23.332,22.173l-5.3-5.349a7.553,7.553,0,1,0-1.146,1.161L22.151,23.3a.816.816,0,0,0,1.151.03A.821.821,0,0,0,23.332,22.173ZM12.1,18.05A5.964,5.964,0,1,1,16.315,16.3,5.927,5.927,0,0,1,12.1,18.05Z" transform="translate(-4.5 -4.493)" fill="#13553f"/>
-                  </svg>
-
-                  <input type="text" id="search">
+            <div class="search-container">
+              <img src="${this.searchImg}">
+              <input type="text" id="search">
+            </div>
+            <button onclick="location.href='/filter'" class="filter-button">
+              <div>
+                <img src="${this.filterImg}">
               </div>
-              <button onclick="location.href='/filter'" class="filter-button">
-                  <div>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="19.06" height="18.057" viewBox="0 0 19.06 18.057">
-                      <path id="Icon_material-sort" data-name="Icon material-sort" d="M4.5,27.057h6.353V24.047H4.5ZM4.5,9v3.009H23.56V9Zm0,10.533H17.207V16.524H4.5Z" transform="translate(-4.5 -9)" fill="#fff"/>
-                      </svg>
-                  </div>
-              </button> 
-          
+            </button> 
           </div>
 
-
-        
-
-          <!-- Product listings -->
+        <!-- Product listings -->
         <div class="product-listing-container">
-            <div class="product-listing-image">
-                <button class="favourite-button">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14.19" height="13.799" viewBox="0 0 14.19 13.799">
-                  <path id="Icon_ionic-ios-heart" data-name="Icon ionic-ios-heart" d="M13.014,3.938h-.032A3.608,3.608,0,0,0,9.97,5.586,3.608,3.608,0,0,0,6.958,3.938H6.926A3.585,3.585,0,0,0,3.375,7.52a7.718,7.718,0,0,0,1.516,4.208,26.561,26.561,0,0,0,5.08,4.893,26.561,26.561,0,0,0,5.08-4.893A7.718,7.718,0,0,0,16.565,7.52,3.585,3.585,0,0,0,13.014,3.938Z" transform="translate(-2.875 -3.438)" fill="none" stroke="#13553f" stroke-width="1"/>
-                  </svg>
-                </button>        
-            </div>
-            <div class="product-listing-info-container">
-              <h2>Whole grain noodles</h2>
-              <div style="margin-top: 25px;">
-                  <p style="font-weight:400; padding-right: 5px;">Expiration date:</p>
-                  <p>07.06.2023</p>
-              </div>
+          <div class="product-listing-image">
+            <button class="favourite-button">
+              <img src="${this.favouritesImg}" class="favourite_img">
+            </button>        
+          </div>
 
-              <div class="product-listing-user-info">
-                  <div>
-                    <div class="product-listing-profile-img"></div>
-                    <p>Maria N.</p>
-                  </div> 
-                  <div>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="13.195" height="19.06" viewBox="0 0 13.195 19.06">
-                      <path id="Icon_ionic-ios-pin" data-name="Icon ionic-ios-pin" d="M14.473,3.375A6.377,6.377,0,0,0,7.875,9.5c0,4.765,6.6,12.934,6.6,12.934s6.6-8.169,6.6-12.934A6.377,6.377,0,0,0,14.473,3.375Zm0,8.747a2.149,2.149,0,1,1,2.149-2.149A2.149,2.149,0,0,1,14.473,12.122Z" transform="translate(-7.875 -3.375)" fill="#13553f"/>
-                      </svg>
-                      <p>Aarhus</p> 
-                  </div>
+          <!-- Product information container -->
+          <div class="product-listing-info-container">
+            <h2>Whole grain noodles</h2>
+            <div style="margin-top: 25px;">
+              <p style="font-weight:400; padding-right: 5px;">Expiration date:</p>
+              <p>07.06.2023</p>
+            </div>
+
+            <!-- Seller information container -->
+            <div class="product-listing-user-info">
+              <div>
+                <div class="product-listing-profile-img"></div>
+                  <p>Maria N.</p>
+                </div> 
+                <div>
+                  <img src="${this.favouritesImg}">
+                  <p>Aarhus</p> 
+                </div>
               </div>
             </div>
         </div>
@@ -1192,6 +1195,7 @@ class HomePage {
     //const listings = await service.getListings();
     //this.appendListings(listings);
     }
+    // Rasmus' code - adjustments are probably needed
     appendListings(listings) {
         let htmlTemplate = "";
         for (const listing of listings)htmlTemplate += /*html*/ `
@@ -1221,7 +1225,19 @@ class HomePage {
 }
 exports.default = HomePage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"iw7sr":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","../img/search.svg":"5wVcj","../img/filter.svg":"jg3ZF","../img/favourites.svg":"1EhEA","../img/location.svg":"i8JWL"}],"5wVcj":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "search.ab4deccd.svg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"chiK4"}],"jg3ZF":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "filter.4629aec7.svg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"chiK4"}],"1EhEA":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "favourites.75b64e7f.svg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"chiK4"}],"i8JWL":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "location.79981060.svg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"chiK4"}],"iw7sr":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _routerJs = require("../router.js");
@@ -1237,6 +1253,7 @@ class FilterPage {
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
+
         <!--- Topbar container --->
         <header class="topbar">
           <h2>Filter</h2>
@@ -1245,6 +1262,7 @@ class FilterPage {
           </div>
         </header>
         <div class="filter_container">
+          
           <!--- Category filter container --->
           <h2 class="filter_headline">Categories</h2>
           <div class="category_container">
@@ -1327,11 +1345,14 @@ class ProductPage {
     constructor(id){
         this.id = id;
         this.backImg = require("../img/back.svg");
+        this.locationImg = require("../img/location.svg");
+        this.dateImg = require("../img/date.svg");
         this.render();
     }
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
+
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
@@ -1339,36 +1360,44 @@ class ProductPage {
           </div>
           <h2>Product</h2>
         </header>
+
+        <!--- Product container --->
         <section class="product_container">
           <img src="https://images.squarespace-cdn.com/content/v1/5a009727268b9669e15efaef/1588107013662-EXYB18D83V962RKLDZGB/food+share.jpg?format=2500w" class="listing_img">
           <div class="product">
+
+            <!--- Listing information container --->
             <div class="listing_info">
               <div class="info_item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="13.195" height="19.06" viewBox="0 0 13.195 19.06">
-                  <path id="Icon_ionic-ios-pin" data-name="Icon ionic-ios-pin" d="M14.473,3.375A6.377,6.377,0,0,0,7.875,9.5c0,4.765,6.6,12.934,6.6,12.934s6.6-8.169,6.6-12.934A6.377,6.377,0,0,0,14.473,3.375Zm0,8.747a2.149,2.149,0,1,1,2.149-2.149A2.149,2.149,0,0,1,14.473,12.122Z" transform="translate(-7.875 -3.375)" fill="#13553f"/>
-                </svg>
+                <img src="${this.locationImg}">
                 <p class="listing_location">Trige</p>
               </div>
               <div class="info_item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="19.06" height="19.06" viewBox="0 0 19.06 19.06">
-                <path id="Icon_ionic-ios-time" data-name="Icon ionic-ios-time" d="M12.9,3.375a9.53,9.53,0,1,0,9.53,9.53A9.529,9.529,0,0,0,12.9,3.375Zm.641,10.355a.643.643,0,0,1-.641.641h-4.4a.641.641,0,0,1,0-1.283h3.757V7.04a.641.641,0,0,1,1.283,0Z" transform="translate(-3.375 -3.375)" fill="#13553f"/>
-                </svg>
+                <img src="${this.dateImg}">
                 <p class="listing_date">24.04.2021</p>
               </div>  
             </div>
+
+            <!--- Product information container --->
             <div class="product_info">
                 <h2 class="product_title">Apples 4kg</h2>
                 <h3 class="product_price">100 DKK</h4>
             </div>
+
+            <!--- Product details container --->
             <div class="product_details">
               <p class="product_description">Apples from our garden, we cannot eat them all so if anybody is
                 interested in bio apples please contact us</p>
               <p class="product_expiration">Expiration date: 01.06.2021</p>
             </div>
+
+            <!--- Seller information container --->
             <div class="seller_info">
               <div class="product-listing-profile-img"></div>
               <p class="seller_name">Luisa Christensen</p>
             </div>
+
+            <!--- Button container --->
             <div class="btns_container">
               <button type="button" class="btn_alt" id="btn-1">Contact Seller</button>
               <button type="button" class="btn_alt" id="btn-2">Buy</button>
@@ -1384,7 +1413,10 @@ class ProductPage {
 }
 exports.default = ProductPage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5udg2":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","../img/location.svg":"i8JWL","../img/date.svg":"jdL8f"}],"jdL8f":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "date.db3b25fe.svg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"chiK4"}],"5udg2":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _routerJs = require("../router.js");
@@ -1407,6 +1439,7 @@ class ChatPage {
           </div>
           <h2>Chat</h2>
         </header>
+         <!--- Chat box container --->
         <section class="chat_container">
           <div class="search_container"></div>
           <div class="chat_content">
@@ -1459,6 +1492,7 @@ class AddListingPage {
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
+
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
@@ -1466,6 +1500,7 @@ class AddListingPage {
           </div>
           <h2>Add New Listing</h2>
         </header>
+        
         <!--- Add listing container --->
         <section class="add_container">
           <form>
@@ -1475,6 +1510,7 @@ class AddListingPage {
               <input type="file" name="listingImage" accept="image/*" id="image-upload" hidden>
               <label for="image-upload" class="image_upload"><img src="${this.uploadImg}">Add Image</label>
             </div>
+
             <!--- Listing information container --->
             <div class="form_container">
               <br><label class="add_label">Title<label><br>
@@ -1487,7 +1523,8 @@ class AddListingPage {
               <textarea type="text" name="description" placeholder="0/300" class="add_form_extended"></textarea><br>
               <label class="add_label">Location<label><br>
               <input type="text" name="location" class="add_form"><br>
-          </div>
+            </div>
+
           <!--- Category filter container --->
           <label class="add_label">Category</label><br>
             <div class="category_container">
@@ -1590,11 +1627,14 @@ class FavouritesPage {
     constructor(id){
         this.id = id;
         this.backImg = require("../img/back.svg");
+        this.favouritesFilledImg = require("../img/favourites_filled.svg");
+        this.locationImg = require("../img/location.svg");
         this.render();
     }
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
+
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
@@ -1602,33 +1642,33 @@ class FavouritesPage {
           </div>
           <h2>Favourites</h2>
         </header>
-         <!-- Product listings -->
+
+         <!--- Product listings container --->
          <div class="product-listing-container">
-         <div class="product-listing-image">
+          <div class="product-listing-image">
              <button class="favourite-button">
-               <svg xmlns="http://www.w3.org/2000/svg" width="14.19" height="13.799" viewBox="0 0 14.19 13.799">
-               <path id="Icon_ionic-ios-heart" data-name="Icon ionic-ios-heart" d="M13.014,3.938h-.032A3.608,3.608,0,0,0,9.97,5.586,3.608,3.608,0,0,0,6.958,3.938H6.926A3.585,3.585,0,0,0,3.375,7.52a7.718,7.718,0,0,0,1.516,4.208,26.561,26.561,0,0,0,5.08,4.893,26.561,26.561,0,0,0,5.08-4.893A7.718,7.718,0,0,0,16.565,7.52,3.585,3.585,0,0,0,13.014,3.938Z" transform="translate(-2.875 -3.438)" fill="none" stroke="#13553f" stroke-width="1"/>
-               </svg>
+               <img src="${this.favouritesFilledImg}" class="favourite_img">
              </button>        
          </div>
+
+         <!--- Product information container --->
          <div class="product-listing-info-container">
            <h2>Whole grain noodles</h2>
            <div style="margin-top: 25px;">
-               <p style="font-weight:400; padding-right: 5px;">Expiration date:</p>
-               <p>07.06.2023</p>
+              <p style="font-weight:400; padding-right: 5px;">Expiration date:</p>
+              <p>07.06.2023</p>
            </div>
 
+           <!--- Seller information container --->
            <div class="product-listing-user-info">
-               <div>
-                 <div class="product-listing-profile-img"></div>
-                 <p>Maria N.</p>
-               </div> 
-               <div>
-                   <svg xmlns="http://www.w3.org/2000/svg" width="13.195" height="19.06" viewBox="0 0 13.195 19.06">
-                   <path id="Icon_ionic-ios-pin" data-name="Icon ionic-ios-pin" d="M14.473,3.375A6.377,6.377,0,0,0,7.875,9.5c0,4.765,6.6,12.934,6.6,12.934s6.6-8.169,6.6-12.934A6.377,6.377,0,0,0,14.473,3.375Zm0,8.747a2.149,2.149,0,1,1,2.149-2.149A2.149,2.149,0,0,1,14.473,12.122Z" transform="translate(-7.875 -3.375)" fill="#13553f"/>
-                   </svg>
-                   <p>Aarhus</p> 
-               </div>
+            <div>
+              <div class="product-listing-profile-img"></div>
+                <p>Maria N.</p>
+              </div> 
+              <div>
+                <img src="${this.locationImg}">
+                <p>Aarhus</p> 
+              </div>
            </div>
          </div>
      </div>
@@ -1642,7 +1682,7 @@ class FavouritesPage {
 }
 exports.default = FavouritesPage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6Wl4X":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","../img/favourites_filled.svg":"5xxat","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","../img/location.svg":"i8JWL"}],"6Wl4X":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _routerJs = require("../router.js");
@@ -1653,11 +1693,13 @@ class ProfilePage {
     constructor(id){
         this.id = id;
         this.backImg = require("../img/back.svg");
+        this.locationImg = require("../img/location.svg");
         this.render();
     }
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
+
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
@@ -1665,21 +1707,23 @@ class ProfilePage {
           </div>
           <h2>Profile</h2>
         </header>
+
+        <!--- Profile container --->
         <div class="section-wrapper">
           <div class="profile-img"></div>
-          <h3>Louise Christensen</h3> 
-          <div class="profile-location">
-              <svg xmlns="http://www.w3.org/2000/svg" width="13.195" height="19.06" viewBox="0 0 13.195 19.06">
-                  <path id="Icon_ionic-ios-pin" data-name="Icon ionic-ios-pin" d="M14.473,3.375A6.377,6.377,0,0,0,7.875,9.5c0,4.765,6.6,12.934,6.6,12.934s6.6-8.169,6.6-12.934A6.377,6.377,0,0,0,14.473,3.375Zm0,8.747a2.149,2.149,0,1,1,2.149-2.149A2.149,2.149,0,0,1,14.473,12.122Z" transform="translate(-7.875 -3.375)" fill="#13553f"/>
-                  </svg>
+            <h3>Louise Christensen</h3> 
+            <div class="profile-location">
+              <img src="${this.locationImg}">
               <p>Aarhus</p> 
           </div>
+
+          <!--- Buttons container --->
           <div class="profile-buttons">
-                  <button onclick="location.href='/account';">Account</button>
-                  <button onclick="location.href='/listings';">My Listings</button>
-                  <button onclick="location.href='/purchases';">My Purchases</button>
-                  <button onclick="location.href='/impact';">My Impact</button>
-                  <button style="margin-top: 25px;"  onclick="location.href='/start';">Log Out</button>
+            <button onclick="location.href='/account';">Account</button>
+            <button onclick="location.href='/listings';">My Listings</button>
+            <button onclick="location.href='/purchases';">My Purchases</button>
+            <button onclick="location.href='/impact';">My Impact</button>
+            <button style="margin-top: 25px;"  onclick="location.href='/start';">Log Out</button>
           </div>
         <div>
       </section>
@@ -1691,7 +1735,7 @@ class ProfilePage {
 }
 exports.default = ProfilePage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"79fVm":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","../img/location.svg":"i8JWL"}],"79fVm":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _routerJs = require("../router.js");
@@ -1702,11 +1746,13 @@ class AccountPage {
     constructor(id){
         this.id = id;
         this.backImg = require("../img/back.svg");
+        this.locationImg = require("../img/location.svg");
         this.render();
     }
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
+
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
@@ -1714,16 +1760,17 @@ class AccountPage {
           </div>
           <h2>Account</h2>
         </header>
+
+        <!--- Profile container --->
         <div class="section-wrapper">
-            <div class="profile-img"></div>
+          <div class="profile-img"></div>
             <h3>Louise Christensen</h3> 
-            <div class="profile-location">
-                <svg xmlns="http://www.w3.org/2000/svg" width="13.195" height="19.06" viewBox="0 0 13.195 19.06">
-                    <path id="Icon_ionic-ios-pin" data-name="Icon ionic-ios-pin" d="M14.473,3.375A6.377,6.377,0,0,0,7.875,9.5c0,4.765,6.6,12.934,6.6,12.934s6.6-8.169,6.6-12.934A6.377,6.377,0,0,0,14.473,3.375Zm0,8.747a2.149,2.149,0,1,1,2.149-2.149A2.149,2.149,0,0,1,14.473,12.122Z" transform="translate(-7.875 -3.375)" fill="#13553f"/>
-                    </svg>
-                <p>Aarhus</p> 
+          <div class="profile-location">
+              <img src="${this.locationImg}">
+              <p>Aarhus</p> 
             </div>
 
+            <!--- Profile information inputs --->
             <form class="form-inputs">
               <label for="name">Name</label><br>
               <input type="text" id="name" name="name"><br>  
@@ -1745,6 +1792,7 @@ class AccountPage {
               </form>
               <form class="form-checkboxes">
 
+              <!--- Payment preference form --->
               <p>Payment Preference</p>
 
               <input type="checkbox" id="payment-card" name="payment-card" value="payment-card">
@@ -1753,6 +1801,7 @@ class AccountPage {
               <input type="checkbox" id="mobile-pay" name="mobile-pay" value="mobile-pay">
               <label for="mobile-pay" class="account-checkbox-label">Mobile Pay</label><br>
 
+              <!--- Notification form --->
               <p>Notifications</p>
 
               <input type="checkbox" id="notifications-on" name="notifications-on" value="notifications-on">
@@ -1779,7 +1828,7 @@ class AccountPage {
 }
 exports.default = AccountPage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"jCk6k":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","../img/location.svg":"i8JWL"}],"jCk6k":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _routerJs = require("../router.js");
@@ -1795,6 +1844,7 @@ class MyImpactPage {
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
+
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
@@ -1802,6 +1852,8 @@ class MyImpactPage {
           </div>
           <h2>My Impact</h2>
         </header>
+
+        <!--- Impact tracker container --->
         <h2>My Impact Tracker</h2>
             <div class="impact-tracker-wrapper">
                 <div class="impact-tracker">
@@ -1814,6 +1866,7 @@ class MyImpactPage {
                 </div>
             </div>
 
+            <!--- Impact badges container --->
             <h2>Badges</h2>
             <div class="impact-badges-wrapper">
                 <div class="impact-badge">
@@ -1879,11 +1932,13 @@ class MyListingsPage {
     constructor(id){
         this.id = id;
         this.backImg = require("../img/back.svg");
+        this.favouritesImg = require("../img/favourites.svg");
         this.render();
     }
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
+
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
@@ -1891,25 +1946,24 @@ class MyListingsPage {
           </div>
           <h2>My Listings</h2>
         </header>
+
           <!-- Product listings -->
        <div class="product-listing-container">
        <div class="product-listing-image">
-           <button class="favourite-button">
-             <svg xmlns="http://www.w3.org/2000/svg" width="14.19" height="13.799" viewBox="0 0 14.19 13.799">
-             <path id="Icon_ionic-ios-heart" data-name="Icon ionic-ios-heart" d="M13.014,3.938h-.032A3.608,3.608,0,0,0,9.97,5.586,3.608,3.608,0,0,0,6.958,3.938H6.926A3.585,3.585,0,0,0,3.375,7.52a7.718,7.718,0,0,0,1.516,4.208,26.561,26.561,0,0,0,5.08,4.893,26.561,26.561,0,0,0,5.08-4.893A7.718,7.718,0,0,0,16.565,7.52,3.585,3.585,0,0,0,13.014,3.938Z" transform="translate(-2.875 -3.438)" fill="none" stroke="#13553f" stroke-width="1"/>
-             </svg>
-           </button>        
+        <button class="favourite-button">
+          <img src="${this.favouritesImg}">
+        </button>        
        </div>
-       <div class="product-listing-info-container">
-           <h2>Whole grain noodles</h2>
-           <div class="my-listings-buttons">
-              <button onclick="location.href='#edit';">Edit</button>
-              <button onclick="location.href='#delete';" style="margin-left: 10px;" >Delete</button>
 
-            </div>
+       <div class="product-listing-info-container">
+        <h2>Whole grain noodles</h2>
+          <div class="my-listings-buttons">
+            <button onclick="location.href='#edit';">Edit</button>
+            <button onclick="location.href='#delete';" style="margin-left: 10px;" >Delete</button>
+          </div>
        </div>
     </div>
-      </section>
+    </section>
     `);
     }
     beforeShow(props) {
@@ -1918,7 +1972,7 @@ class MyListingsPage {
 }
 exports.default = MyListingsPage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"46jdJ":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","../img/favourites.svg":"1EhEA"}],"46jdJ":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _routerJs = require("../router.js");
@@ -1929,11 +1983,14 @@ class MyPurchasesPage {
     constructor(id){
         this.id = id;
         this.backImg = require("../img/back.svg");
+        this.favouritesImg = require("../img/favourites.svg");
+        this.locationImg = require("../img/location.svg");
         this.render();
     }
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
+
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
@@ -1941,32 +1998,32 @@ class MyPurchasesPage {
           </div>
           <h2>My Purchases</h2>
         </header>
+
         <!-- Product listings -->
             <div class="product-listing-container">
             <div class="product-listing-image">
-                <button class="favourite-button">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14.19" height="13.799" viewBox="0 0 14.19 13.799">
-                  <path id="Icon_ionic-ios-heart" data-name="Icon ionic-ios-heart" d="M13.014,3.938h-.032A3.608,3.608,0,0,0,9.97,5.586,3.608,3.608,0,0,0,6.958,3.938H6.926A3.585,3.585,0,0,0,3.375,7.52a7.718,7.718,0,0,0,1.516,4.208,26.561,26.561,0,0,0,5.08,4.893,26.561,26.561,0,0,0,5.08-4.893A7.718,7.718,0,0,0,16.565,7.52,3.585,3.585,0,0,0,13.014,3.938Z" transform="translate(-2.875 -3.438)" fill="none" stroke="#13553f" stroke-width="1"/>
-                  </svg>
-                </button>        
+              <button class="favourite-button">
+                <img src="${this.favouritesImg}">
+              </button>        
             </div>
+
+            <!-- Product information container -->
             <div class="product-listing-info-container">
               <h2>Whole grain noodles</h2>
               <div style="margin-top: 25px;">
-                  <p style="font-weight:400; padding-right: 5px;">Expiration date:</p>
-                  <p>07.06.2023</p>
+                <p style="font-weight:400; padding-right: 5px;">Expiration date:</p>
+                <p>07.06.2023</p>
               </div>
 
+              <!-- Seller information container -->
               <div class="product-listing-user-info">
-                  <div>
-                    <div class="product-listing-profile-img"></div>
+                <div>
+                  <div class="product-listing-profile-img"></div>
                     <p>Maria N.</p>
                   </div> 
                   <div>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="13.195" height="19.06" viewBox="0 0 13.195 19.06">
-                      <path id="Icon_ionic-ios-pin" data-name="Icon ionic-ios-pin" d="M14.473,3.375A6.377,6.377,0,0,0,7.875,9.5c0,4.765,6.6,12.934,6.6,12.934s6.6-8.169,6.6-12.934A6.377,6.377,0,0,0,14.473,3.375Zm0,8.747a2.149,2.149,0,1,1,2.149-2.149A2.149,2.149,0,0,1,14.473,12.122Z" transform="translate(-7.875 -3.375)" fill="#13553f"/>
-                      </svg>
-                      <p>Aarhus</p> 
+                    <img src="${this.locationImg}">
+                    <p>Aarhus</p> 
                   </div>
               </div>
             </div>
@@ -1980,7 +2037,7 @@ class MyPurchasesPage {
 }
 exports.default = MyPurchasesPage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7Dpl3":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","../img/favourites.svg":"1EhEA","../img/location.svg":"i8JWL"}],"7Dpl3":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _routerJs = require("../router.js");
@@ -1991,11 +2048,13 @@ class PublicProfilePage {
     constructor(id){
         this.id = id;
         this.backImg = require("../img/back.svg");
+        this.locationImg = require("../img/location.svg");
         this.render();
     }
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
+
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
@@ -2003,46 +2062,48 @@ class PublicProfilePage {
           </div>
           <h2>Profile</h2>
         </header>
+
+        <!--- Profile container --->
         <div class="section-wrapper">
           <div class="profile-img"></div>
           <h3>Louise Christensen</h3> 
           <div class="profile-location">
-              <svg xmlns="http://www.w3.org/2000/svg" width="13.195" height="19.06" viewBox="0 0 13.195 19.06">
-                  <path id="Icon_ionic-ios-pin" data-name="Icon ionic-ios-pin" d="M14.473,3.375A6.377,6.377,0,0,0,7.875,9.5c0,4.765,6.6,12.934,6.6,12.934s6.6-8.169,6.6-12.934A6.377,6.377,0,0,0,14.473,3.375Zm0,8.747a2.149,2.149,0,1,1,2.149-2.149A2.149,2.149,0,0,1,14.473,12.122Z" transform="translate(-7.875 -3.375)" fill="#13553f"/>
-                  </svg>
-              <p>Aarhus</p> 
+            <img src="${this.locationImg}">
+            <p>Aarhus</p> 
           </div>
           
+          <!--- Impact tracker container --->
           <h2>My Impact Tracker</h2>
             <div class="impact-tracker-wrapper">
-                <div class="impact-tracker">
-                  <h3>3</h3>
-                  <h4>Purchase(s)<br>made</h4>
-                </div>
-                <div class="impact-tracker">
-                  <h3>3</h3>
-                  <h4>Listing(s)<br>made</h4>
-                </div>
+              <div class="impact-tracker">
+                <h3>3</h3>
+                <h4>Purchase(s)<br>made</h4>
+              </div>
+              <div class="impact-tracker">
+                <h3>3</h3>
+                <h4>Listing(s)<br>made</h4>
+              </div>
             </div>
 
+            <!--- Impact badges container --->
             <h2>Badges</h2>
             <div class="impact-badges-wrapper">
-                <div class="impact-badge">
-                    <div></div>
-                    <p>First listing</p>
-                </div>
-
-                <div class="impact-badge">
-                    <div></div>
-                    <p>First listing</p>
-                </div>
-
-                <div class="impact-badge">
-                    <div></div>
-                    <p>First listing</p>
-                </div>
+              <div class="impact-badge">
+                <div></div>
+                <p>First listing</p>
               </div>
-        <div>
+
+              <div class="impact-badge">
+                <div></div>
+                <p>First listing</p>
+              </div>
+
+              <div class="impact-badge">
+                <div></div>
+                <p>First listing</p>
+              </div>
+            </div>
+          <div>
       </section>
     `);
     }
@@ -2052,6 +2113,6 @@ class PublicProfilePage {
 }
 exports.default = PublicProfilePage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}]},["1Mq12","5HwUs"], "5HwUs", "parcelRequire514f")
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","../img/location.svg":"i8JWL"}]},["1Mq12","5HwUs"], "5HwUs", "parcelRequire514f")
 
 //# sourceMappingURL=index.d56a3cb1.js.map

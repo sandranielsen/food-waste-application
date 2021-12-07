@@ -14,12 +14,15 @@ export default class LogInPage {
       "beforeend",
       /*html*/ `
       <section id="${this.id}" class="page">
+
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
             <a href="/"><img src="${this.backImg}"></a>
           </div>
         </header>
+
+        <!--- Banner container --->
         <div class="banner_container">
           <div class="login_signup_img">
             <img src="${this.loginImg} alt="Food" class="login_signup_bg">
@@ -30,6 +33,7 @@ export default class LogInPage {
           </div>
         </div>
 
+        <!--- Login container --->
         <div class="login_signup_container">
             <h1 class="login_signup_headline">Login</h1>
             <div class="form_container">

@@ -20,6 +20,7 @@ export default class ChatPage {
           </div>
           <h2>Chat</h2>
         </header>
+         <!--- Chat box container --->
         <section class="chat_container">
           <div class="search_container"></div>
           <div class="chat_content">
