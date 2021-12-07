@@ -24,7 +24,7 @@ export default class FilterPage {
         <div class="filter_container">
           
           <!--- Category filter container --->
-          <h2 class="filter_headline">Categories</h2>
+          <h3 class="filter_headline">Categories</h3>
           <div class="category_container">
             <input type="checkbox" class="checkbox" id="vegetables" name="category" value="vegetables">
             <label for="vegetables" class="checkbox_label">Vegetables</label>
@@ -53,7 +53,7 @@ export default class FilterPage {
           
           <!--- Distance slider container --->
           <div class="distance_container">
-            <h2 class="filter_headline">Maximum distance</h2>
+            <h3 class="filter_headline">Maximum distance</h3>
             <input type="range" id="slider" class="distance_slider" name="distance" min="1" max="50">
             <span id="slider-value"></span>
           </div>
@@ -61,7 +61,7 @@ export default class FilterPage {
           <!--- Hide expired products container --->
           <div class="hide_container">
             <label class="headline_container">
-              <h2 class="filter_headline">Hide expired products</h2>
+              <h3 class="filter_headline">Hide expired products</h3>
               <input type="checkbox" class="hide_checkbox" name="hide" value="hide">
             </label>
             <p>Some of the listed products might be over the expiration date
@@ -71,7 +71,7 @@ export default class FilterPage {
 
           <!--- Sorting container --->
           <div class="sorting_container">
-            <h2 class="filter_headline">Sort by</h2>
+            <h3 class="filter_headline">Sort by</h3>
             <div class="radio_container">
               <label for="newest" class="radio">Newest</label>
                 <input type="radio" name="newest" value="newest" class="radio_btn">

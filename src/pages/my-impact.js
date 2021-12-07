@@ -23,7 +23,7 @@ export default class MyImpactPage {
         </header>
 
         <!--- Impact tracker container --->
-        <h2>My Impact Tracker</h2>
+        <h3>My Impact Tracker</h3>
             <div class="impact-tracker-wrapper">
                 <div class="impact-tracker">
                   <h3>3</h3>
@@ -36,7 +36,7 @@ export default class MyImpactPage {
             </div>
 
             <!--- Impact badges container --->
-            <h2>Badges</h2>
+            <h3>Badges</h3>
             <div class="impact-badges-wrapper">
                 <div class="impact-badge">
                     <div></div>

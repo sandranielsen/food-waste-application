@@ -1,4 +1,4 @@
-/* profile page */
+/* Profile page */
 
 .section-wrapper {
     display: flex; 
@@ -9,7 +9,7 @@
   
 }
 
-.section-wrapper h3 {
+.section-wrapper h4 {
     font-size: 25px; 
     font-family: Bebas Neue;
     font-weight: 400;
@@ -60,7 +60,7 @@
   text-align: left;
 }
 
-/* account page */
+/* Account page */
 
 #account {
     overflow-y: scroll;
@@ -116,9 +116,9 @@
     text-align: center;
   }
 
-/* my impact page */
+/* My impact page */
 
-#impact h2 {
+#impact h3 {
     width: 100%;
     text-align: left;
     font-size: 25px;
@@ -128,6 +128,7 @@
       display: flex;
       flex-direction: row;
       width: 100%; 
+      margin: 20px 0;
 
   }
 
@@ -145,22 +146,23 @@
 
   }
 
-.impact-tracker h3 {
+.impact-tracker h4 {
     font-size: 25px; 
     font-family: Bebas Neue;
     font-weight: 400; 
     margin: 0;
+    text-align: center;
 
   }
 
-.impact-tracker h4 {
+.impact-tracker h5 {
   font-size: 14px; 
   font-family: Roboto;
   font-weight: 300;
   margin: 5px 0 0 0;
   }
 
-/* badges */
+/* Badges */
 
 .impact-badges-wrapper {
     display: grid;
@@ -168,8 +170,7 @@
     flex-direction: row;
     width: 100%; 
     flex-wrap: wrap;
-
-
+    margin: 20px 0;
   }
 
 .impact-badge {
@@ -189,9 +190,9 @@
     background-size: cover;
   }
 
-/* public profile */
+/* Public profile */
 
-#public h2 {
+#public h3 {
     width: 100%;
     text-align: left;
     font-size: 25px;

@@ -43,7 +43,7 @@ export default class ProductPage {
 
             <!--- Product information container --->
             <div class="product_info">
-                <h2 class="product_title">Apples 4kg</h2>
+                <h3 class="product_title">Apples 4kg</h3>
                 <h3 class="product_price">100 DKK</h4>
             </div>
 

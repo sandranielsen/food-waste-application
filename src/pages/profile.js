@@ -26,7 +26,7 @@ export default class ProfilePage {
         <!--- Profile container --->
         <div class="section-wrapper">
           <div class="profile-img"></div>
-            <h3>Louise Christensen</h3> 
+            <h4>Louise Christensen</h4> 
             <div class="profile-location">
               <img src="${this.locationImg}">
               <p>Aarhus</p> 

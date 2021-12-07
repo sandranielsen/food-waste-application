@@ -1168,7 +1168,7 @@ class HomePage {
 
           <!-- Product information container -->
           <div class="product-listing-info-container">
-            <h2>Whole grain noodles</h2>
+            <h3>Whole grain noodles</h3>
             <div style="margin-top: 25px;">
               <p style="font-weight:400; padding-right: 5px;">Expiration date:</p>
               <p>07.06.2023</p>
@@ -1264,7 +1264,7 @@ class FilterPage {
         <div class="filter_container">
           
           <!--- Category filter container --->
-          <h2 class="filter_headline">Categories</h2>
+          <h3 class="filter_headline">Categories</h3>
           <div class="category_container">
             <input type="checkbox" class="checkbox" id="vegetables" name="category" value="vegetables">
             <label for="vegetables" class="checkbox_label">Vegetables</label>
@@ -1293,7 +1293,7 @@ class FilterPage {
           
           <!--- Distance slider container --->
           <div class="distance_container">
-            <h2 class="filter_headline">Maximum distance</h2>
+            <h3 class="filter_headline">Maximum distance</h3>
             <input type="range" id="slider" class="distance_slider" name="distance" min="1" max="50">
             <span id="slider-value"></span>
           </div>
@@ -1301,7 +1301,7 @@ class FilterPage {
           <!--- Hide expired products container --->
           <div class="hide_container">
             <label class="headline_container">
-              <h2 class="filter_headline">Hide expired products</h2>
+              <h3 class="filter_headline">Hide expired products</h3>
               <input type="checkbox" class="hide_checkbox" name="hide" value="hide">
             </label>
             <p>Some of the listed products might be over the expiration date
@@ -1311,7 +1311,7 @@ class FilterPage {
 
           <!--- Sorting container --->
           <div class="sorting_container">
-            <h2 class="filter_headline">Sort by</h2>
+            <h3 class="filter_headline">Sort by</h3>
             <div class="radio_container">
               <label for="newest" class="radio">Newest</label>
                 <input type="radio" name="newest" value="newest" class="radio_btn">
@@ -1380,7 +1380,7 @@ class ProductPage {
 
             <!--- Product information container --->
             <div class="product_info">
-                <h2 class="product_title">Apples 4kg</h2>
+                <h3 class="product_title">Apples 4kg</h3>
                 <h3 class="product_price">100 DKK</h4>
             </div>
 
@@ -1653,7 +1653,7 @@ class FavouritesPage {
 
          <!--- Product information container --->
          <div class="product-listing-info-container">
-           <h2>Whole grain noodles</h2>
+           <h3>Whole grain noodles</h3>
            <div style="margin-top: 25px;">
               <p style="font-weight:400; padding-right: 5px;">Expiration date:</p>
               <p>07.06.2023</p>
@@ -1711,7 +1711,7 @@ class ProfilePage {
         <!--- Profile container --->
         <div class="section-wrapper">
           <div class="profile-img"></div>
-            <h3>Louise Christensen</h3> 
+            <h4>Louise Christensen</h4> 
             <div class="profile-location">
               <img src="${this.locationImg}">
               <p>Aarhus</p> 
@@ -1764,7 +1764,7 @@ class AccountPage {
         <!--- Profile container --->
         <div class="section-wrapper">
           <div class="profile-img"></div>
-            <h3>Louise Christensen</h3> 
+            <h4>Louise Christensen</h4> 
           <div class="profile-location">
               <img src="${this.locationImg}">
               <p>Aarhus</p> 
@@ -1854,7 +1854,7 @@ class MyImpactPage {
         </header>
 
         <!--- Impact tracker container --->
-        <h2>My Impact Tracker</h2>
+        <h3>My Impact Tracker</h3>
             <div class="impact-tracker-wrapper">
                 <div class="impact-tracker">
                   <h3>3</h3>
@@ -1867,7 +1867,7 @@ class MyImpactPage {
             </div>
 
             <!--- Impact badges container --->
-            <h2>Badges</h2>
+            <h3>Badges</h3>
             <div class="impact-badges-wrapper">
                 <div class="impact-badge">
                     <div></div>
@@ -1956,7 +1956,7 @@ class MyListingsPage {
        </div>
 
        <div class="product-listing-info-container">
-        <h2>Whole grain noodles</h2>
+        <h3>Whole grain noodles</h3>
           <div class="my-listings-buttons">
             <button onclick="location.href='#edit';">Edit</button>
             <button onclick="location.href='#delete';" style="margin-left: 10px;" >Delete</button>
@@ -2009,7 +2009,7 @@ class MyPurchasesPage {
 
             <!-- Product information container -->
             <div class="product-listing-info-container">
-              <h2>Whole grain noodles</h2>
+              <h3>Whole grain noodles</h3>
               <div style="margin-top: 25px;">
                 <p style="font-weight:400; padding-right: 5px;">Expiration date:</p>
                 <p>07.06.2023</p>
@@ -2066,27 +2066,27 @@ class PublicProfilePage {
         <!--- Profile container --->
         <div class="section-wrapper">
           <div class="profile-img"></div>
-          <h3>Louise Christensen</h3> 
+          <h4>Louise Christensen</h4> 
           <div class="profile-location">
             <img src="${this.locationImg}">
             <p>Aarhus</p> 
           </div>
           
           <!--- Impact tracker container --->
-          <h2>My Impact Tracker</h2>
+          <h3>My Impact Tracker</h3>
             <div class="impact-tracker-wrapper">
               <div class="impact-tracker">
-                <h3>3</h3>
-                <h4>Purchase(s)<br>made</h4>
+                <h4>3</h4>
+                <h5>Purchase(s)<br>made</h5>
               </div>
               <div class="impact-tracker">
-                <h3>3</h3>
-                <h4>Listing(s)<br>made</h4>
+                <h4>3</h4>
+                <h5>Listing(s)<br>made</h5>
               </div>
             </div>
 
             <!--- Impact badges container --->
-            <h2>Badges</h2>
+            <h3>Badges</h3>
             <div class="impact-badges-wrapper">
               <div class="impact-badge">
                 <div></div>

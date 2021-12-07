@@ -32,7 +32,7 @@ export default class MyListingsPage {
        </div>
 
        <div class="product-listing-info-container">
-        <h2>Whole grain noodles</h2>
+        <h3>Whole grain noodles</h3>
           <div class="my-listings-buttons">
             <button onclick="location.href='#edit';">Edit</button>
             <button onclick="location.href='#delete';" style="margin-left: 10px;" >Delete</button>

@@ -26,27 +26,27 @@ export default class PublicProfilePage {
         <!--- Profile container --->
         <div class="section-wrapper">
           <div class="profile-img"></div>
-          <h3>Louise Christensen</h3> 
+          <h4>Louise Christensen</h4> 
           <div class="profile-location">
             <img src="${this.locationImg}">
             <p>Aarhus</p> 
           </div>
           
           <!--- Impact tracker container --->
-          <h2>My Impact Tracker</h2>
+          <h3>My Impact Tracker</h3>
             <div class="impact-tracker-wrapper">
               <div class="impact-tracker">
-                <h3>3</h3>
-                <h4>Purchase(s)<br>made</h4>
+                <h4>3</h4>
+                <h5>Purchase(s)<br>made</h5>
               </div>
               <div class="impact-tracker">
-                <h3>3</h3>
-                <h4>Listing(s)<br>made</h4>
+                <h4>3</h4>
+                <h5>Listing(s)<br>made</h5>
               </div>
             </div>
 
             <!--- Impact badges container --->
-            <h2>Badges</h2>
+            <h3>Badges</h3>
             <div class="impact-badges-wrapper">
               <div class="impact-badge">
                 <div></div>

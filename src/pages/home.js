@@ -46,7 +46,7 @@ export default class HomePage {
 
           <!-- Product information container -->
           <div class="product-listing-info-container">
-            <h2>Whole grain noodles</h2>
+            <h3>Whole grain noodles</h3>
             <div style="margin-top: 25px;">
               <p style="font-weight:400; padding-right: 5px;">Expiration date:</p>
               <p>07.06.2023</p>
