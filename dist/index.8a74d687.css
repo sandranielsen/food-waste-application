@@ -52,7 +52,7 @@ input#file-upload-button {
     height: 120px;
     border: 1px solid var(--light-grey);
 }
-input[type="text"]::placeholder {
+.form-container input[type="text"]::placeholder {
     text-align: right;
     font-family: Roboto;
     color: var(--light-grey);

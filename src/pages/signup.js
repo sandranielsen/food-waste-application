@@ -52,10 +52,10 @@ export default class SignUpPage {
             <h1 class="login_signup_headline">Signup</h1>
             <div class="form_container">
             <form>
-              <input id="signup-name" class="signup_input type="text" name="name" placeholder="Name">
-              <input id="signup-username" class="signup_input  type="text" placeholder="Email" autocomplete="new-email">
-              <input id="signup-password" class="signup_input  type="password" placeholder="Password" autocomplete="new-password">
-              <input id="signup-password-check" class="signup_input  type="password" placeholder="Password" autocomplete="new-password">
+              <input id="signup-name" class="signup_input" type="text" name="name" placeholder="Name">
+              <input id="signup-username" class="signup_input"  type="text" placeholder="Email" autocomplete="new-email">
+              <input id="signup-password" class="signup_input"  type="password" placeholder="Password" autocomplete="new-password">
+              <input id="signup-password-check" class="signup_input"  type="password" placeholder="Password" autocomplete="new-password">
 
         <button type="button" class="btn_alt" id="btn-signup">Sign up</button>
         <div class=".signup-message"></div>

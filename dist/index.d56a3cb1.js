@@ -1010,10 +1010,10 @@ class SignUpPage {
             <h1 class="login_signup_headline">Signup</h1>
             <div class="form_container">
             <form>
-              <input id="signup-name" class="signup_input type="text" name="name" placeholder="Name">
-              <input id="signup-username" class="signup_input  type="text" placeholder="Email" autocomplete="new-email">
-              <input id="signup-password" class="signup_input  type="password" placeholder="Password" autocomplete="new-password">
-              <input id="signup-password-check" class="signup_input  type="password" placeholder="Password" autocomplete="new-password">
+              <input id="signup-name" class="signup_input" type="text" name="name" placeholder="Name">
+              <input id="signup-username" class="signup_input"  type="text" placeholder="Email" autocomplete="new-email">
+              <input id="signup-password" class="signup_input"  type="password" placeholder="Password" autocomplete="new-password">
+              <input id="signup-password-check" class="signup_input"  type="password" placeholder="Password" autocomplete="new-password">
 
         <button type="button" class="btn_alt" id="btn-signup">Sign up</button>
         <div class=".signup-message"></div>
@@ -1055,9 +1055,9 @@ class LogInPage {
           <path id="Icon_ionic-ios-arrow-back" data-name="Icon ionic-ios-arrow-back" d="M15.321,18l8.937-8.93a1.688,1.688,0,0,0-2.391-2.384L11.742,16.8a1.685,1.685,0,0,0-.049,2.327L21.86,29.32a1.688,1.688,0,0,0,2.391-2.384Z" transform="translate(-11.251 -6.194)" fill="#13553f"/>
           </svg></a>
         </header>
-        <div class="login_signup_container">
+        <div class="banner_container">
           <div class="login_signup_img">
-            <img src="${this.loginImg}" alt="Food" class="login_signup_bg">
+            <img src="${this.loginImg} alt="Food" class="login_signup_bg">
             <div class="half-overlay"></div>
             <div class="login_signup_content">
               <h2 class="login_signup_text">Share food with your community and fight against food waste<h2>
@@ -1069,8 +1069,8 @@ class LogInPage {
             <h1 class="login_signup_headline">Login</h1>
             <div class="form_container">
 
-            <!-- Rasmus form -->
-            <form>
+        <!-- Rasmus form -->
+        <form>
         <input id="signup-firstname" type="text" name="firstname" placeholder="Type firstname">
         <input id="signup-lastname" type="text" name="lastname" placeholder="Type lastname">
         <input id="signup-age" type="number" name="age" placeholder="Type age">
@@ -1081,11 +1081,11 @@ class LogInPage {
           <option>Other</option>
         </select>
 
-        <input id="signup-username" type="text" placeholder="Type username" autocomplete="new-username">
-        <input id="signup-password" type="password" placeholder="Password" autocomplete="new-password">
-        <input id="signup-password-check" type="password" placeholder="Password" autocomplete="new-password">
+        <input id="signup-username" class="login_input"  type="text" placeholder="Type username" autocomplete="new-username">
+        <input id="signup-password" class="login_input"  type="password" placeholder="Password" autocomplete="new-password">
+        <input id="signup-password-check" class="login_input"  type="password" placeholder="Password" autocomplete="new-password">
 
-        <button type="button" id="btn-signup">Sign up</button>
+        <button type="button" class="btn_alt" id="btn-signup">Login up</button>
       </form>
 
 

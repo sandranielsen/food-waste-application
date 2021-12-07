@@ -52,6 +52,17 @@
   height: 40px;
   border: 1px solid var(--green);
   border-radius: 5px;
+  color: var(--green);
+}
+
+.login_input {
+  margin: 8px 0 20px;
+  padding: 0 10px;
+  width: 100%;
+  height: 40px;
+  border: 1px solid var(--green);
+  border-radius: 5px;
+  color: var(--green);
 }
 
 /* Input field icons */
@@ -78,7 +89,6 @@
 .signup_input::placeholder {
   font-family: Roboto;
   color: var(--green);
-  padding-left: 4px;
 }
 
 
