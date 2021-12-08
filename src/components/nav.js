@@ -4,8 +4,7 @@ class Nav {
     this.homeImg = require("../img/home.svg");
     this.chatImg = require("../img/chat.svg");
     this.addImg = require("../img/add.svg");
-    this.favouritesImg = require("../img/favourites_filled.svg");
-    this.profileImg = require("../img/profile.svg");
+    this.favouritesImg = require("../img/favourites_filled.svg"); 
   }
 
   render() {
