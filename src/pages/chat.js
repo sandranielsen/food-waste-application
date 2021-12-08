@@ -65,7 +65,7 @@ export default class ChatPage {
         <div class="chat-profile-img" style="background-image: url('https://image.shutterstock.com/mosaic_250/101595/738242395/stock-photo-portrait-of-a-mature-businessman-wearing-glasses-on-grey-background-happy-senior-latin-man-looking-738242395.jpg');"></div>
         <div>
           <p class="seller_name">Søren Knudsen</p>
-          <p class="chat_preview">I'm able to pick up the apples tomorrow after...<p>
+          <p class="chat_preview">I can pick up the apples tomorrow...<p>
          </div>
         <div class="chat-time">
         <p>14.56</p>
