@@ -3,6 +3,8 @@ class Service {
     this.listings = [];
     this.baseUrl = "http://foodwaste.sonajuhasova.com/backend/";
     this.loginUrl = this.baseUrl + "/login.php";
+    this.fileUploadUrl = this.baseUrl + "/fileUpload.php";
+    this.listingUrl = this.baseUrl + "/listing.php";
     this.selectedListingId;
   }
 
@@ -29,7 +31,7 @@ class Service {
   // Inspiration: Rasmus - parcel dating spa & user service
   /***** Read listing *****/
   async getListings() {
-    const url = `${this.baseUrl}?action=getListings`;
+    const url = `${this.listingUrl}?action=getListings`;
     const response = await fetch(url);
     const data = await response.json();
     this.listings = data;
@@ -37,7 +39,7 @@ class Service {
   }
 
   async getListing(listingId) {
-    const url = `${this.baseUrl}?action=getListing&listingId=${listingId}`;
+    const url = `${this.listingUrl}?action=getListing&listingId=${listingId}`;
     const response = await fetch(url);
     const listing = await response.json();
     return listing;
@@ -49,7 +51,7 @@ class Service {
     let formData = new FormData();
     formData.append("fileToUpload", imageFile);
 
-    const response = await fetch(`${this.baseUrl}?action=uploadImage`, {
+    const response = await fetch(`${this.fileUploadUrl}?action=uploadImage`, {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -82,7 +84,7 @@ class Service {
     };
 
     // post new listing to php service using fetch(...)
-    const response = await fetch(this.baseUrl + "?action=createListing", {
+    const response = await fetch(this.listingUrl + "?action=createListing", {
       method: "POST",
       body: JSON.stringify(newListing), // parsing js object to json object
     });
@@ -96,7 +98,7 @@ class Service {
   /***** Delete listing */
   async deleteListing(listingId) {
     const response = await fetch(
-      `${this.baseUrl}?action=deleteListing&listingId=${listingId}`,
+      `${this.listingUrl}?action=deleteListing&listingId=${listingId}`,
       {
         method: "DELETE",
       }
@@ -129,7 +131,7 @@ class Service {
       image,
     };
     // put listing to php service using fetch(...)
-    const response = await fetch(this.baseUrl + "?action=updateListing", {
+    const response = await fetch(this.listingUrl + "?action=updateListing", {
       method: "PUT",
       body: JSON.stringify(listingToUpdate), // parsing js object to json object
     });

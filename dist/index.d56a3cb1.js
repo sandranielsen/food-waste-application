@@ -537,7 +537,6 @@ class Nav {
         this.chatImg = require("../img/chat.svg");
         this.addImg = require("../img/add.svg");
         this.favouritesImg = require("../img/favourites_filled.svg");
-        this.profileImg = require("../img/profile.svg");
     }
     render() {
         document.querySelector("#root").insertAdjacentHTML("afterbegin", /*html*/ `
@@ -594,7 +593,7 @@ function setActiveTab(pageId) {
 const nav = new Nav();
 exports.default = nav;
 
-},{"../img/nav.svg":"iEMGg","../img/home.svg":"bGk6w","../img/chat.svg":"lKveA","../img/add.svg":"2nZV2","../img/favourites_filled.svg":"5xxat","../img/profile.svg":"aXNa7","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"iEMGg":[function(require,module,exports) {
+},{"../img/nav.svg":"iEMGg","../img/home.svg":"bGk6w","../img/chat.svg":"lKveA","../img/add.svg":"2nZV2","../img/favourites_filled.svg":"5xxat","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"iEMGg":[function(require,module,exports) {
 module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "nav.848d6efd.svg" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"chiK4"}],"chiK4":[function(require,module,exports) {
@@ -643,9 +642,6 @@ module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "add.68
 
 },{"./helpers/bundle-url":"chiK4"}],"5xxat":[function(require,module,exports) {
 module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "favourites_filled.c610c78f.svg" + "?" + Date.now();
-
-},{"./helpers/bundle-url":"chiK4"}],"aXNa7":[function(require,module,exports) {
-module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "profile.904df317.svg" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"chiK4"}],"ciiiV":[function(require,module,exports) {
 exports.interopDefault = function(a) {
@@ -887,6 +883,8 @@ class Service {
         this.listings = [];
         this.baseUrl = "http://foodwaste.sonajuhasova.com/backend/";
         this.loginUrl = this.baseUrl + "/login.php";
+        this.fileUploadUrl = this.baseUrl + "/fileUpload.php";
+        this.listingUrl = this.baseUrl + "/listing.php";
         this.selectedListingId;
     }
     /***** Login/Signup *****/ /* Fetch and return all listings from backend service */ async signupUser(name, username, password, passwordCheck) {
@@ -906,14 +904,14 @@ class Service {
     }
     /************** CRUD operations **************/ // Inspiration: Rasmus - parcel dating spa & user service
     /***** Read listing *****/ async getListings() {
-        const url = `${this.baseUrl}?action=getListings`;
+        const url = `${this.listingUrl}?action=getListings`;
         const response = await fetch(url);
         const data = await response.json();
         this.listings = data;
         return this.listings;
     }
     async getListing(listingId) {
-        const url = `${this.baseUrl}?action=getListing&listingId=${listingId}`;
+        const url = `${this.listingUrl}?action=getListing&listingId=${listingId}`;
         const response = await fetch(url);
         const listing = await response.json();
         return listing;
@@ -921,7 +919,7 @@ class Service {
     /***** Create listing *****/ /* Image upload */ async uploadImage(imageFile) {
         let formData = new FormData();
         formData.append("fileToUpload", imageFile);
-        const response = await fetch(`${this.baseUrl}?action=uploadImage`, {
+        const response = await fetch(`${this.fileUploadUrl}?action=uploadImage`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
@@ -945,7 +943,7 @@ class Service {
             image
         };
         // post new listing to php service using fetch(...)
-        const response = await fetch(this.baseUrl + "?action=createListing", {
+        const response = await fetch(this.listingUrl + "?action=createListing", {
             method: "POST",
             body: JSON.stringify(newListing)
         });
@@ -956,7 +954,7 @@ class Service {
         return this.listing;
     }
     /***** Delete listing */ async deleteListing(listingId1) {
-        const response = await fetch(`${this.baseUrl}?action=deleteListing&listingId=${listingId1}`, {
+        const response = await fetch(`${this.listingUrl}?action=deleteListing&listingId=${listingId1}`, {
             method: "DELETE"
         });
         // waiting for the result
@@ -977,7 +975,7 @@ class Service {
             image: image1
         };
         // put listing to php service using fetch(...)
-        const response = await fetch(this.baseUrl + "?action=updateListing", {
+        const response = await fetch(this.listingUrl + "?action=updateListing", {
             method: "PUT",
             body: JSON.stringify(listingToUpdate)
         });
