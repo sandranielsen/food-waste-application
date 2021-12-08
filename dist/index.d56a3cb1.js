@@ -857,9 +857,11 @@ class Service {
         this.listings = [];
         this.baseUrl = "http://foodwaste.sonajuhasova.com/backend/";
         this.loginUrl = this.baseUrl + "/login.php";
+        this.uploadUrl = this.baseUrl + "/fileUpload.php";
+        this.listingsUrl = this.baseUrl + "/listing.php";
+        this.selectedListingId;
     }
-    // rasmus' code
-    /* fetch and return all listings from backend service */ async signupUser(name, username, password, passwordCheck) {
+    /***** Login/Signup *****/ /* Fetch and return all listings from backend service */ async signupUser(name, username, password, passwordCheck) {
         const url = `${this.loginUrl}?action=signup`;
         var data = {
             name: name,
@@ -874,43 +876,47 @@ class Service {
         const json = await response.json();
         return json;
     }
-    async getListings() {
-        const url = `${this.baseUrl}?action=getListings`;
+    /***** Read listing *****/ async getListings() {
+        const url = `${this.listingUrl}?action=getListings`;
         const response = await fetch(url);
         const data = await response.json();
         this.listings = data;
         return this.listings;
     }
-    async getUser(userId) {
-        const url = `${this.baseUrl}?action=getUser&userId=${userId}`;
+    async getListing(listingId) {
+        const url = `${this.listingUrl}?action=getListing&listingId=${listingId}`;
         const response = await fetch(url);
-        const user = await response.json();
-        return user;
+        const listing = await response.json();
+        return listing;
     }
-    async deleteListing(listingId) {
-        const response = await fetch(`${this.baseUrl}?action=deleteListing&listingId=${listingId}`, {
-            method: "DELETE"
+    /***** Create listing *****/ /* Image upload */ async uploadImage(imageFile) {
+        let formData = new FormData();
+        formData.append("fileToUpload", imageFile);
+        const response = await fetch(`${this.uploadUrl}?action=uploadImage`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: formData
         });
         // waiting for the result
         const result = await response.json();
-        // the result is the new updated listings array
-        this.listing = result;
-        return this.listing;
+        return result;
     }
-    async createListing(title, price, expirationDate, description, location, image) {
+    async createListing(title, price, description, expirationDate, location, image) {
         const id = Date.now(); // dummy generated listing id
         const newListing = {
             // declaring a new js object with the form values
             id,
             title,
             price,
-            expirationDate,
             description,
+            expirationDate,
             location,
             image
         };
         // post new listing to php service using fetch(...)
-        const response = await fetch(this.baseUrl + "?action=createListing", {
+        const response = await fetch(this.listingUrl + "?action=createListing", {
             method: "POST",
             body: JSON.stringify(newListing)
         });
@@ -920,19 +926,29 @@ class Service {
         this.listing = result;
         return this.listing;
     }
-    async updateListing(id, title1, price1, expirationDate1, description1, location1, image1) {
+    /***** Delete listing */ async deleteListing(listingId1) {
+        const response = await fetch(`${this.listingUrl}?action=deleteListing&listingId=${listingId1}`, {
+            method: "DELETE"
+        });
+        // waiting for the result
+        const result = await response.json();
+        // the result is the new updated listings array
+        this.listing = result;
+        return this.listing;
+    }
+    /***** Update listing *****/ async updateListing(id, title1, price1, description1, expirationDate1, location1, image1) {
         const listingToUpdate = {
             // declaring a new js object with the form values
             id,
             title: title1,
             price: price1,
-            expirationDate: expirationDate1,
             description: description1,
+            expirationDate: expirationDate1,
             location: location1,
             image: image1
         };
         // put listing to php service using fetch(...)
-        const response = await fetch(this.baseUrl + "?action=updateListing", {
+        const response = await fetch(this.listingUrl + "?action=updateListing", {
             method: "PUT",
             body: JSON.stringify(listingToUpdate)
         });
@@ -941,6 +957,12 @@ class Service {
         // the result is the new updated listings array
         this.listings = result;
         return this.listings;
+    }
+    /***** User *****/ async getUser() {
+        const url = `${this.baseUrl}?action=getUser&userId=${userId}`;
+        const response = await fetch(url);
+        const user = await response.json();
+        return user;
     }
 }
 const service = new Service();
@@ -1198,7 +1220,7 @@ class HomePage {
         this.attachEvents();
     }
     attachEvents() {
-        document.querySelectorAll(`#${this.id} [data-listing-id]`).forEach((element)=>{
+        document.querySelectorAll(`#${this.listing_id} [data-listing-id]`).forEach((element)=>{
             element.onclick = ()=>{
                 const listingId = element.getAttribute("data-listing-id");
                 _routerJsDefault.default.navigateTo(`/listing/${listingId}`);
@@ -1458,13 +1480,12 @@ class AddListingPage {
         this.uploadImg = require("../img/camera.svg");
         this.startImg = require("../img/start-bg.jpg");
         this.render();
-        /*
-    this.titleInput = document.querySelector(`#${this.id} [name="title"]`);
-    this.priceInput = document.querySelector(`#${this.id} [name="price"]`);
-    this.descriptionInput = document.querySelector(`#${this.id} [name="description"]`);
-    this.expirationDateInput = document.querySelector(`#${this.id} [name="expirationDate"]`);
-    this.locationInput = document.querySelector(`#${this.id} [name="location"]`); 
-    */ this.imagePreview = document.querySelector(`#${this.id} [name="imagePreview"]`);
+        this.titleInput = document.querySelector(`#${this.id} [name="title"]`);
+        this.priceInput = document.querySelector(`#${this.id} [name="price"]`);
+        this.descriptionInput = document.querySelector(`#${this.id} [name="description"]`);
+        this.expirationDateInput = document.querySelector(`#${this.id} [name="expirationDate"]`);
+        this.locationInput = document.querySelector(`#${this.id} [name="location"]`);
+        this.imagePreview = document.querySelector(`#${this.id} [name="imagePreview"]`);
         this.imageInput = document.querySelector(`#${this.id} [name="listingImage"]`);
         this.attachEvents();
     }
@@ -1537,7 +1558,7 @@ class AddListingPage {
             </div>
 
           </div>
-          <button type="button" onclick="location.href='/home'" class="btn_alt">Add Listing</button>  
+          <button type="button" id="add-btn" class="btn_alt">Add Listing</button>  
 
           </form>
         </section>
@@ -1547,8 +1568,10 @@ class AddListingPage {
     /* Attaching events to DOM elements. */ attachEvents() {
         this.imageInput.onchange = ()=>this.previewImage()
         ; // on change event on the input file (image) field
-    /* document.querySelector(`#${this.id} .save`).onclick = () => this.create(); // on click event for save button */ }
-    previewImage() {
+        document.querySelector(`#${this.id} #add-btn`).onclick = ()=>this.create()
+        ; // on click event for save button
+    }
+    /* Image preview functionality */ previewImage() {
         const file = this.imageInput.files[0];
         if (file) {
             let reader = new FileReader();
@@ -1558,52 +1581,23 @@ class AddListingPage {
             reader.readAsDataURL(file);
         }
     }
-    async uploadImage(imageFile) {
-        let formData = new FormData();
-        formData.append("fileToUpload", imageFile);
-        const response = await fetch(`${this.baseUrl}?action=uploadImage`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
-            body: formData
-        });
-        // waiting for the result
-        const result = await response.json();
-        return result;
+    async create() {
+        if (this.validate()) {
+            const image = await _serviceJsDefault.default.uploadImage(this.imageInput.files[0]);
+            const listings = await _serviceJsDefault.default.createListing(this.titleInput.value, this.priceInput.value, this.expirationDateInput.value, this.descriptionInput.value, this.locationInput.value, image.name);
+            _routerJsDefault.default.navigateTo("/", {
+                home: home
+            });
+        }
     }
-    /*
-  async create() {
-    if (this.validate()) {
-      const image = await service.uploadImage(this.imageInput.files[0]);
-      const listings = await service.createListing(
-        this.titleInput.value,
-        this.priceInput.value,
-        this.expirationDateInput.value,
-        this.descriptionInput.value,
-        this.locationInput.value,
-        image.name
-      );
-      router.navigateTo("/", { home: home });
+    validate() {
+        if (this.titleInput.value && this.priceInput.value && this.descriptionInput.value && this.expirationDateInput.value && this.locationInput.value && this.imageInput.files[0]) return true;
+        else {
+            alert("Please, fill in all fields.");
+            return false;
+        }
     }
-  }
-
-  validate() {
-    if (
-      this.titleInput.value &&
-      this.priceInput.value &&
-      this.descriptionInput.value &&
-      this.expirationDateInput.value &&
-      this.locationInput.value &&
-      this.imageInput.files[0]
-    ) {
-      return true;
-    } else {
-      alert("Please, fill in all fields.");
-      return false;
-    }
-  }
-  */ beforeShow(props) {
+    beforeShow(props) {
         console.log(props);
     }
 }

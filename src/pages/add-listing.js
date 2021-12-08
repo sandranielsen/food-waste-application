@@ -8,15 +8,15 @@ export default class AddListingPage {
     this.uploadImg = require("../img/camera.svg");
     this.startImg = require("../img/start-bg.jpg");
     this.render();
-    /*
+
     this.titleInput = document.querySelector(`#${this.id} [name="title"]`);
     this.priceInput = document.querySelector(`#${this.id} [name="price"]`);
     this.descriptionInput = document.querySelector(`#${this.id} [name="description"]`);
     this.expirationDateInput = document.querySelector(`#${this.id} [name="expirationDate"]`);
     this.locationInput = document.querySelector(`#${this.id} [name="location"]`); 
-    */
     this.imagePreview = document.querySelector(`#${this.id} [name="imagePreview"]`);
     this.imageInput = document.querySelector(`#${this.id} [name="listingImage"]`);    
+    
     this.attachEvents();
   }
 
@@ -91,7 +91,7 @@ export default class AddListingPage {
             </div>
 
           </div>
-          <button type="button" onclick="location.href='/home'" class="btn_alt">Add Listing</button>  
+          <button type="button" id="add-btn" class="btn_alt">Add Listing</button>  
 
           </form>
         </section>
@@ -103,9 +103,10 @@ export default class AddListingPage {
   /* Attaching events to DOM elements. */
   attachEvents() {
     this.imageInput.onchange = () => this.previewImage(); // on change event on the input file (image) field
-    /* document.querySelector(`#${this.id} .save`).onclick = () => this.create(); // on click event for save button */
+    document.querySelector(`#${this.id} #add-btn`).onclick = () => this.create(); // on click event for save button
   }
 
+  /* Image preview functionality */
   previewImage() {
     const file = this.imageInput.files[0];
     if (file) {
@@ -117,23 +118,6 @@ export default class AddListingPage {
     }
   }
 
-  async uploadImage(imageFile) {
-    let formData = new FormData();
-    formData.append("fileToUpload", imageFile);
-
-    const response = await fetch(`${this.baseUrl}?action=uploadImage`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: formData,
-    });
-    // waiting for the result
-    const result = await response.json();
-    return result;
-  }
-
-  /*
   async create() {
     if (this.validate()) {
       const image = await service.uploadImage(this.imageInput.files[0]);
@@ -164,7 +148,6 @@ export default class AddListingPage {
       return false;
     }
   }
-  */
 
   beforeShow(props) {
     console.log(props);
