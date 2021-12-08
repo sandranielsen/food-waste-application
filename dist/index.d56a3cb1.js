@@ -1487,12 +1487,17 @@ class AddListingPage {
             <div class="upload_container">
               <!---
               <img id="imagePreview" class="image-preview">
-              <input type="file" name="profileImage" id="fileToUpload" accept="image/*" hidden>
-              <label for="profileImage" class="image_upload"><img src="${this.uploadImg}">Add Image</label>
-             --->
-            </div>
+              <input type="file" name="listingImage" id="fileToUpload" accept="image/*" hidden>
+              <label for="listingImage" class="image_upload"><img src="${this.uploadImg}">Add Image</label>
+            --->
             <img name="imagePreview" class="image-preview">
-            <input type="file" name="listingImage" accept="image/*">
+              <div class="upload_button">
+              <p class="upload_text">Add Image</p>
+              <img src="${this.uploadImg}" alt="camera">
+              <input type="file" name="listingImage" accept="image/*" class="image_upload">
+              </div>
+            </div>
+            
 
             <!--- Listing information container --->
             <div class="form_container">
