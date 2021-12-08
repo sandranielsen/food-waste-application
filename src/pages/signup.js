@@ -31,7 +31,7 @@ export default class SignUpPage {
   render() {
     document.querySelector("#root").insertAdjacentHTML(
       "beforeend",
-      /*jsx*/ `
+      /*html*/ `
       <section id="${this.id}" class="page">
       <!--- Topbar container --->
         <header class="topbar">

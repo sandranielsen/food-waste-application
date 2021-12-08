@@ -1,0 +1,56 @@
+.chat_content_first {
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    align-items: center;
+    padding: 10px 0;
+
+}
+
+.chat_content {
+    display: flex;
+    flex-direction: row; 
+    border-bottom: 1px solid #000;
+    align-items: center;
+    padding: 10px 0;
+
+}
+
+.chat-profile-img {
+    position: center;
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+
+}
+
+.seller_name {
+    font-size: 18px; 
+    font-family: Roboto;
+    font-weight: 400;
+    margin: 10px 0 0 10px; 
+}
+
+.chat_preview {
+    font-size: 12px; 
+    font-family: Roboto;
+    font-weight: 300;
+    margin: 10px 0 0 0;
+    padding-left: 20px;
+
+}
+
+.chat-time {
+    font-size: 12px; 
+    font-family: Roboto;
+    font-weight: 300;
+    margin: 0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+}
