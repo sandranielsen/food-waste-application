@@ -24,6 +24,9 @@ class Service {
     return json;
   }
 
+  /************** CRUD operations **************/
+  
+  // Inspiration: Rasmus - parcel dating spa & user service
   /***** Read listing *****/
   async getListings() {
     const url = `${this.baseUrl}?action=getListings`;

@@ -152,6 +152,21 @@ a {
   margin: 20px 20px;
 }
 
+.tabbar a {  
+  color: #13553F;
+
+}
+
+.tabbar a .tabbar-svg{
+  width: 25px;
+  margin: 20px 20px;   
+
+}
+
+.active { 
+  color: #46A585 !important;
+}
+
 /***** Page styling *****/
 .page {
   display: flex;

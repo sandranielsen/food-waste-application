@@ -12,6 +12,7 @@ include("mysql.php");
 $jsonFile = file_get_contents("listing.json");
 $listings = json_decode($jsonFile);
 
+  // Inspiration: Rasmus - parcel dating spa & user service
 if ($_GET['action'] == 'getListings') {
     echo $jsonFile;
 } else if ($_GET['action'] == 'getListing') {

@@ -70,6 +70,8 @@ export default class HomePage {
     `
     );
   }
+
+  // Inspiration: Rasmus - parcel dating spa & user service
   async init() {
     const listings = await service.getListings();
     this.appendListings(listings);

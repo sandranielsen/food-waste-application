@@ -11,12 +11,22 @@ export default class AddListingPage {
 
     this.titleInput = document.querySelector(`#${this.id} [name="title"]`);
     this.priceInput = document.querySelector(`#${this.id} [name="price"]`);
-    this.descriptionInput = document.querySelector(`#${this.id} [name="description"]`);
-    this.expirationDateInput = document.querySelector(`#${this.id} [name="expirationDate"]`);
-    this.locationInput = document.querySelector(`#${this.id} [name="location"]`); 
-    this.imagePreview = document.querySelector(`#${this.id} [name="imagePreview"]`);
-    this.imageInput = document.querySelector(`#${this.id} [name="listingImage"]`);    
-    
+    this.descriptionInput = document.querySelector(
+      `#${this.id} [name="description"]`
+    );
+    this.expirationDateInput = document.querySelector(
+      `#${this.id} [name="expirationDate"]`
+    );
+    this.locationInput = document.querySelector(
+      `#${this.id} [name="location"]`
+    );
+    this.imagePreview = document.querySelector(
+      `#${this.id} [name="imagePreview"]`
+    );
+    this.imageInput = document.querySelector(
+      `#${this.id} [name="listingImage"]`
+    );
+
     this.attachEvents();
   }
 
@@ -100,10 +110,12 @@ export default class AddListingPage {
     );
   }
 
+  // Inspiration: Rasmus - parcel dating spa & user service
   /* Attaching events to DOM elements. */
   attachEvents() {
     this.imageInput.onchange = () => this.previewImage(); // on change event on the input file (image) field
-    document.querySelector(`#${this.id} #add-btn`).onclick = () => this.create(); // on click event for save button
+    document.querySelector(`#${this.id} #add-btn`).onclick = () =>
+      this.create(); // on click event for save button
   }
 
   /* Image preview functionality */
@@ -117,7 +129,6 @@ export default class AddListingPage {
       reader.readAsDataURL(file);
     }
   }
-
 
   async create() {
     if (this.validate()) {
@@ -133,7 +144,6 @@ export default class AddListingPage {
       router.navigateTo("/", { home: home });
     }
   }
-  
 
   validate() {
     if (
