@@ -1198,10 +1198,9 @@ class HomePage {
     `);
     }
     async init() {
-    //const listings = await service.getListings();
-    //this.appendListings(listings);
+        const listings = await _serviceJsDefault.default.getListings();
+        this.appendListings(listings);
     }
-    // Rasmus' code - adjustments are probably needed
     appendListings(listings) {
         let htmlTemplate = "";
         for (const listing of listings)htmlTemplate += /*html*/ `
@@ -1209,19 +1208,19 @@ class HomePage {
                     <img src="${_serviceJsDefault.default.baseUrl}/files/medium/${listing.image || "placeholder.jpg"}">
                     <h3>${listing.title}</h3>
                     <h4>${listing.price}</h4>
-                    <h5>${listing.location}</h5>
                     <p>${listing.description}</p>
                     <p>${listing.expirationDate}</p>
+                    <h5>${listing.location}</h5>
                 </article>
             `;
-        document.querySelector(`#${this.id} .listing-grid`).innerHTML = htmlTemplate;
+        document.querySelector(`#${this.id} .product-listing-container`).innerHTML = htmlTemplate;
         this.attachEvents();
     }
     attachEvents() {
         document.querySelectorAll(`#${this.listing_id} [data-listing-id]`).forEach((element)=>{
             element.onclick = ()=>{
                 const listingId = element.getAttribute("data-listing-id");
-                _routerJsDefault.default.navigateTo(`/listing/${listingId}`);
+                _routerJsDefault.default.navigateTo(`/product-page/${listingId}`);
             };
         });
     }

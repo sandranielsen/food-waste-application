@@ -118,6 +118,7 @@ export default class AddListingPage {
     }
   }
 
+
   async create() {
     if (this.validate()) {
       const image = await service.uploadImage(this.imageInput.files[0]);
@@ -132,6 +133,7 @@ export default class AddListingPage {
       router.navigateTo("/", { home: home });
     }
   }
+  
 
   validate() {
     if (
