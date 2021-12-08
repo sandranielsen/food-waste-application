@@ -58,7 +58,7 @@ export default class LogInPage {
 
         <!-- Romans form -->
         <form>
-        <input id="login-name" type="text" name="name" placeholder="Type email"/>
+        <input id="login-name" class="login_input" type="text" name="name" placeholder="Type email"/>
         <input id="login-password" class="login_input"  type="password" placeholder="Password" />
         <button type="button" class="btn_alt" id="btn-login">Login</button>
       </form>
