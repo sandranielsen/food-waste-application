@@ -8,11 +8,29 @@ export default class LogInPage {
     this.loginImg = require("../img/login.jpg");
     this.render();
   }
+  handleLogin(e)
+  {
+    e.preventDefault();
+    var n = document.querySelector("#login-name").value;
+    var u = document.querySelector("#login-password").value;
+    console.log(n);
+    debugger;
+    var response = service.loginUser(n,u).then((data)=>{
+      debugger;
+      if (data.authenticated) {
+        document.querySelector(".login-message").innerHTML = "";
+        router.navigateTo("/home");
+      } else {
+        document.querySelector(".login-message").innerHTML = data.error;
+      }
+    });
 
+
+  }
   render() {
     document.querySelector("#root").insertAdjacentHTML(
       "beforeend",
-      /*html*/ `
+      /*jsx*/ `
       <section id="${this.id}" class="page">
 
         <!--- Topbar container --->
@@ -38,26 +56,14 @@ export default class LogInPage {
             <h1 class="login_signup_headline">Login</h1>
             <div class="form_container">
 
-        <!-- Rasmus form -->
+        <!-- Romans form -->
         <form>
-        <input id="signup-firstname" type="text" name="firstname" placeholder="Type firstname">
-        <input id="signup-lastname" type="text" name="lastname" placeholder="Type lastname">
-        <input id="signup-age" type="number" name="age" placeholder="Type age">
-        <select id="signup-gender" name="gender">
-          <option value="" disabled selected>Choose Gender</option>
-          <option>Male</option>
-          <option>Female</option>
-          <option>Other</option>
-        </select>
-
-        <input id="signup-username" class="login_input"  type="text" placeholder="Type username" autocomplete="new-username">
-        <input id="signup-password" class="login_input"  type="password" placeholder="Password" autocomplete="new-password">
-        <input id="signup-password-check" class="login_input"  type="password" placeholder="Password" autocomplete="new-password">
-
-        <button type="button" class="btn_alt" id="btn-signup">Login up</button>
+        <input id="login-name" type="text" name="name" placeholder="Type email"/>
+        <input id="login-password" class="login_input"  type="password" placeholder="Password" />
+        <button type="button" class="btn_alt" id="btn-login">Login</button>
       </form>
 
-
+        <div class="login-message"></div>
               
             </div>
           </div>
@@ -65,6 +71,7 @@ export default class LogInPage {
       </section>
     `
     );
+    document.querySelector('#btn-login').onclick = this.handleLogin;
   }
 
   beforeShow(props) {

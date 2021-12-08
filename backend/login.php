@@ -8,7 +8,6 @@ session_start();
 include("mysql.php");
 
 
-
 // +----------------------------------------------------+
 // | GET Methods being called with identifier "action" |
 // +----------------------------------------------------+
@@ -36,18 +35,18 @@ if (isset($_GET['action'])) {
         $password = $loginObject->password;
 
         // Get the users login information
-        $sql = "SELECT * FROM userlogin WHERE username = '$username' LIMIT 1";
+        $sql = "SELECT * FROM users WHERE user_email = '$username' LIMIT 1";
         $result = $mySQL->query($sql);
 
         // Check if the usernam exists
         if ($result->num_rows == 1) {
             $data = $result->fetch_object();
             // Check if it is the right password for that username
-            if (password_verify($password, $data->pass)) {
-                $sql = "SELECT * FROM userlist WHERE userID = " . $data->id;
-                $user = $mySQL->query($sql)->fetch_object();
+            if (password_verify($password, $data->user_password)) {
+                //$sql = "SELECT * FROM users WHERE userID = " . $data->id;
+                //$user = $mySQL->query($sql)->fetch_object();
                 $response['authenticated'] = TRUE;
-                $response['userData'] = $user;
+                //$response['userData'] = $user;
                 echo json_encode($response);
             } else {
                 $response['authenticated'] = FALSE;
