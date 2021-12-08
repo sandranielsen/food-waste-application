@@ -5,7 +5,6 @@ import router from "./router.js";
 nav.render();
 router.init();
 
-
 // rasmus's code
 
 // import { navigateTo } from "./router.js";

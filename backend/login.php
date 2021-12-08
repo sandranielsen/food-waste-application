@@ -8,6 +8,7 @@ session_start();
 include("mysql.php");
 
 
+
 // +----------------------------------------------------+
 // | GET Methods being called with identifier "action" |
 // +----------------------------------------------------+

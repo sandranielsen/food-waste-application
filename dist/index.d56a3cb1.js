@@ -862,10 +862,10 @@ class Service {
     /* fetch and return all listings from backend service */ async signupUser(name, username, password, passwordCheck) {
         const url = `${this.loginUrl}?action=signup`;
         var data = {
-            'name': name,
-            'username': username,
-            'password': password,
-            'passwordCheck': passwordCheck
+            name: name,
+            username: username,
+            password: password,
+            passwordCheck: passwordCheck
         };
         const response = await fetch(url, {
             method: "POST",
@@ -886,20 +886,6 @@ class Service {
         const response = await fetch(url);
         const user = await response.json();
         return user;
-    }
-    async uploadImage(imageFile) {
-        let formData = new FormData();
-        formData.append("fileToUpload", imageFile);
-        const response = await fetch(`${this.baseUrl}?action=uploadImage`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
-            body: formData
-        });
-        // waiting for the result
-        const result = await response.json();
-        return result;
     }
     async deleteListing(listingId) {
         const response = await fetch(`${this.baseUrl}?action=deleteListing&listingId=${listingId}`, {
@@ -1470,25 +1456,18 @@ class AddListingPage {
         this.id = id;
         this.backImg = require("../img/back.svg");
         this.uploadImg = require("../img/camera.svg");
+        this.startImg = require("../img/start-bg.jpg");
         this.render();
-    /*
-    this.imagePreview = document.querySelector(
-      `#${this.id} [name="imagePreview"]`
-    );
+        /*
     this.titleInput = document.querySelector(`#${this.id} [name="title"]`);
     this.priceInput = document.querySelector(`#${this.id} [name="price"]`);
-    this.expirationDateInput = document.querySelector(
-      `#${this.id} [name="expirationDate"]`
-    );
-    this.descriptionInput = document.querySelector(
-      `#${this.id} [name="description"]`
-    );
-    this.locationInput = document.querySelector(
-      `#${this.id} [name="location"]`
-    );
-
-    this.attachEvents();
-    */ }
+    this.descriptionInput = document.querySelector(`#${this.id} [name="description"]`);
+    this.expirationDateInput = document.querySelector(`#${this.id} [name="expirationDate"]`);
+    this.locationInput = document.querySelector(`#${this.id} [name="location"]`); 
+    */ this.imagePreview = document.querySelector(`#${this.id} [name="imagePreview"]`);
+        this.imageInput = document.querySelector(`#${this.id} [name="listingImage"]`);
+        this.attachEvents();
+    }
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
@@ -1506,10 +1485,14 @@ class AddListingPage {
           <form>
             <!--- Image upload container --->
             <div class="upload_container">
-              <img name="imagePreview" class="image_preview">
-              <input type="file" name="listingImage" accept="image/*" id="image-upload" hidden>
-              <label for="image-upload" class="image_upload"><img src="${this.uploadImg}">Add Image</label>
+              <!---
+              <img id="imagePreview" class="image-preview">
+              <input type="file" name="profileImage" id="fileToUpload" accept="image/*" hidden>
+              <label for="profileImage" class="image_upload"><img src="${this.uploadImg}">Add Image</label>
+             --->
             </div>
+            <img name="imagePreview" class="image-preview">
+            <input type="file" name="listingImage" accept="image/*">
 
             <!--- Listing information container --->
             <div class="form_container">
@@ -1554,30 +1537,42 @@ class AddListingPage {
             </div>
 
           </div>
-          <input type="submit" value="Add Listing" onclick="location.href='/home'" class="btn_alt">  
+          <button type="button" onclick="location.href='/home'" class="btn_alt">Add Listing</button>  
 
           </form>
         </section>
       </section>
     `);
     }
-    /* Attaching events to DOM elements. 
-  attachEvents() {
-    this.imageInput.onchange = () => this.previewImage(); // on change event on the input file (image) field
-    document.querySelector(`#${this.id} .save`).onclick = () => this.create(); // on click event for save button
-  }
-
-  previewImage() {
-    const file = this.imageInput.files[0];
-    if (file) {
-      let reader = new FileReader();
-      reader.onload = (event) => {
-        this.imagePreview.setAttribute("src", event.target.result);
-      };
-      reader.readAsDataURL(file);
+    /* Attaching events to DOM elements. */ attachEvents() {
+        this.imageInput.onchange = ()=>this.previewImage()
+        ; // on change event on the input file (image) field
+    /* document.querySelector(`#${this.id} .save`).onclick = () => this.create(); // on click event for save button */ }
+    previewImage() {
+        const file = this.imageInput.files[0];
+        if (file) {
+            let reader = new FileReader();
+            reader.onload = (event)=>{
+                this.imagePreview.setAttribute("src", event.target.result);
+            };
+            reader.readAsDataURL(file);
+        }
     }
-  }
-
+    async uploadImage(imageFile) {
+        let formData = new FormData();
+        formData.append("fileToUpload", imageFile);
+        const response = await fetch(`${this.baseUrl}?action=uploadImage`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: formData
+        });
+        // waiting for the result
+        const result = await response.json();
+        return result;
+    }
+    /*
   async create() {
     if (this.validate()) {
       const image = await service.uploadImage(this.imageInput.files[0]);
@@ -1597,8 +1592,8 @@ class AddListingPage {
     if (
       this.titleInput.value &&
       this.priceInput.value &&
-      this.expirationDateInput.value &&
       this.descriptionInput.value &&
+      this.expirationDateInput.value &&
       this.locationInput.value &&
       this.imageInput.files[0]
     ) {
@@ -1607,13 +1602,14 @@ class AddListingPage {
       alert("Please, fill in all fields.");
       return false;
     }
-  } */ beforeShow(props) {
+  }
+  */ beforeShow(props) {
         console.log(props);
     }
 }
 exports.default = AddListingPage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","../img/camera.svg":"1RjE8","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"1RjE8":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","../img/camera.svg":"1RjE8","../img/start-bg.jpg":"2aZtz","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"1RjE8":[function(require,module,exports) {
 module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "camera.5fd23552.svg" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"chiK4"}],"iZqiE":[function(require,module,exports) {
