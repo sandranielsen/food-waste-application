@@ -99,7 +99,7 @@ export default class HomePage {
 
   attachEvents() {
     document
-      .querySelectorAll(`#${this.id} [data-listing-id]`)
+      .querySelectorAll(`#${this.listing_id} [data-listing-id]`)
       .forEach((element) => {
         element.onclick = () => {
           const listingId = element.getAttribute("data-listing-id");
