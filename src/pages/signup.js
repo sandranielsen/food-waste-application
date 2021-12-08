@@ -16,10 +16,10 @@ export default class SignUpPage {
     var u = document.querySelector("#signup-username").value;
     var p = document.querySelector("#signup-password").value;
     var pc = document.querySelector("#signup-password-check").value;
-    debugger;
+    
     console.log(n);
     var response = service.signupUser(n,u,p,pc).then((data)=>{
-      debugger;
+      
       if (data.signupSuccess) {
         document.querySelector(".signup-message").innerHTML = "";
         router.navigateTo("/login");

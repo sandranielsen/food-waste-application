@@ -14,9 +14,9 @@ export default class LogInPage {
     var n = document.querySelector("#login-name").value;
     var u = document.querySelector("#login-password").value;
     console.log(n);
-    debugger;
+     
     var response = service.loginUser(n,u).then((data)=>{
-      debugger;
+      
       if (data.authenticated) {
         document.querySelector(".login-message").innerHTML = "";
         router.navigateTo("/home");
@@ -30,7 +30,7 @@ export default class LogInPage {
   render() {
     document.querySelector("#root").insertAdjacentHTML(
       "beforeend",
-      /*jsx*/ `
+      /*html*/ `
       <section id="${this.id}" class="page">
 
         <!--- Topbar container --->
