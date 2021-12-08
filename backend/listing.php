@@ -1,4 +1,5 @@
 <?php
+require "fileUpload.php";
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 header("Access-Control-Allow-Methods: *");
@@ -6,7 +7,6 @@ header("Content-Type: application/json; charset=UTF-8");
 
 session_start();
 include("mysql.php");
-require "fileUpload.php";
 
 // Read the JSON file from the root folder of the website
 $jsonFile = file_get_contents("listing.json");
