@@ -39,12 +39,7 @@ export default class AddListingPage {
           <form>
             <!--- Image upload container --->
             <div class="upload_container">
-              <!---
-              <img id="imagePreview" class="image-preview">
-              <input type="file" name="listingImage" id="fileToUpload" accept="image/*" hidden>
-              <label for="listingImage" class="image_upload"><img src="${this.uploadImg}">Add Image</label>
-            --->
-            <img name="imagePreview" class="image-preview">
+            <img name="imagePreview" class="image-preview"> 
               <div class="upload_button">
               <p class="upload_text">Add Image</p>
               <img src="${this.uploadImg}" alt="camera">
