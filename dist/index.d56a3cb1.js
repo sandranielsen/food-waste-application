@@ -857,9 +857,9 @@ class Service {
         this.listings = [];
         this.baseUrl = "http://foodwaste.sonajuhasova.com/backend/";
         this.loginUrl = this.baseUrl + "/login.php";
+        this.selectedListingId;
     }
-    // rasmus' code
-    /* fetch and return all listings from backend service */ async signupUser(name, username, password, passwordCheck) {
+    /***** Login/Signup *****/ /* Fetch and return all listings from backend service */ async signupUser(name, username, password, passwordCheck) {
         const url = `${this.loginUrl}?action=signup`;
         var data = {
             name: name,
@@ -874,38 +874,42 @@ class Service {
         const json = await response.json();
         return json;
     }
-    async getListings() {
+    /***** Read listing *****/ async getListings() {
         const url = `${this.baseUrl}?action=getListings`;
         const response = await fetch(url);
         const data = await response.json();
         this.listings = data;
         return this.listings;
     }
-    async getUser(userId) {
-        const url = `${this.baseUrl}?action=getUser&userId=${userId}`;
+    async getListing(listingId) {
+        const url = `${this.baseUrl}?action=getListing&listingId=${listingId}`;
         const response = await fetch(url);
-        const user = await response.json();
-        return user;
+        const listing = await response.json();
+        return listing;
     }
-    async deleteListing(listingId) {
-        const response = await fetch(`${this.baseUrl}?action=deleteListing&listingId=${listingId}`, {
-            method: "DELETE"
+    /***** Create listing *****/ /* Image upload */ async uploadImage(imageFile) {
+        let formData = new FormData();
+        formData.append("fileToUpload", imageFile);
+        const response = await fetch(`${this.baseUrl}?action=uploadImage`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: formData
         });
         // waiting for the result
         const result = await response.json();
-        // the result is the new updated listings array
-        this.listing = result;
-        return this.listing;
+        return result;
     }
-    async createListing(title, price, expirationDate, description, location, image) {
+    async createListing(title, price, description, expirationDate, location, image) {
         const id = Date.now(); // dummy generated listing id
         const newListing = {
             // declaring a new js object with the form values
             id,
             title,
             price,
-            expirationDate,
             description,
+            expirationDate,
             location,
             image
         };
@@ -920,14 +924,24 @@ class Service {
         this.listing = result;
         return this.listing;
     }
-    async updateListing(id, title1, price1, expirationDate1, description1, location1, image1) {
+    /***** Delete listing */ async deleteListing(listingId1) {
+        const response = await fetch(`${this.baseUrl}?action=deleteListing&listingId=${listingId1}`, {
+            method: "DELETE"
+        });
+        // waiting for the result
+        const result = await response.json();
+        // the result is the new updated listings array
+        this.listing = result;
+        return this.listing;
+    }
+    /***** Update listing *****/ async updateListing(id, title1, price1, description1, expirationDate1, location1, image1) {
         const listingToUpdate = {
             // declaring a new js object with the form values
             id,
             title: title1,
             price: price1,
-            expirationDate: expirationDate1,
             description: description1,
+            expirationDate: expirationDate1,
             location: location1,
             image: image1
         };
@@ -941,6 +955,12 @@ class Service {
         // the result is the new updated listings array
         this.listings = result;
         return this.listings;
+    }
+    /***** User *****/ async getUser() {
+        const url = `${this.baseUrl}?action=getUser&userId=${userId}`;
+        const response = await fetch(url);
+        const user = await response.json();
+        return user;
     }
 }
 const service = new Service();
@@ -978,7 +998,7 @@ class SignUpPage {
         } else document.querySelector(".signup-message").innerHTML = data.error;
     }
     render() {
-        document.querySelector("#root").insertAdjacentHTML("beforeend", /*jsx*/ `
+        document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
       <!--- Topbar container --->
         <header class="topbar">
@@ -1178,10 +1198,9 @@ class HomePage {
     `);
     }
     async init() {
-    //const listings = await service.getListings();
-    //this.appendListings(listings);
+        const listings = await _serviceJsDefault.default.getListings();
+        this.appendListings(listings);
     }
-    // Rasmus' code - adjustments are probably needed
     appendListings(listings) {
         let htmlTemplate = "";
         for (const listing of listings)htmlTemplate += /*html*/ `
@@ -1189,19 +1208,19 @@ class HomePage {
                     <img src="${_serviceJsDefault.default.baseUrl}/files/medium/${listing.image || "placeholder.jpg"}">
                     <h3>${listing.title}</h3>
                     <h4>${listing.price}</h4>
-                    <h5>${listing.location}</h5>
                     <p>${listing.description}</p>
                     <p>${listing.expirationDate}</p>
+                    <h5>${listing.location}</h5>
                 </article>
             `;
-        document.querySelector(`#${this.id} .listing-grid`).innerHTML = htmlTemplate;
+        document.querySelector(`#${this.id} .product-listing-container`).innerHTML = htmlTemplate;
         this.attachEvents();
     }
     attachEvents() {
-        document.querySelectorAll(`#${this.id} [data-listing-id]`).forEach((element)=>{
+        document.querySelectorAll(`#${this.listing_id} [data-listing-id]`).forEach((element)=>{
             element.onclick = ()=>{
                 const listingId = element.getAttribute("data-listing-id");
-                _routerJsDefault.default.navigateTo(`/listing/${listingId}`);
+                _routerJsDefault.default.navigateTo(`/product-page/${listingId}`);
             };
         });
     }
@@ -1413,6 +1432,8 @@ class ChatPage {
     constructor(id){
         this.id = id;
         this.backImg = require("../img/back.svg");
+        this.searchImg = require("../img/search.svg");
+        this.filterImg = require("../img/filter.svg");
         this.render();
     }
     render() {
@@ -1427,13 +1448,68 @@ class ChatPage {
         </header>
          <!--- Chat box container --->
         <section class="chat_container">
-          <div class="search_container"></div>
-          <div class="chat_content">
-            <div class="product-listing-profile-img"></div>
-            <p class="seller_name">Luisa Christensen</p>
-            <p class="chat_preview"><p>
-            
+        
+          <!--- Search and filter container --->
+        <div class="home_container">
+        <div class="search-and-filter-container">
+          <div class="search-container">
+            <img src="${this.searchImg}">
+            <input type="text" id="search">
           </div>
+          <button onclick="location.href='/filter'" class="filter-button">
+            <div>
+              <img src="${this.filterImg}">
+            </div>
+          </button> 
+        </div>
+
+          <div class="chat_content_first">
+            <div class="chat-profile-img" style="background-image: url('https://images.pexels.com/photos/2726111/pexels-photo-2726111.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');"></div>
+            <div>
+              <p class="seller_name">Luisa Christensen</p>
+              <p class="chat_preview">See you then<p>
+             </div>
+            <div class="chat-time">
+            <p>18.24</p>
+           </div>
+          </div>
+
+          <div class="chat_content">
+          <div class="chat-profile-img" style="background-image: url('https://us.123rf.com/450wm/fizkes/fizkes2010/fizkes201001384/157765614-profile-picture-of-smiling-indian-female-isolated-on-grey-studio-background-show-optimism-and-positi.jpg?ver=6');"></div>
+          <div>
+            <p class="seller_name">Anni Nielsen</p>
+            <p class="chat_preview">Are the apples still available?<p>
+           </div>
+          <div class="chat-time">
+          <p>16.02</p>
+         </div>
+        </div>
+
+        <div class="chat_content">
+        <div class="chat-profile-img" style="background-image: url('https://image.shutterstock.com/mosaic_250/101595/738242395/stock-photo-portrait-of-a-mature-businessman-wearing-glasses-on-grey-background-happy-senior-latin-man-looking-738242395.jpg');"></div>
+        <div>
+          <p class="seller_name">Søren Knudsen</p>
+          <p class="chat_preview">I can pick up the apples tomorrow...<p>
+         </div>
+        <div class="chat-time">
+        <p>14.56</p>
+       </div>
+      </div>
+
+      <div class="chat_content">
+      <div class="chat-profile-img" style="background-image: url('https://us.123rf.com/450wm/fizkes/fizkes2007/fizkes200701793/152407909-profile-picture-of-smiling-young-caucasian-man-in-glasses-show-optimism-positive-and-motivation-head.jpg?ver=6');"></div>
+      <div>
+        <p class="seller_name">Harry Williams </p>
+        <p class="chat_preview">Thanks for the purchase!<p>
+       </div>
+      <div class="chat-time">
+      <p>10.48</p>
+     </div>
+    </div>
+
+          
+
+
         </section>
       </section>
     `);
@@ -1444,7 +1520,7 @@ class ChatPage {
 }
 exports.default = ChatPage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"lUwtW":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","../img/search.svg":"5wVcj","../img/filter.svg":"jg3ZF"}],"lUwtW":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _routerJs = require("../router.js");
@@ -1458,13 +1534,12 @@ class AddListingPage {
         this.uploadImg = require("../img/camera.svg");
         this.startImg = require("../img/start-bg.jpg");
         this.render();
-        /*
-    this.titleInput = document.querySelector(`#${this.id} [name="title"]`);
-    this.priceInput = document.querySelector(`#${this.id} [name="price"]`);
-    this.descriptionInput = document.querySelector(`#${this.id} [name="description"]`);
-    this.expirationDateInput = document.querySelector(`#${this.id} [name="expirationDate"]`);
-    this.locationInput = document.querySelector(`#${this.id} [name="location"]`); 
-    */ this.imagePreview = document.querySelector(`#${this.id} [name="imagePreview"]`);
+        this.titleInput = document.querySelector(`#${this.id} [name="title"]`);
+        this.priceInput = document.querySelector(`#${this.id} [name="price"]`);
+        this.descriptionInput = document.querySelector(`#${this.id} [name="description"]`);
+        this.expirationDateInput = document.querySelector(`#${this.id} [name="expirationDate"]`);
+        this.locationInput = document.querySelector(`#${this.id} [name="location"]`);
+        this.imagePreview = document.querySelector(`#${this.id} [name="imagePreview"]`);
         this.imageInput = document.querySelector(`#${this.id} [name="listingImage"]`);
         this.attachEvents();
     }
@@ -1537,7 +1612,7 @@ class AddListingPage {
             </div>
 
           </div>
-          <button type="button" onclick="location.href='/home'" class="btn_alt">Add Listing</button>  
+          <button type="button" id="add-btn" class="btn_alt">Add Listing</button>  
 
           </form>
         </section>
@@ -1547,8 +1622,10 @@ class AddListingPage {
     /* Attaching events to DOM elements. */ attachEvents() {
         this.imageInput.onchange = ()=>this.previewImage()
         ; // on change event on the input file (image) field
-    /* document.querySelector(`#${this.id} .save`).onclick = () => this.create(); // on click event for save button */ }
-    previewImage() {
+        document.querySelector(`#${this.id} #add-btn`).onclick = ()=>this.create()
+        ; // on click event for save button
+    }
+    /* Image preview functionality */ previewImage() {
         const file = this.imageInput.files[0];
         if (file) {
             let reader = new FileReader();
@@ -1558,52 +1635,23 @@ class AddListingPage {
             reader.readAsDataURL(file);
         }
     }
-    async uploadImage(imageFile) {
-        let formData = new FormData();
-        formData.append("fileToUpload", imageFile);
-        const response = await fetch(`${this.baseUrl}?action=uploadImage`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
-            body: formData
-        });
-        // waiting for the result
-        const result = await response.json();
-        return result;
+    async create() {
+        if (this.validate()) {
+            const image = await _serviceJsDefault.default.uploadImage(this.imageInput.files[0]);
+            const listings = await _serviceJsDefault.default.createListing(this.titleInput.value, this.priceInput.value, this.expirationDateInput.value, this.descriptionInput.value, this.locationInput.value, image.name);
+            _routerJsDefault.default.navigateTo("/", {
+                home: home
+            });
+        }
     }
-    /*
-  async create() {
-    if (this.validate()) {
-      const image = await service.uploadImage(this.imageInput.files[0]);
-      const listings = await service.createListing(
-        this.titleInput.value,
-        this.priceInput.value,
-        this.expirationDateInput.value,
-        this.descriptionInput.value,
-        this.locationInput.value,
-        image.name
-      );
-      router.navigateTo("/", { home: home });
+    validate() {
+        if (this.titleInput.value && this.priceInput.value && this.descriptionInput.value && this.expirationDateInput.value && this.locationInput.value && this.imageInput.files[0]) return true;
+        else {
+            alert("Please, fill in all fields.");
+            return false;
+        }
     }
-  }
-
-  validate() {
-    if (
-      this.titleInput.value &&
-      this.priceInput.value &&
-      this.descriptionInput.value &&
-      this.expirationDateInput.value &&
-      this.locationInput.value &&
-      this.imageInput.files[0]
-    ) {
-      return true;
-    } else {
-      alert("Please, fill in all fields.");
-      return false;
-    }
-  }
-  */ beforeShow(props) {
+    beforeShow(props) {
         console.log(props);
     }
 }

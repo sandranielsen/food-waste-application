@@ -71,28 +71,25 @@ export default class HomePage {
     );
   }
   async init() {
-    //const listings = await service.getListings();
-    //this.appendListings(listings);
+    const listings = await service.getListings();
+    this.appendListings(listings);
   }
 
-  // Rasmus' code - adjustments are probably needed
   appendListings(listings) {
     let htmlTemplate = "";
     for (const listing of listings) {
       htmlTemplate += /*html*/ `
                 <article data-listing-id="${listing.id}">
-                    <img src="${service.baseUrl}/files/medium/${
-        listing.image || "placeholder.jpg"
-      }">
+                    <img src="${service.baseUrl}/files/medium/${listing.image || "placeholder.jpg"}">
                     <h3>${listing.title}</h3>
                     <h4>${listing.price}</h4>
-                    <h5>${listing.location}</h5>
                     <p>${listing.description}</p>
                     <p>${listing.expirationDate}</p>
+                    <h5>${listing.location}</h5>
                 </article>
             `;
     }
-    document.querySelector(`#${this.id} .listing-grid`).innerHTML =
+    document.querySelector(`#${this.id} .product-listing-container`).innerHTML =
       htmlTemplate;
     this.attachEvents();
   }
@@ -103,7 +100,7 @@ export default class HomePage {
       .forEach((element) => {
         element.onclick = () => {
           const listingId = element.getAttribute("data-listing-id");
-          router.navigateTo(`/listing/${listingId}`);
+          router.navigateTo(`/product-page/${listingId}`);
         };
       });
   }

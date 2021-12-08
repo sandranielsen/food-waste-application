@@ -1,4 +1,5 @@
 <?php
+
     // Creating a class to handle file uploads
     class FileUpload {
         private $file;

@@ -3,10 +3,11 @@ class Service {
     this.listings = [];
     this.baseUrl = "http://foodwaste.sonajuhasova.com/backend/";
     this.loginUrl = this.baseUrl + "/login.php";
+    this.selectedListingId;
   }
 
-  // rasmus' code
-  /* fetch and return all listings from backend service */
+  /***** Login/Signup *****/
+  /* Fetch and return all listings from backend service */
   async signupUser(name, username, password, passwordCheck) {
     const url = `${this.loginUrl}?action=signup`;
     var data = {
@@ -22,6 +23,8 @@ class Service {
     const json = await response.json();
     return json;
   }
+
+  /***** Read listing *****/
   async getListings() {
     const url = `${this.baseUrl}?action=getListings`;
     const response = await fetch(url);
@@ -30,32 +33,36 @@ class Service {
     return this.listings;
   }
 
-  async getUser(userId) {
-    const url = `${this.baseUrl}?action=getUser&userId=${userId}`;
+  async getListing(listingId) {
+    const url = `${this.baseUrl}?action=getListing&listingId=${listingId}`;
     const response = await fetch(url);
-    const user = await response.json();
-    return user;
+    const listing = await response.json();
+    return listing;
   }
 
-  async deleteListing(listingId) {
-    const response = await fetch(
-      `${this.baseUrl}?action=deleteListing&listingId=${listingId}`,
-      {
-        method: "DELETE",
-      }
-    );
+  /***** Create listing *****/
+  /* Image upload */
+  async uploadImage(imageFile) {
+    let formData = new FormData();
+    formData.append("fileToUpload", imageFile);
+
+    const response = await fetch(`${this.baseUrl}?action=uploadImage`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: formData,
+    });
     // waiting for the result
     const result = await response.json();
-    // the result is the new updated listings array
-    this.listing = result;
-    return this.listing;
+    return result;
   }
 
   async createListing(
     title,
     price,
-    expirationDate,
     description,
+    expirationDate,
     location,
     image
   ) {
@@ -65,8 +72,8 @@ class Service {
       id,
       title,
       price,
-      expirationDate,
       description,
+      expirationDate,
       location,
       image,
     };
@@ -83,12 +90,28 @@ class Service {
     return this.listing;
   }
 
+  /***** Delete listing */
+  async deleteListing(listingId) {
+    const response = await fetch(
+      `${this.baseUrl}?action=deleteListing&listingId=${listingId}`,
+      {
+        method: "DELETE",
+      }
+    );
+    // waiting for the result
+    const result = await response.json();
+    // the result is the new updated listings array
+    this.listing = result;
+    return this.listing;
+  }
+
+  /***** Update listing *****/
   async updateListing(
     id,
     title,
     price,
-    expirationDate,
     description,
+    expirationDate,
     location,
     image
   ) {
@@ -97,8 +120,8 @@ class Service {
       id,
       title,
       price,
-      expirationDate,
       description,
+      expirationDate,
       location,
       image,
     };
@@ -112,6 +135,14 @@ class Service {
     // the result is the new updated listings array
     this.listings = result;
     return this.listings;
+  }
+
+  /***** User *****/
+  async getUser() {
+    const url = `${this.baseUrl}?action=getUser&userId=${userId}`;
+    const response = await fetch(url);
+    const user = await response.json();
+    return user;
   }
 }
 
