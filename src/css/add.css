@@ -104,6 +104,7 @@ textarea::placeholder {
     width: 100px;
     text-align: center;
     margin-top: 20px;
+    border-radius: 3px;
 }
 
 .category_container {
