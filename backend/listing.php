@@ -101,6 +101,7 @@ if ($_GET['action'] == 'getListings') {
     }
 }
 
+
 /*
 if (isset($_GET['action'])) {
     $action = $_GET['action'];

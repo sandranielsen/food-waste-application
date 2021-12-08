@@ -1187,7 +1187,7 @@ class HomePage {
                   <p>Maria N.</p>
                 </div> 
                 <div>
-                  <img src="${this.favouritesImg}">
+                  <img src="${this.locationImg}">
                   <p>Aarhus</p> 
                 </div>
               </div>
