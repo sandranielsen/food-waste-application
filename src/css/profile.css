@@ -106,7 +106,7 @@
 
   /***** My impact page *****/
 
-  #impact h3 {
+  #impact h4 {
     width: 100%;
     text-align: left;
     font-size: 25px;
@@ -141,6 +141,8 @@
     font-weight: 400; 
     margin: 0;
     text-align: center;
+    display: flex;
+    justify-content: center;
 
   }
   .impact-tracker h5 {

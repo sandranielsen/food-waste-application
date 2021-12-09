@@ -26,12 +26,12 @@ export default class MyImpactPage {
         <h3>My Impact Tracker</h3>
             <div class="impact-tracker-wrapper">
                 <div class="impact-tracker">
-                  <h3>3</h3>
-                  <h4>Purchase(s)<br>made</h4>
+                  <h4>3</h4>
+                  <h5>Purchase(s)<br>made</h5>
                 </div>
                 <div class="impact-tracker">
-                  <h3>3</h3>
-                  <h4>Listing(s)<br>made</h4>
+                  <h4>3</h4>
+                  <h5>Listing(s)<br>made</h5>
                 </div>
             </div>
 
