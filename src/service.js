@@ -8,15 +8,14 @@ class Service {
     this.selectedListingId;
   }
 
-  // rasmus' code
-  async signupUser(name,username,password,passwordCheck)
-  {
-    const url =`${this.loginUrl}?action=signup`;
+  /***** Sign up service *****/
+  async signupUser(name, username, password, passwordCheck) {
+    const url = `${this.loginUrl}?action=signup`;
     var data = {
-      'name':name,
-      'username':username,
-      'password':password,
-      'passwordCheck':passwordCheck
+      name: name,
+      username: username,
+      password: password,
+      passwordCheck: passwordCheck,
     };
     const response = await fetch(url, {
       method: "POST",
@@ -24,15 +23,14 @@ class Service {
     });
     const json = await response.json();
     return json;
-
   }
 
-  async loginUser(name,password)
-  {
-    const url =`${this.loginUrl}?action=login`;
+  /***** Login service *****/
+  async loginUser(name, password) {
+    const url = `${this.loginUrl}?action=login`;
     var data = {
-      'username':name,
-      'password':password,
+      username: name,
+      password: password,
     };
     const response = await fetch(url, {
       method: "POST",
@@ -40,27 +38,27 @@ class Service {
     });
     const json = await response.json();
     return json;
-
   }
 
+  /***** CRUD Operations *****/
+  /* Get listings */
   async getListings() {
     const url = `${this.listingUrl}?action=getListings`;
     const response = await fetch(url);
     const data = await response.json();
     this.listings = data;
     return this.listings;
-  } 
+  }
 
-
+  /* Get listing */
   async getListing(listingId) {
     const url = `${this.listingUrl}?action=getListing&listingId=${listingId}`;
     const response = await fetch(url);
     const user = await response.json();
     return user;
   }
-  
 
-
+  /* Image upload */
   async uploadImage(imageFile) {
     let formData = new FormData();
     formData.append("fileToUpload", imageFile);
@@ -77,23 +75,15 @@ class Service {
     return result;
   }
 
-  
-
-  async deleteListing(listingId) {
-    const response = await fetch(
-      `${this.baseUrl}?action=deleteListing&listingId=${listingId}`,
-      {
-        method: "DELETE",
-      }
-    );
-    // waiting for the result
-    const result = await response.json();
-    // the result is the new updated listings array
-    this.listing = result;
-    return this.listing;
-  } 
-
-  async createListing(title, price, expirationDate, description, location, image) {
+  /* Create listing */
+  async createListing(
+    title,
+    price,
+    expirationDate,
+    description,
+    location,
+    image
+  ) {
     const id = Date.now(); // dummy generated listing id
     const newListing = {
       // declaring a new js object with the form values
@@ -118,7 +108,7 @@ class Service {
     return this.listing;
   }
 
-  /***** Delete listing */
+  /* Delete listing */
   async deleteListing(listingId) {
     const response = await fetch(
       `${this.listingUrl}?action=deleteListing&listingId=${listingId}`,
@@ -133,7 +123,7 @@ class Service {
     return this.listing;
   }
 
-  /***** Update listing *****/
+  /* Update listing */
   async updateListing(
     id,
     title,
@@ -151,7 +141,7 @@ class Service {
       expirationDate,
       description,
       location,
-      image
+      image,
     };
     // put listing to php service using fetch(...)
     const response = await fetch(this.listingUrl + "?action=updateListing", {

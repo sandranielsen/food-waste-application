@@ -12,7 +12,6 @@ include("mysql.php");
 $jsonFile = file_get_contents("listing.json");
 $listings = json_decode($jsonFile);
 
-  // Inspiration: Rasmus - parcel dating spa & user service
 if ($_GET['action'] == 'getListings') {
     echo $jsonFile;
 } else if ($_GET['action'] == 'getListing') {
@@ -21,23 +20,12 @@ if ($_GET['action'] == 'getListings') {
 
     // Loops through all the listings in the database
     foreach ($listings as $listing) {
-        // Checks the ID of the selected listing, to find the same id in the database. Then saves that user in the variable
+        // Checks the ID of the selected listing, to find the same id in the database
         if ($_GET['listingId'] == $listing->id) {
             $listingSelected = $listing;
         }
     }
     echo json_encode($listingSelected);
-} else if ($_GET['action'] == 'getMatches') {
-    // Declare the listingSelected variable - used to save the object of the listing that was clicked on previous page
-    $listingSelected = "";
-
-    // Loops through all the listings in the database
-    foreach ($listings as $listing) {
-        // Checks the ID of the selected listing, to find the same id in the database. Then saves that user in the variable
-        if ($_GET['listingId'] == $listing->id) {
-            $listingSelected = $listing;
-        }
-    }
 } else if ($_GET['action'] == 'createListing') {
     $jsonInput = file_get_contents('php://input');
     $newListing = json_decode($jsonInput);
@@ -57,7 +45,7 @@ if ($_GET['action'] == 'getListings') {
             $listing->description = $listingToupdate->description;
             $listing->expirationDate = $listingToupdate->expirationDate;
              $listing->location = $listingToupdate->location;
-            $listing->image = listingToupdate->image;
+            $listing->image = $listingToupdate->image;
         }
     }
     $encoded = json_encode($listings);

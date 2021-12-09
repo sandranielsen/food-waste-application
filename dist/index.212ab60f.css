@@ -88,6 +88,10 @@ a {
   margin: auto;
 }
 
+.topbar img {
+  position: absolute;
+}
+
 
 /***** Navigation styling *****/
 .tabbar {

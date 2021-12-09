@@ -13,6 +13,7 @@ import MyImpactPage from "./pages/my-impact.js";
 import MyListingsPage from "./pages/my-listings.js";
 import MyPurchasesPage from "./pages/my-purchases.js";
 import PublicProfilePage from "./pages/public-profile.js";
+import UpdatePage from "./pages/update.js";
 
 class Router {
   constructor() {
@@ -76,6 +77,10 @@ class Router {
       {
         path: "/public",
         view: new PublicProfilePage("public"),
+      },
+      {
+        path: "/update",
+        view: new UpdatePage("update"),
       },
 
       /*

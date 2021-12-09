@@ -22,7 +22,7 @@ export default class SignUpPage {
       
       if (data.signupSuccess) {
         document.querySelector(".signup-message").innerHTML = "";
-        router.navigateTo("/login");
+        router.navigateTo("/home");
       } else {
         document.querySelector(".signup-message").innerHTML = data.error;
       }

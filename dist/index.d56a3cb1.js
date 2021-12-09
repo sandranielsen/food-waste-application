@@ -465,67 +465,7 @@ var _navJsDefault = parcelHelpers.interopDefault(_navJs);
 var _routerJs = require("./router.js");
 var _routerJsDefault = parcelHelpers.interopDefault(_routerJs);
 _navJsDefault.default.render();
-_routerJsDefault.default.init(); // rasmus's code
- // import { navigateTo } from "./router.js";
- // console.log("app.js is running!");
- // async function login() {
- // 	const username = document.querySelector("#login-username").value;
- // 	const password = document.querySelector("#login-password").value;
- // 	const loginObject = { username: username, password: password };
- // 	console.log(loginObject);
- // 	const response = await fetch("http://localhost:3000/php-login-service/?action=login", {
- // 		method: "POST",
- // 		body: JSON.stringify(loginObject)
- // 	});
- // 	const data = await response.json();
- // 	console.log(data);
- // 	if (data.authenticated) {
- // 		localStorage.setItem("userIsAuthenticated", true);
- // 		localStorage.setItem("authUser", JSON.stringify(data.userData));
- // 		resetMessage();
- // 		navigateTo("#/");
- // 	} else {
- // 		document.querySelector(".login-message").innerHTML = data.error;
- // 	}
- // }
- // function logout() {
- // 	//reset localStorage
- // 	localStorage.removeItem("userIsAuthenticated");
- // 	localStorage.removeItem("authUser");
- // 	//navigate to login
- // 	navigateTo("#/login");
- // }
- // async function signup() {
- // 	const firstname = document.querySelector("#signup-firstname").value;
- // 	const lastname = document.querySelector("#signup-lastname").value;
- // 	const age = document.querySelector("#signup-age").value;
- // 	const gender = document.querySelector("#signup-gender").value;
- // 	const username = document.querySelector("#signup-username").value;
- // 	const password = document.querySelector("#signup-password").value;
- // 	const passwordCheck = document.querySelector("#signup-password-check").value;
- // 	const user = { firstname, lastname, age, gender, username, password, passwordCheck };
- // 	console.log(user);
- // 	const response = await fetch("http://localhost:3000/php-login-service/?action=signup", {
- // 		method: "POST",
- // 		body: JSON.stringify(user)
- // 	});
- // 	const data = await response.json();
- // 	console.log(data);
- // 	if (data.signupSuccess) {
- // 		resetMessage();
- // 		navigateTo("#/login");
- // 	} else {
- // 		document.querySelector(".signup-message").innerHTML = data.error;
- // 	}
- // }
- // function resetMessage() {
- // 	document.querySelector(".signup-message").innerHTML = "";
- // 	document.querySelector(".login-message").innerHTML = "";
- // }
- // // event listeners
- // document.querySelector("#btn-login").onclick = () => login();
- // document.querySelector("#btn-logout").onclick = () => logout();
- // document.querySelector("#btn-signup").onclick = () => signup();
+_routerJsDefault.default.init();
 
 },{"./components/nav.js":"5KBRd","./router.js":"90Bjy","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5KBRd":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -706,6 +646,8 @@ var _myPurchasesJs = require("./pages/my-purchases.js");
 var _myPurchasesJsDefault = parcelHelpers.interopDefault(_myPurchasesJs);
 var _publicProfileJs = require("./pages/public-profile.js");
 var _publicProfileJsDefault = parcelHelpers.interopDefault(_publicProfileJs);
+var _updateJs = require("./pages/update.js");
+var _updateJsDefault = parcelHelpers.interopDefault(_updateJs);
 class Router {
     constructor(){
         this.routes = [
@@ -768,6 +710,10 @@ class Router {
             {
                 path: "/public",
                 view: new _publicProfileJsDefault.default("public")
+            },
+            {
+                path: "/update",
+                view: new _updateJsDefault.default("update")
             }
         ];
         //declaring properties: pages and navLinks. Initialised in init().
@@ -829,7 +775,7 @@ class Router {
 const router = new Router();
 exports.default = router;
 
-},{"./pages/start.js":"7p5Ej","./pages/signup.js":"5pzUn","./pages/login.js":"cKfZK","./pages/home.js":"1edkc","./pages/filter.js":"iw7sr","./pages/product-page.js":"3an6W","./pages/chat.js":"5udg2","./pages/add-listing.js":"lUwtW","./pages/favourites.js":"iZqiE","./pages/profile.js":"6Wl4X","./pages/account.js":"79fVm","./pages/my-impact.js":"jCk6k","./pages/my-listings.js":"AoYtQ","./pages/my-purchases.js":"46jdJ","./pages/public-profile.js":"7Dpl3","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7p5Ej":[function(require,module,exports) {
+},{"./pages/start.js":"7p5Ej","./pages/signup.js":"5pzUn","./pages/login.js":"cKfZK","./pages/home.js":"1edkc","./pages/filter.js":"iw7sr","./pages/product-page.js":"3an6W","./pages/chat.js":"5udg2","./pages/add-listing.js":"lUwtW","./pages/favourites.js":"iZqiE","./pages/profile.js":"6Wl4X","./pages/account.js":"79fVm","./pages/my-impact.js":"jCk6k","./pages/my-listings.js":"AoYtQ","./pages/my-purchases.js":"46jdJ","./pages/public-profile.js":"7Dpl3","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","./pages/update.js":"8qolA"}],"7p5Ej":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _routerJs = require("../router.js");
@@ -884,14 +830,13 @@ class Service {
         this.listingUrl = this.baseUrl + "/listing.php";
         this.selectedListingId;
     }
-    // rasmus' code
-    async signupUser(name, username, password, passwordCheck) {
+    /***** Sign up service *****/ async signupUser(name, username, password, passwordCheck) {
         const url = `${this.loginUrl}?action=signup`;
         var data = {
-            'name': name,
-            'username': username,
-            'password': password,
-            'passwordCheck': passwordCheck
+            name: name,
+            username: username,
+            password: password,
+            passwordCheck: passwordCheck
         };
         const response = await fetch(url, {
             method: "POST",
@@ -900,11 +845,11 @@ class Service {
         const json = await response.json();
         return json;
     }
-    async loginUser(name1, password1) {
+    /***** Login service *****/ async loginUser(name1, password1) {
         const url = `${this.loginUrl}?action=login`;
         var data = {
-            'username': name1,
-            'password': password1
+            username: name1,
+            password: password1
         };
         const response = await fetch(url, {
             method: "POST",
@@ -913,20 +858,20 @@ class Service {
         const json = await response.json();
         return json;
     }
-    async getListings() {
+    /***** CRUD Operations *****/ /* Get listings */ async getListings() {
         const url = `${this.listingUrl}?action=getListings`;
         const response = await fetch(url);
         const data = await response.json();
         this.listings = data;
         return this.listings;
     }
-    async getListing(listingId) {
+    /* Get listing */ async getListing(listingId) {
         const url = `${this.listingUrl}?action=getListing&listingId=${listingId}`;
         const response = await fetch(url);
         const user = await response.json();
         return user;
     }
-    async uploadImage(imageFile) {
+    /* Image upload */ async uploadImage(imageFile) {
         let formData = new FormData();
         formData.append("fileToUpload", imageFile);
         const response = await fetch(`${this.fileUploadUrl}?action=uploadImage`, {
@@ -940,17 +885,7 @@ class Service {
         const result = await response.json();
         return result;
     }
-    async deleteListing(listingId1) {
-        const response = await fetch(`${this.baseUrl}?action=deleteListing&listingId=${listingId1}`, {
-            method: "DELETE"
-        });
-        // waiting for the result
-        const result = await response.json();
-        // the result is the new updated listings array
-        this.listing = result;
-        return this.listing;
-    }
-    async createListing(title, price, expirationDate, description, location, image) {
+    /* Create listing */ async createListing(title, price, expirationDate, description, location, image) {
         const id = Date.now(); // dummy generated listing id
         const newListing = {
             // declaring a new js object with the form values
@@ -973,8 +908,8 @@ class Service {
         this.listing = result;
         return this.listing;
     }
-    /***** Delete listing */ async deleteListing(listingId2) {
-        const response = await fetch(`${this.listingUrl}?action=deleteListing&listingId=${listingId2}`, {
+    /* Delete listing */ async deleteListing(listingId1) {
+        const response = await fetch(`${this.listingUrl}?action=deleteListing&listingId=${listingId1}`, {
             method: "DELETE"
         });
         // waiting for the result
@@ -983,7 +918,7 @@ class Service {
         this.listing = result;
         return this.listing;
     }
-    /***** Update listing *****/ async updateListing(id, title1, price1, description1, expirationDate1, location1, image1) {
+    /* Update listing */ async updateListing(id, title1, price1, description1, expirationDate1, location1, image1) {
         const listingToUpdate = {
             // declaring a new js object with the form values
             id,
@@ -1035,7 +970,7 @@ class SignUpPage {
         var response = _serviceJsDefault.default.signupUser(n, u, p, pc).then((data)=>{
             if (data.signupSuccess) {
                 document.querySelector(".signup-message").innerHTML = "";
-                _routerJsDefault.default.navigateTo("/login");
+                _routerJsDefault.default.navigateTo("/home");
             } else document.querySelector(".signup-message").innerHTML = data.error;
         });
     }
@@ -1676,9 +1611,10 @@ class AddListingPage {
                 this.imagePreview.setAttribute("src", event.target.result);
             };
             reader.readAsDataURL(file);
+            document.querySelector(".image-preview").style.margin = "0 10px 0 0"; // adds spacing between elements
         }
     }
-    async create() {
+    /* Add new listing functionality */ async create() {
         if (this.validate()) {
             const image = await _serviceJsDefault.default.uploadImage(this.imageInput.files[0]);
             const listings = await _serviceJsDefault.default.createListing(this.titleInput.value, this.priceInput.value, this.expirationDateInput.value, this.descriptionInput.value, this.locationInput.value, image.name);
@@ -1687,7 +1623,7 @@ class AddListingPage {
             });
         }
     }
-    validate() {
+    /* Information validation */ validate() {
         if (this.titleInput.value && this.priceInput.value && this.descriptionInput.value && this.expirationDateInput.value && this.locationInput.value && this.imageInput.files[0]) return true;
         else {
             alert("Please, fill in all fields.");
@@ -1810,7 +1746,7 @@ class ProfilePage {
             <button onclick="location.href='/listings';">My Listings</button>
             <button onclick="location.href='/purchases';">My Purchases</button>
             <button onclick="location.href='/impact';">My Impact</button>
-            <button style="margin-top: 25px;"  onclick="location.href='/start';">Log Out</button>
+            <button style="margin-top: 25px;"  onclick="location.href='/';">Log Out</button>
           </div>
         <div>
       </section>
@@ -2200,6 +2136,143 @@ class PublicProfilePage {
 }
 exports.default = PublicProfilePage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","../img/location.svg":"i8JWL","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}]},["1Mq12","5HwUs"], "5HwUs", "parcelRequire514f")
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","../img/location.svg":"i8JWL","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"8qolA":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _routerJs = require("../router.js");
+var _routerJsDefault = parcelHelpers.interopDefault(_routerJs);
+var _serviceJs = require("../service.js");
+var _serviceJsDefault = parcelHelpers.interopDefault(_serviceJs);
+class UpdatePage {
+    constructor(id){
+        this.id = id;
+        this.backImg = require("../img/back.svg");
+        this.uploadImg = require("../img/camera.svg");
+        this.startImg = require("../img/start-bg.jpg");
+        this.render();
+        this.titleInput = document.querySelector(`#${this.id} [name="title"]`);
+        this.priceInput = document.querySelector(`#${this.id} [name="price"]`);
+        this.descriptionInput = document.querySelector(`#${this.id} [name="description"]`);
+        this.expirationDateInput = document.querySelector(`#${this.id} [name="expirationDate"]`);
+        this.locationInput = document.querySelector(`#${this.id} [name="location"]`);
+        this.imagePreview = document.querySelector(`#${this.id} [name="imagePreview"]`);
+        this.imageInput = document.querySelector(`#${this.id} [name="listingImage"]`);
+        this.attachEvents();
+    }
+    render() {
+        document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
+      <section id="${this.id}" class="page">
+
+        <!--- Topbar container --->
+        <header class="topbar">
+          <div class="topbar_img>">
+            <a href="/home"><img src="${this.backImg}"></a>
+          </div>
+          <h2>Update Listing</h2>
+        </header>
+        
+        <!--- Update listing container --->
+        <section class="add_container">
+          <form>
+            <!--- Image upload container --->
+            <div class="upload_container">
+            <img name="imagePreview" class="image-preview"> 
+              <div class="upload_button">
+              <p class="upload_text">Add Image</p>
+              <img src="${this.uploadImg}" alt="camera">
+              <input type="file" name="listingImage" accept="image/*" class="image_upload">
+              </div>
+            </div>
+            
+
+            <!--- Listing information container --->
+            <div class="form_container">
+              <br><label class="add_label">Title<label><br>
+              <input type="text" name="title" class="add_form"><br>
+              <label class="add_label">Price<label><br>
+              <input type="text" name="price" placeholder="DKK" class="add_form"><br>
+              <label class="add_label">Expiration date<label><br>
+              <input type="text" name="expirationDate" class="add_form"><br>
+              <label class="add_label">Description<label><br>
+              <textarea type="text" name="description" placeholder="0/300" class="add_form_extended"></textarea><br>
+              <label class="add_label">Location<label><br>
+              <input type="text" name="location" class="add_form"><br>
+            </div>
+
+          <!--- Category filter container --->
+          <label class="add_label">Category</label><br>
+            <div class="category_container">
+              <input type="checkbox" class="checkbox" id="vegetables" name="category" value="vegetables">
+              <label for="vegetables" class="checkbox_label">Vegetables</label>
+
+              <input type="checkbox" class="checkbox" id="fruit" name="category" value="fruit">
+              <label for="fruit" class="checkbox_label">Fruit</label>
+
+              <input type="checkbox" class="checkbox" id="dry-goods" name="category" value="dry-goods">
+              <label for="dry-goods" class="checkbox_label">Dry goods</label>
+
+              <input type="checkbox" class="checkbox" id="baked-goods" name="category" value="baked-goods">
+              <label for="baked-goods" class="checkbox_label">Baked goods</label>
+
+              <input type="checkbox" class="checkbox" id="meat" name="category" value="meat">
+              <label for="meat"class="checkbox_label">Meat</label>
+
+              <input type="checkbox" class="checkbox" id="fish" name="category" value="fish">
+              <label for="fish" class="checkbox_label">Fish</label>
+
+              <input type="checkbox" class="checkbox" id="dairy" name="category" value="dairy">
+              <label for="dairy" class="checkbox_label">Dairy</label>
+                
+              <input type="checkbox" class="checkbox" id="meals" name="category" value="meals">
+              <label for="meals" class="checkbox_label">Meals</label>
+            </div>
+
+          </div>
+          <button type="button" id="add-btn" class="btn_alt">Add Listing</button>  
+
+          </form>
+        </section>
+      </section>
+    `);
+    }
+    /* Attaching events to DOM elements */ attachEvents() {
+        this.imageInput.onchange = ()=>this.previewImage()
+        ; // on change event on the input file (image) field
+        document.querySelector(`#${this.id} #add-btn`).onclick = ()=>this.save()
+        ; // on click event for save button
+    }
+    /* Image preview functionality */ previewImage() {
+        const file = this.imageInput.files[0];
+        if (file) {
+            let reader = new FileReader();
+            reader.onload = (event)=>{
+                this.imagePreview.setAttribute("src", event.target.result);
+            };
+            reader.readAsDataURL(file);
+            document.querySelector(".image-preview").style.margin = "0 10px 0 0"; // adds spacing between elements
+        }
+    }
+    /* Update listing functionality */ async save() {
+        if (this.validate()) {
+            const image = await _serviceJsDefault.default.uploadImage(this.imageInput.files[0]);
+            this.selectedListing.image = image.name;
+            const listings = await _serviceJsDefault.default.updateListing(this.selectedListing.id, this.titleInput.value, this.priceInput.value, this.expirationDateInput.value, this.descriptionInput.value, this.locationInput.value, this.selectedImage.image);
+            _routerJsDefault.default.navigateTo(`/product/${this.selectedListing.id}`);
+        }
+    }
+    /* Information validation */ validate() {
+        if (this.titleInput.value && this.priceInput.value && this.descriptionInput.value && this.expirationDateInput.value && this.locationInput.value) return true;
+        else {
+            alert("Please, fill in all fields.");
+            return false;
+        }
+    }
+    beforeShow(props) {
+        console.log(props);
+    }
+}
+exports.default = UpdatePage;
+
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","../img/camera.svg":"1RjE8","../img/start-bg.jpg":"2aZtz","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}]},["1Mq12","5HwUs"], "5HwUs", "parcelRequire514f")
 
 //# sourceMappingURL=index.d56a3cb1.js.map

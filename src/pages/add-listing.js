@@ -11,21 +11,11 @@ export default class AddListingPage {
 
     this.titleInput = document.querySelector(`#${this.id} [name="title"]`);
     this.priceInput = document.querySelector(`#${this.id} [name="price"]`);
-    this.descriptionInput = document.querySelector(
-      `#${this.id} [name="description"]`
-    );
-    this.expirationDateInput = document.querySelector(
-      `#${this.id} [name="expirationDate"]`
-    );
-    this.locationInput = document.querySelector(
-      `#${this.id} [name="location"]`
-    );
-    this.imagePreview = document.querySelector(
-      `#${this.id} [name="imagePreview"]`
-    );
-    this.imageInput = document.querySelector(
-      `#${this.id} [name="listingImage"]`
-    );
+    this.descriptionInput = document.querySelector(`#${this.id} [name="description"]`);
+    this.expirationDateInput = document.querySelector(`#${this.id} [name="expirationDate"]`);
+    this.locationInput = document.querySelector(`#${this.id} [name="location"]`);
+    this.imagePreview = document.querySelector(`#${this.id} [name="imagePreview"]`);
+    this.imageInput = document.querySelector(`#${this.id} [name="listingImage"]`);
 
     this.attachEvents();
   }
@@ -127,9 +117,11 @@ export default class AddListingPage {
         this.imagePreview.setAttribute("src", event.target.result);
       };
       reader.readAsDataURL(file);
+      document.querySelector(".image-preview").style.margin = "0 10px 0 0"; // adds spacing between elements
     }
   }
 
+  /* Add new listing functionality */
   async create() {
     if (this.validate()) {
       const image = await service.uploadImage(this.imageInput.files[0]);
@@ -145,6 +137,7 @@ export default class AddListingPage {
     }
   }
 
+  /* Information validation */
   validate() {
     if (
       this.titleInput.value &&
