@@ -1,12 +1,10 @@
-/* Profile page */
+/***** Profile page *****/
 
 .section-wrapper {
     display: flex; 
     align-items: center;
     align-content: center;
     flex-direction: column;
-    
-  
 }
 
 .section-wrapper h4 {
@@ -25,8 +23,6 @@
     background-position: center;
     background-repeat: no-repeat; 
     background-size: cover;
-    
-
 }
 
 .profile-location {
@@ -34,7 +30,6 @@
     flex-direction: row; 
     align-items: center;
     margin-bottom: 20px;
-
 }
 
 .profile-location p {
@@ -61,7 +56,7 @@
 }
 
 
-/* Account page */
+/***** Account page *****/
 #account {
     overflow-y: scroll;
     padding-bottom: 120px;
@@ -95,7 +90,6 @@
     font-weight: 300;
     margin: 0;
     text-transform: uppercase;
-  
 }
 
 
@@ -119,7 +113,7 @@
   }
   
 
-  /* My impact page */
+  /***** My impact page *****/
 
   #impact h3 {
     width: 100%;
@@ -165,7 +159,7 @@
   margin: 5px 0 0 0;
   }
 
-  /* Badges */
+  /***** Badges *****/
 
   .impact-badges-wrapper {
     display: grid;
@@ -195,7 +189,7 @@
 
 
 
-/* Public profile */
+/***** Public profile *****/
 
 #public h3 {
     width: 100%;

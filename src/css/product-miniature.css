@@ -1,4 +1,4 @@
-/* home version */
+/***** Home version *****/
 .product-listing-container {
     display: flex;
     flex-direction: row;
@@ -80,9 +80,7 @@
    margin-left: 5px; 
 
 }
-
-
-/* my listings version */
+/***** My listings version *****/
 .my-listings-buttons {
     width: 100%;
     display: flex;

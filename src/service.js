@@ -44,7 +44,7 @@ class Service {
   /* Get listings */
   async getListings() {
     const url = `${this.listingUrl}?action=getListings`;
-    const response = await fetch(url);
+    const response = await fetch(url)
     const data = await response.json();
     this.listings = data;
     return this.listings;
@@ -53,7 +53,7 @@ class Service {
   /* Get listing */
   async getListing(listingId) {
     const url = `${this.listingUrl}?action=getListing&listingId=${listingId}`;
-    const response = await fetch(url);
+    const response = await fetch(url)
     const user = await response.json();
     return user;
   }

@@ -1,3 +1,4 @@
+/***** Product container *****/
 .product_container {
       padding: 60px 0;
 }
@@ -11,6 +12,7 @@
     padding: 0 20px;
 }
 
+/***** Listing information container *****/
 .listing_info {
     display: flex;
 }
@@ -38,6 +40,7 @@
     border-bottom: 1px solid var(--text-color-black);
 }
 
+/***** Seller information *****/
 .seller_info {
     padding-top: 20px;
     display: flex;
@@ -48,6 +51,7 @@
     padding-left: 10px;
 }
 
+/***** Button container *****/
 .btns_container {
     display: flex;
     justify-content: space-between;
