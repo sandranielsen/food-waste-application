@@ -30,11 +30,8 @@ export default class StartPage {
             <button class="btn" onclick="location.href='/signup'">Sign up</button>
           </div>
         </div>
-
       </div>
-        
-        
-      </section>
+    </section>
     `
     );
   }

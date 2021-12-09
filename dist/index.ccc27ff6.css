@@ -2,7 +2,7 @@
 .banner_container {
   z-index: 20;
   position: relative;
-  height: 350px;
+  height: 330px;
 }
 .login_signup_bg {
   display: block;
@@ -26,18 +26,21 @@
   z-index: 20;
   position: relative;
   border-radius: 10px;
-  height: 460px;
+  height: 470px;
   bottom: 0;
   color: var(--green);
   background-color: var(--white);
   padding: 10px 40px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .login_signup_text {
   text-align: center;
-  margin: 20px 0;
+  margin: 15px 0;
 }
 .login_signup_headline {
-  padding: 40px 0 20px;
+  padding: 10px 0 20px;
   margin: 0;
 }
 .signup_input {
@@ -75,8 +78,17 @@
   background: url('password.b389edca.svg') no-repeat 5%;
   padding-left: 40px;
 }
+#login-name {
+  background: url('email.b649da90.svg') no-repeat 5%;
+  padding-left: 40px;
+}
+#login-password {
+  background: url('password.b389edca.svg') no-repeat 5%;
+  padding-left: 40px;
+}
 .signup_input::placeholder {
   font-family: Roboto;
+  font-weight: 300;
   color: var(--green);
 }
 

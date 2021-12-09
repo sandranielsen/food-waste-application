@@ -8,15 +8,17 @@ export default class LogInPage {
     this.loginImg = require("../img/login.jpg");
     this.render();
   }
+
+  /* Login */
   handleLogin(e)
   {
     e.preventDefault();
     var n = document.querySelector("#login-name").value;
     var u = document.querySelector("#login-password").value;
     console.log(n);
-    debugger;
+     
     var response = service.loginUser(n,u).then((data)=>{
-      debugger;
+      
       if (data.authenticated) {
         document.querySelector(".login-message").innerHTML = "";
         router.navigateTo("/home");
@@ -30,7 +32,7 @@ export default class LogInPage {
   render() {
     document.querySelector("#root").insertAdjacentHTML(
       "beforeend",
-      /*jsx*/ `
+      /*html*/ `
       <section id="${this.id}" class="page">
 
         <!--- Topbar container --->
@@ -53,21 +55,18 @@ export default class LogInPage {
 
         <!--- Login container --->
         <div class="login_signup_container">
-            <h1 class="login_signup_headline">Login</h1>
-            <div class="form_container">
-
-        <!-- Romans form -->
-        <form>
-        <input id="login-name" type="text" name="name" placeholder="Type email"/>
-        <input id="login-password" class="login_input"  type="password" placeholder="Password" />
-        <button type="button" class="btn_alt" id="btn-login">Login</button>
-      </form>
-
-        <div class="login-message"></div>
-              
-            </div>
+          <h1 class="login_signup_headline">Login</h1>
+          <div class="form_container">
+          
+            <!--- Login form --->
+            <form>
+              <input id="login-name" class="login_input" type="text" name="name" placeholder="Email"/>
+              <input id="login-password" class="login_input" type="password" placeholder="Password" />
+              <button type="button" class="btn_alt" id="btn-login">Login</button>
+            </form>
+            <div class="login-message"></div>
           </div>
-
+        </div>
       </section>
     `
     );

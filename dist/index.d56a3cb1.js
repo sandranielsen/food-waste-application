@@ -862,11 +862,8 @@ class StartPage {
             <button class="btn" onclick="location.href='/signup'">Sign up</button>
           </div>
         </div>
-
       </div>
-        
-        
-      </section>
+    </section>
     `);
     }
     beforeShow(props) {
@@ -887,13 +884,14 @@ class Service {
         this.listingUrl = this.baseUrl + "/listing.php";
         this.selectedListingId;
     }
-    /***** Login/Signup *****/ /* Fetch and return all listings from backend service */ async signupUser(name, username, password, passwordCheck) {
+    // rasmus' code
+    async signupUser(name, username, password, passwordCheck) {
         const url = `${this.loginUrl}?action=signup`;
         var data = {
-            name: name,
-            username: username,
-            password: password,
-            passwordCheck: passwordCheck
+            'name': name,
+            'username': username,
+            'password': password,
+            'passwordCheck': passwordCheck
         };
         const response = await fetch(url, {
             method: "POST",
@@ -902,8 +900,20 @@ class Service {
         const json = await response.json();
         return json;
     }
-    /************** CRUD operations **************/ // Inspiration: Rasmus - parcel dating spa & user service
-    /***** Read listing *****/ async getListings() {
+    async loginUser(name1, password1) {
+        const url = `${this.loginUrl}?action=login`;
+        var data = {
+            'username': name1,
+            'password': password1
+        };
+        const response = await fetch(url, {
+            method: "POST",
+            body: JSON.stringify(data)
+        });
+        const json = await response.json();
+        return json;
+    }
+    async getListings() {
         const url = `${this.listingUrl}?action=getListings`;
         const response = await fetch(url);
         const data = await response.json();
@@ -913,10 +923,10 @@ class Service {
     async getListing(listingId) {
         const url = `${this.listingUrl}?action=getListing&listingId=${listingId}`;
         const response = await fetch(url);
-        const listing = await response.json();
-        return listing;
+        const user = await response.json();
+        return user;
     }
-    /***** Create listing *****/ /* Image upload */ async uploadImage(imageFile) {
+    async uploadImage(imageFile) {
         let formData = new FormData();
         formData.append("fileToUpload", imageFile);
         const response = await fetch(`${this.fileUploadUrl}?action=uploadImage`, {
@@ -930,15 +940,25 @@ class Service {
         const result = await response.json();
         return result;
     }
-    async createListing(title, price, description, expirationDate, location, image) {
+    async deleteListing(listingId1) {
+        const response = await fetch(`${this.baseUrl}?action=deleteListing&listingId=${listingId1}`, {
+            method: "DELETE"
+        });
+        // waiting for the result
+        const result = await response.json();
+        // the result is the new updated listings array
+        this.listing = result;
+        return this.listing;
+    }
+    async createListing(title, price, expirationDate, description, location, image) {
         const id = Date.now(); // dummy generated listing id
         const newListing = {
             // declaring a new js object with the form values
             id,
             title,
             price,
-            description,
             expirationDate,
+            description,
             location,
             image
         };
@@ -953,8 +973,8 @@ class Service {
         this.listing = result;
         return this.listing;
     }
-    /***** Delete listing */ async deleteListing(listingId1) {
-        const response = await fetch(`${this.listingUrl}?action=deleteListing&listingId=${listingId1}`, {
+    /***** Delete listing */ async deleteListing(listingId2) {
+        const response = await fetch(`${this.listingUrl}?action=deleteListing&listingId=${listingId2}`, {
             method: "DELETE"
         });
         // waiting for the result
@@ -969,8 +989,8 @@ class Service {
             id,
             title: title1,
             price: price1,
-            description: description1,
             expirationDate: expirationDate1,
+            description: description1,
             location: location1,
             image: image1
         };
@@ -984,12 +1004,6 @@ class Service {
         // the result is the new updated listings array
         this.listings = result;
         return this.listings;
-    }
-    /***** User *****/ async getUser() {
-        const url = `${this.baseUrl}?action=getUser&userId=${userId}`;
-        const response = await fetch(url);
-        const user = await response.json();
-        return user;
     }
 }
 const service = new Service();
@@ -1008,11 +1022,10 @@ var _serviceJsDefault = parcelHelpers.interopDefault(_serviceJs);
 class SignUpPage {
     constructor(id){
         this.id = id;
-        this.backImg = require("../img/back.svg");
         this.signupImg = require("../img/signup.jpg");
         this.render();
     }
-    handleSignup(e) {
+    /* Sign up */ handleSignup(e) {
         e.preventDefault();
         var n = document.querySelector("#signup-name").value;
         var u = document.querySelector("#signup-username").value;
@@ -1020,21 +1033,24 @@ class SignUpPage {
         var pc = document.querySelector("#signup-password-check").value;
         debugger;
         console.log(n);
-        var response = _serviceJsDefault.default.signupUser(n, u, p, pc);
-        if (response.signupSuccess) {
-            document.querySelector(".signup-message").innerHTML = "";
-            navigateTo("/login");
-        } else document.querySelector(".signup-message").innerHTML = data.error;
+        var response = _serviceJsDefault.default.signupUser(n, u, p, pc).then((data)=>{
+            debugger;
+            if (data.signupSuccess) {
+                document.querySelector(".signup-message").innerHTML = "";
+                _routerJsDefault.default.navigateTo("/login");
+            } else document.querySelector(".signup-message").innerHTML = data.error;
+        });
     }
     render() {
-        document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
+        document.querySelector("#root").insertAdjacentHTML("beforeend", /*jsx*/ `
       <section id="${this.id}" class="page">
-      <!--- Topbar container --->
         <header class="topbar">
-          <div class="topbar_img>">
-            <a href="/home"><img src="${this.backImg}"></a>
-          </div>
+          <a href="/home"><svg xmlns="http://www.w3.org/2000/svg" width="13.503" height="23.619" viewBox="0 0 13.503 23.619">
+          <path id="Icon_ionic-ios-arrow-back" data-name="Icon ionic-ios-arrow-back" d="M15.321,18l8.937-8.93a1.688,1.688,0,0,0-2.391-2.384L11.742,16.8a1.685,1.685,0,0,0-.049,2.327L21.86,29.32a1.688,1.688,0,0,0,2.391-2.384Z" transform="translate(-11.251 -6.194)" fill="#13553f"/>
+          </svg></a>
         </header>
+
+        <!--- Banner container --->
         <div class="banner_container">
           <div class="login_signup_img">
             <img src="${this.signupImg} alt="Food" class="login_signup_bg">
@@ -1045,22 +1061,22 @@ class SignUpPage {
           </div>
         </div>
 
-        
+        <!--- Sign up container --->
         <div class="login_signup_container">
-            <h1 class="login_signup_headline">Signup</h1>
-            <div class="form_container">
+          <h1 class="login_signup_headline">Sign up</h1>
+          <div class="form_container">
+          
+            <!--- Sign up form --->
             <form>
-              <input id="signup-name" class="signup_input" type="text" name="name" placeholder="Name">
-              <input id="signup-username" class="signup_input"  type="text" placeholder="Email" autocomplete="new-email">
-              <input id="signup-password" class="signup_input"  type="password" placeholder="Password" autocomplete="new-password">
-              <input id="signup-password-check" class="signup_input"  type="password" placeholder="Password" autocomplete="new-password">
-
-        <button type="button" class="btn_alt" id="btn-signup">Sign up</button>
-        <div class=".signup-message"></div>
-      </form>
-
-            </div>
+              <input id="signup-name" class="signup_input type="text" name="name" placeholder="Name">
+              <input id="signup-username" class="signup_input type="text" placeholder="Email" autocomplete="new-email">
+              <input id="signup-password" class="signup_input type="password" placeholder="Password" autocomplete="new-password">
+              <input id="signup-password-check" class="signup_input type="password" placeholder="Password" autocomplete="new-password">
+              <button type="button" id="btn-signup" class="btn_alt">Sign up</button>
+              <div class="signup-message"></div>
+            </form>
           </div>
+        </div>
       </section>
     `);
         document.querySelector('#btn-signup').onclick = this.handleSignup;
@@ -1071,10 +1087,7 @@ class SignUpPage {
 }
 exports.default = SignUpPage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","../img/signup.jpg":"2WJzH","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7Pugh":[function(require,module,exports) {
-module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "back.24bbbe78.svg" + "?" + Date.now();
-
-},{"./helpers/bundle-url":"chiK4"}],"2WJzH":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/signup.jpg":"2WJzH","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"2WJzH":[function(require,module,exports) {
 module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "signup.ec6e4620.jpg" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"chiK4"}],"cKfZK":[function(require,module,exports) {
@@ -1091,8 +1104,22 @@ class LogInPage {
         this.loginImg = require("../img/login.jpg");
         this.render();
     }
+    /* Login */ handleLogin(e) {
+        e.preventDefault();
+        var n = document.querySelector("#login-name").value;
+        var u = document.querySelector("#login-password").value;
+        console.log(n);
+        debugger;
+        var response = _serviceJsDefault.default.loginUser(n, u).then((data)=>{
+            debugger;
+            if (data.authenticated) {
+                document.querySelector(".login-message").innerHTML = "";
+                _routerJsDefault.default.navigateTo("/home");
+            } else document.querySelector(".login-message").innerHTML = data.error;
+        });
+    }
     render() {
-        document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
+        document.querySelector("#root").insertAdjacentHTML("beforeend", /*jsx*/ `
       <section id="${this.id}" class="page">
 
         <!--- Topbar container --->
@@ -1115,35 +1142,21 @@ class LogInPage {
 
         <!--- Login container --->
         <div class="login_signup_container">
-            <h1 class="login_signup_headline">Login</h1>
-            <div class="form_container">
-
-        <!-- Rasmus form -->
-        <form>
-        <input id="signup-firstname" type="text" name="firstname" placeholder="Type firstname">
-        <input id="signup-lastname" type="text" name="lastname" placeholder="Type lastname">
-        <input id="signup-age" type="number" name="age" placeholder="Type age">
-        <select id="signup-gender" name="gender">
-          <option value="" disabled selected>Choose Gender</option>
-          <option>Male</option>
-          <option>Female</option>
-          <option>Other</option>
-        </select>
-
-        <input id="signup-username" class="login_input"  type="text" placeholder="Type username" autocomplete="new-username">
-        <input id="signup-password" class="login_input"  type="password" placeholder="Password" autocomplete="new-password">
-        <input id="signup-password-check" class="login_input"  type="password" placeholder="Password" autocomplete="new-password">
-
-        <button type="button" class="btn_alt" id="btn-signup">Login up</button>
-      </form>
-
-
-              
-            </div>
+          <h1 class="login_signup_headline">Login</h1>
+          <div class="form_container">
+          
+            <!--- Login form --->
+            <form>
+              <input id="login-name" class="login_input" type="text" name="name" placeholder="Email"/>
+              <input id="login-password" class="login_input" type="password" placeholder="Password" />
+              <button type="button" class="btn_alt" id="btn-login">Login</button>
+            </form>
+            <div class="login-message"></div>
           </div>
-
+        </div>
       </section>
     `);
+        document.querySelector('#btn-login').onclick = this.handleLogin;
     }
     beforeShow(props) {
         console.log(props);
@@ -1151,7 +1164,10 @@ class LogInPage {
 }
 exports.default = LogInPage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","../img/login.jpg":"kakxD","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"kakxD":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","../img/login.jpg":"kakxD","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7Pugh":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "back.24bbbe78.svg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"chiK4"}],"kakxD":[function(require,module,exports) {
 module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "login.cb916fac.jpg" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"chiK4"}],"1edkc":[function(require,module,exports) {
