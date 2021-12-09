@@ -1229,7 +1229,7 @@ var _serviceJsDefault = parcelHelpers.interopDefault(_serviceJs);
 class FilterPage {
     constructor(id){
         this.id = id;
-        this.exitImg = require("../img/exit.svg");
+        this.backImg = require("../img/back.svg");
         this.render();
     }
     render() {
@@ -1238,10 +1238,10 @@ class FilterPage {
 
         <!--- Topbar container --->
         <header class="topbar">
-          <h2>Filter</h2>
           <div class="topbar_img>">
-            <a href="/home"><img src="${this.exitImg}"></a>
+            <a href="/home"><img src="${this.backImg}"></a>
           </div>
+          <h2>Filter</h2>
         </header>
         <div class="filter_container">
           
@@ -1313,10 +1313,7 @@ class FilterPage {
 }
 exports.default = FilterPage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","../img/exit.svg":"fhJzw","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"fhJzw":[function(require,module,exports) {
-module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "exit.593fb32c.svg" + "?" + Date.now();
-
-},{"./helpers/bundle-url":"chiK4"}],"3an6W":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","../img/back.svg":"7Pugh"}],"3an6W":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _routerJs = require("../router.js");

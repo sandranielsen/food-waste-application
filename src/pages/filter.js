@@ -4,7 +4,7 @@ import service from "../service.js";
 export default class FilterPage {
   constructor(id) {
     this.id = id;
-    this.exitImg = require("../img/exit.svg");
+    this.backImg = require("../img/back.svg");
     this.render();
   }
 
@@ -16,10 +16,10 @@ export default class FilterPage {
 
         <!--- Topbar container --->
         <header class="topbar">
-          <h2>Filter</h2>
           <div class="topbar_img>">
-            <a href="/home"><img src="${this.exitImg}"></a>
+            <a href="/home"><img src="${this.backImg}"></a>
           </div>
+          <h2>Filter</h2>
         </header>
         <div class="filter_container">
           
