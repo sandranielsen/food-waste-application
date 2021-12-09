@@ -1031,10 +1031,8 @@ class SignUpPage {
         var u = document.querySelector("#signup-username").value;
         var p = document.querySelector("#signup-password").value;
         var pc = document.querySelector("#signup-password-check").value;
-        debugger;
         console.log(n);
         var response = _serviceJsDefault.default.signupUser(n, u, p, pc).then((data)=>{
-            debugger;
             if (data.signupSuccess) {
                 document.querySelector(".signup-message").innerHTML = "";
                 _routerJsDefault.default.navigateTo("/login");
@@ -1042,7 +1040,7 @@ class SignUpPage {
         });
     }
     render() {
-        document.querySelector("#root").insertAdjacentHTML("beforeend", /*jsx*/ `
+        document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
         <header class="topbar">
           <a href="/home"><svg xmlns="http://www.w3.org/2000/svg" width="13.503" height="23.619" viewBox="0 0 13.503 23.619">
@@ -1053,10 +1051,10 @@ class SignUpPage {
         <!--- Banner container --->
         <div class="banner_container">
           <div class="login_signup_img">
-            <img src="${this.signupImg} alt="Food" class="login_signup_bg">
+            <img src="${this.signupImg}" alt="Food" class="login_signup_bg">
             <div class="half-overlay"></div>
             <div class="login_signup_content">
-              <h2 class="login_signup_text">Share food with your community and fight against food waste<h2>
+              <h2 class="login_signup_text">Share food with your community and fight against food waste</h2>
             </div>
           </div>
         </div>
@@ -1109,9 +1107,7 @@ class LogInPage {
         var n = document.querySelector("#login-name").value;
         var u = document.querySelector("#login-password").value;
         console.log(n);
-        debugger;
         var response = _serviceJsDefault.default.loginUser(n, u).then((data)=>{
-            debugger;
             if (data.authenticated) {
                 document.querySelector(".login-message").innerHTML = "";
                 _routerJsDefault.default.navigateTo("/home");
@@ -1119,7 +1115,7 @@ class LogInPage {
         });
     }
     render() {
-        document.querySelector("#root").insertAdjacentHTML("beforeend", /*jsx*/ `
+        document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
 
         <!--- Topbar container --->
