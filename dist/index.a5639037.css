@@ -43,14 +43,14 @@
 }
 
 .profile-buttons button {
-  width: 100%; 
+  width: 100%;
   border-radius: 5px;
-  background: #13553F; 
-  font-size: 20px;
+  background: var(--green);
+  font-size: 1.5em;
   font-family: Bebas Neue;
   color: var(--text-color-white);
-  margin: 5px 0;
   border: none;
+  margin: 10px 0;
   padding: 10px 20px;
   text-align: left;
 }
@@ -68,7 +68,7 @@
 
 #account form label,
 #account form p {
-    font-size: 20px; 
+    font-size: 1.8rem;
     font-family: Bebas Neue;
     font-weight: 400; 
 
@@ -78,37 +78,29 @@
 #account .form-inputs select {
     width: 100%;
     height: 30px;
-    border: 1px solid #DDDDDD;
-    border-radius: 6px;
-    margin-bottom: 20px;
-    padding: 0 !important;
+    border: 1px solid var(--light-grey);
+    border-radius: 5px;
+    margin: 8px 0 20px;
+    padding: 0 10px;
 }
 
 #account form .account-checkbox-label {
-    font-size: 14px; 
+    font-size: 16px; 
     font-family: Roboto;
     font-weight: 300;
-    margin: 0;
+    margin: 0 0 0 20px;
     text-transform: uppercase;
+}
+
+.form-checkboxes div {
+  display: flex;
+  align-items: center;
 }
 
 .account-buttons {
     width: 100%;
     margin-top: 30px;
 }
-
-.account-buttons button {
-    width: 100%; 
-    border-radius: 5px;
-    background: #13553F; 
-    font-size: 20px;
-    font-family: Bebas Neue;
-    color: var(--text-color-white);
-    margin: 5px 0;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-  }
 
 /***** My impact page *****/
 

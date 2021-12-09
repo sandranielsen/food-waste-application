@@ -1231,6 +1231,7 @@ class FilterPage {
         this.id = id;
         this.backImg = require("../img/back.svg");
         this.render();
+        this.slider();
     }
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
@@ -1275,17 +1276,19 @@ class FilterPage {
           
           <!--- Distance slider container --->
           <div class="distance_container">
-            <h3 class="filter_headline">Maximum distance</h3>
-            <input type="range" id="slider" class="distance_slider" name="distance" min="1" max="50">
-            <span id="slider-value"></span>
+            <div>
+              <h3 class="filter_headline">Maximum distance</h3>
+              <p class="distance_value"><span id="demo"></span>km</p>
+            </div>
+            <input type="range" min="1" max="100" value="50" class="slider" id="range">
           </div>
 
           <!--- Hide expired products container --->
           <div class="hide_container">
-            <label class="headline_container">
+            <div>
               <h3 class="filter_headline">Hide expired products</h3>
-              <input type="checkbox" class="hide_checkbox" name="hide" value="hide">
-            </label>
+              <input type="checkbox" class="hide_checkbox" id="hide" name="hide" value="hide">
+            </div>
             <p>Some of the listed products might be over the expiration date
             according to its packaging but that does not necessarily mean that
             the product is spoiled. Check off this box to hide "expired" products.</p>
@@ -1295,17 +1298,25 @@ class FilterPage {
           <div class="sorting_container">
             <h3 class="filter_headline">Sort by</h3>
             <div class="radio_container">
-              <label for="newest" class="radio">Newest</label>
-                <input type="radio" name="newest" value="newest" class="radio_btn">
+              <label for="newest" class="radio" id="newest-radio">Newest</label>
+                <input for="newest-radio" type="radio" id="newest" name="radio" value="newest" class="radio_btn">
             </div>
             <div class="radio_container">
-            <label for="closest" class="radio">Closest</label>
-              <input type="radio" name="closest" value="closest" class="radio_btn">
+            <label for="closest" class="radio" id="closest-radio">Closest</label>
+              <input for="closest-radio" type="radio" id="closest" name="radio" value="closest" class="radio_btn">
             </div>
           </div>
         </div>
       </section>
     `);
+    }
+    /* Slider functionality - shows the value of the slider */ slider() {
+        let slider = document.getElementById("range");
+        let output = document.getElementById("demo");
+        output.innerHTML = slider.value;
+        slider.oninput = function() {
+            output.innerHTML = this.value;
+        };
     }
     beforeShow(props) {
         console.log(props);
@@ -1793,17 +1804,17 @@ class AccountPage {
             <!--- Profile information inputs --->
             <form class="form-inputs">
               <label for="name">Name</label><br>
-              <input type="text" id="name" name="name"><br>  
+              <input type="text" class="account_form" id="name" name="name"><br>  
 
               <label for="location">Location</label><br>
-              <input type="text" id="location" name="location"><br>  
+              <input type="text" class="account_form" id="location" name="location"><br>  
 
               <label for="email">Email</label><br>
-              <input type="text" id="email" name="email"><br>  
+              <input type="text" class="account_form" id="email" name="email"><br>  
 
               <label for="cars">Currency</label> <br>
 
-              <select name="currency" id="currency">
+              <select class="account_form" name="currency" id="currency">
                 <option value="dkk">DKK</option>
                 <option value="eur">Eur</option>
                 <option value="dollar">US dollar</option> 
@@ -1814,29 +1825,32 @@ class AccountPage {
 
               <!--- Payment preference form --->
               <p>Payment Preference</p>
-
-              <input type="checkbox" id="payment-card" name="payment-card" value="payment-card">
-              <label for="payment-card" class="account-checkbox-label">Credit Card</label><br>
-
-              <input type="checkbox" id="mobile-pay" name="mobile-pay" value="mobile-pay">
-              <label for="mobile-pay" class="account-checkbox-label">Mobile Pay</label><br>
+              <div>
+                <input type="checkbox" id="payment-card" name="payment" value="payment-card">
+                <label for="payment-card" class="account-checkbox-label">Credit Card</label><br>
+              </div>
+              <div>
+                <input type="checkbox" id="mobile-pay" name="payment" value="mobile-pay">
+                <label for="mobile-pay" class="account-checkbox-label">Mobile Pay</label><br>
+              </div>
 
               <!--- Notification form --->
               <p>Notifications</p>
-
-              <input type="checkbox" id="notifications-on" name="notifications-on" value="notifications-on">
-              <label for="notifications-on" class="account-checkbox-label">On</label><br>
-
-              <input type="checkbox" id="notifications-of" name="notifications-of" value="notifications-of">
-              <label for="notifications-of" class="account-checkbox-label">Of</label><br>
-            
+              <div>
+                <input type="checkbox" id="notifications-on" name="notifications" value="notifications-on">
+                <label for="notifications-on" class="account-checkbox-label">On</label><br>
+              </div>
+              <div>
+                <input type="checkbox" id="notifications-off" name="notifications" value="notifications-of">
+                <label for="notifications-of" class="account-checkbox-label">Of</label><br>
+              </div>
             
               </form>
 
 
 
             <div class="account-buttons">
-                    <button onclick="location.href='/account'">Update profile</button> 
+                    <button class="btn_alt" onclick="location.href='/account'">Update profile</button> 
             </div>
           <div>
       </section>

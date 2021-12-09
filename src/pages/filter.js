@@ -6,6 +6,7 @@ export default class FilterPage {
     this.id = id;
     this.backImg = require("../img/back.svg");
     this.render();
+    this.slider();
   }
 
   render() {
@@ -53,17 +54,19 @@ export default class FilterPage {
           
           <!--- Distance slider container --->
           <div class="distance_container">
-            <h3 class="filter_headline">Maximum distance</h3>
-            <input type="range" id="slider" class="distance_slider" name="distance" min="1" max="50">
-            <span id="slider-value"></span>
+            <div>
+              <h3 class="filter_headline">Maximum distance</h3>
+              <p class="distance_value"><span id="demo"></span>km</p>
+            </div>
+            <input type="range" min="1" max="100" value="50" class="slider" id="range">
           </div>
 
           <!--- Hide expired products container --->
           <div class="hide_container">
-            <label class="headline_container">
+            <div>
               <h3 class="filter_headline">Hide expired products</h3>
-              <input type="checkbox" class="hide_checkbox" name="hide" value="hide">
-            </label>
+              <input type="checkbox" class="hide_checkbox" id="hide" name="hide" value="hide">
+            </div>
             <p>Some of the listed products might be over the expiration date
             according to its packaging but that does not necessarily mean that
             the product is spoiled. Check off this box to hide "expired" products.</p>
@@ -73,18 +76,29 @@ export default class FilterPage {
           <div class="sorting_container">
             <h3 class="filter_headline">Sort by</h3>
             <div class="radio_container">
-              <label for="newest" class="radio">Newest</label>
-                <input type="radio" name="newest" value="newest" class="radio_btn">
+              <label for="newest" class="radio" id="newest-radio">Newest</label>
+                <input for="newest-radio" type="radio" id="newest" name="radio" value="newest" class="radio_btn">
             </div>
             <div class="radio_container">
-            <label for="closest" class="radio">Closest</label>
-              <input type="radio" name="closest" value="closest" class="radio_btn">
+            <label for="closest" class="radio" id="closest-radio">Closest</label>
+              <input for="closest-radio" type="radio" id="closest" name="radio" value="closest" class="radio_btn">
             </div>
           </div>
         </div>
       </section>
     `
     );
+  }
+
+  /* Slider functionality - shows the value of the slider */
+  slider() {
+    let slider = document.getElementById("range");
+    let output = document.getElementById("demo");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function () {
+      output.innerHTML = this.value;
+    };
   }
 
   beforeShow(props) {
