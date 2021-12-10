@@ -775,7 +775,7 @@ class Router {
 const router = new Router();
 exports.default = router;
 
-},{"./pages/start.js":"7p5Ej","./pages/signup.js":"5pzUn","./pages/login.js":"cKfZK","./pages/home.js":"1edkc","./pages/filter.js":"iw7sr","./pages/product-page.js":"3an6W","./pages/chat.js":"5udg2","./pages/add-listing.js":"lUwtW","./pages/favourites.js":"iZqiE","./pages/profile.js":"6Wl4X","./pages/account.js":"79fVm","./pages/my-impact.js":"jCk6k","./pages/my-listings.js":"AoYtQ","./pages/my-purchases.js":"46jdJ","./pages/public-profile.js":"7Dpl3","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","./pages/update.js":"8qolA"}],"7p5Ej":[function(require,module,exports) {
+},{"./pages/start.js":"7p5Ej","./pages/signup.js":"5pzUn","./pages/login.js":"cKfZK","./pages/home.js":"1edkc","./pages/filter.js":"iw7sr","./pages/product-page.js":"3an6W","./pages/chat.js":"5udg2","./pages/add-listing.js":"lUwtW","./pages/favourites.js":"iZqiE","./pages/profile.js":"6Wl4X","./pages/account.js":"79fVm","./pages/my-impact.js":"jCk6k","./pages/my-listings.js":"AoYtQ","./pages/my-purchases.js":"46jdJ","./pages/public-profile.js":"7Dpl3","./pages/update.js":"8qolA","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7p5Ej":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _routerJs = require("../router.js");
@@ -957,6 +957,7 @@ var _serviceJsDefault = parcelHelpers.interopDefault(_serviceJs);
 class SignUpPage {
     constructor(id){
         this.id = id;
+        this.backImg = require("../img/back.svg");
         this.signupImg = require("../img/signup.jpg");
         this.render();
     }
@@ -978,9 +979,7 @@ class SignUpPage {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
         <header class="topbar">
-          <a href="/home"><svg xmlns="http://www.w3.org/2000/svg" width="13.503" height="23.619" viewBox="0 0 13.503 23.619">
-          <path id="Icon_ionic-ios-arrow-back" data-name="Icon ionic-ios-arrow-back" d="M15.321,18l8.937-8.93a1.688,1.688,0,0,0-2.391-2.384L11.742,16.8a1.685,1.685,0,0,0-.049,2.327L21.86,29.32a1.688,1.688,0,0,0,2.391-2.384Z" transform="translate(-11.251 -6.194)" fill="#13553f"/>
-          </svg></a>
+          <a href="/"><img src="${this.backImg}"></a>
         </header>
 
         <!--- Banner container --->
@@ -1020,7 +1019,10 @@ class SignUpPage {
 }
 exports.default = SignUpPage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","../img/signup.jpg":"2WJzH","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"2WJzH":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","../img/signup.jpg":"2WJzH","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7Pugh":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "back.24bbbe78.svg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"chiK4"}],"2WJzH":[function(require,module,exports) {
 module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "signup.ec6e4620.jpg" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"chiK4"}],"cKfZK":[function(require,module,exports) {
@@ -1095,10 +1097,7 @@ class LogInPage {
 }
 exports.default = LogInPage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","../img/login.jpg":"kakxD","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"7Pugh":[function(require,module,exports) {
-module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "back.24bbbe78.svg" + "?" + Date.now();
-
-},{"./helpers/bundle-url":"chiK4"}],"kakxD":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","../img/login.jpg":"kakxD","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"kakxD":[function(require,module,exports) {
 module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "login.cb916fac.jpg" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"chiK4"}],"1edkc":[function(require,module,exports) {
@@ -1324,7 +1323,7 @@ class FilterPage {
 }
 exports.default = FilterPage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","../img/back.svg":"7Pugh"}],"3an6W":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"3an6W":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _routerJs = require("../router.js");
