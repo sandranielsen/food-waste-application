@@ -71,18 +71,22 @@ export default class HomePage {
     );
   }
 
-  // Inspiration: Rasmus - parcel dating spa & user service
+  /* Uses the imported services to get all listings - getListings() 
+  and calls appendListings with listings returned from the service */
   async init() {
     const listings = await service.getListings();
     this.appendListings(listings);
   }
 
+  /* Appends the listings to the specified container defined in the render() */
   appendListings(listings) {
     let htmlTemplate = "";
     for (const listing of listings) {
       htmlTemplate += /*html*/ `
                 <article data-listing-id="${listing.id}">
-                    <img src="${service.baseUrl}/files/medium/${listing.image || "placeholder.jpg"}">
+                    <img src="${service.baseUrl}/files/medium/${
+        listing.image || "placeholder.jpg"
+      }">
                     <h3>${listing.title}</h3>
                     <h4>${listing.price}</h4>
                     <p>${listing.description}</p>
@@ -96,6 +100,7 @@ export default class HomePage {
     this.attachEvents();
   }
 
+  /* Attaching an onclick event to all listings */
   attachEvents() {
     document
       .querySelectorAll(`#${this.listing_id} [data-listing-id]`)

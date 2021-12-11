@@ -30,7 +30,7 @@ export default class FavouritesPage {
              <button class="favourite-button">
                <img src="${this.favouritesFilledImg}" class="favourite_img">
              </button>        
-         </div>
+          </div>
 
          <!--- Product information container --->
          <div class="product-listing-info-container">
@@ -54,7 +54,7 @@ export default class FavouritesPage {
          </div>
      </div>
    </div>
-      </section>
+  </section>
     `
     );
   }

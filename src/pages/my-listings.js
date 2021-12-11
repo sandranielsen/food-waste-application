@@ -23,7 +23,7 @@ export default class MyListingsPage {
           <h2>My Listings</h2>
         </header>
 
-          <!-- Product listings -->
+          <!-- Product listing container -->
        <div class="product-listing-container">
        <div class="product-listing-image">
         <button class="favourite-button">
