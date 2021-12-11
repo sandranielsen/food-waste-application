@@ -44,7 +44,7 @@ if ($_GET['action'] == 'getListings') {
             $listing->price = $listingToupdate->price;
             $listing->description = $listingToupdate->description;
             $listing->expirationDate = $listingToupdate->expirationDate;
-             $listing->location = $listingToupdate->location;
+            $listing->location = $listingToupdate->location;
             $listing->image = $listingToupdate->image;
         }
     }
