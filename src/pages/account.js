@@ -54,34 +54,33 @@ export default class AccountPage {
               </form>
               <form class="form-checkboxes">
 
-              <!--- Payment preference form --->
-              <p>Payment Preference</p>
-              <div>
-                <input type="checkbox" id="payment-card" name="payment" value="payment-card">
-                <label for="payment-card" class="account-checkbox-label">Credit Card</label><br>
-              </div>
-              <div>
-                <input type="checkbox" id="mobile-pay" name="payment" value="mobile-pay">
-                <label for="mobile-pay" class="account-checkbox-label">Mobile Pay</label><br>
-              </div>
+                <!--- Payment preference form --->
+                <p>Payment Preference</p>
+                <div>
+                  <input type="checkbox" id="payment-card" name="payment" value="payment-card">
+                  <label for="payment-card" class="account-checkbox-label">Credit Card</label><br>
+                </div>
+                <div>
+                  <input type="checkbox" id="mobile-pay" name="payment" value="mobile-pay">
+                  <label for="mobile-pay" class="account-checkbox-label">Mobile Pay</label><br>
+                </div>
 
-              <!--- Notification form --->
-              <p>Notifications</p>
-              <div>
-                <input type="checkbox" id="notifications-on" name="notifications" value="notifications-on">
-                <label for="notifications-on" class="account-checkbox-label">On</label><br>
-              </div>
-              <div>
-                <input type="checkbox" id="notifications-off" name="notifications" value="notifications-of">
-                <label for="notifications-of" class="account-checkbox-label">Of</label><br>
-              </div>
-            
+                <!--- Notification form --->
+                <p>Notifications</p>
+                <div>
+                  <input type="checkbox" id="notifications-on" name="notifications" value="notifications-on">
+                  <label for="notifications-on" class="account-checkbox-label">On</label><br>
+                </div>
+                <div>
+                  <input type="checkbox" id="notifications-off" name="notifications" value="notifications-of">
+                  <label for="notifications-of" class="account-checkbox-label">Of</label><br>
+                </div>
               </form>
 
 
-
+            <!--- Button container --->
             <div class="account-buttons">
-                    <button class="btn_alt" onclick="location.href='/account'">Update profile</button> 
+              <button class="btn_alt" onclick="location.href='/account'">Update profile</button> 
             </div>
           <div>
       </section>

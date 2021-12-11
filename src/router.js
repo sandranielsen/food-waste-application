@@ -19,8 +19,8 @@ class Router {
   constructor() {
     this.routes = [
       {
-        path: "/", // path to the view/page component
-        view: new StartPage("start"), // an instance of the view/page
+        path: "/", 
+        view: new StartPage("start"), 
       },
       {
         path: "/signup",
@@ -94,7 +94,7 @@ class Router {
       },
       */
     ];
-    //declaring properties: pages and navLinks. Initialised in init().
+    // Declaring properties: pages and navLinks. Initialised in init().
     this.pages;
     this.navLinks;
   }

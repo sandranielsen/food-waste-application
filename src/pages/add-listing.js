@@ -91,6 +91,7 @@ export default class AddListingPage {
             </div>
 
           </div>
+          <!--- Add listing button --->
           <button type="button" id="add-btn" class="btn_alt">Add Listing</button>  
 
           </form>

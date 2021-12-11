@@ -90,7 +90,8 @@ export default class FilterPage {
     );
   }
 
-  /* Slider functionality - shows the value of the slider */
+  /* Slider functionality - shows the value (in km) of the slider */
+  /* Source: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_rangeslider */
   slider() {
     let slider = document.getElementById("range");
     let output = document.getElementById("demo");
@@ -104,5 +105,4 @@ export default class FilterPage {
   beforeShow(props) {
     console.log(props);
   }
-
 }
