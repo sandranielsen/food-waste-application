@@ -4,6 +4,7 @@ import service from "../service.js";
 export default class MyListingsPage {
   constructor(id) {
     this.id = id;
+    this.selectedListing;
     this.backImg = require("../img/back.svg");
     this.favouritesImg = require("../img/favourites.svg");
     this.render();
@@ -34,8 +35,8 @@ export default class MyListingsPage {
        <div class="product-listing-info-container">
         <h3>Whole grain noodles</h3>
           <div class="my-listings-buttons">
-            <button onclick="location.href='#edit';">Edit</button>
-            <button onclick="location.href='#delete';" style="margin-left: 10px;" >Delete</button>
+            <button onclick="location.href='/update';">Edit</button>
+            <button onclick="location.href='/delete';" style="margin-left: 10px;" >Delete</button>
           </div>
        </div>
     </div>
@@ -44,7 +45,59 @@ export default class MyListingsPage {
     );
   }
 
+  /*
+  appendListingData() {
+    let htmlTemplate = /*html*/ /* `
+            <article class="selectedListing">
+            <img src="${service.fileUploadUrl}/files/medium/${
+      this.selectedListing.image || "placeholder.jpg"
+    }">
+                <h3>${this.selectedListing.Title}</h3>
+                <button type="button" class="update">Edit</button>
+                <button type="button" class="delete">Delete</button>
+            </article>
+        `;
+
+    document.querySelector(`#${this.id} .selectedListing`).innerHTML =
+      htmlTemplate;
+
+    this.attachEvents();
+  }
+
+  /* Attaching events to DOM elements */ /*
+  attachEvents() {
+    document.querySelectorAll(`#${this.id} [data-listing-id]`)
+      .forEach((element) => {
+        // adds .onclick for every listing calling router.navigateTo(...) with the id of the listing
+        element.onclick = () => {
+          const listingId = element.getAttribute("data-listing-id");
+          router.navigateTo(`/product-page/${listingId}`);
+        };
+      });
+
+    document.querySelector(`#${this.id} .update`).onclick = () =>
+      router.navigateTo(`/update/${this.selectedListing.id}`);
+
+    document.querySelector(`#${this.id} .delete`).onclick = () =>
+      this.showDeleteDialog();
+  }
+
+  async showDeleteDialog() {
+    const deleteListing = confirm("Do you want to delete listing?");
+
+    if (deleteListing) {
+      const listings = await service.deleteListing(this.selectedListing.id);
+      router.navigateTo("/", {
+        listings : listings,
+      });
+    }
+  }
+
+  */
+
   beforeShow(props) {
     console.log(props);
+    // this.selectedListing = await service.getListing(props.id);
+    //this.appendListingData();
   }
 }

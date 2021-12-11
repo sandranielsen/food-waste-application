@@ -716,7 +716,7 @@ class Router {
                 view: new _updateJsDefault.default("update")
             }
         ];
-        //declaring properties: pages and navLinks. Initialised in init().
+        // Declaring properties: pages and navLinks. Initialised in init().
         this.pages;
         this.navLinks;
     }
@@ -1172,12 +1172,12 @@ class HomePage {
       </section>
     `);
     }
-    // Inspiration: Rasmus - parcel dating spa & user service
-    async init() {
+    /* Uses the imported services to get all listings - getListings() 
+  and calls appendListings with listings returned from the service */ async init() {
         const listings = await _serviceJsDefault.default.getListings();
         this.appendListings(listings);
     }
-    appendListings(listings) {
+    /* Appends the listings to the specified container defined in the render() */ appendListings(listings) {
         let htmlTemplate = "";
         for (const listing of listings)htmlTemplate += /*html*/ `
                 <article data-listing-id="${listing.id}">
@@ -1192,7 +1192,7 @@ class HomePage {
         document.querySelector(`#${this.id} .product-listing-container`).innerHTML = htmlTemplate;
         this.attachEvents();
     }
-    attachEvents() {
+    /* Attaching an onclick event to all listings */ attachEvents() {
         document.querySelectorAll(`#${this.listing_id} [data-listing-id]`).forEach((element)=>{
             element.onclick = ()=>{
                 const listingId = element.getAttribute("data-listing-id");
@@ -1309,7 +1309,7 @@ class FilterPage {
       </section>
     `);
     }
-    /* Slider functionality - shows the value of the slider */ slider() {
+    /* Slider functionality - shows the value (in km) of the slider */ /* Source: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_rangeslider */ slider() {
         let slider = document.getElementById("range");
         let output = document.getElementById("demo");
         output.innerHTML = slider.value;
@@ -1430,7 +1430,7 @@ class ChatPage {
           </div>
           <h2>Chat</h2>
         </header>
-         <!--- Chat box container --->
+         <!--- Chat container --->
         <section class="chat_container">
         
           <!--- Search and filter container --->
@@ -1447,8 +1447,9 @@ class ChatPage {
           </button> 
         </div>
 
-          <div class="chat_content_first">
-            <div class="chat-profile-img" style="background-image: url('https://images.pexels.com/photos/2726111/pexels-photo-2726111.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');"></div>
+         <!--- Chat box container --->
+        <div class="chat_content_first">
+          <div class="chat-profile-img" style="background-image: url('https://images.pexels.com/photos/2726111/pexels-photo-2726111.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');"></div>
             <div>
               <p class="seller_name">Luisa Christensen</p>
               <p class="chat_preview">See you then<p>
@@ -1456,43 +1457,43 @@ class ChatPage {
             <div class="chat-time">
             <p>18.24</p>
            </div>
-          </div>
+        </div>
 
-          <div class="chat_content">
+         <!--- Chat box container --->
+        <div class="chat_content">
           <div class="chat-profile-img" style="background-image: url('https://us.123rf.com/450wm/fizkes/fizkes2010/fizkes201001384/157765614-profile-picture-of-smiling-indian-female-isolated-on-grey-studio-background-show-optimism-and-positi.jpg?ver=6');"></div>
-          <div>
-            <p class="seller_name">Anni Nielsen</p>
-            <p class="chat_preview">Are the apples still available?<p>
+            <div>
+              <p class="seller_name">Anni Nielsen</p>
+              <p class="chat_preview">Are the apples still available?<p>
            </div>
           <div class="chat-time">
           <p>16.02</p>
          </div>
         </div>
 
+         <!--- Chat box container --->
         <div class="chat_content">
-        <div class="chat-profile-img" style="background-image: url('https://image.shutterstock.com/mosaic_250/101595/738242395/stock-photo-portrait-of-a-mature-businessman-wearing-glasses-on-grey-background-happy-senior-latin-man-looking-738242395.jpg');"></div>
-        <div>
-          <p class="seller_name">Søren Knudsen</p>
-          <p class="chat_preview">I can pick up the apples tomorrow...<p>
-         </div>
-        <div class="chat-time">
-        <p>14.56</p>
-       </div>
-      </div>
+          <div class="chat-profile-img" style="background-image: url('https://image.shutterstock.com/mosaic_250/101595/738242395/stock-photo-portrait-of-a-mature-businessman-wearing-glasses-on-grey-background-happy-senior-latin-man-looking-738242395.jpg');"></div>
+            <div>
+              <p class="seller_name">Søren Knudsen</p>
+             <p class="chat_preview">I can pick up the apples tomorrow...<p>
+          </div>
+          <div class="chat-time">
+          <p>14.56</p>
+        </div>
+        </div>
 
-      <div class="chat_content">
-      <div class="chat-profile-img" style="background-image: url('https://us.123rf.com/450wm/fizkes/fizkes2007/fizkes200701793/152407909-profile-picture-of-smiling-young-caucasian-man-in-glasses-show-optimism-positive-and-motivation-head.jpg?ver=6');"></div>
-      <div>
-        <p class="seller_name">Harry Williams </p>
-        <p class="chat_preview">Thanks for the purchase!<p>
-       </div>
-      <div class="chat-time">
-      <p>10.48</p>
-     </div>
-    </div>
-
-          
-
+         <!--- Chat box container --->
+        <div class="chat_content">
+          <div class="chat-profile-img" style="background-image: url('https://us.123rf.com/450wm/fizkes/fizkes2007/fizkes200701793/152407909-profile-picture-of-smiling-young-caucasian-man-in-glasses-show-optimism-positive-and-motivation-head.jpg?ver=6');"></div>
+            <div>
+              <p class="seller_name">Harry Williams </p>
+              <p class="chat_preview">Thanks for the purchase!<p>
+             </div>
+            <div class="chat-time">
+            <p>10.48</p>
+          </div>
+        </div>
 
         </section>
       </section>
@@ -1596,6 +1597,7 @@ class AddListingPage {
             </div>
 
           </div>
+          <!--- Add listing button --->
           <button type="button" id="add-btn" class="btn_alt">Add Listing</button>  
 
           </form>
@@ -1679,7 +1681,7 @@ class FavouritesPage {
              <button class="favourite-button">
                <img src="${this.favouritesFilledImg}" class="favourite_img">
              </button>        
-         </div>
+          </div>
 
          <!--- Product information container --->
          <div class="product-listing-info-container">
@@ -1703,7 +1705,7 @@ class FavouritesPage {
          </div>
      </div>
    </div>
-      </section>
+  </section>
     `);
     }
     beforeShow(props) {
@@ -1822,34 +1824,33 @@ class AccountPage {
               </form>
               <form class="form-checkboxes">
 
-              <!--- Payment preference form --->
-              <p>Payment Preference</p>
-              <div>
-                <input type="checkbox" id="payment-card" name="payment" value="payment-card">
-                <label for="payment-card" class="account-checkbox-label">Credit Card</label><br>
-              </div>
-              <div>
-                <input type="checkbox" id="mobile-pay" name="payment" value="mobile-pay">
-                <label for="mobile-pay" class="account-checkbox-label">Mobile Pay</label><br>
-              </div>
+                <!--- Payment preference form --->
+                <p>Payment Preference</p>
+                <div>
+                  <input type="checkbox" id="payment-card" name="payment" value="payment-card">
+                  <label for="payment-card" class="account-checkbox-label">Credit Card</label><br>
+                </div>
+                <div>
+                  <input type="checkbox" id="mobile-pay" name="payment" value="mobile-pay">
+                  <label for="mobile-pay" class="account-checkbox-label">Mobile Pay</label><br>
+                </div>
 
-              <!--- Notification form --->
-              <p>Notifications</p>
-              <div>
-                <input type="checkbox" id="notifications-on" name="notifications" value="notifications-on">
-                <label for="notifications-on" class="account-checkbox-label">On</label><br>
-              </div>
-              <div>
-                <input type="checkbox" id="notifications-off" name="notifications" value="notifications-of">
-                <label for="notifications-of" class="account-checkbox-label">Of</label><br>
-              </div>
-            
+                <!--- Notification form --->
+                <p>Notifications</p>
+                <div>
+                  <input type="checkbox" id="notifications-on" name="notifications" value="notifications-on">
+                  <label for="notifications-on" class="account-checkbox-label">On</label><br>
+                </div>
+                <div>
+                  <input type="checkbox" id="notifications-off" name="notifications" value="notifications-of">
+                  <label for="notifications-of" class="account-checkbox-label">Of</label><br>
+                </div>
               </form>
 
 
-
+            <!--- Button container --->
             <div class="account-buttons">
-                    <button class="btn_alt" onclick="location.href='/account'">Update profile</button> 
+              <button class="btn_alt" onclick="location.href='/account'">Update profile</button> 
             </div>
           <div>
       </section>
@@ -1964,6 +1965,7 @@ var _serviceJsDefault = parcelHelpers.interopDefault(_serviceJs);
 class MyListingsPage {
     constructor(id){
         this.id = id;
+        this.selectedListing;
         this.backImg = require("../img/back.svg");
         this.favouritesImg = require("../img/favourites.svg");
         this.render();
@@ -1980,7 +1982,7 @@ class MyListingsPage {
           <h2>My Listings</h2>
         </header>
 
-          <!-- Product listings -->
+          <!-- Product listing container -->
        <div class="product-listing-container">
        <div class="product-listing-image">
         <button class="favourite-button">
@@ -1991,16 +1993,66 @@ class MyListingsPage {
        <div class="product-listing-info-container">
         <h3>Whole grain noodles</h3>
           <div class="my-listings-buttons">
-            <button onclick="location.href='#edit';">Edit</button>
-            <button onclick="location.href='#delete';" style="margin-left: 10px;" >Delete</button>
+            <button onclick="location.href='/update';">Edit</button>
+            <button onclick="location.href='/delete';" style="margin-left: 10px;" >Delete</button>
           </div>
        </div>
     </div>
     </section>
     `);
     }
-    beforeShow(props) {
+    /*
+  appendListingData() {
+    let htmlTemplate = /*html*/ /* `
+            <article class="selectedListing">
+            <img src="${service.fileUploadUrl}/files/medium/${
+      this.selectedListing.image || "placeholder.jpg"
+    }">
+                <h3>${this.selectedListing.Title}</h3>
+                <button type="button" class="update">Edit</button>
+                <button type="button" class="delete">Delete</button>
+            </article>
+        `;
+
+    document.querySelector(`#${this.id} .selectedListing`).innerHTML =
+      htmlTemplate;
+
+    this.attachEvents();
+  }
+
+  /* Attaching events to DOM elements */ /*
+  attachEvents() {
+    document.querySelectorAll(`#${this.id} [data-listing-id]`)
+      .forEach((element) => {
+        // adds .onclick for every listing calling router.navigateTo(...) with the id of the listing
+        element.onclick = () => {
+          const listingId = element.getAttribute("data-listing-id");
+          router.navigateTo(`/product-page/${listingId}`);
+        };
+      });
+
+    document.querySelector(`#${this.id} .update`).onclick = () =>
+      router.navigateTo(`/update/${this.selectedListing.id}`);
+
+    document.querySelector(`#${this.id} .delete`).onclick = () =>
+      this.showDeleteDialog();
+  }
+
+  async showDeleteDialog() {
+    const deleteListing = confirm("Do you want to delete listing?");
+
+    if (deleteListing) {
+      const listings = await service.deleteListing(this.selectedListing.id);
+      router.navigateTo("/", {
+        listings : listings,
+      });
+    }
+  }
+
+  */ beforeShow(props) {
         console.log(props);
+    // this.selectedListing = await service.getListing(props.id);
+    //this.appendListingData();
     }
 }
 exports.default = MyListingsPage;
