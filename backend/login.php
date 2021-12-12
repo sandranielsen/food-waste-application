@@ -46,6 +46,7 @@ if (isset($_GET['action'])) {
                 //$sql = "SELECT * FROM users WHERE userID = " . $data->id;
                 //$user = $mySQL->query($sql)->fetch_object();
                 $response['authenticated'] = TRUE;
+                $response['user_id'] = $data->user_id;
                 //$response['userData'] = $user;
                 echo json_encode($response);
             } else {

@@ -5,11 +5,24 @@ export default class HomePage {
   constructor(id) {
     this.id = id;
     this.searchImg = require("../img/search.svg");
+    this.searchWhiteImg = require("../img/searchWhite.svg");
     this.filterImg = require("../img/filter.svg");
     this.favouritesImg = require("../img/favourites.svg");
     this.locationImg = require("../img/location.svg");
     this.render();
     this.init();
+    
+  }
+  handleSearch()
+  {
+    var that = this;
+    var searchString = document.querySelector("#search").value;
+    service.getListings(searchString).then(function(listings)
+    {
+      console.log(listings);
+      that.appendListings(listings);
+    });
+    
   }
 
   render() {
@@ -29,6 +42,11 @@ export default class HomePage {
               <img src="${this.searchImg}">
               <input type="text" id="search">
             </div>
+            <button id="search-button" class="search-button">
+              <div>
+                <img src="${this.searchWhiteImg}">
+              </div>
+            </button> 
             <button onclick="location.href='/filter'" class="filter-button">
               <div>
                 <img src="${this.filterImg}">
@@ -37,38 +55,11 @@ export default class HomePage {
           </div>
 
         <!-- Product listings -->
-        <div class="product-listing-container">
-          <div class="product-listing-image">
-            <button class="favourite-button">
-              <img src="${this.favouritesImg}" class="favourite_img">
-            </button>        
-          </div>
-
-          <!-- Product information container -->
-          <div class="product-listing-info-container">
-            <h3>Whole grain noodles</h3>
-            <div style="margin-top: 25px;">
-              <p style="font-weight:400; padding-right: 5px;">Expiration date:</p>
-              <p>07.06.2023</p>
-            </div>
-
-            <!-- Seller information container -->
-            <div class="product-listing-user-info">
-              <div>
-                <div class="product-listing-profile-img"></div>
-                  <p>Maria N.</p>
-                </div> 
-                <div>
-                  <img src="${this.locationImg}">
-                  <p>Aarhus</p> 
-                </div>
-              </div>
-            </div>
-        </div>
-      </div>
+        <div class="product-listings-container"><div>
       </section>
     `
     );
+    document.querySelector("#search-button").addEventListener( "click", ()=>this.handleSearch(this) );
   }
 
   /* Uses the imported services to get all listings - getListings() 
@@ -83,21 +74,45 @@ export default class HomePage {
     let htmlTemplate = "";
     for (const listing of listings) {
       htmlTemplate += /*html*/ `
-                <article data-listing-id="${listing.id}">
-                    <img src="${service.baseUrl}/files/medium/${
-        listing.image || "placeholder.jpg"
-      }">
-                    <h3>${listing.title}</h3>
-                    <h4>${listing.price}</h4>
-                    <p>${listing.description}</p>
-                    <p>${listing.expirationDate}</p>
-                    <h5>${listing.location}</h5>
-                </article>
+      <div class="product-listing-container">
+      <div style="background-image: url('${listing.listing_img}');" class="product-listing-image">
+        <button class="favourite-button">
+          <img src="${this.favouritesImg}" class="favourite_img">
+        </button>        
+      </div>
+
+      <!-- Product information container -->
+      <div class="product-listing-info-container">
+        <h3>${listing.listing_title}</h3>
+        <div style="margin-top: 25px;">
+          <p style="font-weight:400; padding-right: 5px;">Expiration date:</p>
+          <p>${listing.listing_exp_date}</p>
+        </div>
+
+        <!-- Seller information container -->
+        <div class="product-listing-user-info">
+          <div>
+            <div class="product-listing-profile-img"></div>
+              <p>username</p>
+            </div> 
+            <div>
+              <img src="${this.locationImg}">
+              <p>${listing.listing_location}</p> 
+            </div>
+          </div>
+        </div>
+    </div>
+    </div>
+
             `;
     }
-    document.querySelector(`#${this.id} .product-listing-container`).innerHTML =
+    document.querySelector(`#${this.id} .product-listings-container`).innerHTML =
       htmlTemplate;
-    this.attachEvents();
+    //this.attachEvents();
+
+    document.querySelector(`#${this.id} .product-listings-container`).addEventListener( "click", ()=>{
+      router.navigateTo("/product");
+  } );
   }
 
   /* Attaching an onclick event to all listings */

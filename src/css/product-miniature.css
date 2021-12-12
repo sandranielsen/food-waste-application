@@ -1,4 +1,10 @@
 /***** Home version *****/
+
+.product-listings-container{
+    display:flex;
+    justify-content: center;
+    flex-direction:column;
+}
 .product-listing-container {
     display: flex;
     flex-direction: row;
@@ -11,7 +17,6 @@
 }
 
 .product-listing-image {
-    background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/apples-at-farmers-market-royalty-free-image-1627321463.jpg?crop=0.796xw:1.00xh;0.103xw,0&resize=640:*');
     background-position: center;
     background-repeat: no-repeat; 
     background-size: cover;

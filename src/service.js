@@ -1,11 +1,11 @@
 class Service {
   constructor() {
-    this.listings = [];
+
     this.baseUrl = "http://foodwaste.sonajuhasova.com/backend/";
     this.loginUrl = this.baseUrl + "/login.php";
     this.fileUploadUrl = this.baseUrl + "/fileUpload.php";
     this.listingUrl = this.baseUrl + "/listing.php";
-    this.selectedListingId;
+    this.user = null;
   }
 
   /***** Sign up service *****/
@@ -37,17 +37,31 @@ class Service {
       body: JSON.stringify(data), // parsing js object to json object
     });
     const json = await response.json();
+    
     return json;
+  }
+  setLoggedInUser(user)
+  {
+    this.user = user;
+  }
+  getLoggedInUser(user)
+  {
+    return this.user;
   }
 
   /***** CRUD Operations *****/
   /* Get listings */
-  async getListings() {
+  async getListings(search) {
     const url = `${this.listingUrl}?action=getListings`;
-    const response = await fetch(url)
-    const data = await response.json();
-    this.listings = data;
-    return this.listings;
+    var data = {
+      searchString: search
+    };
+    const response = await fetch(url, {
+      method: "POST",
+      body: JSON.stringify(data), // parsing js object to json object
+    });
+    var resultListings = await response.json();
+    return resultListings;
   }
 
   /* Get listing */
@@ -77,6 +91,7 @@ class Service {
 
   /* Create listing */
   async createListing(
+    user_id,
     title,
     price,
     expirationDate,
@@ -84,10 +99,10 @@ class Service {
     location,
     image
   ) {
-    const id = Date.now(); // dummy generated listing id
+    debugger;
     const newListing = {
       // declaring a new js object with the form values
-      id,
+      user_id,
       title,
       price,
       expirationDate,

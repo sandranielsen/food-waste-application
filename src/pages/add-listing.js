@@ -105,8 +105,12 @@ export default class AddListingPage {
   /* Attaching events to DOM elements. */
   attachEvents() {
     this.imageInput.onchange = () => this.previewImage(); // on change event on the input file (image) field
-    document.querySelector(`#${this.id} #add-btn`).onclick = () =>
+    document.querySelector(`#${this.id} #add-btn`).onclick = (e) =>
+    {
+      debugger;
+      e.preventDefault();
       this.create(); // on click event for save button
+    }
   }
 
   /* Image preview functionality */
@@ -124,18 +128,21 @@ export default class AddListingPage {
 
   /* Add new listing functionality */
   async create() {
-    if (this.validate()) {
-      const image = await service.uploadImage(this.imageInput.files[0]);
+    //if (this.validate()) {
+      //const image = await service.uploadImage(this.imageInput.files[0]);
+      debugger;
+      var user  = service.getLoggedInUser();
       const listings = await service.createListing(
+        user,
         this.titleInput.value,
         this.priceInput.value,
         this.expirationDateInput.value,
         this.descriptionInput.value,
         this.locationInput.value,
-        image.name
+        "fakeImageName",//image.name
       );
-      router.navigateTo("/", { home: home });
-    }
+      router.navigateTo("/home");
+   // }
   }
 
   /* Information validation */

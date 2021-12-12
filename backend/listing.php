@@ -1,5 +1,5 @@
 <?php
-require "fileUpload.php";
+//require "fileUpload.php";
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 header("Access-Control-Allow-Methods: *");
@@ -7,35 +7,49 @@ header("Content-Type: application/json; charset=UTF-8");
 
 session_start();
 include("mysql.php");
-
-// Read the JSON file from the root folder of the website
-$jsonFile = file_get_contents("listing.json");
-$listings = json_decode($jsonFile);
-
+if (isset($_GET['action'])) {
 if ($_GET['action'] == 'getListings') {
-    echo $jsonFile;
-} else if ($_GET['action'] == 'getListing') {
-    // Declare the listingSelected variable - used to save the object of the listing that was clicked on previous page
-    $listingSelected = "";
+    $jsonInput = file_get_contents('php://input');
+    
+    $filter = json_decode($jsonInput);
+    $searchString = $filter->searchString;
+    $searchString = "%".$searchString."%";
+    $sql = "SELECT * FROM listings WHERE listing_title LIKE '$searchString'";
+    $result = $mySQL->query($sql);
 
-    // Loops through all the listings in the database
-    foreach ($listings as $listing) {
-        // Checks the ID of the selected listing, to find the same id in the database
-        if ($_GET['listingId'] == $listing->id) {
-            $listingSelected = $listing;
+
+    $listingSelected = array();
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            array_push($listingSelected,$row);
         }
-    }
+      } else {
+        
+      }
+        
     echo json_encode($listingSelected);
-} else if ($_GET['action'] == 'createListing') {
+}
+
+if ($_GET['action'] == 'getListing') {
+    // Declare the listingSelected variable - used to save the object of the listing that was clicked on previous page
+    
+} 
+if ($_GET['action'] == 'createListing') {
     $jsonInput = file_get_contents('php://input');
     $newListing = json_decode($jsonInput);
-    $listings[] = $newListing;
-    $encoded = json_encode($listings);
-    $fp = fopen('listing.json', 'w');
-    fwrite($fp, $encoded);
-    fclose($fp);
-    echo $encoded;
-} else if ($_GET['action'] == 'updateListing') {
+    $sql = "CALL CreateListing('$newListing->title', '$newListing->user_id')";
+    if ($mySQL->query($sql) === TRUE) {
+        $response['success'] = TRUE;
+        echo json_encode($response);
+    } else {
+        $response['success'] = FALSE;
+        $response['error'] = "CreateListing failed. Please try again.".$mySQL->error.$mysqli->connect_error;
+        echo json_encode($response);
+    }
+}
+
+if ($_GET['action'] == 'updateListing') {
     $listingToupdate = json_decode(file_get_contents("php://input"));
 
     foreach ($listings as $listing) {
@@ -53,7 +67,8 @@ if ($_GET['action'] == 'getListings') {
     fwrite($fp, $encoded);
     fclose($fp);
     echo $encoded;
-} else if ($_GET['action'] == 'deleteListing') {
+} 
+ if ($_GET['action'] == 'deleteListing') {
     $newListingsArray = [];
     foreach ($listings as $listing) {
         if ($listing->id != $_GET['listingId']) {
@@ -65,7 +80,8 @@ if ($_GET['action'] == 'getListings') {
     fwrite($fp, $encoded);
     fclose($fp);
     echo $encoded;
-} else if ($_GET['action'] == "uploadImage") {
+} 
+if ($_GET['action'] == "uploadImage") {
     // Creates a new instance of the FileUpload class
     $newUpload = new FileUpload($_FILES['fileToUpload']);
 
@@ -117,6 +133,6 @@ if (isset($_GET['action'])) {
 
 
 } */
-
+}
 ?>
 
