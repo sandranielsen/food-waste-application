@@ -91,7 +91,8 @@ export default class UpdatePage {
             </div>
 
           </div>
-          <button type="button" id="add-btn" class="btn_alt">Add Listing</button>  
+          <button type="button" id="add-btn" class="btn_alt">Update Listing</button>  
+          <button type="button" id="delete-btn" class="btn_alt">Delete Listing</button> 
 
           </form>
         </section>

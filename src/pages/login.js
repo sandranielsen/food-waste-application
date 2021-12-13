@@ -19,8 +19,7 @@ export default class LogInPage {
      
     var response = service.loginUser(n,u).then((data)=>{
       
-      if (data.authenticated) {
-        debugger;
+      if (data.authenticated) { 
         service.setLoggedInUser(data.user_id);
         document.querySelector(".login-message").innerHTML = "";
         router.navigateTo("/home");
@@ -47,7 +46,7 @@ export default class LogInPage {
         <!--- Banner container --->
         <div class="banner_container">
           <div class="login_signup_img">
-            <img src="${this.loginImg} alt="Food" class="login_signup_bg">
+            <img src="${this.loginImg}" alt="Food" class="login_signup_bg">
             <div class="half-overlay"></div>
             <div class="login_signup_content">
               <h2 class="login_signup_text">Share food with your community and fight against food waste<h2>
