@@ -19,7 +19,7 @@ export default class MyPurchasesPage {
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
-            <a href="/profile"><img src="${this.backImg}"></a>
+            <a id="back-btn9"><img src="${this.backImg}"></a>
           </div>
           <h2>My Purchases</h2>
         </header>
@@ -56,6 +56,11 @@ export default class MyPurchasesPage {
       </section>
     `
     );
+
+    /* Button router(s) */
+    document.querySelector("#back-btn9").addEventListener("click", () => {
+      router.navigateTo("/profile");
+    });
   }
 
   beforeShow(props) {

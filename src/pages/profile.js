@@ -18,7 +18,7 @@ export default class ProfilePage {
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
-            <a href="/home"><img src="${this.backImg}"></a>
+            <a id="back-btn"><img src="${this.backImg}"></a>
           </div>
           <h2>Profile</h2>
         </header>
@@ -34,16 +34,41 @@ export default class ProfilePage {
 
           <!--- Buttons container --->
           <div class="profile-buttons">
-            <button onclick="location.href='/account';">Account</button>
-            <button onclick="location.href='/listings';">My Listings</button>
-            <button onclick="location.href='/purchases';">My Purchases</button>
-            <button onclick="location.href='/impact';">My Impact</button>
-            <button style="margin-top: 25px;"  onclick="location.href='/';">Log Out</button>
+            <button id="account-btn">Account</button>
+            <button id="listings-btn">My Listings</button>
+            <button id="purchases-btn">My Purchases</button>
+            <button id="impact-btn">My Impact</button>
+            <button style="margin-top: 25px;" id="logout-btn">Log Out</button>
           </div>
         <div>
       </section>
     `
     );
+
+    /* Button routers */
+    document.querySelector("#back-btn").addEventListener("click", () => {
+      router.navigateTo("/home");
+    });
+
+    document.querySelector("#account-btn").addEventListener("click", () => {
+      router.navigateTo("/account");
+    });
+
+    document.querySelector("#listings-btn").addEventListener("click", () => {
+      router.navigateTo("/listings");
+    });
+
+    document.querySelector("#purchases-btn").addEventListener("click", () => {
+      router.navigateTo("/purchases");
+    });
+
+    document.querySelector("#impact-btn").addEventListener("click", () => {
+      router.navigateTo("/impact");
+    });
+
+    document.querySelector("#logout-btn").addEventListener("click", () => {
+      router.navigateTo("/");
+    });
   }
 
   beforeShow(props) {

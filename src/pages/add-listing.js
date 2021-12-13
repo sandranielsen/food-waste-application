@@ -29,7 +29,7 @@ export default class AddListingPage {
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
-            <a href="/home"><img src="${this.backImg}"></a>
+            <a id="back-btn2"><img src="${this.backImg}"></a>
           </div>
           <h2>Add New Listing</h2>
         </header>
@@ -99,9 +99,13 @@ export default class AddListingPage {
       </section>
     `
     );
+
+    /* Button router(s) */
+    document.querySelector("#back-btn2").addEventListener("click", () => {
+      router.navigateTo("/home");
+    });
   }
 
-  // Inspiration: Rasmus - parcel dating spa & user service
   /* Attaching events to DOM elements. */
   attachEvents() {
     this.imageInput.onchange = () => this.previewImage(); // on change event on the input file (image) field

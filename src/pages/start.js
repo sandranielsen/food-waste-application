@@ -26,14 +26,24 @@ export default class StartPage {
           
           <!--- Button container --->
           <div class="btn_container">
-            <button class="btn" onclick="location.href='/login'">Login</button>
-            <button class="btn" onclick="location.href='/signup'">Sign up</button>
+            <button class="btn" id="login-btn">Login</button>
+            <button class="btn" id="signup-btn">Sign up</button>
           </div>
         </div>
       </div>
     </section>
     `
     );
+
+    /* Button router(s) */
+    document.querySelector("#login-btn").addEventListener("click", () => {
+      router.navigateTo("/login");
+    });
+
+    document.querySelector("#signup-btn").addEventListener("click", () => {
+      router.navigateTo("/signup");
+    });
+    
   }
 
   beforeShow(props) {

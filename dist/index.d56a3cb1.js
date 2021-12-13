@@ -470,6 +470,8 @@ _routerJsDefault.default.init();
 },{"./components/nav.js":"5KBRd","./router.js":"90Bjy","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5KBRd":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+var _router = require("../router");
+var _routerDefault = parcelHelpers.interopDefault(_router);
 class Nav {
     constructor(){
         this.navImg = require("../img/nav.svg");
@@ -477,143 +479,50 @@ class Nav {
         this.chatImg = require("../img/chat.svg");
         this.addImg = require("../img/add.svg");
         this.favouritesImg = require("../img/favourites_filled.svg");
+        this.profileImg = require("../img/profile.svg");
     }
     render() {
         document.querySelector("#root").insertAdjacentHTML("afterbegin", /*html*/ `
       <nav class="tabbar">
       <img src="${this.navImg}" class="tabbar_img">
 
-        <div class="nav_left">
-          <a href="/home" class="nav_item">
-            <svg class="tabbar-svg"  xmlns="http://www.w3.org/2000/svg" width="27.922" height="25.774" viewBox="0 0 27.922 25.774">
-            <path id="Icon_ionic-md-home" data-name="Icon ionic-md-home" d="M14.114,30.274V21.683h6.444v8.591h6.551V17.387H31.3L17.336,4.5,3.375,17.387H7.563V30.274Z" transform="translate(-3.375 -4.5)" fill="currentColor"/>
-            </svg>
-        </a>
-          <a href="/chat" class="nav_item">
-            <svg class="tabbar-svg"  xmlns="http://www.w3.org/2000/svg" width="25.774" height="25.774" viewBox="0 0 25.774 25.774">
-            <path id="Icon_material-message" data-name="Icon material-message" d="M26.2,3H5.577A2.574,2.574,0,0,0,3.013,5.577L3,28.774,8.155,23.62H26.2a2.585,2.585,0,0,0,2.577-2.577V5.577A2.585,2.585,0,0,0,26.2,3ZM23.62,18.465H8.155V15.887H23.62Zm0-3.866H8.155V12.021H23.62Zm0-3.866H8.155V8.155H23.62Z" transform="translate(-3 -3)" fill="currentColor"/>
-            </svg>
-
-          </a>
+        <div class="nav_left"> 
+          <a id="nav_home" class="nav_item"><img src="${this.homeImg}" class="nav_img"></a>
+          <a id="nav_chat" class="nav_item"><img src="${this.chatImg}" class="nav_img"></a>
         </div>
 
         <div class="nav_middle">
-          <a href="/add" class="nav_item_raised" >
-            <svg class="nav_img_raised" xmlns="http://www.w3.org/2000/svg" width="28.401" height="28.401" viewBox="0 0 28.401 28.401">
-            <path id="Icon_awesome-plus" data-name="Icon awesome-plus" d="M26.372,13.407H17.243V4.279A2.029,2.029,0,0,0,15.215,2.25H13.186a2.029,2.029,0,0,0-2.029,2.029v9.129H2.029A2.029,2.029,0,0,0,0,15.436v2.029a2.029,2.029,0,0,0,2.029,2.029h9.129v9.129a2.029,2.029,0,0,0,2.029,2.029h2.029a2.029,2.029,0,0,0,2.029-2.029V19.493h9.129A2.029,2.029,0,0,0,28.4,17.465V15.436A2.029,2.029,0,0,0,26.372,13.407Z" transform="translate(0 -2.25)" fill="currentColor"/>
-            </svg>
-
-          </a>
+          <a id="nav-add" class="nav_item_raised"><img src="${this.addImg}" class="nav_img_raised"></a>
         </div>
 
         <div class="nav_right">
-          <a href="/favourites" class="nav_item">
-            <svg class="tabbar-svg" xmlns="http://www.w3.org/2000/svg" width="27.26" height="26.212" viewBox="0 0 27.26 26.212">
-            <path id="Icon_ionic-ios-heart" data-name="Icon ionic-ios-heart" d="M23.3,3.938h-.066a7.456,7.456,0,0,0-6.225,3.408A7.456,7.456,0,0,0,10.78,3.938h-.066a7.409,7.409,0,0,0-7.339,7.4,15.951,15.951,0,0,0,3.132,8.7c3.945,5.393,10.5,10.111,10.5,10.111s6.553-4.718,10.5-10.111a15.951,15.951,0,0,0,3.132-8.7A7.409,7.409,0,0,0,23.3,3.938Z" transform="translate(-3.375 -3.938)" fill="currentColor"/>
-            </svg>
-
-          </a>
-          <a href="/profile" class="nav_item">
-            <svg class="tabbar-svg" xmlns="http://www.w3.org/2000/svg" width="26.212" height="26.212" viewBox="0 0 26.212 26.212">
-            <path id="Icon_awesome-user-alt" data-name="Icon awesome-user-alt" d="M13.106,14.744A7.372,7.372,0,1,0,5.734,7.372,7.374,7.374,0,0,0,13.106,14.744Zm6.553,1.638H16.838a8.912,8.912,0,0,1-7.464,0H6.553A6.552,6.552,0,0,0,0,22.935v.819a2.458,2.458,0,0,0,2.457,2.457h21.3a2.458,2.458,0,0,0,2.457-2.457v-.819A6.552,6.552,0,0,0,19.659,16.382Z" fill="currentColor"/>
-            </svg>
-
-          </a>
+          <a id="nav-favourites" class="nav_item"><img src="${this.favouritesImg}" class="nav_img"></a>
+          <a id="nav-profile" class="nav_item"><img src="${this.profileImg}" class="nav_img"></a>
         </div>
       </nav>
     `);
+        document.querySelector('#nav-add').addEventListener("click", ()=>{
+            _routerDefault.default.navigateTo("/add");
+        });
+        // no idea why home doesn't work
+        //document.querySelector("#nav-home").addEventListener("click", () => {
+        //router.navigateTo("/home");
+        //});
+        document.querySelector('#nav_chat').addEventListener("click", ()=>{
+            _routerDefault.default.navigateTo("/chat");
+        });
+        document.querySelector('#nav-favourites').addEventListener("click", ()=>{
+            _routerDefault.default.navigateTo("/favourites");
+        });
+        document.querySelector('#nav-profile').addEventListener("click", ()=>{
+            _routerDefault.default.navigateTo("/profile");
+        });
     }
-}
-// sets active tabbar/ menu item
-function setActiveTab(pageId) {
-    let pages = document.querySelectorAll(".tabbar a");
-    for (let page of pages)if (`#${pageId}` === page.getAttribute("href")) page.classList.add("active");
-    else page.classList.remove("active");
 }
 const nav = new Nav();
 exports.default = nav;
 
-},{"../img/nav.svg":"iEMGg","../img/home.svg":"bGk6w","../img/chat.svg":"lKveA","../img/add.svg":"2nZV2","../img/favourites_filled.svg":"5xxat","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"iEMGg":[function(require,module,exports) {
-module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "nav.848d6efd.svg" + "?" + Date.now();
-
-},{"./helpers/bundle-url":"chiK4"}],"chiK4":[function(require,module,exports) {
-"use strict";
-var bundleURL = {
-};
-function getBundleURLCached(id) {
-    var value = bundleURL[id];
-    if (!value) {
-        value = getBundleURL();
-        bundleURL[id] = value;
-    }
-    return value;
-}
-function getBundleURL() {
-    try {
-        throw new Error();
-    } catch (err) {
-        var matches = ('' + err.stack).match(/(https?|file|ftp):\/\/[^)\n]+/g);
-        if (matches) // The first two stack frames will be this function and getBundleURLCached.
-        // Use the 3rd one, which will be a runtime in the original bundle.
-        return getBaseURL(matches[2]);
-    }
-    return '/';
-}
-function getBaseURL(url) {
-    return ('' + url).replace(/^((?:https?|file|ftp):\/\/.+)\/[^/]+$/, '$1') + '/';
-} // TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
-function getOrigin(url) {
-    var matches = ('' + url).match(/(https?|file|ftp):\/\/[^/]+/);
-    if (!matches) throw new Error('Origin not found');
-    return matches[0];
-}
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-exports.getOrigin = getOrigin;
-
-},{}],"bGk6w":[function(require,module,exports) {
-module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "home.fd4c3866.svg" + "?" + Date.now();
-
-},{"./helpers/bundle-url":"chiK4"}],"lKveA":[function(require,module,exports) {
-module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "chat.72883f02.svg" + "?" + Date.now();
-
-},{"./helpers/bundle-url":"chiK4"}],"2nZV2":[function(require,module,exports) {
-module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "add.68cc8f42.svg" + "?" + Date.now();
-
-},{"./helpers/bundle-url":"chiK4"}],"5xxat":[function(require,module,exports) {
-module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "favourites_filled.c610c78f.svg" + "?" + Date.now();
-
-},{"./helpers/bundle-url":"chiK4"}],"ciiiV":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, '__esModule', {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === 'default' || key === '__esModule' || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"90Bjy":[function(require,module,exports) {
+},{"../router":"90Bjy","../img/nav.svg":"iEMGg","../img/home.svg":"bGk6w","../img/chat.svg":"lKveA","../img/add.svg":"2nZV2","../img/favourites_filled.svg":"5xxat","../img/profile.svg":"aXNa7","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"90Bjy":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _startJs = require("./pages/start.js");
@@ -804,13 +713,19 @@ class StartPage {
           
           <!--- Button container --->
           <div class="btn_container">
-            <button class="btn" onclick="location.href='/login'">Login</button>
-            <button class="btn" onclick="location.href='/signup'">Sign up</button>
+            <button class="btn" id="login-btn">Login</button>
+            <button class="btn" id="signup-btn">Sign up</button>
           </div>
         </div>
       </div>
     </section>
     `);
+        /* Button router(s) */ document.querySelector("#login-btn").addEventListener("click", ()=>{
+            _routerJsDefault.default.navigateTo("/login");
+        });
+        document.querySelector("#signup-btn").addEventListener("click", ()=>{
+            _routerJsDefault.default.navigateTo("/signup");
+        });
     }
     beforeShow(props) {
         console.log(props);
@@ -823,12 +738,11 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 class Service {
     constructor(){
-        this.listings = [];
         this.baseUrl = "http://foodwaste.sonajuhasova.com/backend/";
         this.loginUrl = this.baseUrl + "/login.php";
         this.fileUploadUrl = this.baseUrl + "/fileUpload.php";
         this.listingUrl = this.baseUrl + "/listing.php";
-        this.selectedListingId;
+        this.user = null;
     }
     /***** Sign up service *****/ async signupUser(name, username, password, passwordCheck) {
         const url = `${this.loginUrl}?action=signup`;
@@ -858,12 +772,23 @@ class Service {
         const json = await response.json();
         return json;
     }
-    /***** CRUD Operations *****/ /* Get listings */ async getListings() {
+    setLoggedInUser(user) {
+        this.user = user;
+    }
+    getLoggedInUser(user1) {
+        return this.user;
+    }
+    /***** CRUD Operations *****/ /* Get listings */ async getListings(search) {
         const url = `${this.listingUrl}?action=getListings`;
-        const response = await fetch(url);
-        const data = await response.json();
-        this.listings = data;
-        return this.listings;
+        var data = {
+            searchString: search
+        };
+        const response = await fetch(url, {
+            method: "POST",
+            body: JSON.stringify(data)
+        });
+        var resultListings = await response.json();
+        return resultListings;
     }
     /* Get listing */ async getListing(listingId) {
         const url = `${this.listingUrl}?action=getListing&listingId=${listingId}`;
@@ -885,11 +810,11 @@ class Service {
         const result = await response.json();
         return result;
     }
-    /* Create listing */ async createListing(title, price, expirationDate, description, location, image) {
-        const id = Date.now(); // dummy generated listing id
+    /* Create listing */ async createListing(user_id, title, price, expirationDate, description, location, image) {
+        debugger;
         const newListing = {
             // declaring a new js object with the form values
-            id,
+            user_id,
             title,
             price,
             expirationDate,
@@ -944,10 +869,75 @@ class Service {
 const service = new Service();
 exports.default = service;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"2aZtz":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"ciiiV":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, '__esModule', {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === 'default' || key === '__esModule' || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"2aZtz":[function(require,module,exports) {
 module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "start-bg.ede87d99.jpg" + "?" + Date.now();
 
-},{"./helpers/bundle-url":"chiK4"}],"5pzUn":[function(require,module,exports) {
+},{"./helpers/bundle-url":"chiK4"}],"chiK4":[function(require,module,exports) {
+"use strict";
+var bundleURL = {
+};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ('' + err.stack).match(/(https?|file|ftp):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return '/';
+}
+function getBaseURL(url) {
+    return ('' + url).replace(/^((?:https?|file|ftp):\/\/.+)\/[^/]+$/, '$1') + '/';
+} // TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ('' + url).match(/(https?|file|ftp):\/\/[^/]+/);
+    if (!matches) throw new Error('Origin not found');
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}],"5pzUn":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _routerJs = require("../router.js");
@@ -979,7 +969,7 @@ class SignUpPage {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
       <section id="${this.id}" class="page">
         <header class="topbar">
-          <a href="/"><img src="${this.backImg}"></a>
+          <a id="back-btn12"><img src="${this.backImg}"></a>
         </header>
 
         <!--- Banner container --->
@@ -1011,7 +1001,10 @@ class SignUpPage {
         </div>
       </section>
     `);
-        document.querySelector('#btn-signup').onclick = this.handleSignup;
+        /* Button router(s) */ document.querySelector("#back-btn12").addEventListener("click", ()=>{
+            _routerJsDefault.default.navigateTo("/home");
+        });
+        document.querySelector("#btn-signup").onclick = this.handleSignup;
     }
     beforeShow(props) {
         console.log(props);
@@ -1046,6 +1039,8 @@ class LogInPage {
         console.log(n);
         var response = _serviceJsDefault.default.loginUser(n, u).then((data)=>{
             if (data.authenticated) {
+                debugger;
+                _serviceJsDefault.default.setLoggedInUser(data.user_id);
                 document.querySelector(".login-message").innerHTML = "";
                 _routerJsDefault.default.navigateTo("/home");
             } else document.querySelector(".login-message").innerHTML = data.error;
@@ -1058,7 +1053,7 @@ class LogInPage {
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
-            <a href="/"><img src="${this.backImg}"></a>
+            <a id="back-btn6"><img src="${this.backImg}"></a>
           </div>
         </header>
 
@@ -1089,7 +1084,10 @@ class LogInPage {
         </div>
       </section>
     `);
-        document.querySelector('#btn-login').onclick = this.handleLogin;
+        /* Button router(s) */ document.querySelector("#back-btn6").addEventListener("click", ()=>{
+            _routerJsDefault.default.navigateTo("/");
+        });
+        document.querySelector("#btn-login").onclick = this.handleLogin;
     }
     beforeShow(props) {
         console.log(props);
@@ -1111,11 +1109,20 @@ class HomePage {
     constructor(id){
         this.id = id;
         this.searchImg = require("../img/search.svg");
+        this.searchWhiteImg = require("../img/searchWhite.svg");
         this.filterImg = require("../img/filter.svg");
         this.favouritesImg = require("../img/favourites.svg");
         this.locationImg = require("../img/location.svg");
         this.render();
         this.init();
+    }
+    handleSearch() {
+        var that = this;
+        var searchString = document.querySelector("#search").value;
+        _serviceJsDefault.default.getListings(searchString).then(function(listings) {
+            console.log(listings);
+            that.appendListings(listings);
+        });
     }
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
@@ -1132,7 +1139,12 @@ class HomePage {
               <img src="${this.searchImg}">
               <input type="text" id="search">
             </div>
-            <button onclick="location.href='/filter'" class="filter-button">
+            <button id="search-button" class="search-button">
+              <div>
+                <img src="${this.searchWhiteImg}">
+              </div>
+            </button> 
+            <button id="filter-btn" class="filter-button">
               <div>
                 <img src="${this.filterImg}">
               </div>
@@ -1140,37 +1152,14 @@ class HomePage {
           </div>
 
         <!-- Product listings -->
-        <div class="product-listing-container">
-          <div class="product-listing-image">
-            <button class="favourite-button">
-              <img src="${this.favouritesImg}" class="favourite_img">
-            </button>        
-          </div>
-
-          <!-- Product information container -->
-          <div class="product-listing-info-container">
-            <h3>Whole grain noodles</h3>
-            <div style="margin-top: 25px;">
-              <p style="font-weight:400; padding-right: 5px;">Expiration date:</p>
-              <p>07.06.2023</p>
-            </div>
-
-            <!-- Seller information container -->
-            <div class="product-listing-user-info">
-              <div>
-                <div class="product-listing-profile-img"></div>
-                  <p>Maria N.</p>
-                </div> 
-                <div>
-                  <img src="${this.locationImg}">
-                  <p>Aarhus</p> 
-                </div>
-              </div>
-            </div>
-        </div>
-      </div>
+        <div class="product-listings-container"><div>
       </section>
     `);
+        /* Button router(s) */ document.querySelector("#filter-btn").addEventListener("click", ()=>{
+            _routerJsDefault.default.navigateTo("/filter");
+        });
+        document.querySelector("#search-button").addEventListener("click", ()=>this.handleSearch(this)
+        );
     }
     /* Uses the imported services to get all listings - getListings() 
   and calls appendListings with listings returned from the service */ async init() {
@@ -1180,17 +1169,42 @@ class HomePage {
     /* Appends the listings to the specified container defined in the render() */ appendListings(listings) {
         let htmlTemplate = "";
         for (const listing of listings)htmlTemplate += /*html*/ `
-                <article data-listing-id="${listing.id}">
-                    <img src="${_serviceJsDefault.default.baseUrl}/files/medium/${listing.image || "placeholder.jpg"}">
-                    <h3>${listing.title}</h3>
-                    <h4>${listing.price}</h4>
-                    <p>${listing.description}</p>
-                    <p>${listing.expirationDate}</p>
-                    <h5>${listing.location}</h5>
-                </article>
-            `;
-        document.querySelector(`#${this.id} .product-listing-container`).innerHTML = htmlTemplate;
-        this.attachEvents();
+      <div class="product-listing-container">
+      <div style="background-image: url('${listing.listing_img}');" class="product-listing-image">
+        <button class="favourite-button">
+          <img src="${this.favouritesImg}" class="favourite_img">
+        </button>        
+      </div>
+
+      <!-- Product information container -->
+      <div class="product-listing-info-container">
+        <h3>${listing.listing_title}</h3>
+        <div style="margin-top: 25px;">
+          <p style="font-weight:400; padding-right: 5px;">Expiration date:</p>
+          <p>${listing.listing_exp_date}</p>
+        </div>
+
+        <!-- Seller information container -->
+        <div class="product-listing-user-info">
+          <div>
+            <div class="product-listing-profile-img"></div>
+              <p>username</p>
+            </div> 
+            <div>
+              <img src="${this.locationImg}">
+              <p>${listing.listing_location}</p> 
+            </div>
+          </div>
+        </div>
+    </div>
+    </div>
+
+    `;
+        document.querySelector(`#${this.id} .product-listings-container`).innerHTML = htmlTemplate;
+        //this.attachEvents();
+        document.querySelector(`#${this.id} .product-listings-container`).addEventListener("click", ()=>{
+            _routerJsDefault.default.navigateTo("/product");
+        });
     }
     /* Attaching an onclick event to all listings */ attachEvents() {
         document.querySelectorAll(`#${this.listing_id} [data-listing-id]`).forEach((element)=>{
@@ -1206,8 +1220,11 @@ class HomePage {
 }
 exports.default = HomePage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","../img/search.svg":"5wVcj","../img/filter.svg":"jg3ZF","../img/favourites.svg":"1EhEA","../img/location.svg":"i8JWL","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5wVcj":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/search.svg":"5wVcj","../img/searchWhite.svg":"6jmHq","../img/filter.svg":"jg3ZF","../img/favourites.svg":"1EhEA","../img/location.svg":"i8JWL","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5wVcj":[function(require,module,exports) {
 module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "search.ab4deccd.svg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"chiK4"}],"6jmHq":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "searchWhite.18747333.svg" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"chiK4"}],"jg3ZF":[function(require,module,exports) {
 module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "filter.4629aec7.svg" + "?" + Date.now();
@@ -1239,7 +1256,7 @@ class FilterPage {
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
-            <a href="/home"><img src="${this.backImg}"></a>
+            <a id="back-btn5"><img src="${this.backImg}"></a>
           </div>
           <h2>Filter</h2>
         </header>
@@ -1308,6 +1325,9 @@ class FilterPage {
         </div>
       </section>
     `);
+        /* Button router(s) */ document.querySelector("#back-btn5").addEventListener("click", ()=>{
+            _routerJsDefault.default.navigateTo("/home");
+        });
     }
     /* Slider functionality - shows the value (in km) of the slider */ /* Source: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_rangeslider */ slider() {
         let slider = document.getElementById("range");
@@ -1336,7 +1356,13 @@ class ProductPage {
         this.backImg = require("../img/back.svg");
         this.locationImg = require("../img/location.svg");
         this.dateImg = require("../img/date.svg");
-        this.render();
+    // when you put these back it doesnt work:
+    // this.render();
+    // this.init();
+    }
+    async init() {
+        const listings = await _serviceJsDefault.default.getListings();
+        this.appendListings(listings);
     }
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
@@ -1345,21 +1371,21 @@ class ProductPage {
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
-            <a href="/home"><img src="${this.backImg}"></a>
+            <a id="back-btn10"><img src="${this.backImg}"></a>
           </div>
           <h2>Product</h2>
         </header>
 
         <!--- Product container --->
         <section class="product_container">
-          <img src="https://images.squarespace-cdn.com/content/v1/5a009727268b9669e15efaef/1588107013662-EXYB18D83V962RKLDZGB/food+share.jpg?format=2500w" class="listing_img">
+          <img src="${listing.listing_img}" class="listing_img">
           <div class="product">
 
             <!--- Listing information container --->
             <div class="listing_info">
               <div class="info_item">
                 <img src="${this.locationImg}">
-                <p class="listing_location">Trige</p>
+                <p class="listing_location">${listing.listing_location}</p>
               </div>
               <div class="info_item">
                 <img src="${this.dateImg}">
@@ -1369,15 +1395,14 @@ class ProductPage {
 
             <!--- Product information container --->
             <div class="product_info">
-                <h3 class="product_title">Apples 4kg</h3>
-                <h3 class="product_price">100 DKK</h4>
+                <h3 class="product_title">${listing.listing_title}</h3>
+                <h3 class="product_price">${listing.listing_price}</h4>
             </div>
 
             <!--- Product details container --->
             <div class="product_details">
-              <p class="product_description">Apples from our garden, we cannot eat them all so if anybody is
-                interested in bio apples please contact us</p>
-              <p class="product_expiration">Expiration date: 01.06.2021</p>
+              <p class="product_description">${listing.listing_description}</p>
+              <p class="product_expiration">Expiration date: ${listing.listing_exp_date}</p>
             </div>
 
             <!--- Seller information container --->
@@ -1395,6 +1420,9 @@ class ProductPage {
         </section>
       </section>
     `);
+        /* Button router(s) */ document.querySelector("#back-btn10").addEventListener("click", ()=>{
+            _routerJsDefault.default.navigateTo("/home");
+        });
     }
     beforeShow(props) {
         console.log(props);
@@ -1426,7 +1454,7 @@ class ChatPage {
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
-            <a href="/home"><img src="${this.backImg}"></a>
+           <a id="back-btn3"><img src="${this.backImg}"></a>
           </div>
           <h2>Chat</h2>
         </header>
@@ -1440,7 +1468,7 @@ class ChatPage {
             <img src="${this.searchImg}">
             <input type="text" id="search">
           </div>
-          <button onclick="location.href='/filter'" class="filter-button">
+          <button id="filter-btn" class="filter-button">
             <div>
               <img src="${this.filterImg}">
             </div>
@@ -1498,6 +1526,9 @@ class ChatPage {
         </section>
       </section>
     `);
+        /* Button router(s) */ document.querySelector("#back-btn3").addEventListener("click", ()=>{
+            _routerJsDefault.default.navigateTo("/home");
+        });
     }
     beforeShow(props) {
         console.log(props);
@@ -1535,7 +1566,7 @@ class AddListingPage {
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
-            <a href="/home"><img src="${this.backImg}"></a>
+            <a id="back-btn2"><img src="${this.backImg}"></a>
           </div>
           <h2>Add New Listing</h2>
         </header>
@@ -1604,13 +1635,18 @@ class AddListingPage {
         </section>
       </section>
     `);
+        /* Button router(s) */ document.querySelector("#back-btn2").addEventListener("click", ()=>{
+            _routerJsDefault.default.navigateTo("/home");
+        });
     }
-    // Inspiration: Rasmus - parcel dating spa & user service
     /* Attaching events to DOM elements. */ attachEvents() {
         this.imageInput.onchange = ()=>this.previewImage()
         ; // on change event on the input file (image) field
-        document.querySelector(`#${this.id} #add-btn`).onclick = ()=>this.create()
-        ; // on click event for save button
+        document.querySelector(`#${this.id} #add-btn`).onclick = (e)=>{
+            debugger;
+            e.preventDefault();
+            this.create(); // on click event for save button
+        };
     }
     /* Image preview functionality */ previewImage() {
         const file = this.imageInput.files[0];
@@ -1624,13 +1660,13 @@ class AddListingPage {
         }
     }
     /* Add new listing functionality */ async create() {
-        if (this.validate()) {
-            const image = await _serviceJsDefault.default.uploadImage(this.imageInput.files[0]);
-            const listings = await _serviceJsDefault.default.createListing(this.titleInput.value, this.priceInput.value, this.expirationDateInput.value, this.descriptionInput.value, this.locationInput.value, image.name);
-            _routerJsDefault.default.navigateTo("/", {
-                home: home
-            });
-        }
+        //if (this.validate()) {
+        //const image = await service.uploadImage(this.imageInput.files[0]);
+        debugger;
+        var user = _serviceJsDefault.default.getLoggedInUser();
+        const listings = await _serviceJsDefault.default.createListing(user, this.titleInput.value, this.priceInput.value, this.expirationDateInput.value, this.descriptionInput.value, this.locationInput.value, "fakeImageName");
+        _routerJsDefault.default.navigateTo("/home");
+    // }
     }
     /* Information validation */ validate() {
         if (this.titleInput.value && this.priceInput.value && this.descriptionInput.value && this.expirationDateInput.value && this.locationInput.value && this.imageInput.files[0]) return true;
@@ -1670,7 +1706,7 @@ class FavouritesPage {
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
-            <a href="/home"><img src="${this.backImg}"></a>
+            <a id="back-btn4"><img src="${this.backImg}"></a>
           </div>
           <h2>Favourites</h2>
         </header>
@@ -1706,7 +1742,10 @@ class FavouritesPage {
      </div>
    </div>
   </section>
-    `);
+`);
+        /* Button router(s) */ document.querySelector("#back-btn4").addEventListener("click", ()=>{
+            _routerJsDefault.default.navigateTo("/home");
+        });
     }
     beforeShow(props) {
         console.log(props);
@@ -1714,7 +1753,10 @@ class FavouritesPage {
 }
 exports.default = FavouritesPage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","../img/favourites_filled.svg":"5xxat","../img/location.svg":"i8JWL","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6Wl4X":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","../img/favourites_filled.svg":"5xxat","../img/location.svg":"i8JWL","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5xxat":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "favourites_filled.c610c78f.svg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"chiK4"}],"6Wl4X":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _routerJs = require("../router.js");
@@ -1735,7 +1777,7 @@ class ProfilePage {
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
-            <a href="/home"><img src="${this.backImg}"></a>
+            <a id="back-btn"><img src="${this.backImg}"></a>
           </div>
           <h2>Profile</h2>
         </header>
@@ -1751,15 +1793,33 @@ class ProfilePage {
 
           <!--- Buttons container --->
           <div class="profile-buttons">
-            <button onclick="location.href='/account';">Account</button>
-            <button onclick="location.href='/listings';">My Listings</button>
-            <button onclick="location.href='/purchases';">My Purchases</button>
-            <button onclick="location.href='/impact';">My Impact</button>
-            <button style="margin-top: 25px;"  onclick="location.href='/';">Log Out</button>
+            <button id="account-btn">Account</button>
+            <button id="listings-btn">My Listings</button>
+            <button id="purchases-btn">My Purchases</button>
+            <button id="impact-btn">My Impact</button>
+            <button style="margin-top: 25px;" id="logout-btn">Log Out</button>
           </div>
         <div>
       </section>
     `);
+        /* Button routers */ document.querySelector("#back-btn").addEventListener("click", ()=>{
+            _routerJsDefault.default.navigateTo("/home");
+        });
+        document.querySelector("#account-btn").addEventListener("click", ()=>{
+            _routerJsDefault.default.navigateTo("/account");
+        });
+        document.querySelector("#listings-btn").addEventListener("click", ()=>{
+            _routerJsDefault.default.navigateTo("/listings");
+        });
+        document.querySelector("#purchases-btn").addEventListener("click", ()=>{
+            _routerJsDefault.default.navigateTo("/purchases");
+        });
+        document.querySelector("#impact-btn").addEventListener("click", ()=>{
+            _routerJsDefault.default.navigateTo("/impact");
+        });
+        document.querySelector("#logout-btn").addEventListener("click", ()=>{
+            _routerJsDefault.default.navigateTo("/");
+        });
     }
     beforeShow(props) {
         console.log(props);
@@ -1788,7 +1848,7 @@ class AccountPage {
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
-            <a href="/profile"><img src="${this.backImg}"></a>
+            <a id="back-btn1"><img src="${this.backImg}"></a>
           </div>
           <h2>Account</h2>
         </header>
@@ -1850,11 +1910,17 @@ class AccountPage {
 
             <!--- Button container --->
             <div class="account-buttons">
-              <button class="btn_alt" onclick="location.href='/account'">Update profile</button> 
+              <button class="btn_alt" id="profile-update-btn">Update profile</button> 
             </div>
           <div>
       </section>
     `);
+        /* Button router(s) */ document.querySelector("#back-btn1").addEventListener("click", ()=>{
+            _routerJsDefault.default.navigateTo("/profile");
+        });
+        document.querySelector("#profile-update-btn").addEventListener("click", ()=>{
+            _routerJsDefault.default.navigateTo("/account");
+        });
     }
     beforeShow(props) {
         console.log(props);
@@ -1882,7 +1948,7 @@ class MyImpactPage {
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
-            <a href="/profile"><img src="${this.backImg}"></a>
+            <a id="back-btn7"><img src="${this.backImg}"></a>
           </div>
           <h2>My Impact</h2>
         </header>
@@ -1948,6 +2014,9 @@ class MyImpactPage {
             </div>
       </section>
     `);
+        /* Button router(s) */ document.querySelector("#back-btn7").addEventListener("click", ()=>{
+            _routerJsDefault.default.navigateTo("/profile");
+        });
     }
     beforeShow(props) {
         console.log(props);
@@ -1977,7 +2046,7 @@ class MyListingsPage {
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
-            <a href="/profile"><img src="${this.backImg}"></a>
+            <a id="back-btn8"><img src="${this.backImg}"></a>
           </div>
           <h2>My Listings</h2>
         </header>
@@ -1993,13 +2062,16 @@ class MyListingsPage {
        <div class="product-listing-info-container">
         <h3>Whole grain noodles</h3>
           <div class="my-listings-buttons">
-            <button onclick="location.href='/update';">Edit</button>
-            <button onclick="location.href='/delete';" style="margin-left: 10px;" >Delete</button>
+            <button>Edit</button>
+            <button style="margin-left: 10px;" >Delete</button>
           </div>
        </div>
     </div>
     </section>
     `);
+        /* Button router(s) */ document.querySelector("#back-btn8").addEventListener("click", ()=>{
+            _routerJsDefault.default.navigateTo("/profile");
+        });
     }
     /*
   appendListingData() {
@@ -2079,7 +2151,7 @@ class MyPurchasesPage {
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
-            <a href="/profile"><img src="${this.backImg}"></a>
+            <a id="back-btn9"><img src="${this.backImg}"></a>
           </div>
           <h2>My Purchases</h2>
         </header>
@@ -2115,6 +2187,9 @@ class MyPurchasesPage {
         </div>
       </section>
     `);
+        /* Button router(s) */ document.querySelector("#back-btn9").addEventListener("click", ()=>{
+            _routerJsDefault.default.navigateTo("/profile");
+        });
     }
     beforeShow(props) {
         console.log(props);
@@ -2143,7 +2218,7 @@ class PublicProfilePage {
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
-            <a href="/home"><img src="${this.backImg}"></a>
+            <a id="back-btn11"><img src="${this.backImg}"></a>
           </div>
           <h2>Profile</h2>
         </header>
@@ -2191,6 +2266,9 @@ class PublicProfilePage {
           <div>
       </section>
     `);
+        /* Button router(s) */ document.querySelector("#back-btn11").addEventListener("click", ()=>{
+            _routerJsDefault.default.navigateTo("/home");
+        });
     }
     beforeShow(props) {
         console.log(props);
@@ -2228,7 +2306,7 @@ class UpdatePage {
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
-            <a href="/home"><img src="${this.backImg}"></a>
+            <a id="back-btn13"><img src="${this.backImg}"></a>
           </div>
           <h2>Update Listing</h2>
         </header>
@@ -2296,6 +2374,9 @@ class UpdatePage {
         </section>
       </section>
     `);
+        /* Button router(s) */ document.querySelector("#back-btn13").addEventListener("click", ()=>{
+            _routerJsDefault.default.navigateTo("/listings");
+        });
     }
     /* Attaching events to DOM elements */ attachEvents() {
         this.imageInput.onchange = ()=>this.previewImage()
@@ -2335,6 +2416,21 @@ class UpdatePage {
 }
 exports.default = UpdatePage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","../img/camera.svg":"1RjE8","../img/start-bg.jpg":"2aZtz","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}]},["1Mq12","5HwUs"], "5HwUs", "parcelRequire514f")
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","../img/camera.svg":"1RjE8","../img/start-bg.jpg":"2aZtz","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"iEMGg":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "nav.848d6efd.svg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"chiK4"}],"bGk6w":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "home.fd4c3866.svg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"chiK4"}],"lKveA":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "chat.72883f02.svg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"chiK4"}],"2nZV2":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "add.68cc8f42.svg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"chiK4"}],"aXNa7":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "profile.904df317.svg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"chiK4"}]},["1Mq12","5HwUs"], "5HwUs", "parcelRequire514f")
 
 //# sourceMappingURL=index.d56a3cb1.js.map

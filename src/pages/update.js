@@ -29,7 +29,7 @@ export default class UpdatePage {
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
-            <a href="/home"><img src="${this.backImg}"></a>
+            <a id="back-btn13"><img src="${this.backImg}"></a>
           </div>
           <h2>Update Listing</h2>
         </header>
@@ -98,6 +98,12 @@ export default class UpdatePage {
       </section>
     `
     );
+
+    /* Button router(s) */
+    document.querySelector("#back-btn13").addEventListener("click", () => {
+      router.navigateTo("/listings");
+    });
+
   }
 
   /* Attaching events to DOM elements */

@@ -18,7 +18,7 @@ class Nav {
       <img src="${this.navImg}" class="tabbar_img">
 
         <div class="nav_left"> 
-          <a id="nav_home_btn" class="nav_item"><img src="${this.homeImg}" class="nav_img"></a>
+          <a id="nav_home" class="nav_item"><img src="${this.homeImg}" class="nav_img"></a>
           <a id="nav_chat" class="nav_item"><img src="${this.chatImg}" class="nav_img"></a>
         </div>
 
@@ -33,30 +33,32 @@ class Nav {
       </nav>
     `
     );
-    document.querySelector('#nav-add').addEventListener( "click", ()=>{
-        router.navigateTo("/add");
-    } );
+  
+
+    document.querySelector('#nav-add').addEventListener("click", () => {
+      router.navigateTo("/add");
+    });
 
     // no idea why home doesn't work
 
-  //   document.querySelector('#nav-home-btn').addEventListener( "click", ()=>{
-  //     router.navigateTo("/home");
-  // } );
+    //document.querySelector("#nav-home").addEventListener("click", () => {
+      //router.navigateTo("/home");
+    //});
 
 
-    document.querySelector('#nav_chat').addEventListener( "click", ()=>{
+    document.querySelector('#nav_chat').addEventListener("click", () => {
       router.navigateTo("/chat");
-  } );
+    });
 
 
-    document.querySelector('#nav-favourites').addEventListener( "click", ()=>{
+    document.querySelector('#nav-favourites').addEventListener("click", () => {
       router.navigateTo("/favourites");
-    } );
+    });
 
 
-    document.querySelector('#nav-profile').addEventListener( "click", ()=>{
+    document.querySelector('#nav-profile').addEventListener("click", () => {
       router.navigateTo("/profile");
-    } );
+    });
   }
 }
 

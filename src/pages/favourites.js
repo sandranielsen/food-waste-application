@@ -19,7 +19,7 @@ export default class FavouritesPage {
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
-            <a href="/home"><img src="${this.backImg}"></a>
+            <a id="back-btn4"><img src="${this.backImg}"></a>
           </div>
           <h2>Favourites</h2>
         </header>
@@ -55,8 +55,13 @@ export default class FavouritesPage {
      </div>
    </div>
   </section>
-    `
-    );
+`
+);
+
+    /* Button router(s) */
+    document.querySelector("#back-btn4").addEventListener("click", () => {
+      router.navigateTo("/home");
+    });
   }
 
   beforeShow(props) {

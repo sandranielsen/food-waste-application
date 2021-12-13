@@ -17,7 +17,7 @@ export default class MyImpactPage {
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
-            <a href="/profile"><img src="${this.backImg}"></a>
+            <a id="back-btn7"><img src="${this.backImg}"></a>
           </div>
           <h2>My Impact</h2>
         </header>
@@ -84,6 +84,11 @@ export default class MyImpactPage {
       </section>
     `
     );
+
+    /* Button router(s) */
+    document.querySelector("#back-btn7").addEventListener("click", () => {
+      router.navigateTo("/profile");
+    });
   }
 
   beforeShow(props) {

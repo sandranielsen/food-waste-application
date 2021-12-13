@@ -38,7 +38,7 @@ export default class SignUpPage {
       /*html*/ `
       <section id="${this.id}" class="page">
         <header class="topbar">
-          <a href="/"><img src="${this.backImg}"></a>
+          <a id="back-btn12"><img src="${this.backImg}"></a>
         </header>
 
         <!--- Banner container --->
@@ -71,7 +71,12 @@ export default class SignUpPage {
       </section>
     `
     );
-    document.querySelector('#btn-signup').onclick = this.handleSignup;
+    /* Button router(s) */
+    document.querySelector("#back-btn12").addEventListener("click", () => {
+      router.navigateTo("/home");
+    });
+
+    document.querySelector("#btn-signup").onclick = this.handleSignup;
   }
 
   beforeShow(props) {

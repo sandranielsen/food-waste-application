@@ -19,7 +19,7 @@ export default class MyListingsPage {
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
-            <a href="/profile"><img src="${this.backImg}"></a>
+            <a id="back-btn8"><img src="${this.backImg}"></a>
           </div>
           <h2>My Listings</h2>
         </header>
@@ -35,14 +35,19 @@ export default class MyListingsPage {
        <div class="product-listing-info-container">
         <h3>Whole grain noodles</h3>
           <div class="my-listings-buttons">
-            <button onclick="location.href='/update';">Edit</button>
-            <button onclick="location.href='/delete';" style="margin-left: 10px;" >Delete</button>
+            <button>Edit</button>
+            <button style="margin-left: 10px;" >Delete</button>
           </div>
        </div>
     </div>
     </section>
     `
     );
+
+    /* Button router(s) */
+    document.querySelector("#back-btn8").addEventListener("click", () => {
+      router.navigateTo("/profile");
+    });
   }
 
   /*

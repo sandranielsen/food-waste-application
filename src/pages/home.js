@@ -47,7 +47,7 @@ export default class HomePage {
                 <img src="${this.searchWhiteImg}">
               </div>
             </button> 
-            <button onclick="location.href='/filter'" class="filter-button">
+            <button id="filter-btn" class="filter-button">
               <div>
                 <img src="${this.filterImg}">
               </div>
@@ -59,7 +59,15 @@ export default class HomePage {
       </section>
     `
     );
-    document.querySelector("#search-button").addEventListener( "click", ()=>this.handleSearch(this) );
+
+    /* Button router(s) */
+    document.querySelector("#filter-btn").addEventListener("click", () => {
+      router.navigateTo("/filter");
+    });
+
+    document.querySelector("#search-button").addEventListener("click", () => this.handleSearch(this));
+    
+
   }
 
   /* Uses the imported services to get all listings - getListings() 
@@ -104,8 +112,9 @@ export default class HomePage {
     </div>
     </div>
 
-            `;
+    `;
     }
+
     document.querySelector(`#${this.id} .product-listings-container`).innerHTML =
       htmlTemplate;
     //this.attachEvents();

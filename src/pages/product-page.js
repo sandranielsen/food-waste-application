@@ -26,7 +26,7 @@ export default class ProductPage {
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
-            <a href="/home"><img src="${this.backImg}"></a>
+            <a id="back-btn10"><img src="${this.backImg}"></a>
           </div>
           <h2>Product</h2>
         </header>
@@ -76,6 +76,11 @@ export default class ProductPage {
       </section>
     `
     );
+
+    /* Button router(s) */
+    document.querySelector("#back-btn10").addEventListener("click", () => {
+      router.navigateTo("/home");
+    });
   }
 
   beforeShow(props) {

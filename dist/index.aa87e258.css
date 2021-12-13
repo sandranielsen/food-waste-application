@@ -1,4 +1,11 @@
 /***** Home version *****/
+
+.product-listings-container{
+    display:flex;
+    justify-content: center;
+    flex-direction:column;
+}
+
 .product-listing-container {
     display: flex;
     flex-direction: row;
@@ -9,8 +16,8 @@
     margin-bottom: 30px;
 
 }
+
 .product-listing-image {
-    background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/apples-at-farmers-market-royalty-free-image-1627321463.jpg?crop=0.796xw:1.00xh;0.103xw,0&resize=640:*');
     background-position: center;
     background-repeat: no-repeat; 
     background-size: cover;
@@ -23,6 +30,7 @@
     justify-content: flex-end;
     align-items: flex-end;
 }
+
 .product-listing-container h2 {
   font-size: 25px; 
   font-family: Bebas Neue;
@@ -30,6 +38,7 @@
   margin: 0;
 
 }
+
 .product-listing-container p {
     font-size: 14px; 
     font-family: Roboto;
@@ -37,25 +46,30 @@
     margin: 0;
   
   }
+
 .product-listing-info-container {
     padding: 10px;
     width: 100%;
 }
+
 .product-listing-info-container div {
     display: flex;
     flex-direction: row;
 }
+
 .product-listing-user-info {
     margin-top: 5px;
     width: 100%;
     justify-content: space-between;
 }
+
 .product-listing-user-info div {
     display: flex;
     justify-content: center;
     align-items: center;
 
 }
+
 .product-listing-profile-img {
     background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/apples-at-farmers-market-royalty-free-image-1627321463.jpg?crop=0.796xw:1.00xh;0.103xw,0&resize=640:*');
     position: center;
@@ -67,11 +81,14 @@
     border-radius: 50%;
 
 }
+
 .product-listing-user-info div p {
    margin-left: 5px; 
 
 }
+
 /***** My listings version *****/
+
 .my-listings-buttons {
     width: 100%;
     display: flex;
@@ -79,6 +96,7 @@
     margin-top: 40px;
 
 }
+
 .my-listings-buttons button {
     width: 100%; 
   border-radius: 5px;
@@ -90,6 +108,7 @@
   padding: 10px 20px;
   text-align: center;
 }
+
 .favourite_img {
     width: 14px;
     height: 14px;

@@ -18,7 +18,7 @@ export default class FilterPage {
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
-            <a href="/home"><img src="${this.backImg}"></a>
+            <a id="back-btn5"><img src="${this.backImg}"></a>
           </div>
           <h2>Filter</h2>
         </header>
@@ -88,6 +88,11 @@ export default class FilterPage {
       </section>
     `
     );
+
+    /* Button router(s) */
+    document.querySelector("#back-btn5").addEventListener("click", () => {
+      router.navigateTo("/home");
+    });
   }
 
   /* Slider functionality - shows the value (in km) of the slider */

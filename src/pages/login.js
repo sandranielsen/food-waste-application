@@ -40,7 +40,7 @@ export default class LogInPage {
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
-            <a href="/"><img src="${this.backImg}"></a>
+            <a id="back-btn6"><img src="${this.backImg}"></a>
           </div>
         </header>
 
@@ -72,7 +72,13 @@ export default class LogInPage {
       </section>
     `
     );
-    document.querySelector('#btn-login').onclick = this.handleLogin;
+
+    /* Button router(s) */
+    document.querySelector("#back-btn6").addEventListener("click", () => {
+      router.navigateTo("/");
+    });
+
+    document.querySelector("#btn-login").onclick = this.handleLogin;
   }
 
   beforeShow(props) {

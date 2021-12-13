@@ -18,7 +18,7 @@ export default class AccountPage {
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
-            <a href="/profile"><img src="${this.backImg}"></a>
+            <a id="back-btn1"><img src="${this.backImg}"></a>
           </div>
           <h2>Account</h2>
         </header>
@@ -80,12 +80,21 @@ export default class AccountPage {
 
             <!--- Button container --->
             <div class="account-buttons">
-              <button class="btn_alt" onclick="location.href='/account'">Update profile</button> 
+              <button class="btn_alt" id="profile-update-btn">Update profile</button> 
             </div>
           <div>
       </section>
     `
     );
+
+    /* Button router(s) */
+    document.querySelector("#back-btn1").addEventListener("click", () => {
+      router.navigateTo("/profile");
+    });
+
+    document.querySelector("#profile-update-btn").addEventListener("click", () => {
+      router.navigateTo("/account");
+    });
   }
 
   beforeShow(props) {

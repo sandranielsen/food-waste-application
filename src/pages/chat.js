@@ -18,7 +18,7 @@ export default class ChatPage {
         <!--- Topbar container --->
         <header class="topbar">
           <div class="topbar_img>">
-            <a href="/home"><img src="${this.backImg}"></a>
+           <a id="back-btn3"><img src="${this.backImg}"></a>
           </div>
           <h2>Chat</h2>
         </header>
@@ -32,7 +32,7 @@ export default class ChatPage {
             <img src="${this.searchImg}">
             <input type="text" id="search">
           </div>
-          <button onclick="location.href='/filter'" class="filter-button">
+          <button id="filter-btn" class="filter-button">
             <div>
               <img src="${this.filterImg}">
             </div>
@@ -91,6 +91,11 @@ export default class ChatPage {
       </section>
     `
     );
+
+    /* Button router(s) */
+    document.querySelector("#back-btn3").addEventListener("click", () => {
+      router.navigateTo("/home");
+    });
   }
 
   beforeShow(props) {
