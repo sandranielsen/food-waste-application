@@ -487,8 +487,8 @@ class Nav {
       <img src="${this.navImg}" class="tabbar_img">
 
         <div class="nav_left"> 
-          <a id="nav_home" class="nav_item"><img src="${this.homeImg}" class="nav_img"></a>
-          <a id="nav_chat" class="nav_item"><img src="${this.chatImg}" class="nav_img"></a>
+          <a id="nav-home" class="nav_item"><img src="${this.homeImg}" class="nav_img"></a>
+          <a id="nav-chat" class="nav_item"><img src="${this.chatImg}" class="nav_img"></a>
         </div>
 
         <div class="nav_middle">
@@ -501,14 +501,13 @@ class Nav {
         </div>
       </nav>
     `);
-        document.querySelector('#nav-add').addEventListener("click", ()=>{
+        /* Button routers */ document.querySelector('#nav-add').addEventListener("click", ()=>{
             _routerDefault.default.navigateTo("/add");
         });
-        // no idea why home doesn't work
-        //document.querySelector("#nav-home").addEventListener("click", () => {
-        //router.navigateTo("/home");
-        //});
-        document.querySelector('#nav_chat').addEventListener("click", ()=>{
+        document.querySelector("#nav-home").addEventListener("click", ()=>{
+            _routerDefault.default.navigateTo("/home");
+        });
+        document.querySelector('#nav-chat').addEventListener("click", ()=>{
             _routerDefault.default.navigateTo("/chat");
         });
         document.querySelector('#nav-favourites').addEventListener("click", ()=>{
