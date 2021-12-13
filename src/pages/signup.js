@@ -73,7 +73,7 @@ export default class SignUpPage {
     );
     /* Button router(s) */
     document.querySelector("#back-btn12").addEventListener("click", () => {
-      router.navigateTo("/home");
+      router.navigateTo("/");
     });
 
     document.querySelector("#btn-signup").onclick = this.handleSignup;

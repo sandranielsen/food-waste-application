@@ -596,7 +596,7 @@ class Router {
                 view: new _favouritesJsDefault.default("favourites")
             },
             {
-                path: "/profile",
+                path: "/profile/:id",
                 view: new _profileJsDefault.default("profile")
             },
             {
@@ -1001,7 +1001,7 @@ class SignUpPage {
       </section>
     `);
         /* Button router(s) */ document.querySelector("#back-btn12").addEventListener("click", ()=>{
-            _routerJsDefault.default.navigateTo("/home");
+            _routerJsDefault.default.navigateTo("/");
         });
         document.querySelector("#btn-signup").onclick = this.handleSignup;
     }
@@ -1200,13 +1200,10 @@ class HomePage {
 
     `;
         document.querySelector(`#${this.id} .product-listings-container`).innerHTML = htmlTemplate;
-        //this.attachEvents();
-        document.querySelector(`#${this.id} .product-listings-container`).addEventListener("click", ()=>{
-            _routerJsDefault.default.navigateTo("/product");
-        });
+        this.attachEvents();
     }
     /* Attaching an onclick event to all listings */ attachEvents() {
-        document.querySelectorAll(`#${this.listing_id} [data-listing-id]`).forEach((element)=>{
+        document.querySelectorAll(`#${this.id} [data-listing-id]`).forEach((element)=>{
             element.onclick = ()=>{
                 const listingId = element.getAttribute("data-listing-id");
                 _routerJsDefault.default.navigateTo(`/product-page/${listingId}`);
@@ -1352,16 +1349,11 @@ var _serviceJsDefault = parcelHelpers.interopDefault(_serviceJs);
 class ProductPage {
     constructor(id){
         this.id = id;
+        this.selectedListing;
         this.backImg = require("../img/back.svg");
         this.locationImg = require("../img/location.svg");
         this.dateImg = require("../img/date.svg");
-    // when you put these back it doesnt work:
-    // this.render();
-    // this.init();
-    }
-    async init() {
-        const listings = await _serviceJsDefault.default.getListings();
-        this.appendListings(listings);
+        this.render();
     }
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
@@ -1375,56 +1367,78 @@ class ProductPage {
           <h2>Product</h2>
         </header>
 
-        <!--- Product container --->
-        <section class="product_container">
-          <img src="${listing.listing_img}" class="listing_img">
-          <div class="product">
-
-            <!--- Listing information container --->
-            <div class="listing_info">
-              <div class="info_item">
-                <img src="${this.locationImg}">
-                <p class="listing_location">${listing.listing_location}</p>
-              </div>
-              <div class="info_item">
-                <img src="${this.dateImg}">
-                <p class="listing_date">24.04.2021</p>
-              </div>  
-            </div>
-
-            <!--- Product information container --->
-            <div class="product_info">
-                <h3 class="product_title">${listing.listing_title}</h3>
-                <h3 class="product_price">${listing.listing_price}</h4>
-            </div>
-
-            <!--- Product details container --->
-            <div class="product_details">
-              <p class="product_description">${listing.listing_description}</p>
-              <p class="product_expiration">Expiration date: ${listing.listing_exp_date}</p>
-            </div>
-
-            <!--- Seller information container --->
-            <div class="seller_info">
-              <div class="product-listing-profile-img"></div>
-              <p class="seller_name">Luisa Christensen</p>
-            </div>
-
-            <!--- Button container --->
-            <div class="btns_container">
-              <button type="button" class="btn_alt" id="btn-1">Contact Seller</button>
-              <button type="button" class="btn_alt" id="btn-2">Buy</button>
-            </div>
-          </div>  
-        </section>
+         <!--- Product container --->
+        <section class="product_container"></section>
       </section>
     `);
         /* Button router(s) */ document.querySelector("#back-btn10").addEventListener("click", ()=>{
             _routerJsDefault.default.navigateTo("/home");
         });
     }
-    beforeShow(props) {
+    /* Appending selected listing information */ appendListingData() {
+        let htmlTemplate = /*html*/ `
+            <article class="selectedListing">
+            <img src="${_serviceJsDefault.default.baseUrl}/files/medium/${this.selectedListing.image || "placeholder.jpg"}" class="listing_img">
+            <div class="product">
+
+              <!--- Listing information container --->
+              <div class="listing_info">
+                <div class="info_item">
+                  <img src="${this.locationImg}">
+                  <p class="listing_location">${this.selectedListing.location}</p>
+                </div>
+                <div class="info_item">
+                  <img src="${this.dateImg}">
+                  <p class="listing_date">${this.selectedListing.date}</p>
+                </div>  
+              </div>
+
+              <!--- Product information container --->
+              <div class="product_info">
+                <h3 class="product_title">${this.selectedListing.title}</h3>
+                <h4 class="product_price">${this.selectedListing.price}</h4>
+              </div>
+
+              <!--- Product details container --->
+              <div class="product_details">
+                <p class="product_description">${this.selectedListing.description}</p>
+                <p class="product_expiration"><b>Expiration date:</b> ${this.selectedListing.expirationDate}</p>
+             </div>
+                
+              <!--- Seller information container --->
+            <div class="seller_info">
+              <div class="product-listing-profile-img"><img src="${this.selectedListing.sellerImg}"></div>
+              <p class="seller_name">${this.selectedListing.sellerName}</p>
+            </div>
+
+            <!--- Button container --->
+            <div class="btns_container">
+              <button type="button" class="btn_alt" id="btn-1">Contact Seller</button>
+              <button type="button" class="btn_alt" id="btn-2">Buy</button>
+            </div>   
+          </div>
+          </article>
+        `;
+        document.querySelector(`#${this.id} .product`).innerHTML = htmlTemplate;
+        this.attachEvents();
+    }
+    attachEvents() {
+        document.querySelectorAll(`#${this.id} [data-listing-id]`).forEach((element)=>{
+            // adds .onclick for every listing calling router.navigateTo(...) with the id of the listing
+            element.onclick = ()=>{
+                const listingId = element.getAttribute("data-listing-id");
+                _routerJsDefault.default.navigateTo(`/product/${listingId}`);
+            };
+        });
+        document.querySelector(`#${this.id} #btn-1`).onclick = ()=>_routerJsDefault.default.navigateTo(`/chat`)
+        ;
+        document.querySelector(`#${this.id} #btn-2`).onclick = ()=>_routerJsDefault.default.navigateTo(`/buy`)
+        ;
+    }
+    async beforeShow(props) {
         console.log(props);
+        this.selectedListing = await _serviceJsDefault.default.getListing(props.id);
+        this.appendListingData();
     }
 }
 exports.default = ProductPage;
@@ -2062,7 +2076,7 @@ class MyListingsPage {
         <h3>Whole grain noodles</h3>
           <div class="my-listings-buttons">
             <button>Edit</button>
-            <button style="margin-left: 10px;" >Delete</button>
+            <button style="margin-left: 10px;">Delete</button>
           </div>
        </div>
     </div>
@@ -2315,7 +2329,7 @@ class UpdatePage {
           <form>
             <!--- Image upload container --->
             <div class="upload_container">
-            <img name="imagePreview" class="image-preview"> 
+            <img name="imagePreview" class="image-preview1"> 
               <div class="upload_button">
               <p class="upload_text">Add Image</p>
               <img src="${this.uploadImg}" alt="camera">
@@ -2391,7 +2405,7 @@ class UpdatePage {
                 this.imagePreview.setAttribute("src", event.target.result);
             };
             reader.readAsDataURL(file);
-            document.querySelector(".image-preview").style.margin = "0 10px 0 0"; // adds spacing between elements
+            document.querySelector(".image-preview1").style.margin = "0 10px 0 0"; // adds spacing between elements
         }
     }
     /* Update listing functionality */ async save() {

@@ -39,7 +39,7 @@ export default class UpdatePage {
           <form>
             <!--- Image upload container --->
             <div class="upload_container">
-            <img name="imagePreview" class="image-preview"> 
+            <img name="imagePreview" class="image-preview1"> 
               <div class="upload_button">
               <p class="upload_text">Add Image</p>
               <img src="${this.uploadImg}" alt="camera">
@@ -122,7 +122,7 @@ export default class UpdatePage {
         this.imagePreview.setAttribute("src", event.target.result);
       };
       reader.readAsDataURL(file);
-      document.querySelector(".image-preview").style.margin = "0 10px 0 0"; // adds spacing between elements
+      document.querySelector(".image-preview1").style.margin = "0 10px 0 0"; // adds spacing between elements
     }
   }
 

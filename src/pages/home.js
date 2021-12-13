@@ -115,19 +115,15 @@ export default class HomePage {
     `;
     }
 
-    document.querySelector(`#${this.id} .product-listings-container`).innerHTML =
-      htmlTemplate;
-    //this.attachEvents();
+    document.querySelector(`#${this.id} .product-listings-container`).innerHTML = htmlTemplate;
+    this.attachEvents();
 
-    document.querySelector(`#${this.id} .product-listings-container`).addEventListener( "click", ()=>{
-      router.navigateTo("/product");
-  } );
   }
 
   /* Attaching an onclick event to all listings */
   attachEvents() {
     document
-      .querySelectorAll(`#${this.listing_id} [data-listing-id]`)
+      .querySelectorAll(`#${this.id} [data-listing-id]`)
       .forEach((element) => {
         element.onclick = () => {
           const listingId = element.getAttribute("data-listing-id");

@@ -1,5 +1,14 @@
 /***** Image upload *****/
+/* Add listing */
 .image-preview {
+	height: 80px;
+    width: auto;
+    max-width: 80px;
+    border-radius: 8px;
+}
+
+/* Update listing */
+.image-preview1 {
 	height: 80px;
     width: auto;
     max-width: 80px;

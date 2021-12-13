@@ -36,7 +36,7 @@ export default class MyListingsPage {
         <h3>Whole grain noodles</h3>
           <div class="my-listings-buttons">
             <button>Edit</button>
-            <button style="margin-left: 10px;" >Delete</button>
+            <button style="margin-left: 10px;">Delete</button>
           </div>
        </div>
     </div>
