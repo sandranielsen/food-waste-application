@@ -1038,7 +1038,6 @@ class LogInPage {
         console.log(n);
         var response = _serviceJsDefault.default.loginUser(n, u).then((data)=>{
             if (data.authenticated) {
-                debugger;
                 _serviceJsDefault.default.setLoggedInUser(data.user_id);
                 document.querySelector(".login-message").innerHTML = "";
                 _routerJsDefault.default.navigateTo("/home");
@@ -1059,7 +1058,7 @@ class LogInPage {
         <!--- Banner container --->
         <div class="banner_container">
           <div class="login_signup_img">
-            <img src="${this.loginImg} alt="Food" class="login_signup_bg">
+            <img src="${this.loginImg}" alt="Food" class="login_signup_bg">
             <div class="half-overlay"></div>
             <div class="login_signup_content">
               <h2 class="login_signup_text">Share food with your community and fight against food waste<h2>
@@ -1798,7 +1797,7 @@ class ProfilePage {
         <!--- Profile container --->
         <div class="section-wrapper">
           <div class="profile-img"></div>
-            <h4>Louise Christensen</h4> 
+            <h4>${user.user_name}</h4> 
             <div class="profile-location">
               <img src="${this.locationImg}">
               <p>Aarhus</p> 
@@ -2379,7 +2378,8 @@ class UpdatePage {
             </div>
 
           </div>
-          <button type="button" id="add-btn" class="btn_alt">Add Listing</button>  
+          <button type="button" id="add-btn" class="btn_alt">Update Listing</button>  
+          <button type="button" id="delete-btn" class="btn_alt">Delete Listing</button> 
 
           </form>
         </section>
