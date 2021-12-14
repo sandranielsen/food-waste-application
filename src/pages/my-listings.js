@@ -57,6 +57,7 @@ export default class MyListingsPage {
       {
       htmlTemplate += /*html*/ `
       <article data-listing-id="${listing.listing_id}">
+      <div class="product-listing-container">
       <div style="background-image: url('${listing.listing_img}');" class="product-listing-image">
         <button class="favourite-button">
           <img src="${this.favouritesImg}" class="favourite_img">
@@ -66,8 +67,11 @@ export default class MyListingsPage {
       <!-- Product information container -->
       <div class="product-listing-info-container">
         <h3>${listing.listing_title}</h3>
-        <button type="button" class="update">Edit</button>
+        <div class="my-listings-buttons">
+        <button type="button" class="update ">Edit</button>
         <button type="button" class="delete">Delete</button>
+        </div>
+      </div>
       </div>
     </article>
     `;
