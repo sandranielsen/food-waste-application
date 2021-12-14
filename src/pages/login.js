@@ -20,7 +20,6 @@ export default class LogInPage {
     var response = service.loginUser(n,u).then((data)=>{
       
       if (data.authenticated) { 
-        debugger;
         service.setLoggedInUser(data.userData);
         document.querySelector(".login-message").innerHTML = "";
         router.navigateTo("/home");

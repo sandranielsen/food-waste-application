@@ -136,7 +136,6 @@ export default class UpdatePage {
   }
 
   beforeShow(props) {
-    debugger;
     var that = this;
     this.s
     var listing = service.getListing(props.listingId);

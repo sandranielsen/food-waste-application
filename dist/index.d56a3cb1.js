@@ -596,7 +596,7 @@ class Router {
                 view: new _favouritesJsDefault.default("favourites")
             },
             {
-                path: "/profile/:id",
+                path: "/profile/",
                 view: new _profileJsDefault.default("profile")
             },
             {
@@ -741,7 +741,6 @@ class Service {
         this.loginUrl = this.baseUrl + "/login.php";
         this.fileUploadUrl = this.baseUrl + "/fileUpload.php";
         this.listingUrl = this.baseUrl + "/listing.php";
-        this.user = null;
     }
     /***** Sign up service *****/ async signupUser(name, username, password, passwordCheck) {
         const url = `${this.loginUrl}?action=signup`;
@@ -810,7 +809,6 @@ class Service {
         return result;
     }
     /* Create listing */ async createListing(user_id, title, price, expirationDate, description, location, image) {
-        debugger;
         const newListing = {
             // declaring a new js object with the form values
             user_id,
@@ -833,14 +831,15 @@ class Service {
         return this.listing;
     }
     /* Delete listing */ async deleteListing(listingId1) {
+        var data = {
+            listing_id: listingId1
+        };
         const response = await fetch(`${this.listingUrl}?action=deleteListing&listingId=${listingId1}`, {
-            method: "DELETE"
+            method: "DELETE",
+            body: JSON.stringify(data)
         });
         // waiting for the result
         const result = await response.json();
-        // the result is the new updated listings array
-        this.listing = result;
-        return this.listing;
     }
     /* Update listing */ async updateListing(id, title1, price1, description1, expirationDate1, location1, image1) {
         const listingToUpdate = {
@@ -1038,7 +1037,7 @@ class LogInPage {
         console.log(n);
         var response = _serviceJsDefault.default.loginUser(n, u).then((data)=>{
             if (data.authenticated) {
-                _serviceJsDefault.default.setLoggedInUser(data.user_id);
+                _serviceJsDefault.default.setLoggedInUser(data.userData);
                 document.querySelector(".login-message").innerHTML = "";
                 _routerJsDefault.default.navigateTo("/home");
             } else document.querySelector(".login-message").innerHTML = data.error;
@@ -1106,7 +1105,6 @@ var _serviceJsDefault = parcelHelpers.interopDefault(_serviceJs);
 class HomePage {
     constructor(id){
         this.id = id;
-        this.searchImg = require("../img/search.svg");
         this.searchWhiteImg = require("../img/searchWhite.svg");
         this.filterImg = require("../img/filter.svg");
         this.favouritesImg = require("../img/favourites.svg");
@@ -1134,7 +1132,6 @@ class HomePage {
         <div class="home_container">
           <div class="search-and-filter-container">
             <div class="search-container">
-              <img src="${this.searchImg}">
               <input type="text" id="search">
             </div>
             <button id="search-button" class="search-button">
@@ -1215,10 +1212,7 @@ class HomePage {
 }
 exports.default = HomePage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","../img/search.svg":"5wVcj","../img/searchWhite.svg":"6jmHq","../img/filter.svg":"jg3ZF","../img/favourites.svg":"1EhEA","../img/location.svg":"i8JWL","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5wVcj":[function(require,module,exports) {
-module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "search.ab4deccd.svg" + "?" + Date.now();
-
-},{"./helpers/bundle-url":"chiK4"}],"6jmHq":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/searchWhite.svg":"6jmHq","../img/filter.svg":"jg3ZF","../img/favourites.svg":"1EhEA","../img/location.svg":"i8JWL","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"6jmHq":[function(require,module,exports) {
 module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "searchWhite.18747333.svg" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"chiK4"}],"jg3ZF":[function(require,module,exports) {
@@ -1548,7 +1542,10 @@ class ChatPage {
 }
 exports.default = ChatPage;
 
-},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","../img/search.svg":"5wVcj","../img/filter.svg":"jg3ZF","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"lUwtW":[function(require,module,exports) {
+},{"../router.js":"90Bjy","../service.js":"03GcU","../img/back.svg":"7Pugh","../img/search.svg":"5wVcj","../img/filter.svg":"jg3ZF","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"5wVcj":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('fBg3F') + "search.ab4deccd.svg" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"chiK4"}],"lUwtW":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _routerJs = require("../router.js");
@@ -1572,7 +1569,7 @@ class AddListingPage {
         this.attachEvents();
     }
     render() {
-        document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
+        document.querySelector("#root").insertAdjacentHTML("beforeend", /*jsx*/ `
       <section id="${this.id}" class="page">
 
         <!--- Topbar container --->
@@ -1655,7 +1652,6 @@ class AddListingPage {
         this.imageInput.onchange = ()=>this.previewImage()
         ; // on change event on the input file (image) field
         document.querySelector(`#${this.id} #add-btn`).onclick = (e)=>{
-            debugger;
             e.preventDefault();
             this.create(); // on click event for save button
         };
@@ -1674,9 +1670,8 @@ class AddListingPage {
     /* Add new listing functionality */ async create() {
         //if (this.validate()) {
         //const image = await service.uploadImage(this.imageInput.files[0]);
-        debugger;
         var user = _serviceJsDefault.default.getLoggedInUser();
-        const listings = await _serviceJsDefault.default.createListing(user, this.titleInput.value, this.priceInput.value, this.expirationDateInput.value, this.descriptionInput.value, this.locationInput.value, "fakeImageName");
+        const listings = await _serviceJsDefault.default.createListing(user.user_id, this.titleInput.value, this.priceInput.value, this.expirationDateInput.value, this.descriptionInput.value, this.locationInput.value, "fakeImageName");
         _routerJsDefault.default.navigateTo("/home");
     // }
     }
@@ -1780,10 +1775,12 @@ class ProfilePage {
         this.id = id;
         this.backImg = require("../img/back.svg");
         this.locationImg = require("../img/location.svg");
+        this.service = _serviceJsDefault.default;
+        this.router = _routerJsDefault.default;
         this.render();
     }
     render() {
-        document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
+        document.querySelector("#root").insertAdjacentHTML("beforeend", /*jsx*/ `
       <section id="${this.id}" class="page">
 
         <!--- Topbar container --->
@@ -1797,7 +1794,7 @@ class ProfilePage {
         <!--- Profile container --->
         <div class="section-wrapper">
           <div class="profile-img"></div>
-            <h4>${user.user_name}</h4> 
+            <h4 id="profile-user-name"></h4> 
             <div class="profile-location">
               <img src="${this.locationImg}">
               <p>Aarhus</p> 
@@ -1834,6 +1831,7 @@ class ProfilePage {
         });
     }
     beforeShow(props) {
+        document.querySelector("#profile-user-name").innerHTML = this.service.user.user_name;
         console.log(props);
     }
 }
@@ -2049,8 +2047,9 @@ class MyListingsPage {
         this.selectedListing;
         this.backImg = require("../img/back.svg");
         this.favouritesImg = require("../img/favourites.svg");
+        this.service = _serviceJsDefault.default;
+        this.router = _routerJsDefault.default;
         this.render();
-        this.init();
     }
     render() {
         document.querySelector("#root").insertAdjacentHTML("beforeend", /*html*/ `
@@ -2065,20 +2064,8 @@ class MyListingsPage {
         </header>
 
         <!--- Product listing container --->
-       <div class="product-listing-container"></div>
-       <!--- <div class="product-listing-image">
-        <button class="favourite-button">
-          <img src="${this.favouritesImg}">
-        </button>        
-       </div>
-
-       <div class="product-listing-info-container">
-        <h3>Whole grain noodles</h3>
-          <div class="my-listings-buttons">
-            <button>Edit</button>
-            <button style="margin-left: 10px;">Delete</button>
-          </div>
-       </div> --->
+       <div class="product-listing-container-mylistings"></div>
+       
 
     </section>
     `);
@@ -2086,14 +2073,17 @@ class MyListingsPage {
             _routerJsDefault.default.navigateTo("/profile");
         });
     }
-    async init() {
-        const listings = await _serviceJsDefault.default.getListings();
-        this.appendListings(listings);
+    beforeShow(props) {
+        var that = this;
+        const listings = _serviceJsDefault.default.getListings().then(function(data) {
+            that.appendListings(data);
+            console.log(props);
+        });
     }
-    /* Appends the listings to the specified container defined in the render() */ appendListings(listings) {
+    appendListings(listings) {
         let htmlTemplate = "";
-        for (const listing of listings)htmlTemplate += /*html*/ `
-      <article data-listing-id="${listing.id}">
+        for (const listing of listings)if (listing.user_id == this.service.user.user_id) htmlTemplate += /*html*/ `
+      <article data-listing-id="${listing.listing_id}">
       <div style="background-image: url('${listing.listing_img}');" class="product-listing-image">
         <button class="favourite-button">
           <img src="${this.favouritesImg}" class="favourite_img">
@@ -2108,33 +2098,29 @@ class MyListingsPage {
       </div>
     </article>
     `;
-        document.querySelector(`#${this.id} .product-listings-container`).innerHTML = htmlTemplate;
+        document.querySelector(".product-listing-container-mylistings").innerHTML = htmlTemplate;
         this.attachEvents();
     }
     /* Attaching events to DOM elements */ attachEvents() {
         document.querySelectorAll(`#${this.id} [data-listing-id]`).forEach((element)=>{
-            // adds .onclick for every listing calling router.navigateTo(...) with the id of the listing
-            element.onclick = ()=>{
-                const listingId = element.getAttribute("data-listing-id");
-                _routerJsDefault.default.navigateTo(`/product-page/${listingId}`);
-            };
+            /*adds .onclick for every listing calling router.navigateTo(...) with the id of the listing*/ const listingId = element.getAttribute("data-listing-id");
+            element.querySelector(".update").addEventListener("click", ()=>{
+                _routerJsDefault.default.navigateTo(`/update`, {
+                    listingId: listingId
+                });
+            });
+            element.querySelector(".delete").addEventListener("click", ()=>{
+                this.showDeleteDialog(listingId);
+            });
         });
-        /* Update */ document.querySelector(`#${this.id} .update`).onclick = ()=>_routerJsDefault.default.navigateTo(`/update/${this.selectedListing.id}`)
-        ;
-        /* Delete */ document.querySelector(`#${this.id} .delete`).onclick = ()=>this.showDeleteDialog()
-        ;
     }
-    /* Delete dialog box */ async showDeleteDialog() {
+    async showDeleteDialog(listingId) {
         const deleteListing = confirm("Do you want to delete listing?");
         if (deleteListing) {
-            const listings = await _serviceJsDefault.default.deleteListing(this.selectedListing.id);
-            _routerJsDefault.default.navigateTo("/", {
-                listings: listings
-            });
+            console.log(listingId);
+            this.service.deleteListing(listingId);
+            this.beforeShow();
         }
-    }
-    async beforeShow(props) {
-        if (props.listings) this.appendlistings(props.listings);
     }
 }
 exports.default = MyListingsPage;
@@ -2307,6 +2293,7 @@ class UpdatePage {
         this.locationInput = document.querySelector(`#${this.id} [name="location"]`);
         this.imagePreview = document.querySelector(`#${this.id} [name="imagePreview"]`);
         this.imageInput = document.querySelector(`#${this.id} [name="listingImage"]`);
+        this.idInput = document.querySelector(`#${this.id} [name="id"]`);
         this.attachEvents();
     }
     render() {
@@ -2338,6 +2325,7 @@ class UpdatePage {
             <!--- Listing information container --->
             <div class="form_container">
               <br><label class="add_label">Title<label><br>
+              <input type="hidden" name="id" />
               <input type="text" name="title" class="add_form"><br>
               <label class="add_label">Price<label><br>
               <input type="text" name="price" placeholder="DKK" class="add_form"><br>
@@ -2349,37 +2337,9 @@ class UpdatePage {
               <input type="text" name="location" class="add_form"><br>
             </div>
 
-          <!--- Category filter container --->
-          <label class="add_label">Category</label><br>
-            <div class="category_container">
-              <input type="checkbox" class="checkbox" id="vegetables" name="category" value="vegetables">
-              <label for="vegetables" class="checkbox_label">Vegetables</label>
-
-              <input type="checkbox" class="checkbox" id="fruit" name="category" value="fruit">
-              <label for="fruit" class="checkbox_label">Fruit</label>
-
-              <input type="checkbox" class="checkbox" id="dry-goods" name="category" value="dry-goods">
-              <label for="dry-goods" class="checkbox_label">Dry goods</label>
-
-              <input type="checkbox" class="checkbox" id="baked-goods" name="category" value="baked-goods">
-              <label for="baked-goods" class="checkbox_label">Baked goods</label>
-
-              <input type="checkbox" class="checkbox" id="meat" name="category" value="meat">
-              <label for="meat"class="checkbox_label">Meat</label>
-
-              <input type="checkbox" class="checkbox" id="fish" name="category" value="fish">
-              <label for="fish" class="checkbox_label">Fish</label>
-
-              <input type="checkbox" class="checkbox" id="dairy" name="category" value="dairy">
-              <label for="dairy" class="checkbox_label">Dairy</label>
-                
-              <input type="checkbox" class="checkbox" id="meals" name="category" value="meals">
-              <label for="meals" class="checkbox_label">Meals</label>
-            </div>
-
+          
           </div>
           <button type="button" id="add-btn" class="btn_alt">Update Listing</button>  
-          <button type="button" id="delete-btn" class="btn_alt">Delete Listing</button> 
 
           </form>
         </section>
@@ -2408,10 +2368,10 @@ class UpdatePage {
     }
     /* Update listing functionality */ async save() {
         if (this.validate()) {
-            const image = await _serviceJsDefault.default.uploadImage(this.imageInput.files[0]);
-            this.selectedListing.image = image.name;
-            const listings = await _serviceJsDefault.default.updateListing(this.selectedListing.id, this.titleInput.value, this.priceInput.value, this.expirationDateInput.value, this.descriptionInput.value, this.locationInput.value, this.selectedImage.image);
-            _routerJsDefault.default.navigateTo(`/product/${this.selectedListing.id}`);
+            //const image = await service.uploadImage(this.imageInput.files[0]);
+            //this.selectedListing.image = image.name;
+            const listings = await _serviceJsDefault.default.updateListing(this.idInput.value, this.titleInput.value, this.priceInput.value, this.expirationDateInput.value, this.descriptionInput.value, this.locationInput.value, '');
+            _routerJsDefault.default.navigateTo(`/listings`);
         }
     }
     /* Information validation */ validate() {
@@ -2422,6 +2382,14 @@ class UpdatePage {
         }
     }
     beforeShow(props) {
+        var that = this;
+        this.s;
+        var listing = _serviceJsDefault.default.getListing(props.listingId);
+        listing.then(function(data) {
+            that.titleInput.value = data.listing_title;
+            that.priceInput.value = data.listing_price;
+            that.idInput.value = props.listingId;
+        });
         console.log(props);
     }
 }

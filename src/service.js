@@ -99,7 +99,6 @@ class Service {
     location,
     image
   ) {
-    debugger;
     const newListing = {
       // declaring a new js object with the form values
       user_id,
