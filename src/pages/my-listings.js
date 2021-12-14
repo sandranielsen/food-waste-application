@@ -79,7 +79,8 @@ export default class MyListingsPage {
     }
 
     document.querySelector(
-      `#${this.id} .product-listings-container`).innerHTML = htmlTemplate;
+      `#${this.id} .product-listings-container`
+    ).innerHTML = htmlTemplate;
     this.attachEvents();
   }
 
@@ -94,7 +95,6 @@ export default class MyListingsPage {
           router.navigateTo(`/product-page/${listingId}`);
         };
       });
-    
 
     /* Update */
     document.querySelector(`#${this.id} .update`).onclick = () =>
@@ -111,7 +111,7 @@ export default class MyListingsPage {
 
     if (deleteListing) {
       const listings = await service.deleteListing(this.selectedListing.id);
-      router.navigateTo("/", {listings: listings,});
+      router.navigateTo("/", { listings: listings });
     }
   }
 
