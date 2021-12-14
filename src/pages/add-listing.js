@@ -111,7 +111,6 @@ export default class AddListingPage {
     this.imageInput.onchange = () => this.previewImage(); // on change event on the input file (image) field
     document.querySelector(`#${this.id} #add-btn`).onclick = (e) =>
     {
-      debugger;
       e.preventDefault();
       this.create(); // on click event for save button
     }
@@ -134,7 +133,6 @@ export default class AddListingPage {
   async create() {
     //if (this.validate()) {
       //const image = await service.uploadImage(this.imageInput.files[0]);
-      debugger;
       var user  = service.getLoggedInUser();
       const listings = await service.createListing(
         user.user_id,

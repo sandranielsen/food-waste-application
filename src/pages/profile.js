@@ -58,7 +58,6 @@ export default class ProfilePage {
     });
 
     document.querySelector("#listings-btn").addEventListener("click", () => {
-      debugger;
       router.navigateTo("/listings");
     });
 
@@ -76,7 +75,6 @@ export default class ProfilePage {
   }
 
   beforeShow(props) {
-    debugger;
     document.querySelector("#profile-user-name").innerHTML = this.service.user.user_name;
     console.log(props);
   }

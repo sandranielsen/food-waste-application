@@ -4,7 +4,6 @@ import service from "../service.js";
 export default class HomePage {
   constructor(id) {
     this.id = id;
-    this.searchImg = require("../img/search.svg");
     this.searchWhiteImg = require("../img/searchWhite.svg");
     this.filterImg = require("../img/filter.svg");
     this.favouritesImg = require("../img/favourites.svg");
@@ -39,7 +38,6 @@ export default class HomePage {
         <div class="home_container">
           <div class="search-and-filter-container">
             <div class="search-container">
-              <img src="${this.searchImg}">
               <input type="text" id="search">
             </div>
             <button id="search-button" class="search-button">
