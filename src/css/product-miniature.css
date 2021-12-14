@@ -70,7 +70,7 @@
 }
 
 .product-listing-profile-img {
-    background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/apples-at-farmers-market-royalty-free-image-1627321463.jpg?crop=0.796xw:1.00xh;0.103xw,0&resize=640:*');
+    background-image: url('https://png.pngitem.com/pimgs/s/649-6490124_katie-notopoulos-katienotopoulos-i-write-about-tech-round.png');
     position: center;
     background-position: center;
     background-repeat: no-repeat; 
@@ -91,6 +91,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 40px;
+    flex-direction: row;
 
 }
 .my-listings-buttons button {
@@ -103,6 +104,7 @@
   border: none;
   padding: 10px 20px;
   text-align: center;
+  margin-right: 5px;
 }
 
 .favourite_img {
