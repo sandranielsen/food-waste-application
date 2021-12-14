@@ -100,7 +100,7 @@ export default class HomePage {
         <div class="product-listing-user-info">
           <div>
             <div class="product-listing-profile-img"></div>
-              <p>username</p>
+              <p>Username</p>
             </div> 
             <div>
               <img src="${this.locationImg}">
