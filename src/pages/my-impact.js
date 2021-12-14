@@ -38,47 +38,47 @@ export default class MyImpactPage {
             <!--- Impact badges container --->
             <h3>Badges</h3>
             <div class="impact-badges-wrapper">
-                <div class="impact-badge">
+                <div class="impact-badge1">
+                    <div></div>
+                    <p>First purchase</p>
+                </div>
+
+                <div class="impact-badge2">
+                    <div></div>
+                    <p>Fruit saver</p>
+                </div>
+
+                <div class="impact-badge3">
+                    <div></div>
+                    <p>Veggie lover</p>
+                </div>
+                <div class="impact-badge1">
                     <div></div>
                     <p>First listing</p>
                 </div>
 
-                <div class="impact-badge">
+                <div class="impact-badge2">
                     <div></div>
-                    <p>First listing</p>
+                    <p>First week</p>
                 </div>
 
-                <div class="impact-badge">
+                <div class="impact-badge3">
                     <div></div>
-                    <p>First listing</p>
+                    <p>5th purchase</p>
                 </div>
-                <div class="impact-badge">
+                <div class="impact-badge1">
                     <div></div>
-                    <p>First listing</p>
-                </div>
-
-                <div class="impact-badge">
-                    <div></div>
-                    <p>First listing</p>
+                    <p>5th listing</p>
                 </div>
 
-                <div class="impact-badge">
+                <div class="impact-badge2">
                     <div></div>
-                    <p>First listing</p>
-                </div>
-                <div class="impact-badge">
-                    <div></div>
-                    <p>First listing</p>
+                    <p>Second week</p>
                 </div>
 
-                <div class="impact-badge">
+                <div class="impact-badge3">
                     <div></div>
-                    <p>First listing</p>
-                </div>
-
-                <div class="impact-badge">
-                    <div></div>
-                    <p>First listing</p>
+                    <p>One month</p>
                 </div>
             </div>
       </section>

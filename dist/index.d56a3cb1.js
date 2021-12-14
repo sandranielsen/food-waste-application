@@ -1164,6 +1164,7 @@ class HomePage {
     /* Appends the listings to the specified container defined in the render() */ appendListings(listings) {
         let htmlTemplate = "";
         for (const listing of listings)htmlTemplate += /*html*/ `
+      <article data-listing-id="${listing.listing_id}">
       <div class="product-listing-container">
       <div style="background-image: url('${listing.listing_img}');" class="product-listing-image">
         <button class="favourite-button">
@@ -1193,6 +1194,7 @@ class HomePage {
         </div>
     </div>
     </div>
+    </article>
 
     `;
         document.querySelector(`#${this.id} .product-listings-container`).innerHTML = htmlTemplate;
@@ -1202,7 +1204,11 @@ class HomePage {
         document.querySelectorAll(`#${this.id} [data-listing-id]`).forEach((element)=>{
             element.onclick = ()=>{
                 const listingId = element.getAttribute("data-listing-id");
-                _routerJsDefault.default.navigateTo(`/product-page/${listingId}`);
+                element.querySelector(".product-listing-container").addEventListener("click", ()=>{
+                    _routerJsDefault.default.navigateTo(`/product`, {
+                        listingId: listingId
+                    });
+                });
             };
         });
     }
@@ -1979,47 +1985,47 @@ class MyImpactPage {
             <!--- Impact badges container --->
             <h3>Badges</h3>
             <div class="impact-badges-wrapper">
-                <div class="impact-badge">
+                <div class="impact-badge1">
+                    <div></div>
+                    <p>First purchase</p>
+                </div>
+
+                <div class="impact-badge2">
+                    <div></div>
+                    <p>Fruit saver</p>
+                </div>
+
+                <div class="impact-badge3">
+                    <div></div>
+                    <p>Veggie lover</p>
+                </div>
+                <div class="impact-badge1">
                     <div></div>
                     <p>First listing</p>
                 </div>
 
-                <div class="impact-badge">
+                <div class="impact-badge2">
                     <div></div>
-                    <p>First listing</p>
+                    <p>First week</p>
                 </div>
 
-                <div class="impact-badge">
+                <div class="impact-badge3">
                     <div></div>
-                    <p>First listing</p>
+                    <p>5th purchase</p>
                 </div>
-                <div class="impact-badge">
+                <div class="impact-badge1">
                     <div></div>
-                    <p>First listing</p>
-                </div>
-
-                <div class="impact-badge">
-                    <div></div>
-                    <p>First listing</p>
+                    <p>5th listing</p>
                 </div>
 
-                <div class="impact-badge">
+                <div class="impact-badge2">
                     <div></div>
-                    <p>First listing</p>
-                </div>
-                <div class="impact-badge">
-                    <div></div>
-                    <p>First listing</p>
+                    <p>Second week</p>
                 </div>
 
-                <div class="impact-badge">
+                <div class="impact-badge3">
                     <div></div>
-                    <p>First listing</p>
-                </div>
-
-                <div class="impact-badge">
-                    <div></div>
-                    <p>First listing</p>
+                    <p>One month</p>
                 </div>
             </div>
       </section>

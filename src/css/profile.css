@@ -163,17 +163,51 @@
     margin: 20px 0;
   }
 
-  .impact-badge {
+  .impact-badge1 {
     display: flex;
     flex-direction: column;
     align-items: center; 
   }
 
-  .impact-badge div{
+  .impact-badge2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+  }
+
+  .impact-badge3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+  }
+
+  .impact-badge1 div{
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/apples-at-farmers-market-royalty-free-image-1627321463.jpg?crop=0.796xw:1.00xh;0.103xw,0&resize=640:*');
+    background-image: url('../img/badge-1.png');
+    position: center;
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover;
+  }
+
+  .impact-badge2 div{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-image: url('../img/badge-2.png');
+    position: center;
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover;
+  }
+
+  .impact-badge3 div{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-image: url('../img/badge-3.png');
     position: center;
     background-position: center;
     background-repeat: no-repeat; 
