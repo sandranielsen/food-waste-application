@@ -23,7 +23,7 @@ export default class AddListingPage {
   render() {
     document.querySelector("#root").insertAdjacentHTML(
       "beforeend",
-      /*html*/ `
+      /*jsx*/ `
       <section id="${this.id}" class="page">
 
         <!--- Topbar container --->
@@ -137,7 +137,7 @@ export default class AddListingPage {
       debugger;
       var user  = service.getLoggedInUser();
       const listings = await service.createListing(
-        user,
+        user.user_id,
         this.titleInput.value,
         this.priceInput.value,
         this.expirationDateInput.value,

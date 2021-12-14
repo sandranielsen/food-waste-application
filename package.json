@@ -3,8 +3,8 @@
   "source": "src/index.html",
   "scripts": {
     "start": "parcel",
-    "run": "parcel --open",
-    "build": "parcel build"
+    "run": "parcel --open  --no-optimize",
+    "build": "parcel build --no-optimize"
   },
   "devDependencies": {
     "parcel": "^2.0.1"

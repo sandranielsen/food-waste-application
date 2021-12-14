@@ -47,7 +47,7 @@ if (isset($_GET['action'])) {
                 //$user = $mySQL->query($sql)->fetch_object();
                 $response['authenticated'] = TRUE;
                 $response['user_id'] = $data->user_id;
-                //$response['userData'] = $user;
+                $response['userData'] = $data;
                 echo json_encode($response);
             } else {
                 $response['authenticated'] = FALSE;

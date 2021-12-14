@@ -5,7 +5,7 @@ class Service {
     this.loginUrl = this.baseUrl + "/login.php";
     this.fileUploadUrl = this.baseUrl + "/fileUpload.php";
     this.listingUrl = this.baseUrl + "/listing.php";
-    this.user = null;
+
   }
 
   /***** Sign up service *****/
@@ -125,17 +125,18 @@ class Service {
 
   /* Delete listing */
   async deleteListing(listingId) {
+    var data = {
+      listing_id: listingId
+    }
     const response = await fetch(
       `${this.listingUrl}?action=deleteListing&listingId=${listingId}`,
       {
         method: "DELETE",
+        body: JSON.stringify(data)
       }
     );
     // waiting for the result
     const result = await response.json();
-    // the result is the new updated listings array
-    this.listing = result;
-    return this.listing;
   }
 
   /* Update listing */

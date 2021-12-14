@@ -55,7 +55,7 @@ class Router {
         view: new FavouritesPage("favourites"),
       },
       {
-        path: "/profile/:id",
+        path: "/profile/",
         view: new ProfilePage("profile"),
       },
       {

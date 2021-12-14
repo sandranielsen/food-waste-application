@@ -6,13 +6,16 @@ export default class ProfilePage {
     this.id = id;
     this.backImg = require("../img/back.svg");
     this.locationImg = require("../img/location.svg");
+    this.service = service;
+    this.router = router;
     this.render();
   }
 
   render() {
+
     document.querySelector("#root").insertAdjacentHTML(
       "beforeend",
-      /*html*/ `
+      /*jsx*/ `
       <section id="${this.id}" class="page">
 
         <!--- Topbar container --->
@@ -26,7 +29,7 @@ export default class ProfilePage {
         <!--- Profile container --->
         <div class="section-wrapper">
           <div class="profile-img"></div>
-            <h4>${user.user_name}</h4> 
+            <h4 id="profile-user-name"></h4> 
             <div class="profile-location">
               <img src="${this.locationImg}">
               <p>Aarhus</p> 
@@ -55,6 +58,7 @@ export default class ProfilePage {
     });
 
     document.querySelector("#listings-btn").addEventListener("click", () => {
+      debugger;
       router.navigateTo("/listings");
     });
 
@@ -72,6 +76,8 @@ export default class ProfilePage {
   }
 
   beforeShow(props) {
+    debugger;
+    document.querySelector("#profile-user-name").innerHTML = this.service.user.user_name;
     console.log(props);
   }
 }

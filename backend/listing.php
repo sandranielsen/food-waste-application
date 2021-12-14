@@ -32,7 +32,26 @@ if ($_GET['action'] == 'getListings') {
 }
 
 if ($_GET['action'] == 'getListing') {
-    // Declare the listingSelected variable - used to save the object of the listing that was clicked on previous page
+    $id = $_GET['listingId'];
+    
+    $filter = json_decode($jsonInput);
+    $searchString = $filter->searchString;
+    $searchString = "%".$searchString."%";
+    $sql = "SELECT * FROM listings WHERE listing_id = $id";
+    $result = $mySQL->query($sql);
+
+
+    $listingSelected;
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            $listingSelected = $row;
+        }
+      } else {
+        
+      }
+        
+    echo json_encode($listingSelected);
     
 } 
 if ($_GET['action'] == 'createListing') {
@@ -50,36 +69,43 @@ if ($_GET['action'] == 'createListing') {
 }
 
 if ($_GET['action'] == 'updateListing') {
-    $listingToupdate = json_decode(file_get_contents("php://input"));
-
-    foreach ($listings as $listing) {
-        if ($listing->id == $listingToupdate->id) {
-            $listing->title = $listingToupdate->title;
-            $listing->price = $listingToupdate->price;
-            $listing->description = $listingToupdate->description;
-            $listing->expirationDate = $listingToupdate->expirationDate;
-            $listing->location = $listingToupdate->location;
-            $listing->image = $listingToupdate->image;
-        }
+    // id,
+    // title,
+    // price,
+    // expirationDate,
+    // description,
+    // location,
+    // image,
+    $jsonInput = file_get_contents('php://input');
+    $listing = json_decode($jsonInput);
+    $listingId = $listing->id;
+    $title = $listing->title;
+    $price = $listing->price;
+    $sql = "UPDATE listings SET listing_title = '$title', listing_price = '$price'   WHERE listing_id=$listingId ";
+    if ($mySQL->query($sql) === TRUE) {
+        $response['success'] = TRUE;
+        echo json_encode($response);
+    } else {
+        $response['success'] = FALSE;
+        $response['error'] = "DELETE failed. Please try again.".$mySQL->error.$mysqli->connect_error;
+        echo json_encode($response);
     }
-    $encoded = json_encode($listings);
-    $fp = fopen('listing.json', 'w');
-    fwrite($fp, $encoded);
-    fclose($fp);
-    echo $encoded;
+
 } 
  if ($_GET['action'] == 'deleteListing') {
-    $newListingsArray = [];
-    foreach ($listings as $listing) {
-        if ($listing->id != $_GET['listingId']) {
-            array_push($newListingsArray, $listing);
-        }
+
+    $jsonInput = file_get_contents('php://input');
+    $listing = json_decode($jsonInput);
+    $listingId = $listing->listing_id;
+    $sql = "DELETE FROM listings WHERE listing_id='$listingId' ";
+    if ($mySQL->query($sql) === TRUE) {
+        $response['success'] = TRUE;
+        echo json_encode($response);
+    } else {
+        $response['success'] = FALSE;
+        $response['error'] = "DELETE failed. Please try again.".$mySQL->error.$mysqli->connect_error;
+        echo json_encode($response);
     }
-    $encoded = json_encode($newListingsArray);
-    $fp = fopen('listing.json', 'w');
-    fwrite($fp, $encoded);
-    fclose($fp);
-    echo $encoded;
 } 
 if ($_GET['action'] == "uploadImage") {
     // Creates a new instance of the FileUpload class

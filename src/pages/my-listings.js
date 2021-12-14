@@ -7,8 +7,9 @@ export default class MyListingsPage {
     this.selectedListing;
     this.backImg = require("../img/back.svg");
     this.favouritesImg = require("../img/favourites.svg");
+    this.service = service;
+    this.router = router;
     this.render();
-    this.init();
   }
 
   render() {
@@ -26,20 +27,8 @@ export default class MyListingsPage {
         </header>
 
         <!--- Product listing container --->
-       <div class="product-listing-container"></div>
-       <!--- <div class="product-listing-image">
-        <button class="favourite-button">
-          <img src="${this.favouritesImg}">
-        </button>        
-       </div>
-
-       <div class="product-listing-info-container">
-        <h3>Whole grain noodles</h3>
-          <div class="my-listings-buttons">
-            <button>Edit</button>
-            <button style="margin-left: 10px;">Delete</button>
-          </div>
-       </div> --->
+       <div class="product-listing-container-mylistings"></div>
+       
 
     </section>
     `
@@ -49,19 +38,25 @@ export default class MyListingsPage {
     document.querySelector("#back-btn8").addEventListener("click", () => {
       router.navigateTo("/profile");
     });
+
   }
 
-  async init() {
-    const listings = await service.getListings();
-    this.appendListings(listings);
+  beforeShow(props) {
+    var that = this;
+    const listings =  service.getListings().then(function(data){
+    that.appendListings(data);
+    console.log(props);
+  });
   }
 
-  /* Appends the listings to the specified container defined in the render() */
-  appendListings(listings) {
+   
+   appendListings(listings) { 
     let htmlTemplate = "";
     for (const listing of listings) {
+      if(listing.user_id==this.service.user.user_id)
+      {
       htmlTemplate += /*html*/ `
-      <article data-listing-id="${listing.id}">
+      <article data-listing-id="${listing.listing_id}">
       <div style="background-image: url('${listing.listing_img}');" class="product-listing-image">
         <button class="favourite-button">
           <img src="${this.favouritesImg}" class="favourite_img">
@@ -77,47 +72,40 @@ export default class MyListingsPage {
     </article>
     `;
     }
-
-    document.querySelector(
-      `#${this.id} .product-listings-container`
-    ).innerHTML = htmlTemplate;
+  }
+    document.querySelector(".product-listing-container-mylistings").innerHTML = htmlTemplate;
     this.attachEvents();
   }
+
 
   /* Attaching events to DOM elements */
   attachEvents() {
     document
       .querySelectorAll(`#${this.id} [data-listing-id]`)
-      .forEach((element) => {
-        // adds .onclick for every listing calling router.navigateTo(...) with the id of the listing
-        element.onclick = () => {
+      .forEach((element) => { 
+        /*adds .onclick for every listing calling router.navigateTo(...) with the id of the listing*/
           const listingId = element.getAttribute("data-listing-id");
-          router.navigateTo(`/product-page/${listingId}`);
-        };
+          element.querySelector(".update").addEventListener("click",  () =>
+          {
+            router.navigateTo(`/update`,{listingId:listingId});
+          });
+          element.querySelector(".delete").addEventListener("click",  () =>
+          {
+            this.showDeleteDialog(listingId);
+          });
       });
-
-    /* Update */
-    document.querySelector(`#${this.id} .update`).onclick = () =>
-      router.navigateTo(`/update/${this.selectedListing.id}`);
-
-    /* Delete */
-    document.querySelector(`#${this.id} .delete`).onclick = () =>
-      this.showDeleteDialog();
+      
   }
 
-  /* Delete dialog box */
-  async showDeleteDialog() {
+  async showDeleteDialog(listingId) {
     const deleteListing = confirm("Do you want to delete listing?");
 
     if (deleteListing) {
-      const listings = await service.deleteListing(this.selectedListing.id);
-      router.navigateTo("/", { listings: listings });
+      console.log(listingId)
+      this.service.deleteListing(listingId);
+      this.beforeShow();  
     }
   }
 
-  async beforeShow(props) {
-    if (props.listings) {
-      this.appendlistings(props.listings);
-    }
-  }
+
 }
