@@ -6,6 +6,8 @@ export default class AccountPage {
     this.id = id;
     this.backImg = require("../img/back.svg");
     this.locationImg = require("../img/location.svg");
+    this.service = service;
+    this.router = router;
     this.render();
   }
 
@@ -26,7 +28,7 @@ export default class AccountPage {
         <!--- Profile container --->
         <div class="section-wrapper">
           <div class="profile-img"></div>
-            <h4>Louise Christensen</h4> 
+            <h4 id="profile-user-name"></h4> 
           <div class="profile-location">
               <img src="${this.locationImg}">
               <p>Aarhus</p> 
@@ -98,6 +100,8 @@ export default class AccountPage {
   }
 
   beforeShow(props) {
+    document.querySelector("#profile-user-name").innerHTML =
+      this.service.user.user_name;
     console.log(props);
   }
 }
