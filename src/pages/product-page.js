@@ -85,6 +85,7 @@ export default class ProductPage {
           </div>
           </article>
         `;
+        
     
     document.querySelector(`#${this.id} .product`).innerHTML = htmlTemplate;
     

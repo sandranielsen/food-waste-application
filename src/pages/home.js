@@ -82,6 +82,7 @@ export default class HomePage {
     let htmlTemplate = "";
     for (const listing of listings) {
       htmlTemplate += /*html*/ `
+      <article data-listing-id="${listing.listing_id}">
       <div class="product-listing-container">
       <div style="background-image: url('${listing.listing_img}');" class="product-listing-image">
         <button class="favourite-button">
@@ -111,6 +112,7 @@ export default class HomePage {
         </div>
     </div>
     </div>
+    </article>
 
     `;
     }
@@ -127,7 +129,10 @@ export default class HomePage {
       .forEach((element) => {
         element.onclick = () => {
           const listingId = element.getAttribute("data-listing-id");
-          router.navigateTo(`/product-page/${listingId}`);
+          element.querySelector(".product-listing-container").addEventListener("click",  () =>
+          {
+            router.navigateTo(`/product`,{listingId:listingId});
+          });
         };
       });
   }
